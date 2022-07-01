@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blazor3D.Viewer\Blazor3D.Viewer.csproj" />
+    <ProjectReference Include="..\Blazor3D.Components\Blazor3D.Components.csproj" />
   </ItemGroup>
 
 </Project>

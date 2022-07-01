@@ -1,5 +1,85 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
 
-<Component1></Component1>
+<View3D @ref="View3D1" ComponentOptions=@options />
+<button @onclick="OnLoadObjButtonClick">Load OBJ</button>
+<button @onclick="OnLoadObjNoTexturesButtonClick">Load OBJ w/o texture</button>
+<br />
+<button @onclick="OnLoadColladaButtonClick">Load Collada</button>
+<button @onclick="OnLoadFbxButtonClick">Load Fbx</button>
+<button @onclick="OnLoadGltfButtonClick">Load Gltf</button>
+<br />
+<button @onclick="OnRemoveLastLoadedButtonClick">Remove last loaded</button>
+<button @onclick="OnClearSceneButtonClick">Clear entire scene</button>
+
+@code {
+    private View3D View3D1 = null!;
+    private Guid objGuid;
+    private ComponentOptions options = new ComponentOptions()
+    {
+        ContainerId = "rsid",
+    };
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+    private async Task OnLoadObjButtonClick()
+    {
+        objGuid = await View3D1.LoadOBJ("https://threejs.org/examples/models/obj/male02/male02.obj",
+            "https://threejs.org/examples/textures/uv_grid_opengl.jpg");
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 100,
+            Z = 250
+        });
+    }
+
+    private async Task OnLoadObjNoTexturesButtonClick()
+    {
+        objGuid = await View3D1.LoadOBJ("https://threejs.org/examples/models/obj/male02/male02.obj",
+            null);
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 100,
+            Z = 250
+        });
+    }
+
+    private async Task OnLoadColladaButtonClick()
+    {
+        objGuid = await View3D1.LoadCollada("https://threejs.org/examples/models/collada/elf/elf.dae");
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 5,
+            Z = 10
+        });
+    }
+
+    private async Task OnLoadFbxButtonClick()
+    {
+        objGuid = await View3D1.LoadFbx("https://threejs.org/examples/models/fbx/Samba Dancing.fbx");
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 100,
+            Z = 250
+        });
+    }
+
+    private async Task OnLoadGltfButtonClick()
+    {
+        objGuid = await View3D1.LoadGltf("https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf");
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 1,
+            Z = 5
+        });
+    }
+
+    private async Task OnRemoveLastLoadedButtonClick() =>
+        await View3D1.RemoveByGuid(objGuid);
+
+    private async Task OnClearSceneButtonClick() =>
+        await View3D1.RemoveAllMeshesAndGroups();
+}
+
