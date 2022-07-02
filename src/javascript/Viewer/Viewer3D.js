@@ -71,6 +71,17 @@ class Viewer3D {
     }
   }
 
+  addGeometry(geom){
+    if(geom.geometryType == 1){
+      const box = new THREE.BoxGeometry( geom.width, geom.height, geom.depth );
+      const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+      const mesh = new THREE.Mesh( box, material);
+      this.scene.add(mesh); 
+      console.log(this.scene);
+    }
+    console.log(geom);
+  }
+
   loadOBJ(objUrl, textureUrl, guid) {
     Loaders.loadOBJ(this.scene, objUrl, textureUrl, guid);
   }

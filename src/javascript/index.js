@@ -53,3 +53,7 @@ export function exportCollada() {
 export function exportOBJ() {
   viewer3d.exportOBJ();
 }
+
+export function addGeometry(geometry) {
+  viewer3d.addGeometry(geometry);
+}

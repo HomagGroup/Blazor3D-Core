@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Blazor3D.Components.Options;
 using Blazor3D.Components.Common;
+using Blazor3D.Components.Geometries;
 
 namespace Blazor3D.Components
 {
@@ -87,6 +88,26 @@ namespace Blazor3D.Components
         public async Task SetCameraPosition(Position position)
         {
             await bundleModule.InvokeVoidAsync("setCameraPosition", position);
+        }
+
+        public async Task ExportOBJ()
+        {
+            await bundleModule.InvokeVoidAsync("exportOBJ");
+        }
+
+        public async Task ExportCollada()
+        {
+            await bundleModule.InvokeVoidAsync("exportCollada");
+        }
+
+        public async Task ExportGLTF()
+        {
+            await bundleModule.InvokeVoidAsync("exportGLTF");
+        }
+
+        public async Task AddGeometry(BufferGeometry geometry)
+        {
+            await bundleModule.InvokeVoidAsync("addGeometry", geometry);
         }
     }
 }
