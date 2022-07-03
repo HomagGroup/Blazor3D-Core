@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const bundleFileName = 'bundle';
-const dirName = '../dotnet/Blazor3D/Blazor3D.Components/wwwroot/js';
+const dirName = '../dotnet/Blazor3D/Blazor3D/wwwroot/js';
 
 module.exports = (env, argv) => {
   //todo: bundle.min.js for production mode
