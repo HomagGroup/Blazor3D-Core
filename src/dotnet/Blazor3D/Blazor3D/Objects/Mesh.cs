@@ -10,7 +10,7 @@ namespace Blazor3D.Objects
         {
 
         }
-        public MeshStandardMaterial material { get; set; } = new MeshStandardMaterial();
-        public BoxGeometry Geometry { get; set; } = new BoxGeometry();
+        public Material material { get; set; } = new MeshStandardMaterial();
+        public BufferGeometry Geometry { get; set; } = new BoxGeometry();
     }
 }

@@ -5,15 +5,13 @@ import Exporters from "./Exporters";
 
 class Viewer3D {
   constructor(options, container) {
-    console.log(options);
+
     this.options = options;
     this.container = container;
 
     this.scene = new THREE.Scene();
-    this.setScene(this.options.scene);
+    this.setScene();
     this.setCamera(this.options.camera);
-
-    // this.addCube();
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.domElement.style.width = "100%";
@@ -36,16 +34,15 @@ class Viewer3D {
     animate();
   }
 
-  setScene(scene) {
-    console.log(this.scene);
-    console.log(this.options.scene);
-    this.scene.background = new THREE.Color(scene.backGroundColor);
-    this.options.scene.id = this.scene.id;
-    this.options.scene.uuid = this.scene.uuid;
-    scene.children.forEach(child => {
+  setScene() {
+
+    this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
+    this.scene.uuid = this.options.scene.uuid;
+    this.options.scene.children.forEach(child => {
       this.addChild(child);
     });
-    console.log(scene.children);
+    console.log(this.scene);
+
   }
 
   addChild(child) {
@@ -55,16 +52,18 @@ class Viewer3D {
   }
 
   addMesh(mesh) {
+    //todo: parse type to add corresponding geometry and materials
     const geometry = new THREE.BoxGeometry(
       mesh.geometry.width,
       mesh.geometry.height,
       mesh.geometry.depth
     );
+    geometry.uuid = mesh.geometry.uuid;
     const material = new THREE.MeshStandardMaterial({color: mesh.material.color});
-    // const material = new THREE.MeshBasicMaterial({color: mesh.material.color});
+    material.uuid = mesh.material.uuid;
     const cube = new THREE.Mesh(geometry, material);
+    cube.uuid = mesh.uuid;
     this.scene.add(cube);
-    console.log(this.scene);
   }
 
   setCamera(camera) {
@@ -78,6 +77,7 @@ class Viewer3D {
     );
 
     this.setCameraPosition({ x: 3, y: 3, z: 3 });
+    // todo: add camera children (i.e. lights)
   }
 
   setOrbitControls(orbitControls) {

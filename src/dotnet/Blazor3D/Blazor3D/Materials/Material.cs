@@ -12,12 +12,11 @@ namespace Blazor3D.Materials
         {
             Type = type;
         }
-        public int Id { get; set; }
 
         public string Type { get; } = "Material";
 
         public string Name { get; set; } = string.Empty;
 
-        public string UUID { get; set; } = string.Empty;
+        public string UUID => Guid.NewGuid().ToString().ToLower();
     }
 }

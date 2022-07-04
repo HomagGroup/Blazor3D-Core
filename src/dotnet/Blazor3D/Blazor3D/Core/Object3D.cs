@@ -4,13 +4,10 @@ namespace Blazor3D.Core
 {
     public abstract class Object3D
     {
-        //private List<Object3D> _children = new List<Object3D>();
         protected Object3D(string type)
         {
             Type = type;
         }
-
-        public int Id { get; set; }
 
         public Vector3 Position { get; set; } = new Vector3();
 
@@ -20,18 +17,13 @@ namespace Blazor3D.Core
 
         public string Description { get; set; } = string.Empty;
 
-        public string UUID { get; set; } = string.Empty;
+        public string UUID => Guid.NewGuid().ToString().ToLower();
 
-        //serialization error. use custom serializer
-        //public Object3D? Parent { get; set; } = null;
+        public List<Object3D> Children { get;} = new List<Object3D>();
 
-        //public virtual Object3D[] Children => _children.ToArray();
-
-        //public virtual void Add(Object3D child)
-        //{
-        //    //serialization error. use custom serialize
-        //    //child.Parent = this;
-        //    _children.Add(child);
-        //}
+        public void Add(Object3D child)
+        {
+            Children.Add(child);
+        }
     }
 }

@@ -9,11 +9,9 @@ namespace Blazor3D.Core
             GeometryType = geometryType;
         }
 
-        public int Id { get; set; }
-
         public string Name { get; set; } = null!;
 
-        public string UUID { get; set; } = null!;
+        public string UUID => Guid.NewGuid().ToString().ToLower();
 
         public GeometryType GeometryType { get; } = GeometryType.None;
     }
