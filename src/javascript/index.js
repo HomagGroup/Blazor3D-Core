@@ -7,8 +7,10 @@ export function loadScene(options) {
   let container = document.getElementById(options.viewerSettings.containerId);
   if (!container) {
     console.warn("container not found");
-    return;
+    return null;
   }
 
   viewer3d = new Viewer3D(options, container);
+  console.log(viewer3d.options.scene);
+  return viewer3d.options.scene;
 }

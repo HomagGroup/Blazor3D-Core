@@ -47,7 +47,7 @@ namespace Blazor3D
                     "import",
                     "./_content/Blazor3D/js/bundle.js")
                 .AsTask();
-                await bundleModule.InvokeVoidAsync("loadScene", new
+                var result = await bundleModule.InvokeAsync<Scene>("loadScene", new
                 {
                     Scene = Scene,
                     ViewerSettings = ViewerSettings,

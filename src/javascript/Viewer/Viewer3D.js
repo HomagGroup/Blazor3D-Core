@@ -6,11 +6,12 @@ import Exporters from "./Exporters";
 class Viewer3D {
   constructor(options, container) {
     console.log(options);
+    this.options = options;
     this.container = container;
 
     this.scene = new THREE.Scene();
-    this.setScene(options.scene);
-    this.setCamera(options.camera);
+    this.setScene(this.options.scene);
+    this.setCamera(this.options.camera);
 
     // this.addCube();
 
@@ -36,7 +37,11 @@ class Viewer3D {
   }
 
   setScene(scene) {
+    console.log(this.scene);
+    console.log(this.options.scene);
     this.scene.background = new THREE.Color(scene.backGroundColor);
+    this.options.scene.id = this.scene.id;
+    this.options.scene.uuid = this.scene.uuid;
     scene.children.forEach(child => {
       this.addChild(child);
     });

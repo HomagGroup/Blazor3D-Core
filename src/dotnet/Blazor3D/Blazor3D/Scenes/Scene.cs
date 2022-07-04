@@ -5,18 +5,18 @@ namespace Blazor3D.Scenes
 {
     public class Scene : Object3D
     {
-        private List<Mesh> _children = new List<Mesh>();
+        //private List<Mesh> _children = new List<Mesh>();
         public Scene() : base("Scene")
         {
 
         }
         public string BackGroundColor { get; set; } = "DarkSlateBlue";
 
-        public override Mesh[] Children => _children.ToArray();
+        public List<Mesh> Children { get; set; } = new List<Mesh>();
 
         public void Add(Mesh child)
         {
-            _children.Add(child);
+            Children.Add(child);
         }
     }
 }
