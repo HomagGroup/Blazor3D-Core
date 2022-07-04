@@ -17,6 +17,6 @@ namespace Blazor3D.Materials
 
         public string Name { get; set; } = string.Empty;
 
-        public string UUID => Guid.NewGuid().ToString().ToLower();
+        public Guid Uuid { get; set; } = Guid.NewGuid();
     }
 }

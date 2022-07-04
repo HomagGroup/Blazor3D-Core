@@ -1,17 +1,24 @@
 ﻿@page "/"
 @using Blazor3D.Geometires
+@using Blazor3D.Math
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
 
 <div class="row">
-    <div class="col-sm-12">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene/>
+    @*<div class="col-sm-12">*@
+    <div style="width: 500px;">
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />
     </div>
+    <div>
+        <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
+    </div>
+
 </div>
 
 
 @code {
     private Viewer View3D1 = null!;
+    private Guid objGuid;
     private ViewerSettings settings = new ViewerSettings()
         {
             ContainerId = "rsid",
@@ -22,13 +29,24 @@
     protected override Task OnInitializedAsync()
     {
         scene.Add(new Mesh
-        {
-            Geometry = new BoxGeometry
             {
-                Width = 2
-            }
-        });
+                Geometry = new BoxGeometry
+                {
+                    Width = 2
+                }
+            });
         return base.OnInitializedAsync();
+    }
+
+    private async Task OnLoadObjButtonClick()
+    {
+        objGuid = await View3D1.LoadOBJ("https://threejs.org/examples/models/obj/male02/male02.obj",
+            "https://threejs.org/examples/textures/uv_grid_opengl.jpg");
+        await View3D1.SetCameraPosition(new Vector3()
+            {
+                Y = 100,
+                Z = 250
+            });
     }
 
 }

@@ -14,3 +14,16 @@ export function loadScene(json) {
   viewer3d = new Viewer3D(options, container);
   console.log(viewer3d.options.scene);
 }
+
+export function loadOBJ(objUrl, textureUrl, guid) {
+  return JSON.stringify(viewer3d.loadOBJ(objUrl, textureUrl, guid));
+}
+
+export function setCameraPosition(position){
+  viewer3d.setCameraPosition(position);
+}
+
+export function getSceneItemByGuid(guid){
+  var item = viewer3d.getSceneItemByGuid(guid);
+  return JSON.stringify(item);
+}

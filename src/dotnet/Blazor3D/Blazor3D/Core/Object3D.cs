@@ -17,7 +17,7 @@ namespace Blazor3D.Core
 
         public string Description { get; set; } = string.Empty;
 
-        public string UUID => Guid.NewGuid().ToString().ToLower();
+        public Guid Uuid { get; set; } = Guid.NewGuid();
 
         public List<Object3D> Children { get;} = new List<Object3D>();
 

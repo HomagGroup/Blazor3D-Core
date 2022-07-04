@@ -6,6 +6,9 @@ using Blazor3D.Cameras;
 using Blazor3D.Controls;
 using Newtonsoft.Json;
 using Blazor3D.Helpers;
+using Blazor3D.Math;
+using Newtonsoft.Json.Linq;
+using Blazor3D.Objects;
 
 namespace Blazor3D
 {
@@ -68,5 +71,30 @@ namespace Blazor3D
                 await OnLoad();
             }
         }
+
+        public async Task SetCameraPosition(Vector3 position)
+        {
+            await bundleModule.InvokeVoidAsync("setCameraPosition", position);
+        }
+
+        public async Task<Guid> LoadOBJ(string objUrl, string textureUrl, int delay = 200)
+        {
+            var guid = new Guid("00000000-0000-0000-0000-000000000011");
+            await bundleModule.InvokeVoidAsync("loadOBJ", objUrl, textureUrl, guid);
+            await Task.Delay(delay);
+            var json = await bundleModule.InvokeAsync<string>("getSceneItemByGuid", "00000000-0000-0000-0000-000000000011");
+            if (json.Contains("\"type\":\"Group\""))
+            {
+                var group = JsonConvert.DeserializeObject<Group>(json);
+                if (group != null)
+                {
+                    Scene.Children.Add(group);
+                }
+
+            }
+            return guid;
+        }
+
+
     }
 }

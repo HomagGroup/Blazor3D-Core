@@ -42,8 +42,8 @@ class Loaders {
           if (child.isMesh) child.material.map = texture;
         });
       }
-      object.guid = guid;
       scene.add(object);
+      object.uuid = guid;
       console.log("obj added....", object);
     });
 
@@ -54,6 +54,7 @@ class Loaders {
     loader.load(objUrl, (obj) => {
       object = obj;
     });
+    return object;
   }
 }
 

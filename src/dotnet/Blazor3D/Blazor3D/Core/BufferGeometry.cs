@@ -11,7 +11,7 @@ namespace Blazor3D.Core
 
         public string Name { get; set; } = null!;
 
-        public string UUID => Guid.NewGuid().ToString().ToLower();
+        public Guid Uuid { get; set; } = Guid.NewGuid();
 
         public GeometryType GeometryType { get; } = GeometryType.None;
     }

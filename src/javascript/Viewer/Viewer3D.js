@@ -98,5 +98,18 @@ class Viewer3D {
       this.controls.target.set(0, y / 2, 0);
     }
   }
+
+  loadOBJ(objUrl, textureUrl, guid) {
+    return Loaders.loadOBJ(this.scene, objUrl, textureUrl, guid);
+  }
+
+  getSceneItemByGuid(guid){
+    var item = this.scene.getObjectByProperty("uuid", guid);
+    return {
+      uuid : item.uuid,
+      type : item.type,
+      name : item.name,
+    };
+  }
 }
 export default Viewer3D;
