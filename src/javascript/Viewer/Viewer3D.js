@@ -5,7 +5,6 @@ import Exporters from "./Exporters";
 
 class Viewer3D {
   constructor(options, container) {
-
     this.options = options;
     this.container = container;
 
@@ -35,19 +34,27 @@ class Viewer3D {
   }
 
   setScene() {
-
     this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
     this.scene.uuid = this.options.scene.uuid;
-    this.options.scene.children.forEach(child => {
+    this.options.scene.children.forEach((child) => {
       this.addChild(child);
     });
     console.log(this.scene);
-
   }
 
   addChild(child) {
-    if ((child.type = "Mesh")) {
+    if (child.type == "Mesh") {
       this.addMesh(child);
+    }
+    if (child.type == "AmbientLight") {
+      const ambientLight = new THREE.AmbientLight(child.color, child.intensity);
+      this.scene.add(ambientLight);
+    }
+    if (child.type == "PointLight") {
+      const pointLight = new THREE.PointLight(child.color, child.intensity, child.distance, child.decay);
+      let { x, y, z } = child.position;
+      pointLight.position.set(x, y, z);
+      this.scene.add(pointLight);
     }
   }
 
@@ -59,10 +66,14 @@ class Viewer3D {
       mesh.geometry.depth
     );
     geometry.uuid = mesh.geometry.uuid;
-    const material = new THREE.MeshStandardMaterial({color: mesh.material.color});
+    const material = new THREE.MeshStandardMaterial({
+      color: mesh.material.color,
+    });
     material.uuid = mesh.material.uuid;
     const cube = new THREE.Mesh(geometry, material);
     cube.uuid = mesh.uuid;
+    let { x, y, z } = mesh.position;
+    cube.position.set(x, y, z);
     this.scene.add(cube);
   }
 
@@ -103,12 +114,12 @@ class Viewer3D {
     return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid);
   }
 
-  getSceneItemByGuid(guid){
+  getSceneItemByGuid(guid) {
     var item = this.scene.getObjectByProperty("uuid", guid);
     return {
-      uuid : item.uuid,
-      type : item.type,
-      name : item.name,
+      uuid: item.uuid,
+      type: item.type,
+      name: item.name,
     };
   }
 }

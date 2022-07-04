@@ -7,6 +7,6 @@ namespace Blazor3D.Materials
         {
 
         }
-        public string Color { get; set; } = "blue";
+        public string Color { get; set; } = "grey";
     }
 }

@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Blazor3D.Enums
 @using Blazor3D.Geometires
+@using Blazor3D.Lights
 @using Blazor3D.Math
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
@@ -28,11 +29,30 @@
 
     protected override Task OnInitializedAsync()
     {
+        scene.Add(new AmbientLight());
+        scene.Add(new PointLight()
+            {
+                Decay = 2,
+                Position = new Vector3
+                {
+                    X = 0,
+                    Y = 3,
+                    Z = 0
+                }
+            });
+        scene.Add(new Mesh());
         scene.Add(new Mesh
             {
                 Geometry = new BoxGeometry
                 {
-                    Width = 2
+                    Width = 2,
+                    Height = 0.5f
+                },
+                Position = new Vector3
+                {
+                    X = -1,
+                    Y = 1,
+                    Z = -1
                 }
             });
 
