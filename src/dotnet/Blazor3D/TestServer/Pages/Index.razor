@@ -16,7 +16,6 @@
 
 </div>
 
-
 @code {
     private Viewer View3D1 = null!;
     private Guid objGuid;
@@ -36,13 +35,14 @@
                     Width = 2
                 }
             });
+
         return base.OnInitializedAsync();
     }
 
     private async Task OnLoadObjButtonClick()
     {
         objGuid = await View3D1.Import3DModel(Import3DFormats.Obj, "https://threejs.org/examples/models/obj/male02/male02.obj",
-            "https://threejs.org/examples/textures/uv_grid_opengl.jpg");
+            "https://threejs.org/examples/textures/uv_grid_opengl.jpg", 500);
         await View3D1.SetCameraPosition(new Vector3()
             {
                 Y = 100,

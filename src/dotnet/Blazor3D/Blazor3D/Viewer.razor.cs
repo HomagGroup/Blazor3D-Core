@@ -80,10 +80,10 @@ namespace Blazor3D
 
         public async Task<Guid> Import3DModel(Import3DFormats format, string objUrl, string textureUrl, int delay = 200)
         {
-            var guid = new Guid("00000000-0000-0000-0000-000000000011");
+            var guid = Guid.NewGuid();
             await bundleModule.InvokeVoidAsync("import3DModel", format.ToString(), objUrl, textureUrl, guid);
             await Task.Delay(delay);
-            var json = await bundleModule.InvokeAsync<string>("getSceneItemByGuid", "00000000-0000-0000-0000-000000000011");
+            var json = await bundleModule.InvokeAsync<string>("getSceneItemByGuid", guid);
             if (json.Contains("\"type\":\"Group\""))
             {
                 var group = JsonConvert.DeserializeObject<Group>(json);
@@ -95,7 +95,5 @@ namespace Blazor3D
             }
             return guid;
         }
-
-
     }
 }
