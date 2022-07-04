@@ -5,7 +5,7 @@ using Blazor3D.Scenes;
 using Blazor3D.Cameras;
 using Blazor3D.Controls;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Blazor3D.Helpers;
 
 namespace Blazor3D
 {
@@ -49,12 +49,8 @@ namespace Blazor3D
                     "import",
                     "./_content/Blazor3D/js/bundle.js")
                 .AsTask();
-                var serializerSettings = new JsonSerializerSettings()
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                };
-                
+
+
                 var json = JsonConvert.SerializeObject(new
                 {
                     Scene = Scene,
@@ -62,7 +58,8 @@ namespace Blazor3D
                     Camera = Camera,
                     OrbitControls = OrbitControls,
                 },
-                serializerSettings);
+                SerializationHelper.GetSerializerSettings());
+
                 await bundleModule.InvokeVoidAsync("loadScene", json);
                 // todo: return value only on loaders or call methods
                 //var result = await bundleModule.InvokeAsync<string>("loadScene", json);
