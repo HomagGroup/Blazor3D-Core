@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Blazor3D.Enums
 @using Blazor3D.Geometires
 @using Blazor3D.Math
 @using Blazor3D.Objects
@@ -40,7 +41,7 @@
 
     private async Task OnLoadObjButtonClick()
     {
-        objGuid = await View3D1.LoadOBJ("https://threejs.org/examples/models/obj/male02/male02.obj",
+        objGuid = await View3D1.Import3DModel(Import3DFormats.Obj, "https://threejs.org/examples/models/obj/male02/male02.obj",
             "https://threejs.org/examples/textures/uv_grid_opengl.jpg");
         await View3D1.SetCameraPosition(new Vector3()
             {

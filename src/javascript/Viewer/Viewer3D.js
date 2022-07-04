@@ -99,8 +99,8 @@ class Viewer3D {
     }
   }
 
-  loadOBJ(objUrl, textureUrl, guid) {
-    return Loaders.loadOBJ(this.scene, objUrl, textureUrl, guid);
+  import3DModel(format, objUrl, textureUrl, guid) {
+    return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid);
   }
 
   getSceneItemByGuid(guid){

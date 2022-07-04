@@ -15,8 +15,8 @@ export function loadScene(json) {
   console.log(viewer3d.options.scene);
 }
 
-export function loadOBJ(objUrl, textureUrl, guid) {
-  return JSON.stringify(viewer3d.loadOBJ(objUrl, textureUrl, guid));
+export function import3DModel(format, objUrl, textureUrl, guid) {
+  return JSON.stringify(viewer3d.import3DModel(format, objUrl, textureUrl, guid));
 }
 
 export function setCameraPosition(position){

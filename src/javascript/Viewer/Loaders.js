@@ -56,6 +56,13 @@ class Loaders {
     });
     return object;
   }
+
+  static import3DModel(scene, format, objUrl, textureUrl, guid) {
+    if(format == "Obj"){
+      return Loaders.loadOBJ(scene, objUrl, textureUrl, guid);
+    }
+    return null;
+  }
 }
 
 export default Loaders;
