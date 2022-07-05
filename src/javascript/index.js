@@ -2,6 +2,10 @@ import Viewer3D from "./Viewer/Viewer3D";
 
 let viewer3d;
 
+window.onresize = function(){
+  viewer3d.onResize();
+};
+
 export function loadScene(json) {
   var options = JSON.parse(json);
   console.log("scene loading ...");

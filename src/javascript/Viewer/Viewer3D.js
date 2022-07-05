@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Loaders from "./Loaders";
-import Exporters from "./Exporters";//todo
+import Exporters from "./Exporters"; //todo
 import SceneBuilder from "../Builders/SceneBuilder";
 
 class Viewer3D {
@@ -15,29 +15,35 @@ class Viewer3D {
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.domElement.style.width = "100%";
+    this.renderer.domElement.style.height = "100%";
     this.container.appendChild(this.renderer.domElement);
 
     this.setOrbitControls(options.orbitControls);
+    
     const animate = () => {
       requestAnimationFrame(animate);
-
-      // todo: do it on windows resize
-      this.renderer.setSize(
-        this.container.clientWidth,
-        this.container.clientHeight
-      );
-      // this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-      // this.camera.updateProjectionMatrix();
       this.renderer.render(this.scene, this.camera);
     };
-
+    this.onResize();
     animate();
+  }
+
+  onResize() {
+    this.camera.aspect =
+      this.container.offsetWidth / this.container.offsetHeight;
+    this.camera.updateProjectionMatrix();
+
+    this.renderer.setSize(
+      this.container.offsetWidth,
+      this.container.offsetHeight,
+      false // required
+    );
   }
 
   setScene() {
     this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
     this.scene.uuid = this.options.scene.uuid;
-    
+
     this.options.scene.children.forEach((childOptions) => {
       var child = SceneBuilder.BuildChild(childOptions);
       this.scene.add(child);
@@ -45,14 +51,10 @@ class Viewer3D {
     console.log(this.scene);
   }
 
-  
-
   setCamera(camera) {
     this.camera = new THREE.PerspectiveCamera(
       camera.fov,
-
-      this.container.clientWidth / this.container.clientHeight,
-      // camera.aspect,
+      this.container.offsetWidth / this.container.offsetHeight,
       camera.near,
       camera.far
     );
