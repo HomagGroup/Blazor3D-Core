@@ -10,6 +10,8 @@ class MeshBuilder {
     const mesh = new THREE.Mesh(geometry, material);
     mesh.uuid = options.uuid;
     Transforms.setPosition(mesh, options.position);
+    Transforms.setRotation(mesh,options.rotation);
+    Transforms.setScale(mesh,options.scale);
     return mesh;
   }
 }

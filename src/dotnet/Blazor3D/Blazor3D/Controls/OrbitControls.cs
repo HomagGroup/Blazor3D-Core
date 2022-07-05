@@ -1,4 +1,4 @@
-﻿using Blazor3D.Math;
+﻿using Blazor3D.Maths;
 
 namespace Blazor3D.Controls
 {

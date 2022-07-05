@@ -6,7 +6,7 @@ using Blazor3D.Cameras;
 using Blazor3D.Controls;
 using Newtonsoft.Json;
 using Blazor3D.Helpers;
-using Blazor3D.Math;
+using Blazor3D.Maths;
 using Newtonsoft.Json.Linq;
 using Blazor3D.Objects;
 using Blazor3D.Enums;
