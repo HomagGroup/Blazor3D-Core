@@ -5,7 +5,7 @@ namespace Blazor3D.Geometires
 {
     public class BoxGeometry : BufferGeometry
     {
-        public BoxGeometry() : base(GeometryType.BoxGeometry)
+        public BoxGeometry() : base("BoxGeometry")
         {
 
         }

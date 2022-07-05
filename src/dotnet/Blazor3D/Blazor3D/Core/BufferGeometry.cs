@@ -4,15 +4,15 @@ namespace Blazor3D.Core
 {
     public abstract class BufferGeometry
     {
-        protected BufferGeometry(GeometryType geometryType)
+        protected BufferGeometry(string type)
         {
-            GeometryType = geometryType;
+            Type = type;
         }
 
         public string Name { get; set; } = null!;
 
         public Guid Uuid { get; set; } = Guid.NewGuid();
 
-        public GeometryType GeometryType { get; } = GeometryType.None;
+        public string Type { get; } = "Geometry";
     }
 }

@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Loaders from "./Loaders";
-import Exporters from "./Exporters";
+import Exporters from "./Exporters";//todo
+import SceneBuilder from "../Builders/SceneBuilder";
 
 class Viewer3D {
   constructor(options, container) {
@@ -36,46 +37,15 @@ class Viewer3D {
   setScene() {
     this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
     this.scene.uuid = this.options.scene.uuid;
-    this.options.scene.children.forEach((child) => {
-      this.addChild(child);
+    
+    this.options.scene.children.forEach((childOptions) => {
+      var child = SceneBuilder.BuildChild(childOptions);
+      this.scene.add(child);
     });
     console.log(this.scene);
   }
 
-  addChild(child) {
-    if (child.type == "Mesh") {
-      this.addMesh(child);
-    }
-    if (child.type == "AmbientLight") {
-      const ambientLight = new THREE.AmbientLight(child.color, child.intensity);
-      this.scene.add(ambientLight);
-    }
-    if (child.type == "PointLight") {
-      const pointLight = new THREE.PointLight(child.color, child.intensity, child.distance, child.decay);
-      let { x, y, z } = child.position;
-      pointLight.position.set(x, y, z);
-      this.scene.add(pointLight);
-    }
-  }
-
-  addMesh(mesh) {
-    //todo: parse type to add corresponding geometry and materials
-    const geometry = new THREE.BoxGeometry(
-      mesh.geometry.width,
-      mesh.geometry.height,
-      mesh.geometry.depth
-    );
-    geometry.uuid = mesh.geometry.uuid;
-    const material = new THREE.MeshStandardMaterial({
-      color: mesh.material.color,
-    });
-    material.uuid = mesh.material.uuid;
-    const cube = new THREE.Mesh(geometry, material);
-    cube.uuid = mesh.uuid;
-    let { x, y, z } = mesh.position;
-    cube.position.set(x, y, z);
-    this.scene.add(cube);
-  }
+  
 
   setCamera(camera) {
     this.camera = new THREE.PerspectiveCamera(
