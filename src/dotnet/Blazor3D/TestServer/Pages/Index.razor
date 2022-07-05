@@ -55,6 +55,17 @@
                 }
             });
 
+        scene.Add(new Mesh
+            {
+                Geometry = new CircleGeometry(),
+                Position = new Vector3
+                {
+                    X = 1,
+                    Y = 1,
+                    Z = -1
+                }
+            });
+
         return base.OnInitializedAsync();
     }
 

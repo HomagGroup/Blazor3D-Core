@@ -14,6 +14,17 @@ class GeometryBuilder{
               geometry.uuid = options.uuid;
               return geometry;
         }
+
+        if(options.type == "CircleGeometry"){
+            const geometry = new THREE.CircleGeometry(
+                options.radius,
+                options.segments,
+                options.thetaStart,
+                options.thetaLength,
+              );
+              geometry.uuid = options.uuid;
+              return geometry;
+        }
     }
 }
 
