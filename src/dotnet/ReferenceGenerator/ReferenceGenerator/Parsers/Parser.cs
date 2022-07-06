@@ -56,7 +56,7 @@ namespace ReferenceGenerator.Parsers
                 }
                 if (mName.StartsWith("M:"))
                 {
-                    if (mName.Contains(".#ctor("))
+                    if (mName.Contains(".#ctor"))
                     {
                         Reference.Types.Last().Constructors.Add(new MethodModel
                         {
