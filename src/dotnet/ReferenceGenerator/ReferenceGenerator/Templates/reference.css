@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.row {
+    display: flex;
+    border: 1px solid grey;
+}
+
+.colNav {
+    flex: 20%;
+    margin: 10px;
+    border-right: 1px solid grey;
+}
+
+.colContent {
+    flex: 80%;
+    margin: 10px;
+}
+
+.navContent{
+    margin:10px;
+   
+}

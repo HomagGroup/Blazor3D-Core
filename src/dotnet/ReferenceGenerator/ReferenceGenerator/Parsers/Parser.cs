@@ -56,11 +56,22 @@ namespace ReferenceGenerator.Parsers
                 }
                 if (mName.StartsWith("M:"))
                 {
-                    Reference.Types.Last().Methods.Add(new MethodModel
+                    if (mName.Contains(".#ctor("))
                     {
-                        Name = mName.Replace("M:", null),
-                        XmlNode = memberNode
-                    });
+                        Reference.Types.Last().Constructors.Add(new MethodModel
+                        {
+                            Name = mName.Replace("M:", null),
+                            XmlNode = memberNode
+                        });
+                    }
+                    else
+                    {
+                        Reference.Types.Last().Methods.Add(new MethodModel
+                        {
+                            Name = mName.Replace("M:", null),
+                            XmlNode = memberNode
+                        });
+                    }
                 }
 
                 if (mName.StartsWith("P:"))
