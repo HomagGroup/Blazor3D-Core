@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blazor3D</name>
+    </assembly>
+    <members>
+        <member name="T:Blazor3D.Core.Object3D">
+            <summary>
+            Object3D
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Core.Object3D.#ctor(System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="type">type</param>
+        </member>
+        <member name="P:Blazor3D.Core.Object3D.Position">
+            <summary>
+            position
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Enums.Import3DFormats">
+            <summary>
+            Import models
+            </summary>
+        </member>
+        <member name="F:Blazor3D.Enums.Import3DFormats.Obj">
+            <summary>
+            Object
+            </summary>
+        </member>
+        <member name="F:Blazor3D.Enums.Import3DFormats.Collada">
+            <summary>
+            Collada
+            </summary>
+        </member>
+        <member name="F:Blazor3D.Enums.Import3DFormats.Fbx">
+            <summary>
+            Autodesk FBX
+            </summary>
+        </member>
+        <member name="F:Blazor3D.Enums.Import3DFormats.Gltf">
+            <summary>
+            GLTF
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Maths.Vector3">
+            <summary>
+            Vector doc
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Maths.Vector3.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Maths.Vector3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            ctor
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <param name="z">z</param>
+        </member>
+        <member name="T:Blazor3D.Scenes.Scene">
+            <summary>
+            Scene d
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Scenes.Scene.#ctor">
+            <summary>
+            ctor Scene
+            </summary>
+            <inheritdoc cref="T:Blazor3D.Core.Object3D"/>
+        </member>
+        <member name="P:Blazor3D.Scenes.Scene.BackGroundColor">
+            <summary>
+            bgc
+            </summary>
+        </member>
+    </members>
+</doc>
