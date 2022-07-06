@@ -4,6 +4,21 @@
         <name>Blazor3D</name>
     </assembly>
     <members>
+        <member name="T:Blazor3D.Core.BufferGeometry">
+            <summary>
+            Buffer geometry abstract class
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Core.BufferGeometry.Name">
+            <summary>
+            Name des
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Core.BufferGeometry.Uuid">
+            <summary>
+            Guid
+            </summary>
+        </member>
         <member name="T:Blazor3D.Core.Object3D">
             <summary>
             Object3D
