@@ -4,10 +4,18 @@ namespace ReferenceGenerator.Models
 {
     public abstract class BaseModel
     {
+        protected BaseModel(string type)
+        {
+            Type = type;
+        }
         public string Name { get; set; } = string.Empty;
         public string ShortName { get; set; } = string.Empty;
         public string NameSpace { get; set; } = string.Empty;
         public string Summary { get; set; } = string.Empty;
+        public string Type { get; } = "Base";
+
+
+
         public XmlNode XmlNode { get; set; } = null!;
 
         public virtual void Parse() {
@@ -29,6 +37,8 @@ namespace ReferenceGenerator.Models
                     {
                         Summary = node.InnerText.Trim();
                     };
+
+                   
                 }
             }
         }

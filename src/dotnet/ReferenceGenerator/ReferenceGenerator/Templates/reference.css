@@ -1,15 +1,34 @@
 ﻿body {
 }
 
+table {
+    width: 100%;
+    border: 1px solid lightgrey;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+tr {
+    border: 1px solid lightgrey;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+tbody tr td:first-child {
+    width: 20%;
+}
+
 .row {
     display: flex;
-    border: 1px solid grey;
+    border: 1px solid lightgrey;
 }
 
 .colNav {
     flex: 20%;
     margin: 10px;
-    border-right: 1px solid grey;
+    border-right: 1px solid lightgrey;
 }
 
 .colContent {
@@ -17,7 +36,12 @@
     margin: 10px;
 }
 
-.navContent{
-    margin:10px;
-   
+.navContent {
+    margin: 10px;
+}
+
+ul.navli {
+    list-style-type: none;
+    padding: 0 0 0 15px;
+    margin: 0; 
 }

@@ -58,7 +58,7 @@ namespace ReferenceGenerator.Parsers
                 {
                     if (mName.Contains(".#ctor"))
                     {
-                        Reference.Types.Last().Constructors.Add(new MethodModel
+                        Reference.Types.Last().Constructors.Add(new ConstructorModel
                         {
                             Name = mName.Replace("M:", null),
                             XmlNode = memberNode

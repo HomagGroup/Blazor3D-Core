@@ -2,5 +2,8 @@
 {
     public class PropertyModel : BaseModel
     {
+        public PropertyModel() : base("Property")
+        {
+        }
     }
 }

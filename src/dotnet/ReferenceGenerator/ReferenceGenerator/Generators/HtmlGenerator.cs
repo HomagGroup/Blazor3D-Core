@@ -15,10 +15,12 @@ namespace ReferenceGenerator.Generators
             var referencePath = PathCombiner.Combine(path, "/reference/");
             var referenceDirInfo = new DirectoryInfo(referencePath);
 
-            if (!referenceDirInfo.Exists)
+            if (referenceDirInfo.Exists)
             {
-                referenceDirInfo.Create();
+                referenceDirInfo.Delete(true);
             }
+            referenceDirInfo.Create();
+
 
             var currDir = Directory.GetCurrentDirectory();
             var templatePath = PathCombiner.Combine(currDir, "\\Templates\\Index.html");
@@ -29,11 +31,22 @@ namespace ReferenceGenerator.Generators
             indexFileStr = indexFileStr.Replace(TemplateSettings.HeaderTemplate, reference.Name);
             indexFileStr = indexFileStr.Replace(TemplateSettings.NameSpaceTemplate, string.Empty);
 
+
+
+
             var navSb = new StringBuilder();
 
-            foreach (TypeModel item in reference.Types)
+            var groupedList = reference.Types.GroupBy(x => x.NameSpace).OrderBy(x => x.Key).ToList();
+            foreach (var group in groupedList)
             {
-                navSb.AppendLine($"<div><a href = {item.Name}.html>{item.Name}</a></div>");
+                var idx = group.Key.LastIndexOf('.');
+                navSb.AppendLine($"<h3>{group.Key[(idx + 1)..]}</h3>");
+                navSb.AppendLine($"<ul class=\"navli\">");
+                foreach (var item in group)
+                {
+                    navSb.AppendLine($"<li><a href = {item.Name}.html>{item.ShortName}</a></li>");
+                }
+                navSb.AppendLine($"</ul>");
             }
 
             var nav = navSb.ToString();
@@ -59,7 +72,7 @@ namespace ReferenceGenerator.Generators
 
         private async Task CreateHtmlFromType(TypeModel typeModel, string templateStr, string path, string nav, string refName)
         {
-            var title = $"{typeModel.Name} - {refName}";
+            var title = $"{refName}: {typeModel.ShortName}";
 
             var fileStr = templateStr.Replace(TemplateSettings.TitleTemplate, title);
             fileStr = fileStr.Replace(TemplateSettings.NavTemplate, nav);
@@ -68,48 +81,73 @@ namespace ReferenceGenerator.Generators
 
             var contentSB = new StringBuilder();
 
-            if (typeModel.Constructors.Any())
-            {
-                contentSB.AppendLine($"<h3>Constructors</h3>");
-                foreach (var constructor in typeModel.Constructors)
-                {
-                    contentSB.AppendLine($"<strong>{constructor.Name}:</strong> {constructor.Summary} </br>");
-                }
-            }
-
-            if (typeModel.Properties.Any())
-            {
-                contentSB.AppendLine($"<h3>Properties</h3>");
-                foreach (var prop in typeModel.Properties)
-                {
-                    contentSB.AppendLine($"<strong>{prop.ShortName}:</strong> {prop.Summary} </br>");
-                }
-            }
-
-            if (typeModel.Methods.Any())
-            {
-                contentSB.AppendLine($"<h3>Methods</h3>");
-                foreach (var method in typeModel.Methods)
-                {
-                    contentSB.AppendLine($"<strong>{method.Name}:</strong> {method.Summary} </br>");
-                }
-            }
-
-            if (typeModel.Fields.Any())
-            {
-                contentSB.AppendLine($"<h3>Fields</h3>");
-                foreach (var field in typeModel.Fields)
-                {
-                    contentSB.AppendLine($"<strong>{field.ShortName}:</strong> {field.Summary} </br>");
-                }
-            }
+            CreatePropertiesTable(typeModel.Constructors, contentSB);
+            CreatePropertiesTable(typeModel.Methods, contentSB);
+            CreatePropertiesTable(typeModel.Properties, contentSB);
+            CreatePropertiesTable(typeModel.Fields, contentSB);
 
             fileStr = fileStr.Replace(TemplateSettings.ContentTemplate, contentSB.ToString());
-
-
 
             var fileHtml = PathCombiner.Combine(path, $"{typeModel.Name}.html");
             await File.WriteAllTextAsync(fileHtml, fileStr);
         }
+
+        private void CreatePropertiesTable(List<BaseModel> list, StringBuilder contentSB)
+        {
+            if (!list.Any())
+                return;
+            var type = list.First().Type;
+
+            switch (type)
+            {
+                case "Constructor":
+                    contentSB.AppendLine($"<h2>Constructors</h2>");
+                    break;
+                case "Method":
+                    contentSB.AppendLine($"<h2>Methods</h2>");
+                    break;
+                case "Property":
+                    contentSB.AppendLine($"<h2>Properties</h2>");
+                    break;
+                case "Field":
+                    contentSB.AppendLine($"<h2>Fields</h2>");
+                    break;
+                default:
+                    break;
+            }
+
+
+            contentSB.AppendLine($"<table>");
+
+            foreach (var item in list)
+            {
+                contentSB.AppendLine($"<tr>");
+                contentSB.AppendLine($"<td>");
+                contentSB.AppendLine($"<strong>{item.ShortName}</strong>");
+
+                contentSB.AppendLine($"</td>");
+                contentSB.AppendLine($"<td>");
+                contentSB.AppendLine($"<div>{item.Summary}</div>");
+
+                if (type == "Method" || type == "Constructor")
+                {
+                    var paramsList = (item as MethodModel)?.Params ?? new List<BaseModel>();
+                    if (paramsList.Any())
+                    {
+                        var pSb = new StringBuilder();
+                        CreatePropertiesTable(paramsList, pSb);
+                        contentSB.AppendLine($"<h3>Parameters</h3>");
+                        contentSB.AppendLine($"<div>{pSb.ToString()}</div>");
+                    }
+                }
+
+                contentSB.AppendLine($"</td>");
+
+                contentSB.AppendLine($"</tr>");
+            }
+            contentSB.AppendLine($"</table>");
+
+        }
+
     }
 }

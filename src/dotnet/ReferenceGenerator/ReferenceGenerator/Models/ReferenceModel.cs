@@ -2,6 +2,10 @@
 {
     public class ReferenceModel : BaseModel
     {
+        public ReferenceModel() : base("Reference")
+        {
+        }
+
         public AssemblyModel Assembly { get; set; } = null!;
         public List<TypeModel> Types { get; set; } = new List<TypeModel>();
 
