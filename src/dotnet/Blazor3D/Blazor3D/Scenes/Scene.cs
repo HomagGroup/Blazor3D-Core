@@ -1,23 +1,25 @@
 ﻿using Blazor3D.Core;
-using Blazor3D.Objects;
 
 namespace Blazor3D.Scenes
 {
     /// <summary>
-    /// Scene d
+    /// <p>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
+    /// This is the place where you put your 3D objects and lights.</p>
+    /// <p>This object inherits from <see cref="Object3D"/></p>
+    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></p>
     /// </summary>
+    /// <inheritdoc><see cref="Object3D"/></inheritdoc>
     public class Scene : Object3D
     {
-        /// <summary>
-        /// ctor Scene
-        /// </summary>
-        /// <inheritdoc cref="Object3D"/>
         public Scene() : base("Scene")
         {
 
         }
+
         /// <summary>
-        /// bgc
+        /// Scene background color. 
+        /// You can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+        /// Default value is "DarkSlateBlue">
         /// </summary>
         public string BackGroundColor { get; set; } = "DarkSlateBlue";
     }

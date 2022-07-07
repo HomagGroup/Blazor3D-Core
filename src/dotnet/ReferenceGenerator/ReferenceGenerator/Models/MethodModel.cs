@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using ReferenceGenerator.Parsers;
+using System.Xml;
 
 namespace ReferenceGenerator.Models
 {
@@ -12,6 +13,19 @@ namespace ReferenceGenerator.Models
         }
 
         public List<BaseModel> Params { get; } = new List<BaseModel>();
+
+        private string ProcessMethodParamsString(string str)
+        {
+            var prms = str.Trim(new[] { '(', ')' }).Split(',');
+            var newPrms = new List<string>();
+            Array.ForEach(prms, x =>
+            {
+                var idx = x.LastIndexOf(".");
+                newPrms.Add( x[(idx + 1)..]);
+            });
+
+            return $"({string.Join(", ", newPrms)})";
+        }
 
         public override void Parse()
         {
@@ -30,6 +44,7 @@ namespace ReferenceGenerator.Models
                 fullName = name[..idx];
                 prms = name[(idx)..];
             }
+            prms = ProcessMethodParamsString(prms);
 
             idx = fullName.LastIndexOf(".");
             if (idx == -1)
@@ -46,7 +61,7 @@ namespace ReferenceGenerator.Models
                 {
                     if (node.Name == "summary")
                     {
-                        Summary = node.InnerText.Trim();
+                        Summary = node.InnerXml.Trim().ParseSummary();
                     };
 
                     if (node.Name == "param")
@@ -56,7 +71,7 @@ namespace ReferenceGenerator.Models
                         {
                             ShortName = pname,
                             Name = pname,
-                            Summary = node.InnerText
+                            Summary = node.InnerXml.Trim().ParseSummary()
                         });
                     }
                 }

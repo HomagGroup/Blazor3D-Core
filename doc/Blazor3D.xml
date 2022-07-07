@@ -6,34 +6,64 @@
     <members>
         <member name="T:Blazor3D.Core.BufferGeometry">
             <summary>
-            Buffer geometry abstract class
+            <p>A representation of geometry for mesh, line, or point. 
+            Includes vertex positions, face indices, normals, colors, UVs, and custom attributes within buffers, 
+            reducing the cost of passing all this data to the GPU.</p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></p>
             </summary>
         </member>
         <member name="P:Blazor3D.Core.BufferGeometry.Name">
             <summary>
-            Name des
+            Optional name of the object. Default is an empty string. It has not to be unique. 
             </summary>
         </member>
         <member name="P:Blazor3D.Core.BufferGeometry.Uuid">
             <summary>
-            Guid
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
             </summary>
         </member>
         <member name="T:Blazor3D.Core.Object3D">
-            <summary>
-            Object3D
-            </summary>
-        </member>
-        <member name="M:Blazor3D.Core.Object3D.#ctor(System.String)">
-            <summary>
-            ctor
-            </summary>
-            <param name="type">type</param>
+             <summary>
+             <p>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
+             It provides functionality for manipulating objects in 3D space.</p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></p>
+             </summary>
         </member>
         <member name="P:Blazor3D.Core.Object3D.Position">
             <summary>
-            position
+            Represents the object's local <see cref="T:Blazor3D.Maths.Vector3"/> position. Default is (0, 0, 0).
             </summary>
+        </member>
+        <member name="P:Blazor3D.Core.Object3D.Rotation">
+            <summary>
+            Object's local <see cref="T:Blazor3D.Maths.Euler"/> rotation, in radians.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Core.Object3D.Scale">
+            <summary>
+            Represents the object's local <see cref="T:Blazor3D.Maths.Vector3"/> scale. Default is (1, 1, 1).
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Core.Object3D.Name">
+            <summary>
+            Optional name of the object. Default is an empty string. It has not to be unique. 
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Core.Object3D.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Core.Object3D.Children">
+            <summary>
+            Collection of <see cref="T:Blazor3D.Core.Object3D"/> child objects.
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Core.Object3D.Add(Blazor3D.Core.Object3D)">
+            <summary>
+            Adds a child <see cref="T:Blazor3D.Core.Object3D"/> object to the Children collection.
+            </summary>
+            <param name="child">Child <see cref="T:Blazor3D.Core.Object3D"/> to be added.</param>
         </member>
         <member name="T:Blazor3D.Enums.Import3DFormats">
             <summary>
@@ -60,6 +90,11 @@
             GLTF
             </summary>
         </member>
+        <member name="T:Blazor3D.Maths.Euler">
+            <summary>
+            euler
+            </summary>
+        </member>
         <member name="T:Blazor3D.Maths.Vector3">
             <summary>
             Vector doc
@@ -67,31 +102,36 @@
         </member>
         <member name="M:Blazor3D.Maths.Vector3.#ctor">
             <summary>
-            ctor
+            
             </summary>
         </member>
         <member name="M:Blazor3D.Maths.Vector3.#ctor(System.Single,System.Single,System.Single)">
             <summary>
-            ctor
+            
             </summary>
-            <param name="x">x</param>
-            <param name="y">y</param>
-            <param name="z">z</param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="P:Blazor3D.Maths.Vector3.X">
+            <summary>
+            The X coordinate
+            </summary>
         </member>
         <member name="T:Blazor3D.Scenes.Scene">
             <summary>
-            Scene d
+            <p>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
+            This is the place where you put your 3D objects and lights.</p>
+            <p>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></p>
             </summary>
-        </member>
-        <member name="M:Blazor3D.Scenes.Scene.#ctor">
-            <summary>
-            ctor Scene
-            </summary>
-            <inheritdoc cref="T:Blazor3D.Core.Object3D"/>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Scenes.Scene.BackGroundColor">
             <summary>
-            bgc
+            Scene background color. 
+            You can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            Default value is "DarkSlateBlue">
             </summary>
         </member>
     </members>

@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Html;
-using ReferenceGenerator.Models;
+﻿using ReferenceGenerator.Models;
+using ReferenceGenerator.Parsers;
 using ReferenceGenerator.Settings;
 using ReferenceGenerator.Utils;
 using System.Text;
@@ -68,15 +68,16 @@ namespace ReferenceGenerator.Generators
         private async Task CreateHtmlFromType(TypeModel typeModel, string templateStr, string path, string nav, string refName)
         {
             var title = $"{refName}: {typeModel.ShortName}";
+            var header = string.IsNullOrEmpty(typeModel.Inherit) ? typeModel.ShortName : $"{typeModel.ShortName} : {typeModel.Inherit}";
 
             var fileStr = templateStr.Replace(TemplateSettings.TitleTemplate, title);
             fileStr = fileStr.Replace(TemplateSettings.NavTemplate, nav);
-            fileStr = fileStr.Replace(TemplateSettings.HeaderTemplate, $"{typeModel.ShortName}");
+            fileStr = fileStr.Replace(TemplateSettings.HeaderTemplate, header);
             fileStr = fileStr.Replace(TemplateSettings.NameSpaceTemplate, $"<span class=\"breadcrumbs\">NameSpace: <strong>{typeModel.NameSpace}</strong></span");
             fileStr = fileStr.Replace(TemplateSettings.BreadcrumbsTemplate, $"<a href=\"/reference/Index.html\"><span class=\"breadcrumbs\">Home</span></a> - {typeModel.ShortName}");
 
             var contentSB = new StringBuilder();
-
+            contentSB.AppendLine($"<div class=\"summary\">{typeModel.Summary.ParseSummary()}</div>");
             CreatePropertiesTable(typeModel.Constructors, contentSB);
             CreatePropertiesTable(typeModel.Methods, contentSB);
             CreatePropertiesTable(typeModel.Properties, contentSB);
@@ -117,10 +118,11 @@ namespace ReferenceGenerator.Generators
             foreach (var item in list)
             {
                 contentSB.AppendLine($"<tr>");
+                // name column
                 contentSB.AppendLine($"<td>");
                 contentSB.AppendLine($"<strong>{item.ShortName}</strong>");
-
                 contentSB.AppendLine($"</td>");
+                // third column
                 contentSB.AppendLine($"<td>");
                 contentSB.AppendLine($"<div>{item.Summary}</div>");
 

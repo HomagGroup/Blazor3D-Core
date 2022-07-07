@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using ReferenceGenerator.Parsers;
+using System.Xml;
 
 namespace ReferenceGenerator.Models
 {
@@ -13,8 +14,7 @@ namespace ReferenceGenerator.Models
         public string NameSpace { get; set; } = string.Empty;
         public string Summary { get; set; } = string.Empty;
         public string Type { get; } = "Base";
-
-
+        public string Inherit { get; set; }
 
         public XmlNode XmlNode { get; set; } = null!;
 
@@ -35,10 +35,14 @@ namespace ReferenceGenerator.Models
                 {
                     if(node.Name == "summary")
                     {
-                        Summary = node.InnerText.Trim();
+                        Summary = node.InnerXml.Trim().ParseSummary();
                     };
 
-                   
+                    if (node.Name == "inheritdoc")
+                    {
+                        Inherit = node.InnerXml.Trim().ParseSummary();
+                    };
+
                 }
             }
         }

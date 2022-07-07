@@ -22,6 +22,7 @@
 </ul>
 <h3>Maths</h3>
 <ul class="navli">
+<li><a href = Blazor3D.Maths.Euler.html>Euler</a></li>
 <li><a href = Blazor3D.Maths.Vector3.html>Vector3</a></li>
 </ul>
 <h3>Scenes</h3>
@@ -35,22 +36,24 @@
         <div class="colContent">
             <h2>Object3D</h2>
             <div><span class="breadcrumbs">NameSpace: <strong>Blazor3D.Core</strong></span</div>
-            <div><h2>Constructors</h2>
+            <div><div class="summary"><p>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
+             It provides functionality for manipulating objects in 3D space.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></p></div>
+<h2>Methods</h2>
 <table>
 <tr>
 <td>
-<strong>Object3D(string)</strong>
+<strong>Add(Object3D)</strong>
 </td>
 <td>
-<div>ctor</div>
+<div>Adds a child <a href="Blazor3D.Core.Object3D.html">Object3D</a> object to the Children collection.</div>
 <h3>Parameters</h3>
 <div><table>
 <tr>
 <td>
-<strong>type</strong>
+<strong>child</strong>
 </td>
 <td>
-<div>type</div>
+<div>Child <a href="Blazor3D.Core.Object3D.html">Object3D</a> to be added.</div>
 </td>
 </tr>
 </table>
@@ -65,7 +68,47 @@
 <strong>Position</strong>
 </td>
 <td>
-<div>position</div>
+<div>Represents the object's local <a href="Blazor3D.Maths.Vector3.html">Vector3</a> position. Default is (0, 0, 0).</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Rotation</strong>
+</td>
+<td>
+<div>Object's local <a href="Blazor3D.Maths.Euler.html">Euler</a> rotation, in radians.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Scale</strong>
+</td>
+<td>
+<div>Represents the object's local <a href="Blazor3D.Maths.Vector3.html">Vector3</a> scale. Default is (1, 1, 1).</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Name</strong>
+</td>
+<td>
+<div>Optional name of the object. Default is an empty string. It has not to be unique.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Uuid</strong>
+</td>
+<td>
+<div><a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Children</strong>
+</td>
+<td>
+<div>Collection of <a href="Blazor3D.Core.Object3D.html">Object3D</a> child objects.</div>
 </td>
 </tr>
 </table>
