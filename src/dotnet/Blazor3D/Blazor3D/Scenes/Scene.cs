@@ -18,7 +18,7 @@ namespace Blazor3D.Scenes
 
         /// <summary>
         /// Scene background color. 
-        /// You can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+        /// You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
         /// Default value is "DarkSlateBlue">
         /// </summary>
         public string BackGroundColor { get; set; } = "DarkSlateBlue";

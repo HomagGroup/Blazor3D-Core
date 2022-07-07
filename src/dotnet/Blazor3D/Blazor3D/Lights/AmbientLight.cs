@@ -1,6 +1,6 @@
 ﻿namespace Blazor3D.Lights
 {
-    public class AmbientLight : Light
+    public sealed class AmbientLight : Light
     {
         public AmbientLight() : base("AmbientLight")
         {

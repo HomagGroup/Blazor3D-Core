@@ -1,6 +1,6 @@
 ﻿namespace Blazor3D.Lights
 {
-    public class PointLight : Light
+    public sealed class PointLight : Light
     {
         public PointLight() : base("PointLight")
         {

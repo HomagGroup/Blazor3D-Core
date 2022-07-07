@@ -67,55 +67,164 @@
         </member>
         <member name="T:Blazor3D.Enums.Import3DFormats">
             <summary>
-            Import models
+            3D model formats, which can be used for importing to or exporting from <see cref="T:Blazor3D.Scenes.Scene"/>.
             </summary>
         </member>
         <member name="F:Blazor3D.Enums.Import3DFormats.Obj">
-            <summary>
-            Object
-            </summary>
+             <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront Object</a> format.
+             </summary>
         </member>
         <member name="F:Blazor3D.Enums.Import3DFormats.Collada">
             <summary>
-            Collada
+            <a target="_blank" href="https://en.wikipedia.org/wiki/COLLADA">Collada</a> format.
             </summary>
         </member>
         <member name="F:Blazor3D.Enums.Import3DFormats.Fbx">
             <summary>
-            Autodesk FBX
+            <a target="_blank" href="https://en.wikipedia.org/wiki/FBX">Autodesk FBX</a> format.
             </summary>
         </member>
         <member name="F:Blazor3D.Enums.Import3DFormats.Gltf">
             <summary>
-            GLTF
+            <a target="_blank" href="https://en.wikipedia.org/wiki/GlTF">glTF</a> format.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.BoxGeometry">
+            <summary>
+            <p>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</p>
+            <p>This class inherits from <see cref="T:Blazor3D.Core.BufferGeometry"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry">BoxGeometry</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
+        </member>
+        <member name="P:Blazor3D.Geometires.BoxGeometry.Width">
+            <summary>
+            The length of the edges parallel to the X axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.BoxGeometry.Height">
+            <summary>
+            The length of the edges parallel to the Y axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.BoxGeometry.Depth">
+            <summary>
+            The length of the edges parallel to the Z axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.BoxGeometry.WidthSegments">
+            <summary>
+            Number of segmented rectangular faces along the width of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.BoxGeometry.HeightSegments">
+            <summary>
+            Number of segmented rectangular faces along the height of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.BoxGeometry.DepthSegments">
+            <summary>
+            Number of segmented rectangular faces along the depth of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.CircleGeometry">
+            <summary>
+            <p>Class for a simple shape of Euclidean geometry. 
+            It is constructed from a number of triangular segments that are oriented around a central point and extend as far out as a given radius. 
+            It is built counter-clockwise from a start angle and a given central angle. 
+            It can also be used to create regular polygons, where the number of segments determines the number of sides.</p>
+            <p>This class inherits from <see cref="T:Blazor3D.Core.BufferGeometry"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
+        </member>
+        <member name="P:Blazor3D.Geometires.CircleGeometry.Radius">
+            <summary>
+            Radius of the circle. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CircleGeometry.Segments">
+            <summary>
+            Number of segments (triangles). Minimum = 3, default = 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CircleGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CircleGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
             </summary>
         </member>
         <member name="T:Blazor3D.Maths.Euler">
             <summary>
-            euler
+            <p>Representing Euler Angles.
+            Euler angles describe a rotational transformation by rotating an object on its various axes in specified amounts per axis, and a specified axis order.
+            Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Euler.X">
+            <summary>
+            The float angle of the X axis in radians. Default is 0. Optional.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Euler.Y">
+            <summary>
+            The float angle of the Y axis in radians. Default is 0. Optional.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Euler.Z">
+            <summary>
+            The float angle of the Z axis in radians. Default is 0. Optional.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Euler.Order">
+            <summary>
+            String representing the order that the rotations are applied. Default is 'XYZ'. Must be upper case.
             </summary>
         </member>
         <member name="T:Blazor3D.Maths.Vector3">
             <summary>
-            Vector doc
+            <p>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
+            which can be used to represent a number of things, such as:</p>
+            <ul>
+            <li>A point in 3D space.</li>
+            <li>A direction, length or scale in 3D space. </li>
+            <li>Any arbitrary ordered triplet of numbers.</li>
+            </ul>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></p>
             </summary>
         </member>
         <member name="M:Blazor3D.Maths.Vector3.#ctor">
             <summary>
-            
+            Default constructor.
             </summary>
         </member>
         <member name="M:Blazor3D.Maths.Vector3.#ctor(System.Single,System.Single,System.Single)">
             <summary>
-            
+            Constructor with parameters.
             </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
+            <param name="x">Float X value of this vector. Default is 0.</param>
+            <param name="y">Float Y value of this vector. Default is 0.</param>
+            <param name="z">Float Z value of this vector. Default is 0.</param>
         </member>
         <member name="P:Blazor3D.Maths.Vector3.X">
             <summary>
-            The X coordinate
+            Float X value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Vector3.Y">
+            <summary>
+            Float Y value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Vector3.Z">
+            <summary>
+            Float Z value of this vector. Default is 0.
             </summary>
         </member>
         <member name="T:Blazor3D.Scenes.Scene">
@@ -130,7 +239,7 @@
         <member name="P:Blazor3D.Scenes.Scene.BackGroundColor">
             <summary>
             Scene background color. 
-            You can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
             Default value is "DarkSlateBlue">
             </summary>
         </member>

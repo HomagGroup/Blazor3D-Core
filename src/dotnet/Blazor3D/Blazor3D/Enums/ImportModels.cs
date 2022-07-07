@@ -1,24 +1,26 @@
-﻿namespace Blazor3D.Enums
+﻿using Blazor3D.Scenes;
+
+namespace Blazor3D.Enums
 {
     /// <summary>
-    /// Import models
+    /// 3D model formats, which can be used for importing to or exporting from <see cref="Scene"/>.
     /// </summary>
     public enum Import3DFormats
     {
         /// <summary>
-        /// Object
+        ///<a target="_blank" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront Object</a> format.
         /// </summary>
         Obj,
         /// <summary>
-        /// Collada
+        /// <a target="_blank" href="https://en.wikipedia.org/wiki/COLLADA">Collada</a> format.
         /// </summary>
         Collada,
         /// <summary>
-        /// Autodesk FBX
+        /// <a target="_blank" href="https://en.wikipedia.org/wiki/FBX">Autodesk FBX</a> format.
         /// </summary>
         Fbx,
         /// <summary>
-        /// GLTF
+        /// <a target="_blank" href="https://en.wikipedia.org/wiki/GlTF">glTF</a> format.
         /// </summary>
         Gltf
     }
