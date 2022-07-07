@@ -1,3 +1,2 @@
-- breadscrumbs
 - sitemap
 - styles

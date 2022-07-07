@@ -10,8 +10,6 @@ namespace ReferenceGenerator.Generators
     {
         public async Task Generate(ReferenceModel reference, string path)
         {
-
-
             var referencePath = PathCombiner.Combine(path, "/reference/");
             var referenceDirInfo = new DirectoryInfo(referencePath);
 
@@ -30,9 +28,7 @@ namespace ReferenceGenerator.Generators
             var indexFileStr = templateStr.Replace(TemplateSettings.TitleTemplate, reference.Name);
             indexFileStr = indexFileStr.Replace(TemplateSettings.HeaderTemplate, reference.Name);
             indexFileStr = indexFileStr.Replace(TemplateSettings.NameSpaceTemplate, string.Empty);
-
-
-
+            indexFileStr = indexFileStr.Replace(TemplateSettings.BreadcrumbsTemplate, "<span class=\"breadcrumbs\">Home</span>");
 
             var navSb = new StringBuilder();
 
@@ -67,7 +63,6 @@ namespace ReferenceGenerator.Generators
             {
                 await CreateHtmlFromType(item, templateStr, referenceDirInfo.FullName, nav, reference.Name);
             }
-
         }
 
         private async Task CreateHtmlFromType(TypeModel typeModel, string templateStr, string path, string nav, string refName)
@@ -77,7 +72,8 @@ namespace ReferenceGenerator.Generators
             var fileStr = templateStr.Replace(TemplateSettings.TitleTemplate, title);
             fileStr = fileStr.Replace(TemplateSettings.NavTemplate, nav);
             fileStr = fileStr.Replace(TemplateSettings.HeaderTemplate, $"{typeModel.ShortName}");
-            fileStr = fileStr.Replace(TemplateSettings.NameSpaceTemplate, $"NameSpace: <strong>{typeModel.NameSpace}</strong>");
+            fileStr = fileStr.Replace(TemplateSettings.NameSpaceTemplate, $"<span class=\"breadcrumbs\">NameSpace: <strong>{typeModel.NameSpace}</strong></span");
+            fileStr = fileStr.Replace(TemplateSettings.BreadcrumbsTemplate, $"<a href=\"/reference/Index.html\"><span class=\"breadcrumbs\">Home</span></a> - {typeModel.ShortName}");
 
             var contentSB = new StringBuilder();
 
@@ -115,7 +111,6 @@ namespace ReferenceGenerator.Generators
                 default:
                     break;
             }
-
 
             contentSB.AppendLine($"<table>");
 

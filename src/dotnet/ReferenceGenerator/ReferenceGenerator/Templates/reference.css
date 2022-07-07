@@ -1,4 +1,8 @@
 ﻿body {
+    color: #444;
+}
+h1, h2, h3, h4 {
+    padding-left: 10px;
 }
 
 table {
@@ -23,6 +27,7 @@ tbody tr td:first-child {
 .row {
     display: flex;
     border: 1px solid lightgrey;
+    margin:10px;
 }
 
 .colNav {
@@ -38,6 +43,10 @@ tbody tr td:first-child {
 
 .navContent {
     margin: 10px;
+}
+
+.breadcrumbs {
+    padding-left: 10px;
 }
 
 ul.navli {

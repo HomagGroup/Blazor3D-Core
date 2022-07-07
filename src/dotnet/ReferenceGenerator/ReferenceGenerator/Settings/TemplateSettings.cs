@@ -7,5 +7,6 @@
         public const string NameSpaceTemplate = "{!{NameSpace}!}";
         public const string ContentTemplate = "{!{Content}!}";
         public const string NavTemplate = "{!{Nav}!}";
+        public const string BreadcrumbsTemplate = "{!{Breadcrumbs}!}";
     }
 }
