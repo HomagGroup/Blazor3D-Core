@@ -58,3 +58,12 @@ b, strong {
 .navbar-light .navbar-brand:hover {
     color: #50A;
 }
+.videoheader {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: -100;
+    transform: translateX(0%) translateY(60px);
+    filter: brightness(50%);
+}
