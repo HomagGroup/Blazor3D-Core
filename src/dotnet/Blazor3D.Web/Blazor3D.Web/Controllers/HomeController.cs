@@ -18,6 +18,11 @@ namespace Blazor3D.Web.Controllers
             return View();
         }
 
+        public IActionResult Tutorials()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

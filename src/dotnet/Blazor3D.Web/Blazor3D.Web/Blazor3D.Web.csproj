@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ReferenceGenerator\ReferenceGenerator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="blazor3dweb.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
