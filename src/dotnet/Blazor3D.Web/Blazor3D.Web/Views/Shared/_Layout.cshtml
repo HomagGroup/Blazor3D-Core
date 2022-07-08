@@ -22,22 +22,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdownMenuLink" class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Documentation</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Tutorials">Tutorials</a></li>
-                                <li><a class="dropdown-item text-dark" href="/reference/Index.html">Reference Guide</a></li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reference" asp-action="Index">Generate Reference</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Tutorials">Tutorials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/reference/Index.html">Reference Guide</a>
                         </li>
+
+                        <environment include="Development">
+                            <form id="generateRef" asp-controller="Reference" asp-action="Generate" method="post" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-link">Generate Reference</button>
+                            </form>
+                           @* <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Reference" asp-action="Index">Generate Reference</a>
+                            </li>*@
+                        </environment>
+
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/site.css" />
-    <link rel="stylesheet" href="../Blazor3D.Web.styles.css"/>
+    <link rel="stylesheet" href="../Blazor3D.Web.styles.css" />
     <title>{!{Title}!}</title>
 </head>
 <body>
@@ -32,18 +32,22 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <h1>{!{Title}!}</h1>
-            <div>{!{Breadcrumbs}!}</div>
-            <div class="row">
-                <div class="colNav">
-                    <div class="navContent">
-                        {!{Nav}!}
-                    </div>
+            <h1 class="display-6">{!{Title}!}</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    {!{Breadcrumbs}!}
+                </ol>
+            </nav>
 
+            <div class="row">
+                <div class="col-sm-3 order-sm-first order-last topOffset">
+                    {!{Nav}!}
                 </div>
-                <div class="colContent">
-                    <h2>{!{Header}!}</h2>
+                <div class="col-sm-9 border-start">
+                    <h2 class="fontlight">{!{Header}!}</h2>
                     <div>{!{NameSpace}!}</div>
+                    <hr />
                     <div>{!{Content}!}</div>
                 </div>
             </div>
@@ -56,9 +60,8 @@
         </div>
     </footer>
 
-    
     <script src="../lib/jquery/dist/jquery.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/site.js"</script>
+    <script src="../js/site.js"></script>
 </body>
 </html>

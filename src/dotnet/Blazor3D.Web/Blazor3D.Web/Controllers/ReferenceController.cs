@@ -13,12 +13,7 @@ namespace Blazor3D.Web.Controllers
         {
             _hostEnvironment = hostEnvironment;
         }
-        // GET: ReferenceController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        
         // POST: ReferenceController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

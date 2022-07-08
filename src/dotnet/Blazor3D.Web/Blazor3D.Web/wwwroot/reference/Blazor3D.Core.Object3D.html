@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/site.css" />
     <link rel="stylesheet" href="../Blazor3D.Web.styles.css" />
-    <title>Blazor3D API Reference Guide</title>
+    <title>Blazor3D API Reference Guide: Object3D</title>
 </head>
 <body>
     <header>
@@ -32,11 +32,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: Object3D</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Reference Guide</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">Object3D</li>
                 </ol>
             </nav>
 
@@ -68,10 +68,86 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight"></h2>
-                    <div></div>
+                    <h2 class="fontlight">Object3D</h2>
+                    <div>NameSpace: <strong>Blazor3D.Core</strong></div>
                     <hr />
-                    <div>Index content goes here</div>
+                    <div><p>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
+             It provides functionality for manipulating objects in 3D space.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></p>
+<h3 class="fontlight">Methods</h3>
+<table class="table table-bordered">
+<tr>
+<td>
+<strong>Add(Object3D)</strong>
+</td>
+<td>
+<div>Adds a child <a href="Blazor3D.Core.Object3D.html">Object3D</a> object to the Children collection.</div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>child</strong>
+</td>
+<td>
+<div>Child <a href="Blazor3D.Core.Object3D.html">Object3D</a> to be added.</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<h3 class="fontlight">Properties</h3>
+<table class="table table-bordered">
+<tr>
+<td>
+<strong>Position</strong>
+</td>
+<td>
+<div>Represents the object's local <a href="Blazor3D.Maths.Vector3.html">Vector3</a> position. Default is (0, 0, 0).</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Rotation</strong>
+</td>
+<td>
+<div>Object's local <a href="Blazor3D.Maths.Euler.html">Euler</a> rotation, in radians.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Scale</strong>
+</td>
+<td>
+<div>Represents the object's local <a href="Blazor3D.Maths.Vector3.html">Vector3</a> scale. Default is (1, 1, 1).</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Name</strong>
+</td>
+<td>
+<div>Optional name of the object. Default is an empty string. It has not to be unique.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Uuid</strong>
+</td>
+<td>
+<div><a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Children</strong>
+</td>
+<td>
+<div>Collection of <a href="Blazor3D.Core.Object3D.html">Object3D</a> child objects.</div>
+</td>
+</tr>
+</table>
+</div>
                 </div>
             </div>
         </main>

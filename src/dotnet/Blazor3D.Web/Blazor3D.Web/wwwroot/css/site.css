@@ -1,18 +1,38 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+b, strong {
+    font-weight: 500;
+}
+
+.fontlight {
+    font-weight: 400;
+}
+
+.referenceNav {
+    line-height: 1rem;
+}
+
+.refNavLink {
+    padding: 0.3rem 1rem;
+}
+
+.topOffset {
+    padding-top: 2rem;
 }

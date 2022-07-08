@@ -6,7 +6,7 @@ namespace ReferenceGenerator
 {
     public class Parser
     {
-        public ReferenceModel Reference { get; set; } = new ReferenceModel { Name = "Blazor3D Reference Guide" };
+        public ReferenceModel Reference { get; set; } = new ReferenceModel { Name = "Blazor3D API Reference Guide" };
 
         public void ReadAndParse(string fileName = "Blazor3D.xml")
         {
@@ -89,7 +89,6 @@ namespace ReferenceGenerator
             }
 
             Reference.Parse();
-
         }
     }
 }
