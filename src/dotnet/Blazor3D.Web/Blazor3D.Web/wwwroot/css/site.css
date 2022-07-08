@@ -17,6 +17,14 @@ body {
     margin-bottom: 60px;
 }
 
+a, .nav-link, .btn-link {
+    color: #80F;
+    font-weight:400;
+}
+
+    a:hover, .nav-link:hover, .btn-link:hover {
+        color: #50A;
+    }
 b, strong {
     font-weight: 500;
 }
@@ -35,4 +43,18 @@ b, strong {
 
 .topOffset {
     padding-top: 2rem;
+}
+
+.blazor3d {
+    width:36px;
+    margin:5px;
+
+}
+
+.navbar-light .navbar-brand {
+    color: #80F;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #50A;
 }
