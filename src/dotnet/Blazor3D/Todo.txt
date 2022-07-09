@@ -1,2 +1,4 @@
+- baground video https://alvarotrigo.com/blog/background-video-css/ - create separate layout for main page with video
+
 - sealed classes!!!!!
 - basic geometries
