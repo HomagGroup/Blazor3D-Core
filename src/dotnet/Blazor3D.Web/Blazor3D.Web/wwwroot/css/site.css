@@ -58,12 +58,33 @@ b, strong {
 .navbar-light .navbar-brand:hover {
     color: #50A;
 }
-.videoheader {
+
+video {
+    object-fit: cover;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: -20px;
+    left: 0;
+    height: 100%;
     width: 100%;
-    z-index: -100;
-    transform: translateX(0%) translateY(60px);
     filter: brightness(50%);
+}
+
+.video-wrapper {
+    padding: 0px;
+    margin:0px;
+    border: none;
+    width: 100%;
+    height: 50vw;
+    position: relative;
+    overflow: visible;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    position: relative;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
