@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: BufferGeometry</title>
+    <title>Blazor3D API Reference Guide: PointLight</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -39,11 +39,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: BufferGeometry</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: PointLight</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">BufferGeometry</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">PointLight</li>
                 </ol>
             </nav>
 
@@ -96,28 +96,26 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">BufferGeometry</h2>
-                    <div>NameSpace: <strong>Blazor3D.Core</strong></div>
+                    <h2 class="fontlight">PointLight : <a href="Blazor3D.Lights.Light.html">Light</a></h2>
+                    <div>NameSpace: <strong>Blazor3D.Lights</strong></div>
                     <hr />
-                    <div><p>A representation of geometry for mesh, line, or point. 
-            Includes vertex positions, face indices, normals, colors, UVs, and custom attributes within buffers, 
-            reducing the cost of passing all this data to the GPU.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></p>
+                    <div><p>A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.</p><p>This light can cast shadows</p><p>This class inherits from <a href="Blazor3D.Lights.Light.html">Light</a></p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/PointLight">PointLight</a></p>
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>Name</strong>
+<strong>Distance</strong>
 </td>
 <td>
-<div>Optional name of the object. Default is an empty string. It has not to be unique.</div>
+<div><p>When distance value is NOT 0, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light.</p><p>When distance is zero, light does not attenuate.</p><p>Default is 0.</p></div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>Uuid</strong>
+<strong>Decay</strong>
 </td>
 <td>
-<div><a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.</div>
+<div><p>The amount the light dims along the distance of the light</p><p>Default is 1.</p></div>
 </td>
 </tr>
 </table>

@@ -4,8 +4,8 @@
     /// <p>Camera that uses perspective projection.
     /// This projection mode is designed to mimic the way the human eyes see.
     /// It is the most common projection mode used for rendering a 3D scene.</p>
-    /// </summary>
     /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></p>
+    /// </summary>
     /// <inheritdoc><see cref="Camera"/></inheritdoc>
     public class PerspectiveCamera : Camera
     {

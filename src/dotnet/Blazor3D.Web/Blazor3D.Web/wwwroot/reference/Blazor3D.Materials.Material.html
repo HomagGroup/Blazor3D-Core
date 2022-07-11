@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: BufferGeometry</title>
+    <title>Blazor3D API Reference Guide: Material</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -39,11 +39,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: BufferGeometry</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: Material</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">BufferGeometry</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">Material</li>
                 </ol>
             </nav>
 
@@ -96,12 +96,10 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">BufferGeometry</h2>
-                    <div>NameSpace: <strong>Blazor3D.Core</strong></div>
+                    <h2 class="fontlight">Material</h2>
+                    <div>NameSpace: <strong>Blazor3D.Materials</strong></div>
                     <hr />
-                    <div><p>A representation of geometry for mesh, line, or point. 
-            Includes vertex positions, face indices, normals, colors, UVs, and custom attributes within buffers, 
-            reducing the cost of passing all this data to the GPU.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></p>
+                    <div><p>Abstract base class for materials.</p><p>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></p>
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>

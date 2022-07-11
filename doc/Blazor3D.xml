@@ -7,8 +7,8 @@
         <member name="T:Blazor3D.Cameras.Camera">
             <summary>
             <p>Abstract base class for cameras.</p>
-            </summary>
             <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/Camera">Camera</a></p>
+            </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="T:Blazor3D.Cameras.PerspectiveCamera">
@@ -16,8 +16,8 @@
             <p>Camera that uses perspective projection.
             This projection mode is designed to mimic the way the human eyes see.
             It is the most common projection mode used for rendering a 3D scene.</p>
-            </summary>
             <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></p>
+            </summary>
             <inheritdoc><see cref="T:Blazor3D.Cameras.Camera"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Cameras.PerspectiveCamera.Fov">
@@ -199,9 +199,83 @@
             <summary>
             <p>This light globally illuminates all objects in the scene equally.
             This light cannot be used to cast shadows as it does not have a direction.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight">CircleGeometry</a></p>
+            <p>This class inherits from <see cref="T:Blazor3D.Lights.Light"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight">AmbientLight</a></p>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Lights.Light"/></inheritdoc>
+        </member>
+        <member name="T:Blazor3D.Lights.Light">
+            <summary>
+            <p>Abstract base class for lights.</p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/Light">Light</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:Blazor3D.Lights.Light.Color">
+            <summary>
+            <p>Light color. 
+            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            Default value is "white"</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Lights.Light.Intensity">
+            <summary>
+            <p>Value of the light's strength/intensity. Default is 1.</p>
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Lights.PointLight">
+            <summary>
+            <p>A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.</p>
+            <p>This light can cast shadows</p>
+            <p>This class inherits from <see cref="T:Blazor3D.Lights.Light"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/PointLight">PointLight</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Lights.Light"/></inheritdoc>
+        </member>
+        <member name="P:Blazor3D.Lights.PointLight.Distance">
+            <summary>
+            <p>When distance value is NOT 0, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light.</p>
+            <p>When distance is zero, light does not attenuate.</p>
+            <p>Default is 0.</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Lights.PointLight.Decay">
+            <summary>
+            <p>The amount the light dims along the distance of the light</p>
+            <p>Default is 1.</p>
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Materials.Material">
+            <summary>
+            <p>Abstract base class for materials.</p>
+            <p>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Materials.Material.Name">
+            <summary>
+            Optional name of the object. Default is an empty string. It has not to be unique. 
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Materials.Material.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Materials.MeshStandardMaterial">
+            <summary>
+            <p>A standard physically based Material, using Metallic-Roughness workflow.</p>
+            <p>This class inherits from <see cref="T:Blazor3D.Materials.Material"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Materials.MeshStandardMaterial"/></inheritdoc>
+        </member>
+        <member name="P:Blazor3D.Materials.MeshStandardMaterial.Color">
+            <summary>
+            <p>Light color. 
+            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            Default value is "grey"</p>
+            </summary>
         </member>
         <member name="T:Blazor3D.Maths.Euler">
             <summary>
@@ -269,6 +343,32 @@
         <member name="P:Blazor3D.Maths.Vector3.Z">
             <summary>
             Float Z value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Objects.Group">
+            <summary>
+            <p>This is almost identical to an <see cref="T:Blazor3D.Core.Object3D"/>. Its purpose is to make working with groups of objects syntactically clearer.</p>
+            <p>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Group">Group</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="T:Blazor3D.Objects.Mesh">
+            <summary>
+            <p>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</p>
+            <p>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></p>
+            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></p>
+            </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:Blazor3D.Objects.Mesh.Material">
+            <summary>
+            <p>Collection of <see cref="T:Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Objects.Mesh.Geometry">
+            <summary>
+            <p>An instance of <see cref="T:Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</p>
             </summary>
         </member>
         <member name="T:Blazor3D.Scenes.Scene">
