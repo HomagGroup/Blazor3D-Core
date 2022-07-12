@@ -8,6 +8,19 @@
     <DocumentationFile>..\..\..\..\doc\Blazor3D.xml</DocumentationFile>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<PackageId>Blazor3D</PackageId>
+		<Authors>Roman Simuta</Authors>
+		<PackageTags>Blazor, 3D, Siroman</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/simutaroman/blazor3D.Examples</RepositoryUrl>
+		<Description>
+			This Razor class library (RCL) contains the Blazor component which allows you create 3D scenes inside your Blazor application.
+			This Blazor3d component uses three.js library to display 3D scenes on html canvas.
+			See examples of using inside https://github.com/simutaroman/blazor3D.Examples
+		</Description>
+	</PropertyGroup>
+	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
