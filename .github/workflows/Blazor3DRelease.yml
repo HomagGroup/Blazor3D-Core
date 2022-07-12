@@ -16,11 +16,11 @@ jobs:
     - name: Set VERSION variable from tag
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Build
-      run: dotnet build --configuration Release /p:Version=${VERSION}
-    - name: Test
-      run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+      run: dotnet build --configuration Release /p:Version=${VERSION} ./src/dotnet/Blazor3D/Blazor3D.sln
+    #- name: Test
+    #  run: dotnet test --configuration Release /p:Version=${VERSION} --no-build 
     - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output . ./src/dotnet/Blazor3D/Blazor3D.sln
     - name: Push
       run: dotnet nuget push Blazor3D.${VERSION}.nupkg --api-key ${NUGET_TOKEN} --source https://api.nuget.org/v3/index.json
       env:
