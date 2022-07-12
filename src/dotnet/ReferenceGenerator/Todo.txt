@@ -1,3 +1,0 @@
-- return values for methods!!!
-- sitemap
-- styles - use bootstrap, because of mobile-ready
