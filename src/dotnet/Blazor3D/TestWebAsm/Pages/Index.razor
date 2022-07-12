@@ -2,10 +2,12 @@
 @using Blazor3D.Geometires
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
+@using Blazor3D.Viewers
 
 <div class="row">
     <div class="col-sm-12">
         <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene/>
+        <Viewer UseDefaultScene=@true/>
     </div>
 </div>
 

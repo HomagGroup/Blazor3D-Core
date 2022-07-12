@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: PerspectiveCamera</title>
+    <title>Blazor3D API Reference Guide: Viewer</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -39,11 +39,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: PerspectiveCamera</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: Viewer</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">PerspectiveCamera</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">Viewer</li>
                 </ol>
             </nav>
 
@@ -108,44 +108,50 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">PerspectiveCamera : <a href="Blazor3D.Cameras.Camera.html">Camera</a></h2>
-                    <div>NameSpace: <strong>Blazor3D.Cameras</strong></div>
+                    <h2 class="fontlight">Viewer</h2>
+                    <div>NameSpace: <strong>Blazor3D.Viewers</strong></div>
                     <hr />
-                    <div><p>Camera that uses perspective projection.
-            This projection mode is designed to mimic the way the human eyes see.
-            It is the most common projection mode used for rendering a 3D scene.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></p>
+                    <div>Blazor3D viewer component.
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>Fov</strong>
+<strong>ViewerSettings</strong>
 </td>
 <td>
-<div>Camera frustum vertical field of view. Default value is 75;</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>Near</strong>
-</td>
-<td>
-<div>Camera frustum near plane distance.</div>
+<div><p><a href="Blazor3D.Settings.ViewerSettings.html">ViewerSettings</a> parameter of the component.</p></div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>Far</strong>
+<strong>Scene</strong>
 </td>
 <td>
-<div>Camera frustum far plane distance.</div>
+<div><p><a href="Blazor3D.Scenes.Scene.html">Scene</a> parameter of the component. Default is empty scene.</p></div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>Aspect</strong>
+<strong>UseDefaultScene</strong>
 </td>
 <td>
-<div>Camera frustum aspect ratio. It is calculated by Blazor3D component as current width divided by current height.</div>
+<div><p>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Camera</strong>
+</td>
+<td>
+<div><p><a href="Blazor3D.Cameras.PerspectiveCamera.html">PerspectiveCamera</a> used to display the scene.</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>OrbitControls</strong>
+</td>
+<td>
+<div><p><a href="Blazor3D.Controls.OrbitControls.html">OrbitControls</a> used to rotate, pan and scale the view.</p></div>
 </td>
 </tr>
 </table>

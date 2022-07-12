@@ -7,21 +7,45 @@ using Blazor3D.Controls;
 using Newtonsoft.Json;
 using Blazor3D.Helpers;
 using Blazor3D.Maths;
-using Newtonsoft.Json.Linq;
 using Blazor3D.Objects;
 using Blazor3D.Enums;
+using Blazor3D.Lights;
 
-namespace Blazor3D
+namespace Blazor3D.Viewers
 {
+    /// <summary>
+    /// Blazor3D viewer component.
+    /// </summary>
     public partial class Viewer
     {
         private IJSObjectReference bundleModule = null!;
 
+        /// <summary>
+        /// <p><see cref="Settings.ViewerSettings"/> parameter of the component.</p>
+        /// </summary>
         [Parameter]
         public ViewerSettings ViewerSettings { get; set; } = new ViewerSettings();
+
+        /// <summary>
+        /// <p><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</p>
+        /// </summary>
         [Parameter]
         public Scene Scene { get; set; } = new Scene();
+
+        /// <summary>
+        /// <p>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</p>
+        /// </summary>
+        [Parameter]
+        public bool UseDefaultScene { get; set; } = false;
+
+        /// <summary>
+        /// <p><see cref="PerspectiveCamera"/> used to display the scene.</p>
+        /// </summary>
         public PerspectiveCamera Camera { get; } = new PerspectiveCamera();
+
+        /// <summary>
+        /// <p><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</p>
+        /// </summary>
         public OrbitControls OrbitControls { get; set; } = new OrbitControls();
 
         public event Func<object, EventArgs, Task> Load = null!;
@@ -54,6 +78,10 @@ namespace Blazor3D
                     "./_content/Blazor3D/js/bundle.js")
                 .AsTask();
 
+                if (UseDefaultScene && !Scene.Children.Any())
+                {
+                    AddDefaultScene();
+                }
 
                 var json = JsonConvert.SerializeObject(new
                 {
@@ -94,6 +122,21 @@ namespace Blazor3D
 
             }
             return guid;
+        }
+
+        private void AddDefaultScene()
+        {
+            Scene.Add(new AmbientLight());
+            Scene.Add(new PointLight()
+            {
+                Position = new Vector3
+                {
+                    X = 0,
+                    Y = 3,
+                    Z = 0
+                }
+            });
+            Scene.Add(new Mesh());
         }
     }
 }

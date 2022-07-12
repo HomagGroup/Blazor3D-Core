@@ -40,6 +40,31 @@
              Camera frustum aspect ratio. It is calculated by Blazor3D component as current width divided by current height.
             </summary>
         </member>
+        <member name="T:Blazor3D.Controls.OrbitControls">
+            <summary>
+            Orbit controls.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Controls.OrbitControls.Enabled">
+            <summary>
+            If true, then enabled. Otherwise, disabled. Default is true.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Controls.OrbitControls.MinDistance">
+            <summary>
+            Minimal distance. Default is 0.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Controls.OrbitControls.MaxDistance">
+            <summary>
+            Maximal distance to zoom. Default is 10000;
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Controls.OrbitControls.TargetPosition">
+            <summary>
+            The point where the camera is looking at. Default is (0,0,0).
+            </summary>
+        </member>
         <member name="T:Blazor3D.Core.BufferGeometry">
             <summary>
             <p>A representation of geometry for mesh, line, or point. 
@@ -385,6 +410,47 @@
             Scene background color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
             Default value is "DarkSlateBlue">
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Settings.ViewerSettings">
+            <summary>
+            Class for Blazor3D Viewer settings.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.ContainerId">
+            <summary>
+            <para>Identifier of the html container where <see cref="T:Blazor3D.Viewers.Viewer"/>instance will be created.</para>
+            <para>Must be unique on the html page!</para>
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Viewers.Viewer">
+            <summary>
+            Blazor3D viewer component.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
+            <summary>
+            <p><see cref="T:Blazor3D.Settings.ViewerSettings"/> parameter of the component.</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Viewers.Viewer.Scene">
+            <summary>
+            <p><see cref="T:Blazor3D.Scenes.Scene"/> parameter of the component. Default is empty scene.</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Viewers.Viewer.UseDefaultScene">
+            <summary>
+            <p>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Viewers.Viewer.Camera">
+            <summary>
+            <p><see cref="T:Blazor3D.Cameras.PerspectiveCamera"/> used to display the scene.</p>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Viewers.Viewer.OrbitControls">
+            <summary>
+            <p><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</p>
             </summary>
         </member>
     </members>

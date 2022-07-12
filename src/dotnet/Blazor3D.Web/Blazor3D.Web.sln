@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor3D.Web", "Blazor3D.Web\Blazor3D.Web.csproj", "{89E3D180-80E3-4096-9C2F-0CCB76146CEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor3D.Web", "Blazor3D.Web\Blazor3D.Web.csproj", "{89E3D180-80E3-4096-9C2F-0CCB76146CEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceGenerator", "ReferenceGenerator\ReferenceGenerator.csproj", "{277A8BB3-3EDB-4F59-BFEF-D0A2D83EB7E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReferenceGenerator", "ReferenceGenerator\ReferenceGenerator.csproj", "{277A8BB3-3EDB-4F59-BFEF-D0A2D83EB7E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{50951ED3-CAAC-4F74-80EC-816C5CDA2112}"
+	ProjectSection(SolutionItems) = preProject
+		Todo.txt = Todo.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

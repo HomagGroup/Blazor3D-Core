@@ -5,10 +5,12 @@
 @using Blazor3D.Maths
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
+@using Blazor3D.Viewers
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true/>
+        <Viewer UseDefaultScene=@true/>
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
