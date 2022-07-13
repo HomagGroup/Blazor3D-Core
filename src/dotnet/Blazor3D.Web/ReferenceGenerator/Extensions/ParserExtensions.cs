@@ -29,7 +29,8 @@
                     .Replace("<see cref=\"T:Blazor3D.Objects.Mesh\" />", "<a href=\"Blazor3D.Objects.Mesh.html\">Mesh</a>")
                     .Replace("<see cref=\"T:Blazor3D.Scenes.Scene\" />", "<a href=\"Blazor3D.Scenes.Scene.html\">Scene</a>")
                     .Replace("<see cref=\"T:Blazor3D.Settings.ViewerSettings\" />", "<a href=\"Blazor3D.Settings.ViewerSettings.html\">ViewerSettings</a>")
-                    .Replace("<see cref=\"T:Blazor3D.Viewers.Viewer\" />", "<a href=\"Blazor3D.Viewers.Viewer.html\">Viewer</a>");
+                    .Replace("<see cref=\"T:Blazor3D.Viewers.Viewer\" />", "<a href=\"Blazor3D.Viewers.Viewer.html\">Viewer</a>")
+                    .Replace("<see cref=\"T:Blazor3D.Enums.Import3DFormats\" />", "<a href=\"Blazor3D.Enums.Import3DFormats.html\">Import3DFormats</a>");
             }
             return res;
         }

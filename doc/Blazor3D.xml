@@ -425,7 +425,7 @@
         </member>
         <member name="T:Blazor3D.Viewers.Viewer">
             <summary>
-            Blazor3D viewer component.
+            <para>Blazor3D viewer component.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
@@ -452,6 +452,23 @@
             <summary>
             <para><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.SetCameraPositionAsync(Blazor3D.Maths.Vector3)">
+            <summary>
+            <para>Sets the camera position to specified <see cref="T:Blazor3D.Maths.Vector3"/> value.</para>
+            </summary>
+            <param name="position">New <see cref="T:Blazor3D.Maths.Vector3"/> position.</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Int32)">
+            <summary>
+            <para>Imports 3D model to scene.</para>
+            </summary>
+            <param name="format"><see cref="T:Blazor3D.Enums.Import3DFormats"/> format of 3D model.</param>
+            <param name="objUrl">URL of the 3D model file</param>
+            <param name="textureUrl">URL of the texture file</param>
+            <param name="delay">Delay im miliseconds to get things loaded before displaying. Default is 200 ms</param>
+            <returns>Guid of the loaded item</returns>
         </member>
     </members>
 </doc>

@@ -14,7 +14,7 @@ using Blazor3D.Lights;
 namespace Blazor3D.Viewers
 {
     /// <summary>
-    /// Blazor3D viewer component.
+    /// <para>Blazor3D viewer component.</para>
     /// </summary>
     public sealed partial class Viewer
     {
@@ -101,12 +101,25 @@ namespace Blazor3D.Viewers
             }
         }
 
-        public async Task SetCameraPosition(Vector3 position)
+        /// <summary>
+        /// <para>Sets the camera position to specified <see cref="Vector3"/> value.</para>
+        /// </summary>
+        /// <param name="position">New <see cref="Vector3"/> position.</param>
+        /// <returns>Task</returns>
+        public async Task SetCameraPositionAsync(Vector3 position)
         {
             await bundleModule.InvokeVoidAsync("setCameraPosition", position);
         }
 
-        public async Task<Guid> Import3DModel(Import3DFormats format, string objUrl, string textureUrl, int delay = 200)
+        /// <summary>
+        /// <para>Imports 3D model to scene.</para>
+        /// </summary>
+        /// <param name="format"><see cref="Import3DFormats"/> format of 3D model.</param>
+        /// <param name="objUrl">URL of the 3D model file</param>
+        /// <param name="textureUrl">URL of the texture file</param>
+        /// <param name="delay">Delay im miliseconds to get things loaded before displaying. Default is 200 ms</param>
+        /// <returns>Guid of the loaded item</returns>
+        public async Task<Guid> Import3DModelAsync(Import3DFormats format, string objUrl, string textureUrl, int delay = 200)
         {
             var guid = Guid.NewGuid();
             await bundleModule.InvokeVoidAsync("import3DModel", format.ToString(), objUrl, textureUrl, guid);

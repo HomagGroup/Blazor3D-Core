@@ -128,6 +128,11 @@ namespace ReferenceGenerator
 
                 if (type == "Method" || type == "Constructor")
                 {
+                    var returnValue = (item as MethodModel)?.ReturnValue ?? string.Empty;
+                    if (!string.IsNullOrEmpty(returnValue))
+                    {
+                        contentSB.AppendLine($"<div><p><strong>Returns:</strong> {returnValue}</p></div>");
+                    }
                     var paramsList = (item as MethodModel)?.Params ?? new List<BaseModel>();
                     if (paramsList.Any())
                     {
