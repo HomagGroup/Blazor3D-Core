@@ -8,7 +8,7 @@ namespace Blazor3D.Objects
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Group">Group</a></para>
     /// </summary>
     /// <inheritdoc><see cref="Object3D"/></inheritdoc>
-    public class Group : Object3D
+    public sealed class Group : Object3D
     {
         public Group() : base("Group")
         {

@@ -7,7 +7,7 @@
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></para>
     /// </summary>
     /// <inheritdoc><see cref="Camera"/></inheritdoc>
-    public class PerspectiveCamera : Camera
+    public sealed class PerspectiveCamera : Camera
     {
         public PerspectiveCamera() : base("PerspectiveCamera")
         {

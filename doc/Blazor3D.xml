@@ -299,7 +299,7 @@
             <summary>
             <para>Light color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
-            Default value is "grey"</para>
+            Default value is "orange"</para>
             </summary>
         </member>
         <member name="T:Blazor3D.Maths.Euler">

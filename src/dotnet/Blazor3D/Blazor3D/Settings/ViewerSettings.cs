@@ -5,7 +5,7 @@ namespace Blazor3D.Settings
     /// <summary>
     /// Class for Blazor3D Viewer settings.
     /// </summary>
-    public class ViewerSettings
+    public sealed class ViewerSettings
     {
         /// <summary>
         /// <para>Identifier of the html container where <see cref="Viewer"/>instance will be created.</para>

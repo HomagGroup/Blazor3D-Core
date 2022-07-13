@@ -16,7 +16,7 @@ namespace Blazor3D.Viewers
     /// <summary>
     /// Blazor3D viewer component.
     /// </summary>
-    public partial class Viewer
+    public sealed partial class Viewer
     {
         private IJSObjectReference bundleModule = null!;
 

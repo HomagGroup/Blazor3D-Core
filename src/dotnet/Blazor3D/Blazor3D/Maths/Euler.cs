@@ -6,7 +6,7 @@
     /// Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></para>
     /// </summary>
-    public class Euler
+    public sealed class Euler
     {
         /// <summary>
         /// The float angle of the X axis in radians. Default is 0. Optional.

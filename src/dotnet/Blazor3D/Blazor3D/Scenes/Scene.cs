@@ -9,7 +9,7 @@ namespace Blazor3D.Scenes
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></para>
     /// </summary>
     /// <inheritdoc><see cref="Object3D"/></inheritdoc>
-    public class Scene : Object3D
+    public sealed class Scene : Object3D
     {
         public Scene() : base("Scene")
         {

@@ -10,7 +10,7 @@
     /// </ul>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></para>
     /// </summary>
-    public class Vector3
+    public sealed class Vector3
     {
         /// <summary>
         /// Default constructor.

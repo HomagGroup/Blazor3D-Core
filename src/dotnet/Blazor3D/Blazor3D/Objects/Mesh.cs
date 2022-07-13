@@ -10,7 +10,7 @@ namespace Blazor3D.Objects
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></para>
     /// </summary>
     /// <inheritdoc><see cref="Object3D"/></inheritdoc>
-    public class Mesh : Object3D
+    public sealed class Mesh : Object3D
     {
         public Mesh() : base("Mesh")
         {
