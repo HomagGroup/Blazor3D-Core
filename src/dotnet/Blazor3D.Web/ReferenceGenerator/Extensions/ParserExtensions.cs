@@ -4,11 +4,13 @@
     {
         public static string ParseSummary(this string str)
         {
-            var res = str;
-            if (str.Contains("<see cref"))
+            var res = str
+                .Replace("\\r\\n", "</br>")
+                .Replace("<para>", "<p>")
+                .Replace("</para>", "</p>");
+            if (res.Contains("<see cref"))
             {
-                res = str
-                    .Replace("\\r\\n", "</br>")
+                res = res
                     .Replace("<see cref=\"T:Blazor3D.Cameras.Camera\" />", "<a href=\"Blazor3D.Cameras.Camera.html\">Camera</a>")
                     .Replace("<see cref=\"T:Blazor3D.Cameras.PerspectiveCamera\" />", "<a href=\"Blazor3D.Cameras.PerspectiveCamera.html\">PerspectiveCamera</a>")
                     .Replace("<see cref=\"T:Blazor3D.Controls.OrbitControls\" />", "<a href=\"Blazor3D.Controls.OrbitControls.html\">OrbitControls</a>")

@@ -21,30 +21,30 @@ namespace Blazor3D.Viewers
         private IJSObjectReference bundleModule = null!;
 
         /// <summary>
-        /// <p><see cref="Settings.ViewerSettings"/> parameter of the component.</p>
+        /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
         /// </summary>
         [Parameter]
         public ViewerSettings ViewerSettings { get; set; } = new ViewerSettings();
 
         /// <summary>
-        /// <p><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</p>
+        /// <para><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</para>
         /// </summary>
         [Parameter]
         public Scene Scene { get; set; } = new Scene();
 
         /// <summary>
-        /// <p>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</p>
+        /// <para>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</para>
         /// </summary>
         [Parameter]
         public bool UseDefaultScene { get; set; } = false;
 
         /// <summary>
-        /// <p><see cref="PerspectiveCamera"/> used to display the scene.</p>
+        /// <para><see cref="PerspectiveCamera"/> used to display the scene.</para>
         /// </summary>
         public PerspectiveCamera Camera { get; } = new PerspectiveCamera();
 
         /// <summary>
-        /// <p><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</p>
+        /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
         /// </summary>
         public OrbitControls OrbitControls { get; set; } = new OrbitControls();
 
@@ -131,7 +131,7 @@ namespace Blazor3D.Viewers
             {
                 Position = new Vector3
                 {
-                    X = 0,
+                    X = 1,
                     Y = 3,
                     Z = 0
                 }

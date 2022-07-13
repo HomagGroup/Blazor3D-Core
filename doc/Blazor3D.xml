@@ -6,17 +6,17 @@
     <members>
         <member name="T:Blazor3D.Cameras.Camera">
             <summary>
-            <p>Abstract base class for cameras.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/Camera">Camera</a></p>
+            <para>Abstract base class for cameras.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/Camera">Camera</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="T:Blazor3D.Cameras.PerspectiveCamera">
             <summary>
-            <p>Camera that uses perspective projection.
+            <para>Camera that uses perspective projection.
             This projection mode is designed to mimic the way the human eyes see.
-            It is the most common projection mode used for rendering a 3D scene.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></p>
+            It is the most common projection mode used for rendering a 3D scene.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Cameras.Camera"/></inheritdoc>
         </member>
@@ -67,10 +67,10 @@
         </member>
         <member name="T:Blazor3D.Core.BufferGeometry">
             <summary>
-            <p>A representation of geometry for mesh, line, or point. 
+            <para>A representation of geometry for mesh, line, or point. 
             Includes vertex positions, face indices, normals, colors, UVs, and custom attributes within buffers, 
-            reducing the cost of passing all this data to the GPU.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></p>
+            reducing the cost of passing all this data to the GPU.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Core.BufferGeometry.Name">
@@ -85,9 +85,9 @@
         </member>
         <member name="T:Blazor3D.Core.Object3D">
              <summary>
-             <p>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
-             It provides functionality for manipulating objects in 3D space.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></p>
+             <para>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
+             It provides functionality for manipulating objects in 3D space.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></para>
              </summary>
         </member>
         <member name="P:Blazor3D.Core.Object3D.Position">
@@ -153,9 +153,9 @@
         </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
             <summary>
-            <p>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</p>
-            <p>This class inherits from <see cref="T:Blazor3D.Core.BufferGeometry"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry">BoxGeometry</a></p>
+            <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>
+            <para>This class inherits from <see cref="T:Blazor3D.Core.BufferGeometry"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry">BoxGeometry</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
         </member>
@@ -191,12 +191,12 @@
         </member>
         <member name="T:Blazor3D.Geometires.CircleGeometry">
             <summary>
-            <p>Class for a simple shape of Euclidean geometry. 
+            <para>Class for a simple shape of Euclidean geometry. 
             It is constructed from a number of triangular segments that are oriented around a central point and extend as far out as a given radius. 
             It is built counter-clockwise from a start angle and a given central angle. 
-            It can also be used to create regular polygons, where the number of segments determines the number of sides.</p>
-            <p>This class inherits from <see cref="T:Blazor3D.Core.BufferGeometry"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></p>
+            It can also be used to create regular polygons, where the number of segments determines the number of sides.</para>
+            <para>This class inherits from <see cref="T:Blazor3D.Core.BufferGeometry"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
         </member>
@@ -222,59 +222,59 @@
         </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
-            <p>This light globally illuminates all objects in the scene equally.
-            This light cannot be used to cast shadows as it does not have a direction.</p>
-            <p>This class inherits from <see cref="T:Blazor3D.Lights.Light"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight">AmbientLight</a></p>
+            <para>This light globally illuminates all objects in the scene equally.
+            This light cannot be used to cast shadows as it does not have a direction.</para>
+            <para>This class inherits from <see cref="T:Blazor3D.Lights.Light"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight">AmbientLight</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Lights.Light"/></inheritdoc>
         </member>
         <member name="T:Blazor3D.Lights.Light">
             <summary>
-            <p>Abstract base class for lights.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/Light">Light</a></p>
+            <para>Abstract base class for lights.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/Light">Light</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Lights.Light.Color">
             <summary>
-            <p>Light color. 
+            <para>Light color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
-            Default value is "white"</p>
+            Default value is "white"</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Lights.Light.Intensity">
             <summary>
-            <p>Value of the light's strength/intensity. Default is 1.</p>
+            <para>Value of the light's strength/intensity. Default is 1.</para>
             </summary>
         </member>
         <member name="T:Blazor3D.Lights.PointLight">
             <summary>
-            <p>A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.</p>
-            <p>This light can cast shadows</p>
-            <p>This class inherits from <see cref="T:Blazor3D.Lights.Light"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/PointLight">PointLight</a></p>
+            <para>A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.</para>
+            <para>This light can cast shadows</para>
+            <para>This class inherits from <see cref="T:Blazor3D.Lights.Light"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/PointLight">PointLight</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Lights.Light"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Lights.PointLight.Distance">
             <summary>
-            <p>When distance value is NOT 0, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light.</p>
-            <p>When distance is zero, light does not attenuate.</p>
-            <p>Default is 0.</p>
+            <para>When distance value is NOT 0, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light.</para>
+            <para>When distance is zero, light does not attenuate.</para>
+            <para>Default is 0.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Lights.PointLight.Decay">
             <summary>
-            <p>The amount the light dims along the distance of the light</p>
-            <p>Default is 1.</p>
+            <para>The amount the light dims along the distance of the light</para>
+            <para>Default is 1.</para>
             </summary>
         </member>
         <member name="T:Blazor3D.Materials.Material">
             <summary>
-            <p>Abstract base class for materials.</p>
-            <p>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></p>
+            <para>Abstract base class for materials.</para>
+            <para>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Materials.Material.Name">
@@ -289,25 +289,25 @@
         </member>
         <member name="T:Blazor3D.Materials.MeshStandardMaterial">
             <summary>
-            <p>A standard physically based Material, using Metallic-Roughness workflow.</p>
-            <p>This class inherits from <see cref="T:Blazor3D.Materials.Material"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a></p>
+            <para>A standard physically based Material, using Metallic-Roughness workflow.</para>
+            <para>This class inherits from <see cref="T:Blazor3D.Materials.Material"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Materials.MeshStandardMaterial"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Materials.MeshStandardMaterial.Color">
             <summary>
-            <p>Light color. 
+            <para>Light color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
-            Default value is "grey"</p>
+            Default value is "grey"</para>
             </summary>
         </member>
         <member name="T:Blazor3D.Maths.Euler">
             <summary>
-            <p>Representing Euler Angles.
+            <para>Representing Euler Angles.
             Euler angles describe a rotational transformation by rotating an object on its various axes in specified amounts per axis, and a specified axis order.
-            Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></p>
+            Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Euler.X">
@@ -332,14 +332,14 @@
         </member>
         <member name="T:Blazor3D.Maths.Vector3">
             <summary>
-            <p>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
-            which can be used to represent a number of things, such as:</p>
+            <para>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
+            which can be used to represent a number of things, such as:</para>
             <ul>
             <li>A point in 3D space.</li>
             <li>A direction, length or scale in 3D space. </li>
             <li>Any arbitrary ordered triplet of numbers.</li>
             </ul>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></p>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></para>
             </summary>
         </member>
         <member name="M:Blazor3D.Maths.Vector3.#ctor">
@@ -372,36 +372,36 @@
         </member>
         <member name="T:Blazor3D.Objects.Group">
             <summary>
-            <p>This is almost identical to an <see cref="T:Blazor3D.Core.Object3D"/>. Its purpose is to make working with groups of objects syntactically clearer.</p>
-            <p>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Group">Group</a></p>
+            <para>This is almost identical to an <see cref="T:Blazor3D.Core.Object3D"/>. Its purpose is to make working with groups of objects syntactically clearer.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Group">Group</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="T:Blazor3D.Objects.Mesh">
             <summary>
-            <p>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</p>
-            <p>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></p>
+            <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Objects.Mesh.Material">
             <summary>
-            <p>Collection of <see cref="T:Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</p>
+            <para>Collection of <see cref="T:Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Objects.Mesh.Geometry">
             <summary>
-            <p>An instance of <see cref="T:Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</p>
+            <para>An instance of <see cref="T:Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</para>
             </summary>
         </member>
         <member name="T:Blazor3D.Scenes.Scene">
             <summary>
-            <p>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
-            This is the place where you put your 3D objects and lights.</p>
-            <p>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></p>
-            <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></p>
+            <para>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
+            This is the place where you put your 3D objects and lights.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
@@ -430,27 +430,27 @@
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
             <summary>
-            <p><see cref="T:Blazor3D.Settings.ViewerSettings"/> parameter of the component.</p>
+            <para><see cref="T:Blazor3D.Settings.ViewerSettings"/> parameter of the component.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.Scene">
             <summary>
-            <p><see cref="T:Blazor3D.Scenes.Scene"/> parameter of the component. Default is empty scene.</p>
+            <para><see cref="T:Blazor3D.Scenes.Scene"/> parameter of the component. Default is empty scene.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.UseDefaultScene">
             <summary>
-            <p>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</p>
+            <para>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.Camera">
             <summary>
-            <p><see cref="T:Blazor3D.Cameras.PerspectiveCamera"/> used to display the scene.</p>
+            <para><see cref="T:Blazor3D.Cameras.PerspectiveCamera"/> used to display the scene.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.OrbitControls">
             <summary>
-            <p><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</p>
+            <para><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
             </summary>
         </member>
     </members>

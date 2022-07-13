@@ -3,12 +3,12 @@
 namespace Blazor3D.Geometires
 {
     /// <summary>
-    /// <p>Class for a simple shape of Euclidean geometry. 
+    /// <para>Class for a simple shape of Euclidean geometry. 
     /// It is constructed from a number of triangular segments that are oriented around a central point and extend as far out as a given radius. 
     /// It is built counter-clockwise from a start angle and a given central angle. 
-    /// It can also be used to create regular polygons, where the number of segments determines the number of sides.</p>
-    /// <p>This class inherits from <see cref="BufferGeometry"/></p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></p>
+    /// It can also be used to create regular polygons, where the number of segments determines the number of sides.</para>
+    /// <para>This class inherits from <see cref="BufferGeometry"/></para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></para>
     /// </summary>
     /// <inheritdoc><see cref="BufferGeometry"/></inheritdoc>
     public sealed class CircleGeometry : BufferGeometry

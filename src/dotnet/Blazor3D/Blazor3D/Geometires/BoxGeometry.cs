@@ -3,9 +3,9 @@
 namespace Blazor3D.Geometires
 {
     /// <summary>
-    /// <p>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</p>
-    /// <p>This class inherits from <see cref="BufferGeometry"/></p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry">BoxGeometry</a></p>
+    /// <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>
+    /// <para>This class inherits from <see cref="BufferGeometry"/></para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry">BoxGeometry</a></para>
     /// </summary>
     /// <inheritdoc><see cref="BufferGeometry"/></inheritdoc>
     public sealed class BoxGeometry : BufferGeometry

@@ -1,10 +1,10 @@
 ﻿namespace Blazor3D.Maths
 {
     /// <summary>
-    /// <p>Representing Euler Angles.
+    /// <para>Representing Euler Angles.
     /// Euler angles describe a rotational transformation by rotating an object on its various axes in specified amounts per axis, and a specified axis order.
-    /// Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></p>
+    /// Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></para>
     /// </summary>
     public class Euler
     {
