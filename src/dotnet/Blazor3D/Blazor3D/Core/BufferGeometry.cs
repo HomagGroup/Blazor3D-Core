@@ -3,10 +3,10 @@
 namespace Blazor3D.Core
 {
     /// <summary>
-    /// <p>A representation of geometry for mesh, line, or point. 
+    /// <para>A representation of geometry for mesh, line, or point. 
     /// Includes vertex positions, face indices, normals, colors, UVs, and custom attributes within buffers, 
-    /// reducing the cost of passing all this data to the GPU.</p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></p>
+    /// reducing the cost of passing all this data to the GPU.</para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></para>
     /// </summary>
     public abstract class BufferGeometry
     {

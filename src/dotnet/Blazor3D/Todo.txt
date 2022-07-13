@@ -1,3 +1,1 @@
-- sealed classes!!!!!
-- return values for methods!!!
 - basic geometries

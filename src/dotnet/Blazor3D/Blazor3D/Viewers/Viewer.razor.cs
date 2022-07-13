@@ -14,37 +14,37 @@ using Blazor3D.Lights;
 namespace Blazor3D.Viewers
 {
     /// <summary>
-    /// Blazor3D viewer component.
+    /// <para>Blazor3D viewer component.</para>
     /// </summary>
-    public partial class Viewer
+    public sealed partial class Viewer
     {
         private IJSObjectReference bundleModule = null!;
 
         /// <summary>
-        /// <p><see cref="Settings.ViewerSettings"/> parameter of the component.</p>
+        /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
         /// </summary>
         [Parameter]
         public ViewerSettings ViewerSettings { get; set; } = new ViewerSettings();
 
         /// <summary>
-        /// <p><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</p>
+        /// <para><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</para>
         /// </summary>
         [Parameter]
         public Scene Scene { get; set; } = new Scene();
 
         /// <summary>
-        /// <p>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</p>
+        /// <para>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</para>
         /// </summary>
         [Parameter]
         public bool UseDefaultScene { get; set; } = false;
 
         /// <summary>
-        /// <p><see cref="PerspectiveCamera"/> used to display the scene.</p>
+        /// <para><see cref="PerspectiveCamera"/> used to display the scene.</para>
         /// </summary>
         public PerspectiveCamera Camera { get; } = new PerspectiveCamera();
 
         /// <summary>
-        /// <p><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</p>
+        /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
         /// </summary>
         public OrbitControls OrbitControls { get; set; } = new OrbitControls();
 
@@ -101,12 +101,25 @@ namespace Blazor3D.Viewers
             }
         }
 
-        public async Task SetCameraPosition(Vector3 position)
+        /// <summary>
+        /// <para>Sets the camera position to specified <see cref="Vector3"/> value.</para>
+        /// </summary>
+        /// <param name="position">New <see cref="Vector3"/> position.</param>
+        /// <returns>Task</returns>
+        public async Task SetCameraPositionAsync(Vector3 position)
         {
             await bundleModule.InvokeVoidAsync("setCameraPosition", position);
         }
 
-        public async Task<Guid> Import3DModel(Import3DFormats format, string objUrl, string textureUrl, int delay = 200)
+        /// <summary>
+        /// <para>Imports 3D model to scene.</para>
+        /// </summary>
+        /// <param name="format"><see cref="Import3DFormats"/> format of 3D model.</param>
+        /// <param name="objUrl">URL of the 3D model file</param>
+        /// <param name="textureUrl">URL of the texture file</param>
+        /// <param name="delay">Delay im miliseconds to get things loaded before displaying. Default is 200 ms</param>
+        /// <returns>Guid of the loaded item</returns>
+        public async Task<Guid> Import3DModelAsync(Import3DFormats format, string objUrl, string textureUrl, int delay = 200)
         {
             var guid = Guid.NewGuid();
             await bundleModule.InvokeVoidAsync("import3DModel", format.ToString(), objUrl, textureUrl, guid);
@@ -131,7 +144,7 @@ namespace Blazor3D.Viewers
             {
                 Position = new Vector3
                 {
-                    X = 0,
+                    X = 1,
                     Y = 3,
                     Z = 0
                 }

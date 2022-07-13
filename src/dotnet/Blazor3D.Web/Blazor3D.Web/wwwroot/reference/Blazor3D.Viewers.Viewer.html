@@ -111,7 +111,76 @@
                     <h2 class="fontlight">Viewer</h2>
                     <div>NameSpace: <strong>Blazor3D.Viewers</strong></div>
                     <hr />
-                    <div>Blazor3D viewer component.
+                    <div><p>Blazor3D viewer component.</p>
+<h3 class="fontlight">Methods</h3>
+<table class="table table-bordered">
+<tr>
+<td>
+<strong>SetCameraPositionAsync(Vector3)</strong>
+</td>
+<td>
+<div><p>Sets the camera position to specified <a href="Blazor3D.Maths.Vector3.html">Vector3</a> value.</p></div>
+<div><p><strong>Returns:</strong> Task</p></div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>position</strong>
+</td>
+<td>
+<div>New <a href="Blazor3D.Maths.Vector3.html">Vector3</a> position.</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Import3DModelAsync(Import3DFormats, string, string, Int32)</strong>
+</td>
+<td>
+<div><p>Imports 3D model to scene.</p></div>
+<div><p><strong>Returns:</strong> Guid of the loaded item</p></div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>format</strong>
+</td>
+<td>
+<div><a href="Blazor3D.Enums.Import3DFormats.html">Import3DFormats</a> format of 3D model.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>objUrl</strong>
+</td>
+<td>
+<div>URL of the 3D model file</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>textureUrl</strong>
+</td>
+<td>
+<div>URL of the texture file</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>delay</strong>
+</td>
+<td>
+<div>Delay im miliseconds to get things loaded before displaying. Default is 200 ms</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>

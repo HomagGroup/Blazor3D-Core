@@ -1,16 +1,16 @@
 ﻿namespace Blazor3D.Maths
 {
     /// <summary>
-    /// <p>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
-    /// which can be used to represent a number of things, such as:</p>
+    /// <para>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
+    /// which can be used to represent a number of things, such as:</para>
     /// <ul>
     /// <li>A point in 3D space.</li>
     /// <li>A direction, length or scale in 3D space. </li>
     /// <li>Any arbitrary ordered triplet of numbers.</li>
     /// </ul>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></p>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></para>
     /// </summary>
-    public class Vector3
+    public sealed class Vector3
     {
         /// <summary>
         /// Default constructor.

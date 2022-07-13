@@ -5,7 +5,7 @@ namespace Blazor3D.Controls
     /// <summary>
     /// Orbit controls.
     /// </summary>
-    public class OrbitControls
+    public sealed class OrbitControls
     {
         /// <summary>
         /// If true, then enabled. Otherwise, disabled. Default is true.

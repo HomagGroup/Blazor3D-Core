@@ -1,13 +1,13 @@
 ﻿namespace Blazor3D.Cameras
 {
     /// <summary>
-    /// <p>Camera that uses perspective projection.
+    /// <para>Camera that uses perspective projection.
     /// This projection mode is designed to mimic the way the human eyes see.
-    /// It is the most common projection mode used for rendering a 3D scene.</p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></p>
+    /// It is the most common projection mode used for rendering a 3D scene.</para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></para>
     /// </summary>
     /// <inheritdoc><see cref="Camera"/></inheritdoc>
-    public class PerspectiveCamera : Camera
+    public sealed class PerspectiveCamera : Camera
     {
         public PerspectiveCamera() : base("PerspectiveCamera")
         {

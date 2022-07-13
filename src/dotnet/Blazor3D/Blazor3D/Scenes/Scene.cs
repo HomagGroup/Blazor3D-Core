@@ -3,13 +3,13 @@
 namespace Blazor3D.Scenes
 {
     /// <summary>
-    /// <p>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
-    /// This is the place where you put your 3D objects and lights.</p>
-    /// <p>This object inherits from <see cref="Object3D"/></p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></p>
+    /// <para>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
+    /// This is the place where you put your 3D objects and lights.</para>
+    /// <para>This object inherits from <see cref="Object3D"/></para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></para>
     /// </summary>
     /// <inheritdoc><see cref="Object3D"/></inheritdoc>
-    public class Scene : Object3D
+    public sealed class Scene : Object3D
     {
         public Scene() : base("Scene")
         {

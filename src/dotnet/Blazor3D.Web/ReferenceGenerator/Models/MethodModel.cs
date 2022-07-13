@@ -13,6 +13,7 @@ namespace ReferenceGenerator.Models
         }
 
         public List<BaseModel> Params { get; } = new List<BaseModel>();
+        public string ReturnValue { get; set; } = string.Empty;
 
         private string ProcessMethodParamsString(string str)
         {
@@ -21,7 +22,7 @@ namespace ReferenceGenerator.Models
             Array.ForEach(prms, x =>
             {
                 var idx = x.LastIndexOf(".");
-                newPrms.Add( x[(idx + 1)..]);
+                newPrms.Add(x[(idx + 1)..]);
             });
 
             return $"({string.Join(", ", newPrms)})";
@@ -73,6 +74,10 @@ namespace ReferenceGenerator.Models
                             Name = pname,
                             Summary = node.InnerXml.Trim().ParseSummary()
                         });
+                    }
+                    if (node.Name == "returns")
+                    {
+                        ReturnValue = node.InnerXml.Trim().ParseSummary();
                     }
                 }
             }

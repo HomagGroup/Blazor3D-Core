@@ -1,9 +1,9 @@
 ﻿namespace Blazor3D.Materials
 {
     /// <summary>
-    /// <p>Abstract base class for materials.</p>
-    /// <p>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</p>
-    /// <p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></p>
+    /// <para>Abstract base class for materials.</para>
+    /// <para>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></para>
     /// </summary>
     public abstract class Material
     {
