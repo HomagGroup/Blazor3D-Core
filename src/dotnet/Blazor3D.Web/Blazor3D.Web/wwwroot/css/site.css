@@ -2,11 +2,7 @@ html {
     font-size: 14px;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
+
 
 html {
     position: relative;
@@ -18,12 +14,12 @@ body {
 }
 
 a, .nav-link, .btn-link {
-    color: #80F;
-    font-weight:400;
+    color: tomato;
+    font-weight: 400;
 }
 
     a:hover, .nav-link:hover, .btn-link:hover {
-        color: #50A;
+        color: black;
     }
 b, strong {
     font-weight: 500;
@@ -42,7 +38,11 @@ b, strong {
 }
 
 .topOffset {
-    padding-top: 2rem;
+    padding-top: 5rem;
+}
+
+.btmOffset {
+    padding-bottom: 2rem;
 }
 
 .blazor3d {
@@ -52,17 +52,17 @@ b, strong {
 }
 
 .navbar-light .navbar-brand {
-    color: #80F;
+    color: tomato;
 }
 
 .navbar-light .navbar-brand:hover {
-    color: #50A;
+    color: black;
 }
 
 video {
     object-fit: cover;
     position: absolute;
-    top: -20px;
+    top:4rem;
     left: 0;
     height: 100%;
     width: 100%;
@@ -84,7 +84,28 @@ video {
 }
 
 .header {
+    top: 5rem;
     position: relative;
     color: white;
     text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    font-size: 1rem;
+}
+
+.headerCode {
+    background-color:black;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .header {
+        font-size: 1.5rem;
+    }
+
+    .headerCode {
+        font-size: 2rem;
+    }
 }

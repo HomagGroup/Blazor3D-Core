@@ -54,7 +54,7 @@ namespace ReferenceGenerator
             {
                 
                 var idx = group.Key.LastIndexOf('.');
-                navSb.AppendLine($"<h4 class=\"fontlight\">{group.Key[(idx + 1)..]}</h3>");
+                navSb.AppendLine($"<h4 class=\"fontlight\">{group.Key[(idx + 1)..]}</h4>");
                 navSb.AppendLine($"<ul class=\"nav flex-column referenceNav\">");
                 foreach (var item in group)
                 {

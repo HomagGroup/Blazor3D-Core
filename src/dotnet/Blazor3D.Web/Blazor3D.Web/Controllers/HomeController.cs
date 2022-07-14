@@ -15,16 +15,25 @@ namespace Blazor3D.Web.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Title"] = "Blazor3D";
             return View();
         }
 
         public IActionResult Tutorials()
         {
+            ViewData["Title"] = "Blazor3D Tutorials";
+            return View();
+        }
+
+        public IActionResult GettingStarted()
+        {
+            ViewData["Title"] = "Blazor3D Getting Started tutorial";
             return View();
         }
 
         public IActionResult Privacy()
         {
+            ViewData["Title"] = "Privacy";
             return View();
         }
 
