@@ -8,25 +8,23 @@ class Loaders {
   static loadGltf(scene, url, guid) {
     const loader = new GLTFLoader();
     loader.load(url, (object) => {
-      console.log("gltf added...", object);
-      object.scene.guid = guid;
+      object.scene.uuid = guid;
       scene.add(object.scene);
     });
   }
   static loadFbx(scene, url, guid) {
     const loader = new FBXLoader();
     loader.load(url, (object) => {
-      object.guid = guid;
       scene.add(object);
+      object.uuid = guid;
     });
   }
 
   static loadCollada(scene, url, guid) {
     let object;
     const manager = new THREE.LoadingManager(() => {
-      object.guid = guid;
       scene.add(object);
-      console.log("collada added....", object);
+      object.uuid = guid;
     });
     const loader = new ColladaLoader(manager);
     loader.load(url, (obj) => {
@@ -44,7 +42,6 @@ class Loaders {
       }
       scene.add(object);
       object.uuid = guid;
-      console.log("obj added....", object);
     });
 
     const textureLoader = new THREE.TextureLoader(manager);
@@ -61,6 +58,16 @@ class Loaders {
     if(format == "Obj"){
       return Loaders.loadOBJ(scene, objUrl, textureUrl, guid);
     }
+    if(format == "Collada"){
+      return Loaders.loadCollada(scene, objUrl, guid);
+    }
+    if(format == "Fbx"){
+      return Loaders.loadFbx(scene, objUrl, guid);
+    }
+    if(format == "Gltf"){
+      return Loaders.loadGltf(scene, objUrl, guid);
+    }
+    
     return null;
   }
 }

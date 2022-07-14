@@ -48,7 +48,7 @@ class Viewer3D {
       var child = SceneBuilder.BuildChild(childOptions);
       this.scene.add(child);
     });
-    console.log(this.scene);
+    // console.log(this.scene);
   }
 
   setCamera(camera) {

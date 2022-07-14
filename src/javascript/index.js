@@ -8,7 +8,7 @@ window.onresize = function(){
 
 export function loadScene(json) {
   var options = JSON.parse(json);
-  console.log("scene loading ...");
+  // console.log("scene loading ...");
   let container = document.getElementById(options.viewerSettings.containerId);
   if (!container) {
     console.warn("Container not found");
@@ -16,7 +16,7 @@ export function loadScene(json) {
   }
 
   viewer3d = new Viewer3D(options, container);
-  console.log(viewer3d.options.scene);
+  // console.log(viewer3d.options.scene);
 }
 
 export function import3DModel(format, objUrl, textureUrl, guid) {
