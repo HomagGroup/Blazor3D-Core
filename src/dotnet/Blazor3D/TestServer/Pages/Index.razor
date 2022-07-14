@@ -10,7 +10,6 @@
 <div class="row justify-content-center">
     <div class="col-9 v3d">
         <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true/>
-        <Viewer UseDefaultScene=@true/>
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -79,13 +78,19 @@
 
     private async Task OnLoadObjButtonClick()
     {
-        objGuid = await View3D1.Import3DModelAsync(Import3DFormats.Obj, "https://threejs.org/examples/models/obj/male02/male02.obj",
-            "https://threejs.org/examples/textures/uv_grid_opengl.jpg", 500);
-        await View3D1.SetCameraPositionAsync(new Vector3()
-            {
-                Y = 100,
-                Z = 250
-            });
+       //await View3D1.Import3DModelAsync(
+       //     Import3DFormats.Fbx,
+       //     "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+       //     null,
+       //     500);
+       // await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
+
+        await View3D1.Import3DModelAsync(
+            Import3DFormats.Gltf,
+            "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
+            null,
+            500);
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5));
     }
 
 }
