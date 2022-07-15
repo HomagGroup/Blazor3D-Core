@@ -37,10 +37,11 @@ namespace ReferenceGenerator
 
         private string ProcessIndexFile(ReferenceModel reference, string templateStr, string nav)
         {
+            var indexContent = "<div>Blazor3D is a simple way to add 3D featutes to your Blazor application. Here you'll find the latest Blazor3D API references</div>";
             var indexFileStr = templateStr.Replace(TemplateSettings.TitleTemplate, reference.Name);
             indexFileStr = indexFileStr.Replace(TemplateSettings.HeaderTemplate, string.Empty);
             indexFileStr = indexFileStr.Replace(TemplateSettings.NameSpaceTemplate, string.Empty);
-            indexFileStr = indexFileStr.Replace(TemplateSettings.ContentTemplate, "Index content goes here");
+            indexFileStr = indexFileStr.Replace(TemplateSettings.ContentTemplate, indexContent);
             indexFileStr = indexFileStr.Replace(TemplateSettings.BreadcrumbsTemplate, BreadCrumbsFactory.GetIndexBreadcrumbs());
             indexFileStr = indexFileStr.Replace(TemplateSettings.NavTemplate, nav);
             return indexFileStr;
