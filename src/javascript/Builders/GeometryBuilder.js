@@ -94,11 +94,24 @@ class GeometryBuilder {
     }
 
     if (options.type == "PlaneGeometry") {
-        const geometry = new THREE.PlaneGeometry(
-          options.width,
-          options.height,
-          options.widthSegments,
-          options.heightSegments,
+      const geometry = new THREE.PlaneGeometry(
+        options.width,
+        options.height,
+        options.widthSegments,
+        options.heightSegments
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "RingGeometry") {
+        const geometry = new THREE.RingGeometry(
+          options.innerRadius,
+          options.outerRadius,
+          options.thetaSegments,
+          options.phiSegments,
+          options.thetaStart,
+          options.thetaLength
         );
         geometry.uuid = options.uuid;
         return geometry;

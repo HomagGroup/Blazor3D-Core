@@ -407,6 +407,36 @@
             Number of segmented rectangular faces along the height of the sides. Default is 1.
             </summary>
         </member>
+        <member name="P:Blazor3D.Geometires.RingGeometry.InnerRadius">
+            <summary>
+             Inner radius of the ring. Default is 0.5.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.RingGeometry.OuterRadius">
+            <summary>
+            Outer radius of the ring. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.RingGeometry.ThetaSegments">
+            <summary>
+            Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.RingGeometry.PhiSegments">
+            <summary>
+            Number of rows of faces from inner to outer radii. Minimum is 1. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.RingGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.RingGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.
