@@ -67,13 +67,23 @@ class GeometryBuilder {
     }
 
     if (options.type == "DodecahedronGeometry") {
-        const geometry = new THREE.DodecahedronGeometry(
-          options.radius,
-          options.detail
-        );
-        geometry.uuid = options.uuid;
-        return geometry;
-      }
+      const geometry = new THREE.DodecahedronGeometry(
+        options.radius,
+        options.detail
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "IcosahedronGeometry") {
+        console.log(options);
+      const geometry = new THREE.IcosahedronGeometry(
+        options.radius,
+        options.detail
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
   }
 }
 

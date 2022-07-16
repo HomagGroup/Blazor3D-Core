@@ -4,6 +4,7 @@ namespace Blazor3D.Geometires
 {
     /// <summary>
     /// A class for generating a dodecahedron geometries.
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/DodecahedronGeometry">DodecahedronGeometry</a></para>
     /// </summary>
     public class DodecahedronGeometry : BufferGeometry
     {
@@ -17,6 +18,6 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.
         /// </summary>
-        public float Detail { get; set; } = 0;
+        public int Detail { get; set; } = 0;
     }
 }

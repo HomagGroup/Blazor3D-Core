@@ -115,7 +115,19 @@
                     Color = "darkviolet"
                 }
             });
-
+        scene.Add(new Mesh
+            {
+                Geometry = new IcosahedronGeometry
+                {
+                    Radius = 1.5f,
+                    Detail = 10,
+                },
+                Position = new Vector3(5, 0, -5),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "grey"
+                }
+            });
         return base.OnInitializedAsync();
     }
 
