@@ -330,6 +330,21 @@
             The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.DodecahedronGeometry">
+            <summary>
+            A class for generating a dodecahedron geometries.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.DodecahedronGeometry.Radius">
+            <summary>
+            Radius of the dodecahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.DodecahedronGeometry.Detail">
+            <summary>
+            Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.

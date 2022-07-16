@@ -102,7 +102,19 @@
                     Color = "red"
                 }
             });
-
+        scene.Add(new Mesh
+            {
+                Geometry = new DodecahedronGeometry
+                {
+                    Radius = 1.5f,
+                    //Detail = 1,
+                },
+                Position = new Vector3(-5, 0, -5),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "darkviolet"
+                }
+            });
 
         return base.OnInitializedAsync();
     }

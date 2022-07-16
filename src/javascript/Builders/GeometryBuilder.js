@@ -65,6 +65,15 @@ class GeometryBuilder {
       geometry.uuid = options.uuid;
       return geometry;
     }
+
+    if (options.type == "DodecahedronGeometry") {
+        const geometry = new THREE.DodecahedronGeometry(
+          options.radius,
+          options.detail
+        );
+        geometry.uuid = options.uuid;
+        return geometry;
+      }
   }
 }
 
