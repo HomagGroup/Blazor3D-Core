@@ -3,32 +3,36 @@
 namespace Blazor3D.Geometires
 {
     /// <summary>
-    /// A class for generating cone geometries.
+    /// A class for generating cylinder geometries.
     /// </summary>
-    public sealed class ConeGeometry : BufferGeometry
+    public sealed class CylinderGeometry : BufferGeometry
     {
-        public ConeGeometry() : base("ConeGeometry")
+        public CylinderGeometry() : base("CylinderGeometry")
         {
         }
 
         /// <summary>
-        /// Radius of the cone base. Defaults to 1.
+        ///  Radius of the cylinder at the top. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public float RadiusTop { get; set; } = 1;
         /// <summary>
-        /// Height of the cone. Default is 1.
+        /// Radius of the cylinder at the bottom. Default is 1.
+        /// </summary>
+        public float RadiusBottom { get; set; } = 1;
+        /// <summary>
+        /// Height of the cylinder. Default is 1.
         /// </summary>
         public float Height { get; set; } = 1;
         /// <summary>
-        /// Number of segmented faces around the circumference of the cone. Default is 8.
+        /// Number of segmented faces around the circumference of the cylinder. Default is 8.
         /// </summary>
         public int RadialSegments { get; set; } = 8;
         /// <summary>
-        /// Number of rows of faces along the height of the cone. Default is 1.
+        /// Number of rows of faces along the height of the cylinder. Default is 1.
         /// </summary>
         public int HeightSegments { get; set; } = 1;
         /// <summary>
-        /// A Boolean indicating whether the base of the cone is open or capped. Default is false, meaning capped.
+        /// A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
         /// </summary>
         public bool OpenEnded { get; set; } = false;
         /// <summary>
@@ -39,6 +43,5 @@ namespace Blazor3D.Geometires
         /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
         /// </summary>
         public float ThetaLength { get; set; } = (float)(2 * System.Math.PI);
-
     }
 }

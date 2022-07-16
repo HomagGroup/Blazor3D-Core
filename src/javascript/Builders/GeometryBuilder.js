@@ -38,18 +38,33 @@ class GeometryBuilder {
     }
 
     if (options.type == "ConeGeometry") {
-        const geometry = new THREE.ConeGeometry(
-          options.radius,
-          options.height,
-          options.radialSegments,
-          options.heigthSegments,
-          options.openEnded,
-          options.thetaStart,
-          options.thetaLength
-        );
-        geometry.uuid = options.uuid;
-        return geometry;
-      }
+      const geometry = new THREE.ConeGeometry(
+        options.radius,
+        options.height,
+        options.radialSegments,
+        options.heigthSegments,
+        options.openEnded,
+        options.thetaStart,
+        options.thetaLength
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "CylinderGeometry") {
+      const geometry = new THREE.CylinderGeometry(
+        options.radiusTop,
+        options.radiusBottom,
+        options.height,
+        options.radialSegments,
+        options.heigthSegments,
+        options.openEnded,
+        options.thetaStart,
+        options.thetaLength
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
   }
 }
 

@@ -285,6 +285,51 @@
             The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.CylinderGeometry">
+            <summary>
+            A class for generating cylinder geometries.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.RadiusTop">
+            <summary>
+             Radius of the cylinder at the top. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.RadiusBottom">
+            <summary>
+            Radius of the cylinder at the bottom. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.Height">
+            <summary>
+            Height of the cylinder. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.RadialSegments">
+            <summary>
+            Number of segmented faces around the circumference of the cylinder. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.HeightSegments">
+            <summary>
+            Number of rows of faces along the height of the cylinder. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.OpenEnded">
+            <summary>
+            A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CylinderGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.
