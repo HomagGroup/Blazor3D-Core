@@ -3,7 +3,7 @@
 namespace Blazor3D.Geometires
 {
     /// <summary>
-    /// A class for generating a dodecahedron geometries.
+    /// <para>A class for generating a dodecahedron geometries.</para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/DodecahedronGeometry">DodecahedronGeometry</a></para>
     /// </summary>
     public class DodecahedronGeometry : BufferGeometry

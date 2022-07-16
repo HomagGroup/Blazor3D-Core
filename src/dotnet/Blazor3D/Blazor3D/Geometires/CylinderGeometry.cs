@@ -3,7 +3,8 @@
 namespace Blazor3D.Geometires
 {
     /// <summary>
-    /// A class for generating cylinder geometries.
+    /// <para>A class for generating cylinder geometries.</para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CylinderGeometry">CylinderGeometry</a></para>
     /// </summary>
     public sealed class CylinderGeometry : BufferGeometry
     {
