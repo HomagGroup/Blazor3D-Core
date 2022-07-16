@@ -1,18 +1,25 @@
 ﻿@page "/"
+@using Blazor3D.Enums
 @using Blazor3D.Geometires
+@using Blazor3D.Lights
+@using Blazor3D.Maths
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
 @using Blazor3D.Viewers
 
-<div class="row">
-    <div class="col-sm-12">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene/>
-        <Viewer UseDefaultScene=@true/>
+<div class="row justify-content-center">
+    <div class="col-9 v3d">
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true/>
     </div>
+    <div>
+        <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
+    </div>
+
 </div>
 
 @code {
     private Viewer View3D1 = null!;
+    private Guid objGuid;
     private ViewerSettings settings = new ViewerSettings()
         {
             ContainerId = "rsid",
@@ -22,14 +29,69 @@
 
     protected override Task OnInitializedAsync()
     {
-        scene.Add(new Mesh
-        {
-            Geometry = new BoxGeometry
+        scene.Add(new AmbientLight());
+        scene.Add(new PointLight()
             {
-                Width = 2
-            }
-        });
+                Decay = 2,
+                Position = new Vector3
+                {
+                    X = 1,
+                    Y = 3,
+                    Z = 0
+                }
+            });
+        scene.Add(new Mesh());
+        scene.Add(new Mesh
+            {
+                Geometry = new BoxGeometry
+                {
+                    Width = 2,
+                    Height = 0.5f
+                },
+                Position = new Vector3
+                {
+                    X = -1,
+                    Y = 1,
+                    Z = -1
+                }
+                ,
+                Rotation = new Euler
+                {
+                    X = (float)(Math.PI/4)
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new CircleGeometry(),
+                Position = new Vector3
+                {
+                    X = 1,
+                    Y = 1,
+                    Z = -1
+                },
+                Scale = new Vector3(0.5f, 1f, 1f)
+            });
+
         return base.OnInitializedAsync();
     }
+
+    private async Task OnLoadObjButtonClick()
+    {
+       await View3D1.Import3DModelAsync(
+            Import3DFormats.Fbx,
+            "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+            null,
+            500);
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
+
+        await View3D1.Import3DModelAsync(
+            Import3DFormats.Gltf,
+            "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
+            null,
+            500);
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5));
+    }
+
 }
 
