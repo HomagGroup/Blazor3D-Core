@@ -76,7 +76,6 @@ class GeometryBuilder {
     }
 
     if (options.type == "IcosahedronGeometry") {
-        console.log(options);
       const geometry = new THREE.IcosahedronGeometry(
         options.radius,
         options.detail
@@ -84,6 +83,26 @@ class GeometryBuilder {
       geometry.uuid = options.uuid;
       return geometry;
     }
+
+    if (options.type == "OctahedronGeometry") {
+      const geometry = new THREE.OctahedronGeometry(
+        options.radius,
+        options.detail
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "PlaneGeometry") {
+        const geometry = new THREE.PlaneGeometry(
+          options.width,
+          options.height,
+          options.widthSegments,
+          options.heightSegments,
+        );
+        geometry.uuid = options.uuid;
+        return geometry;
+      }
   }
 }
 

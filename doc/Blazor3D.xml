@@ -192,6 +192,7 @@
         <member name="T:Blazor3D.Geometires.CapsuleGeometry">
             <summary>
             <para>Class for a capsule with given radus and height. It is constructed using a lathe.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CapsuleGeometry">CapsuleGeometry</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.CapsuleGeometry.Radius">
@@ -247,7 +248,8 @@
         </member>
         <member name="T:Blazor3D.Geometires.ConeGeometry">
             <summary>
-            A class for generating cone geometries.
+            <para></para>A class for generating cone geometries.
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/ConeGeometry">ConeGeometry</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.ConeGeometry.Radius">
@@ -287,7 +289,8 @@
         </member>
         <member name="T:Blazor3D.Geometires.CylinderGeometry">
             <summary>
-            A class for generating cylinder geometries.
+            <para>A class for generating cylinder geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CylinderGeometry">CylinderGeometry</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.CylinderGeometry.RadiusTop">
@@ -332,7 +335,8 @@
         </member>
         <member name="T:Blazor3D.Geometires.DodecahedronGeometry">
             <summary>
-            A class for generating a dodecahedron geometries.
+            <para>A class for generating a dodecahedron geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/DodecahedronGeometry">DodecahedronGeometry</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.DodecahedronGeometry.Radius">
@@ -358,7 +362,49 @@
         </member>
         <member name="P:Blazor3D.Geometires.IcosahedronGeometry.Detail">
             <summary>
-             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an icosahedron. When detail is greater than 1, it's effectively a sphere.
+             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an icosahedron. When detail is greater than 1, it's closer to a sphere.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.OctahedronGeometry">
+            <summary>
+            <para>A class for generating an octahedron geometry.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/OctahedronGeometry">OctahedronGeometry</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.OctahedronGeometry.Radius">
+            <summary>
+            Radius of the octahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.OctahedronGeometry.Detail">
+            <summary>
+             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an octahedron.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.PlaneGeometry">
+            <summary>
+            A class for generating plane geometries.
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry">PlaneGeometry</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.PlaneGeometry.Width">
+            <summary>
+            The length of the edges parallel to the X axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.PlaneGeometry.Height">
+            <summary>
+            The length of the edges parallel to the Y axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.PlaneGeometry.WidthSegments">
+            <summary>
+            Number of segmented rectangular faces along the width of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.PlaneGeometry.HeightSegments">
+            <summary>
+            Number of segmented rectangular faces along the height of the sides. Default is 1.
             </summary>
         </member>
         <member name="T:Blazor3D.Lights.AmbientLight">

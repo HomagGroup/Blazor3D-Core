@@ -120,14 +120,38 @@
                 Geometry = new IcosahedronGeometry
                 {
                     Radius = 1.5f,
-                    Detail = 10,
+                    //Detail = 1,
                 },
                 Position = new Vector3(5, 0, -5),
                 Material = new MeshStandardMaterial()
                 {
-                    Color = "grey"
+                    Color = "violet"
                 }
             });
+        scene.Add(new Mesh
+            {
+                Geometry = new OctahedronGeometry
+                {
+                    Radius = 1.5f,
+                    //Detail = 10,
+                },
+                Position = new Vector3(0, 0, -5),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "pink"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new PlaneGeometry
+                {
+                    Width = 0.5f,
+                    Height = 2
+                },
+                Position = new Vector3(-3, 1, -1),
+            });
+
         return base.OnInitializedAsync();
     }
 
