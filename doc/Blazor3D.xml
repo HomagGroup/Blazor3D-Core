@@ -189,6 +189,31 @@
             Number of segmented rectangular faces along the depth of the sides. Default is 1.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.CapsuleGeometry">
+            <summary>
+            <para>Class for a capsule with given radus and height. It is constructed using a lathe.</para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CapsuleGeometry.Radius">
+            <summary>
+            Radius of the capsule. Defaults to 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CapsuleGeometry.Length">
+            <summary>
+            Length of the middle section. Defaults to 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CapsuleGeometry.CapSegments">
+            <summary>
+            Number of curve segments used to build the caps. Defaults to 4.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.CapsuleGeometry.RadialSegments">
+            <summary>
+            Number of segmented faces around the circumference of the capsule. Defaults to 8.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.CircleGeometry">
             <summary>
             <para>Class for a simple shape of Euclidean geometry. 

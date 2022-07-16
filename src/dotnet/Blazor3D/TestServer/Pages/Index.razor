@@ -2,6 +2,7 @@
 @using Blazor3D.Enums
 @using Blazor3D.Geometires
 @using Blazor3D.Lights
+@using Blazor3D.Materials
 @using Blazor3D.Maths
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
@@ -9,7 +10,7 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true/>
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true />
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -54,10 +55,10 @@
                     Y = 1,
                     Z = -1
                 }
-                ,
+                            ,
                 Rotation = new Euler
                 {
-                    X = (float)(Math.PI/4)
+                    X = (float)(Math.PI / 4)
                 }
             });
 
@@ -73,16 +74,31 @@
                 Scale = new Vector3(0.5f, 1f, 1f)
             });
 
+        scene.Add(new Mesh
+            {
+                Geometry = new CapsuleGeometry
+                {
+                    Radius = 1,
+                    Length = 2
+                },
+                Position = new Vector3(-3, 0, -3),
+                Material  = new MeshStandardMaterial()
+                {
+                    Color = "blue"
+                }
+            });
+
+
         return base.OnInitializedAsync();
     }
 
     private async Task OnLoadObjButtonClick()
     {
-       await View3D1.Import3DModelAsync(
-            Import3DFormats.Fbx,
-            "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-            null,
-            500);
+        await View3D1.Import3DModelAsync(
+             Import3DFormats.Fbx,
+             "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+             null,
+             500);
         await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
 
         await View3D1.Import3DModelAsync(
