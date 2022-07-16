@@ -245,6 +245,46 @@
             The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.ConeGeometry">
+            <summary>
+            A class for generating cone geometries.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.Radius">
+            <summary>
+            Radius of the cone base. Defaults to 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.Height">
+            <summary>
+            Height of the cone. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.RadialSegments">
+            <summary>
+            Number of segmented faces around the circumference of the cone. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.HeightSegments">
+            <summary>
+            Number of rows of faces along the height of the cone. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.OpenEnded">
+            <summary>
+            A Boolean indicating whether the base of the cone is open or capped. Default is false, meaning capped.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ConeGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.

@@ -55,7 +55,7 @@
                     Y = 1,
                     Z = -1
                 }
-                            ,
+                                ,
                 Rotation = new Euler
                 {
                     X = (float)(Math.PI / 4)
@@ -82,9 +82,26 @@
                     Length = 2
                 },
                 Position = new Vector3(-3, 0, -3),
-                Material  = new MeshStandardMaterial()
+                Material = new MeshStandardMaterial()
                 {
                     Color = "blue"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new ConeGeometry
+                {
+                    Radius = 1,
+                    Height = 2,
+                    RadialSegments = 16,
+                    //OpenEnded = true,
+                    //ThetaLength = (float)(4 * System.Math.PI / 3)
+                },
+                Position = new Vector3(3, 0, -3),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "green"
                 }
             });
 

@@ -5,7 +5,7 @@ namespace Blazor3D.Geometires
     /// <summary>
     /// <para>Class for a capsule with given radus and height. It is constructed using a lathe.</para>
     /// </summary>
-    public class CapsuleGeometry : BufferGeometry
+    public sealed class CapsuleGeometry : BufferGeometry
     {
         public CapsuleGeometry() : base("CapsuleGeometry")
         {
