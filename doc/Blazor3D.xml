@@ -456,12 +456,12 @@
         </member>
         <member name="P:Blazor3D.Geometires.SphereGeometry.WidthSegments">
             <summary>
-            number of horizontal segments. Minimum value is 3, and the default is 32.
+            Number of horizontal segments. Minimum value is 3, and the default is 32.
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.SphereGeometry.HeightSegments">
             <summary>
-            number of vertical segments. Minimum value is 2, and the default is 16.
+            Number of vertical segments. Minimum value is 2, and the default is 16.
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.SphereGeometry.PhiStart">
@@ -482,6 +482,22 @@
         <member name="P:Blazor3D.Geometires.SphereGeometry.ThetaLength">
             <summary>
             Specifies vertical sweep angle size. Default is Math.PI * 2.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.TetrahedronGeometry">
+            <summary>
+            <para>A class for generating a tetrahedron geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TetrahedronGeometry">TetrahedronGeometry</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TetrahedronGeometry.Radius">
+            <summary>
+            Radius of the tetrahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TetrahedronGeometry.Detail">
+            <summary>
+             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
             </summary>
         </member>
         <member name="T:Blazor3D.Lights.AmbientLight">

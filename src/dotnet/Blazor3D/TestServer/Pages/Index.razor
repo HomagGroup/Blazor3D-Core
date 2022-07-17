@@ -169,7 +169,19 @@
                 },
                 Position = new Vector3(0, 0, -8),
             });
-
+             scene.Add(new Mesh
+            {
+                Geometry = new TetrahedronGeometry
+                {
+                    Radius = 1.5f,
+                    //Detail = 1,
+                },
+                Position = new Vector3(-3, 0, -8),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "lightblue"
+                }
+            });
         return base.OnInitializedAsync();
     }
 
