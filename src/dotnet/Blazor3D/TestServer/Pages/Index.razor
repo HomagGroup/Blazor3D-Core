@@ -2,6 +2,7 @@
 @using Blazor3D.Enums
 @using Blazor3D.Geometires
 @using Blazor3D.Lights
+@using Blazor3D.Materials
 @using Blazor3D.Maths
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
@@ -9,7 +10,7 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true/>
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true />
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -33,56 +34,143 @@
         scene.Add(new PointLight()
             {
                 Decay = 2,
-                Position = new Vector3
-                {
-                    X = 1,
-                    Y = 3,
-                    Z = 0
-                }
+                Position = new Vector3(1, 3, 0)
             });
         scene.Add(new Mesh());
         scene.Add(new Mesh
             {
-                Geometry = new BoxGeometry
-                {
-                    Width = 2,
-                    Height = 0.5f
-                },
-                Position = new Vector3
-                {
-                    X = -1,
-                    Y = 1,
-                    Z = -1
-                }
-                ,
+                Geometry = new BoxGeometry(width: 2, height: 0.5f),
+                Position = new Vector3(-1, 1, -1),
                 Rotation = new Euler
                 {
-                    X = (float)(Math.PI/4)
+                    X = (float)(Math.PI / 4)
                 }
             });
 
         scene.Add(new Mesh
             {
-                Geometry = new CircleGeometry(),
-                Position = new Vector3
-                {
-                    X = 1,
-                    Y = 1,
-                    Z = -1
-                },
+                Geometry = new CircleGeometry(radius: 1.5f, segments: 12),
+                Position = new Vector3(1, 1, -1),
                 Scale = new Vector3(0.5f, 1f, 1f)
             });
 
+        scene.Add(new Mesh
+            {
+                Geometry = new CapsuleGeometry(radius: 1, length: 2),
+                Position = new Vector3(-3, 0, -3),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "blue"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new ConeGeometry(radius: 1.3f, height: 2, radialSegments: 16),
+                Position = new Vector3(3, 0, -3),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "green"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new CylinderGeometry(radiusTop: 0.5f, height: 2, radialSegments: 16),
+                Position = new Vector3(0, 0, -3),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "red"
+                }
+            });
+        scene.Add(new Mesh
+            {
+                Geometry = new DodecahedronGeometry(radius: 1.5f),
+                Position = new Vector3(-5, 0, -5),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "darkviolet"
+                }
+            });
+        scene.Add(new Mesh
+            {
+                Geometry = new IcosahedronGeometry(radius: 1.5f),
+                Position = new Vector3(5, 0, -5),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "violet"
+                }
+            });
+        scene.Add(new Mesh
+            {
+
+                Geometry = new OctahedronGeometry(radius: 1.5f),
+                Position = new Vector3(0, 0, -5),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "pink"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new PlaneGeometry(width: 0.5f, height: 2),
+                Position = new Vector3(-3, 1, -1),
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new RingGeometry(innerRadius: 0.6f, outerRadius: 0.7f),
+                Position = new Vector3(3, 1, -1),
+            });
+        scene.Add(new Mesh
+            {
+                Geometry = new SphereGeometry(radius: 1.5f),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "darkgreen"
+                },
+                Position = new Vector3(0, 0, -8),
+            });
+        scene.Add(new Mesh
+            {
+                Geometry = new TetrahedronGeometry(radius: 1.5f),
+                Position = new Vector3(-3, 0, -8),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "lightblue"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new TorusGeometry(tube: 0.8f, radialSegments: 12, tubularSegments: 12),
+                Position = new Vector3(3, 0, -8),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "lightgreen"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new TorusKnotGeometry(tube: 0.1f),
+                Position = new Vector3(7, 0, -8),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "magenta"
+                }
+            });
         return base.OnInitializedAsync();
     }
 
     private async Task OnLoadObjButtonClick()
     {
-       await View3D1.Import3DModelAsync(
-            Import3DFormats.Fbx,
-            "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-            null,
-            500);
+        await View3D1.Import3DModelAsync(
+             Import3DFormats.Fbx,
+             "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+             null,
+             500);
         await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
 
         await View3D1.Import3DModelAsync(

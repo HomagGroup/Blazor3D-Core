@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: Scene</title>
+    <title>Blazor3D API Reference Guide: TorusKnotGeometry</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -48,11 +48,11 @@
     </header>
     <div class="container topOffset">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: Scene</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: TorusKnotGeometry</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">Scene</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">TorusKnotGeometry</li>
                 </ol>
             </nav>
 
@@ -129,21 +129,121 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">Scene : <a href="Blazor3D.Core.Object3D.html">Object3D</a></h2>
-                    <div>NameSpace: <strong>Blazor3D.Scenes</strong></div>
+                    <h2 class="fontlight">TorusKnotGeometry</h2>
+                    <div>NameSpace: <strong>Blazor3D.Geometires</strong></div>
                     <hr />
-                    <div><p>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
-            This is the place where you put your 3D objects and lights.</p><p>This object inherits from <a href="Blazor3D.Core.Object3D.html">Object3D</a></p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></p>
+                    <div><p>Class for torus knot, the particular shape of which is defined by a pair of coprime integers, p and q. If p and q are not coprime, the result will be a torus link.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusKnotGeometry">TorusKnotGeometry</a></p>
+<h3 class="fontlight">Constructors</h3>
+<table class="table table-bordered">
+<tr>
+<td>
+<strong>TorusKnotGeometry(float, float, Int32, Int32, Int32, Int32)</strong>
+</td>
+<td>
+<div>Constructor with parameters</div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>radius</strong>
+</td>
+<td>
+<div>Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>tube</strong>
+</td>
+<td>
+<div>Radius of the tube. Default is 0.4.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>radialSegments</strong>
+</td>
+<td>
+<div>Number of radial segments. Default is 8.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>tubularSegments</strong>
+</td>
+<td>
+<div>Number of tubular segments. Default is 64.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>p</strong>
+</td>
+<td>
+<div>This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>q</strong>
+</td>
+<td>
+<div>This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>BackGroundColor</strong>
+<strong>Radius</strong>
 </td>
 <td>
-<div>Scene background color. 
-            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
-            Default value is "DarkSlateBlue"&gt;</div>
+<div>Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Tube</strong>
+</td>
+<td>
+<div>Radius of the tube. Default is 0.4.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>RadialSegments</strong>
+</td>
+<td>
+<div>Number of radial segments. Default is 8.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>TubularSegments</strong>
+</td>
+<td>
+<div>Number of tubular segments. Default is 64.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>P</strong>
+</td>
+<td>
+<div>This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Q</strong>
+</td>
+<td>
+<div>This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.</div>
 </td>
 </tr>
 </table>
