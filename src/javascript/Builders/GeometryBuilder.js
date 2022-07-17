@@ -139,6 +139,18 @@ class GeometryBuilder {
       geometry.uuid = options.uuid;
       return geometry;
     }
+
+    if (options.type == "TorusGeometry") {
+      const geometry = new THREE.TorusGeometry(
+        options.radius,
+        options.tube,
+        options.radialSegments,
+        options.tubularSegments,
+        options.arc
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
   }
 }
 

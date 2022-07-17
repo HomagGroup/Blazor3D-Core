@@ -169,7 +169,7 @@
                 },
                 Position = new Vector3(0, 0, -8),
             });
-             scene.Add(new Mesh
+        scene.Add(new Mesh
             {
                 Geometry = new TetrahedronGeometry
                 {
@@ -180,6 +180,22 @@
                 Material = new MeshStandardMaterial()
                 {
                     Color = "lightblue"
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new TorusGeometry
+                {
+                    Tube = 0.8f,
+                    RadialSegments = 12,
+                    TubularSegments = 12
+                    //Detail = 1,
+                },
+                Position = new Vector3(3, 0, -8),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "lightgreen"
                 }
             });
         return base.OnInitializedAsync();

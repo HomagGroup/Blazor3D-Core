@@ -500,6 +500,37 @@
              Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.TorusGeometry">
+            <summary>
+            <para> A class for generating torus geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusGeometry">TorusGeometry</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusGeometry.Radius">
+            <summary>
+            Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusGeometry.Tube">
+            <summary>
+            Radius of the tube. Default is 0.4.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusGeometry.RadialSegments">
+            <summary>
+            Number of radial segments. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusGeometry.TubularSegments">
+            <summary>
+            Number of tubular segments. Default is 6.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusGeometry.Arc">
+            <summary>
+            Central angle. Default is Math.PI * 2.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.

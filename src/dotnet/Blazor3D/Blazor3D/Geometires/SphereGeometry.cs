@@ -38,6 +38,6 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Specifies vertical sweep angle size. Default is Math.PI * 2.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * System.Math.PI);
+        public float ThetaLength { get; set; } = (float)(2 * Math.PI);
     }
 }
