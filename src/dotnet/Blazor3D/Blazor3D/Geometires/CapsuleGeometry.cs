@@ -27,26 +27,24 @@ namespace Blazor3D.Geometires
             RadialSegments = radialSegments;
         }
 
-
-
         /// <summary>
         /// Radius of the capsule. Default is 1.
         /// </summary>
         public float Radius { get; set; } = 1;
+
         /// <summary>
         /// Length of the middle section. Default is 1.
         /// </summary>
         public float Length { get; set; } = 1;
+
         /// <summary>
         /// Number of curve segments used to build the caps. Default is 4.
         /// </summary>
         public int CapSegments { get; set; } = 4;
+
         /// <summary>
         /// Number of segmented faces around the circumference of the capsule. Default is 8.
         /// </summary>
         public int RadialSegments { get; set; } = 8;
-
-
-
     }
 }

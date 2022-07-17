@@ -30,14 +30,17 @@ namespace Blazor3D.Geometires
         /// The length of the edges parallel to the X axis. Default is 1.
         /// </summary>
         public float Width { get; set; } = 1;
+
         /// <summary>
         /// The length of the edges parallel to the Y axis. Default is 1.
         /// </summary>
         public float Height { get; set; } = 1;
+
         /// <summary>
         /// Number of segmented rectangular faces along the width of the sides. Default is 1.
         /// </summary>
         public int WidthSegments { get; set; } = 1;
+
         /// <summary>
         /// Number of segmented rectangular faces along the height of the sides. Default is 1.
         /// </summary>
