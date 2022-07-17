@@ -407,6 +407,12 @@
             Number of segmented rectangular faces along the height of the sides. Default is 1.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.RingGeometry">
+            <summary>
+            <para>A class for generating a two-dimensional ring geometry.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/RingGeometry">RingGeometry</a></para>
+            </summary>
+        </member>
         <member name="P:Blazor3D.Geometires.RingGeometry.InnerRadius">
             <summary>
              Inner radius of the ring. Default is 0.5.
@@ -435,6 +441,47 @@
         <member name="P:Blazor3D.Geometires.RingGeometry.ThetaLength">
             <summary>
             The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.SphereGeometry">
+            <summary>
+            <para>A class for generating sphere geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/SphereGeometry">SphereGeometry</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.Radius">
+            <summary>
+            Radius of the sphere. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.WidthSegments">
+            <summary>
+            number of horizontal segments. Minimum value is 3, and the default is 32.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.HeightSegments">
+            <summary>
+            number of vertical segments. Minimum value is 2, and the default is 16.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.PhiStart">
+            <summary>
+            Specifies horizontal starting angle. Default is 0.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.PhiLength">
+            <summary>
+            Specifies horizontal sweep angle size. Default is Math.PI * 2.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.ThetaStart">
+            <summary>
+            Specifies vertical starting angle. Default is 0.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.SphereGeometry.ThetaLength">
+            <summary>
+            Specifies vertical sweep angle size. Default is Math.PI * 2.
             </summary>
         </member>
         <member name="T:Blazor3D.Lights.AmbientLight">

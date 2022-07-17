@@ -2,6 +2,10 @@
 
 namespace Blazor3D.Geometires
 {
+    /// <summary>
+    /// <para>A class for generating a two-dimensional ring geometry.</para>
+    /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/RingGeometry">RingGeometry</a></para>
+    /// </summary>
     public sealed class RingGeometry : BufferGeometry
     {
         public RingGeometry() : base("RingGeometry")

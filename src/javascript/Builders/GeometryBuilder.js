@@ -105,17 +105,31 @@ class GeometryBuilder {
     }
 
     if (options.type == "RingGeometry") {
-        const geometry = new THREE.RingGeometry(
-          options.innerRadius,
-          options.outerRadius,
-          options.thetaSegments,
-          options.phiSegments,
-          options.thetaStart,
-          options.thetaLength
-        );
-        geometry.uuid = options.uuid;
-        return geometry;
-      }
+      const geometry = new THREE.RingGeometry(
+        options.innerRadius,
+        options.outerRadius,
+        options.thetaSegments,
+        options.phiSegments,
+        options.thetaStart,
+        options.thetaLength
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "SphereGeometry") {
+      const geometry = new THREE.SphereGeometry(
+        options.radius,
+        options.widthSegments,
+        options.heightSegments,
+        options.phiStart,
+        options.phiLength,
+        options.thetaStart,
+        options.thetaLength
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
   }
 }
 
