@@ -79,7 +79,19 @@
 <h4 class="fontlight">Geometires</h4>
 <ul class="nav flex-column referenceNav">
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.BoxGeometry.html>BoxGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.CapsuleGeometry.html>CapsuleGeometry</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.CircleGeometry.html>CircleGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.ConeGeometry.html>ConeGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.CylinderGeometry.html>CylinderGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.DodecahedronGeometry.html>DodecahedronGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.IcosahedronGeometry.html>IcosahedronGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.OctahedronGeometry.html>OctahedronGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.PlaneGeometry.html>PlaneGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.RingGeometry.html>RingGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.SphereGeometry.html>SphereGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.TetrahedronGeometry.html>TetrahedronGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.TorusGeometry.html>TorusGeometry</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.TorusKnotGeometry.html>TorusKnotGeometry</a></li>
 </ul>
 <h4 class="fontlight">Lights</h4>
 <ul class="nav flex-column referenceNav">
@@ -124,6 +136,53 @@
             It is constructed from a number of triangular segments that are oriented around a central point and extend as far out as a given radius. 
             It is built counter-clockwise from a start angle and a given central angle. 
             It can also be used to create regular polygons, where the number of segments determines the number of sides.</p><p>This class inherits from <a href="Blazor3D.Core.BufferGeometry.html">BufferGeometry</a></p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></p>
+<h3 class="fontlight">Constructors</h3>
+<table class="table table-bordered">
+<tr>
+<td>
+<strong>CircleGeometry(float, Int32, float, float)</strong>
+</td>
+<td>
+<div>Constructor with parameters</div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>radius</strong>
+</td>
+<td>
+<div>Radius of the circle. Default is 1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>segments</strong>
+</td>
+<td>
+<div>Number of segments (triangles). Minimum = 3, default = 8.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>thetaStart</strong>
+</td>
+<td>
+<div>Start angle for first segment. Default is 0 (three o'clock position).</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>thetaLength</strong>
+</td>
+<td>
+<div>The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>

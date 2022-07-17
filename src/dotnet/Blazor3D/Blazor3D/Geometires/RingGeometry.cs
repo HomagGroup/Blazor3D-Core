@@ -12,6 +12,15 @@ namespace Blazor3D.Geometires
         {
         }
 
+        /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="innerRadius">Inner radius of the ring. Default is 0.5.</param>
+        /// <param name="outerRadius">Outer radius of the ring. Default is 1.</param>
+        /// <param name="thetaSegments">Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.</param>
+        /// <param name="phiSegments">Number of rows of faces from inner to outer radii. Minimum is 1. Default is 1.</param>
+        /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+        /// <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
         public RingGeometry(
             float innerRadius = 0.5f,
             float outerRadius = 1,
