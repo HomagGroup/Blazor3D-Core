@@ -151,6 +151,19 @@ class GeometryBuilder {
       geometry.uuid = options.uuid;
       return geometry;
     }
+
+    if (options.type == "TorusKnotGeometry") {
+      const geometry = new THREE.TorusKnotGeometry(
+        options.radius,
+        options.tube,
+        options.tubularSegments,
+        options.radialSegments,
+        options.p,
+        options.pq,
+      );
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
   }
 }
 

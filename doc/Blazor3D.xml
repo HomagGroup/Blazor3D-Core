@@ -531,6 +531,41 @@
             Central angle. Default is Math.PI * 2.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.TorusKnotGeometry">
+            <summary>
+            <para>Class for torus knot, the particular shape of which is defined by a pair of coprime integers, p and q. If p and q are not coprime, the result will be a torus link.</para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusKnotGeometry.Radius">
+            <summary>
+            Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusKnotGeometry.Tube">
+            <summary>
+            Radius of the tube. Default is 0.4.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusKnotGeometry.RadialSegments">
+            <summary>
+            Number of radial segments. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusKnotGeometry.TubularSegments">
+            <summary>
+            Number of tubular segments. Default is 64.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusKnotGeometry.P">
+            <summary>
+            This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TorusKnotGeometry.Q">
+            <summary>
+            This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.
