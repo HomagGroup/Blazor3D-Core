@@ -13,6 +13,35 @@ namespace Blazor3D.Geometires
         }
 
         /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="radius">Radius of the cone base. Defaults to 1.</param>
+        /// <param name="height">Height of the cone. Default is 1.</param>
+        /// <param name="radialSegments">Number of segmented faces around the circumference of the cone. Default is 8.</param>
+        /// <param name="heightSegments">umber of rows of faces along the height of the cone. Default is 1.</param>
+        /// <param name="openEnded">A Boolean indicating whether the base of the cone is open or capped. Default is false, meaning capped.</param>
+        /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+        /// <param name="thetaLength">he central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
+        public ConeGeometry(
+            float radius = 1,
+            float height = 1,
+            int radialSegments = 8,
+            int heightSegments = 1,
+            bool openEnded = false,
+            float thetaStart = 0,
+            float thetaLength = (float)(2 * System.Math.PI)) : this()
+        {
+            Radius = radius;
+            Height = height;
+            RadialSegments = radialSegments;
+            HeightSegments = heightSegments;
+            OpenEnded = openEnded;
+            ThetaStart = thetaStart;
+            ThetaLength = thetaLength;
+        }
+
+
+        /// <summary>
         /// Radius of the cone base. Defaults to 1.
         /// </summary>
         public float Radius { get; set; } = 1;

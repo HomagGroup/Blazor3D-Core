@@ -13,6 +13,23 @@ namespace Blazor3D.Geometires
         }
 
         /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="radius">Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</param>
+        /// <param name="tube">Radius of the tube. Default is 0.4.</param>
+        /// <param name="radialSegments">Number of radial segments. Default is 8.</param>
+        /// <param name="tubularSegments">Number of tubular segments. Default is 6.</param>
+        /// <param name="arc">Central angle. Default is Math.PI * 2.</param>
+        public TorusGeometry(float radius = 1, float tube = 0.4f, int radialSegments = 8, int tubularSegments = 6, float arc = (float)(2 * Math.PI)) : this()
+        {
+            Radius = radius;
+            Tube = tube;
+            RadialSegments = radialSegments;
+            TubularSegments = tubularSegments;
+            Arc = arc;
+        }
+
+        /// <summary>
         /// Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
         /// </summary>
         public float Radius { get; set; } = 1;

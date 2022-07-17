@@ -13,6 +13,37 @@ namespace Blazor3D.Geometires
         }
 
         /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="radiusTop">Radius of the cylinder at the top. Default is 1.</param>
+        /// <param name="radiusBottom">Radius of the cylinder at the bottom. Default is 1.</param>
+        /// <param name="height">Height of the cylinder. Default is 1.</param>
+        /// <param name="radialSegments">Number of segmented faces around the circumference of the cylinder. Default is 8.</param>
+        /// <param name="heightSegments">Number of rows of faces along the height of the cylinder. Default is 1.</param>
+        /// <param name="openEnded">A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.</param>
+        /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+        /// <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
+        public CylinderGeometry(float radiusTop = 1,
+            float radiusBottom = 1,
+            float height = 1,
+            int radialSegments = 8,
+            int heightSegments = 1,
+            bool openEnded = false,
+            float thetaStart = 0,
+            float thetaLength = (float)(2 * Math.PI)) : this()
+        {
+            RadiusTop = radiusTop;
+            RadiusBottom = radiusBottom;
+            Height = height;
+            RadialSegments = radialSegments;
+            HeightSegments = heightSegments;
+            OpenEnded = openEnded;
+            ThetaStart = thetaStart;
+            ThetaLength = thetaLength;
+        }
+
+
+        /// <summary>
         ///  Radius of the cylinder at the top. Default is 1.
         /// </summary>
         public float RadiusTop { get; set; } = 1;

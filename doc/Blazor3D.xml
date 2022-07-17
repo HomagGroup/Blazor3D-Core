@@ -159,6 +159,17 @@
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
         </member>
+        <member name="M:Blazor3D.Geometires.BoxGeometry.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="width">The length of the edges parallel to the X axis. Default is 1.</param>
+            <param name="height">The length of the edges parallel to the Y axis. Default is 1.</param>
+            <param name="depth">The length of the edges parallel to the Z axis. Default is 1.</param>
+            <param name="widthSegments">Number of segmented rectangular faces along the width of the sides. Default is 1.</param>
+            <param name="heightSegments">Number of segmented rectangular faces along the height of the sides. Default is 1.</param>
+            <param name="depthSegments">Number of segmented rectangular faces along the depth of the sides. Default is 1.</param>
+        </member>
         <member name="P:Blazor3D.Geometires.BoxGeometry.Width">
             <summary>
             The length of the edges parallel to the X axis. Default is 1.
@@ -195,24 +206,33 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CapsuleGeometry">CapsuleGeometry</a></para>
             </summary>
         </member>
+        <member name="M:Blazor3D.Geometires.CapsuleGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the capsule. Default is 1.</param>
+            <param name="length">Length of the middle section. Default is 1.</param>
+            <param name="capSegments">Number of curve segments used to build the caps. Default is 4.</param>
+            <param name="radialSegments">Number of segmented faces around the circumference of the capsule. Default is 8.</param>
+        </member>
         <member name="P:Blazor3D.Geometires.CapsuleGeometry.Radius">
             <summary>
-            Radius of the capsule. Defaults to 1.
+            Radius of the capsule. Default is 1.
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.CapsuleGeometry.Length">
             <summary>
-            Length of the middle section. Defaults to 1.
+            Length of the middle section. Default is 1.
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.CapsuleGeometry.CapSegments">
             <summary>
-            Number of curve segments used to build the caps. Defaults to 4.
+            Number of curve segments used to build the caps. Default is 4.
             </summary>
         </member>
         <member name="P:Blazor3D.Geometires.CapsuleGeometry.RadialSegments">
             <summary>
-            Number of segmented faces around the circumference of the capsule. Defaults to 8.
+            Number of segmented faces around the circumference of the capsule. Default is 8.
             </summary>
         </member>
         <member name="T:Blazor3D.Geometires.CircleGeometry">
@@ -225,6 +245,15 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></para>
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
+        </member>
+        <member name="M:Blazor3D.Geometires.CircleGeometry.#ctor(System.Single,System.Int32,System.Single,System.Single)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the circle. Default is 1.</param>
+            <param name="segments">Number of segments (triangles). Minimum = 3, default = 8.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
         </member>
         <member name="P:Blazor3D.Geometires.CircleGeometry.Radius">
             <summary>
@@ -251,6 +280,18 @@
             <para></para>A class for generating cone geometries.
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/ConeGeometry">ConeGeometry</a></para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.ConeGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Boolean,System.Single,System.Single)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the cone base. Defaults to 1.</param>
+            <param name="height">Height of the cone. Default is 1.</param>
+            <param name="radialSegments">Number of segmented faces around the circumference of the cone. Default is 8.</param>
+            <param name="heightSegments">umber of rows of faces along the height of the cone. Default is 1.</param>
+            <param name="openEnded">A Boolean indicating whether the base of the cone is open or capped. Default is false, meaning capped.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">he central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
         </member>
         <member name="P:Blazor3D.Geometires.ConeGeometry.Radius">
             <summary>
@@ -292,6 +333,19 @@
             <para>A class for generating cylinder geometries.</para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CylinderGeometry">CylinderGeometry</a></para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.CylinderGeometry.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Boolean,System.Single,System.Single)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radiusTop">Radius of the cylinder at the top. Default is 1.</param>
+            <param name="radiusBottom">Radius of the cylinder at the bottom. Default is 1.</param>
+            <param name="height">Height of the cylinder. Default is 1.</param>
+            <param name="radialSegments">Number of segmented faces around the circumference of the cylinder. Default is 8.</param>
+            <param name="heightSegments">Number of rows of faces along the height of the cylinder. Default is 1.</param>
+            <param name="openEnded">A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
         </member>
         <member name="P:Blazor3D.Geometires.CylinderGeometry.RadiusTop">
             <summary>
@@ -339,6 +393,13 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/DodecahedronGeometry">DodecahedronGeometry</a></para>
             </summary>
         </member>
+        <member name="M:Blazor3D.Geometires.DodecahedronGeometry.#ctor(System.Single,System.Int32)">
+            <summary>
+            Constructor with parametes
+            </summary>
+            <param name="radius">Radius of the dodecahedron. Default is 1.</param>
+            <param name="detail">Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.</param>
+        </member>
         <member name="P:Blazor3D.Geometires.DodecahedronGeometry.Radius">
             <summary>
             Radius of the dodecahedron. Default is 1.
@@ -354,6 +415,13 @@
             <para>A class for generating an icosahedron geometry.</para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/IcosahedronGeometry">IcosahedronGeometry</a></para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.IcosahedronGeometry.#ctor(System.Single,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the icosahedron. Default is 1.</param>
+            <param name="detail">Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an icosahedron. When detail is greater than 1, it's closer to a sphere.</param>
         </member>
         <member name="P:Blazor3D.Geometires.IcosahedronGeometry.Radius">
             <summary>
@@ -371,6 +439,13 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/OctahedronGeometry">OctahedronGeometry</a></para>
             </summary>
         </member>
+        <member name="M:Blazor3D.Geometires.OctahedronGeometry.#ctor(System.Single,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the octahedron. Default is 1.</param>
+            <param name="detail">Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an octahedron.</param>
+        </member>
         <member name="P:Blazor3D.Geometires.OctahedronGeometry.Radius">
             <summary>
             Radius of the octahedron. Default is 1.
@@ -386,6 +461,15 @@
             A class for generating plane geometries.
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry">PlaneGeometry</a></para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.PlaneGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="width">The length of the edges parallel to the X axis. Default is 1.</param>
+            <param name="height">The length of the edges parallel to the Y axis. Default is 1.</param>
+            <param name="widthSegments">Number of segmented rectangular faces along the width of the sides. Default is 1.</param>
+            <param name="heightSegments">Number of segmented rectangular faces along the height of the sides. Default is 1.</param>
         </member>
         <member name="P:Blazor3D.Geometires.PlaneGeometry.Width">
             <summary>
@@ -449,6 +533,18 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/SphereGeometry">SphereGeometry</a></para>
             </summary>
         </member>
+        <member name="M:Blazor3D.Geometires.SphereGeometry.#ctor(System.Single,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the sphere. Default is 1.</param>
+            <param name="widthSegments">Number of horizontal segments. Minimum value is 3, and the default is 32.</param>
+            <param name="heightSegments">Number of vertical segments. Minimum value is 2, and the default is 16.</param>
+            <param name="phiStart">Specifies horizontal starting angle. Default is 0.</param>
+            <param name="phiLength">Specifies horizontal sweep angle size. Default is Math.PI * 2.</param>
+            <param name="thetaStart">Specifies vertical starting angle. Default is 0.</param>
+            <param name="thetaLength">Specifies vertical sweep angle size. Default is Math.PI * 2.</param>
+        </member>
         <member name="P:Blazor3D.Geometires.SphereGeometry.Radius">
             <summary>
             Radius of the sphere. Default is 1.
@@ -490,6 +586,13 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TetrahedronGeometry">TetrahedronGeometry</a></para>
             </summary>
         </member>
+        <member name="M:Blazor3D.Geometires.TetrahedronGeometry.#ctor(System.Single,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the tetrahedron. Default is 1.</param>
+            <param name="detail"> Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.</param>
+        </member>
         <member name="P:Blazor3D.Geometires.TetrahedronGeometry.Radius">
             <summary>
             Radius of the tetrahedron. Default is 1.
@@ -505,6 +608,16 @@
             <para> A class for generating torus geometries.</para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusGeometry">TorusGeometry</a></para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.TorusGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Single)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</param>
+            <param name="tube">Radius of the tube. Default is 0.4.</param>
+            <param name="radialSegments">Number of radial segments. Default is 8.</param>
+            <param name="tubularSegments">Number of tubular segments. Default is 6.</param>
+            <param name="arc">Central angle. Default is Math.PI * 2.</param>
         </member>
         <member name="P:Blazor3D.Geometires.TorusGeometry.Radius">
             <summary>
@@ -534,7 +647,19 @@
         <member name="T:Blazor3D.Geometires.TorusKnotGeometry">
             <summary>
             <para>Class for torus knot, the particular shape of which is defined by a pair of coprime integers, p and q. If p and q are not coprime, the result will be a torus link.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusKnotGeometry">TorusKnotGeometry</a></para>
             </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.TorusKnotGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</param>
+            <param name="tube">Radius of the tube. Default is 0.4.</param>
+            <param name="radialSegments">Number of radial segments. Default is 8.</param>
+            <param name="tubularSegments">Number of tubular segments. Default is 64.</param>
+            <param name="p">This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.</param>
+            <param name="q">This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.</param>
         </member>
         <member name="P:Blazor3D.Geometires.TorusKnotGeometry.Radius">
             <summary>

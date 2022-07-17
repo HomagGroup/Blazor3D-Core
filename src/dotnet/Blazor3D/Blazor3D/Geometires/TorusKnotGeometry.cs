@@ -13,6 +13,26 @@ namespace Blazor3D.Geometires
         }
 
         /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="radius">Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</param>
+        /// <param name="tube">Radius of the tube. Default is 0.4.</param>
+        /// <param name="radialSegments">Number of radial segments. Default is 8.</param>
+        /// <param name="tubularSegments">Number of tubular segments. Default is 64.</param>
+        /// <param name="p">This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.</param>
+        /// <param name="q">This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.</param>
+        public TorusKnotGeometry(float radius = 1, float tube = 0.4f, int radialSegments = 8, int tubularSegments = 64, int p = 2, int q = 3) :this()
+        {
+            Radius = radius;
+            Tube = tube;
+            RadialSegments = radialSegments;
+            TubularSegments = tubularSegments;
+            P = p;
+            Q = q;
+        }
+
+
+        /// <summary>
         /// Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
         /// </summary>
         public float Radius { get; set; } = 1;

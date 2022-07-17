@@ -39,11 +39,7 @@
         scene.Add(new Mesh());
         scene.Add(new Mesh
             {
-                Geometry = new BoxGeometry
-                {
-                    Width = 2,
-                    Height = 0.5f
-                },
+                Geometry = new BoxGeometry(width: 2, height: 0.5f),
                 Position = new Vector3(-1, 1, -1),
                 Rotation = new Euler
                 {
@@ -53,18 +49,14 @@
 
         scene.Add(new Mesh
             {
-                Geometry = new CircleGeometry(),
+                Geometry = new CircleGeometry(radius: 1.5f, segments: 12),
                 Position = new Vector3(1, 1, -1),
                 Scale = new Vector3(0.5f, 1f, 1f)
             });
 
         scene.Add(new Mesh
             {
-                Geometry = new CapsuleGeometry
-                {
-                    Radius = 1,
-                    Length = 2
-                },
+                Geometry = new CapsuleGeometry(radius: 1, length: 2),
                 Position = new Vector3(-3, 0, -3),
                 Material = new MeshStandardMaterial()
                 {
@@ -74,13 +66,7 @@
 
         scene.Add(new Mesh
             {
-                Geometry = new ConeGeometry
-                {
-                    Radius = 1,
-                    Height = 2,
-                    RadialSegments = 16,
-
-                },
+                Geometry = new ConeGeometry(radius: 1.3f, height: 2, radialSegments: 16),
                 Position = new Vector3(3, 0, -3),
                 Material = new MeshStandardMaterial()
                 {
@@ -90,12 +76,7 @@
 
         scene.Add(new Mesh
             {
-                Geometry = new CylinderGeometry
-                {
-                    RadiusTop = 0.5f,
-                    Height = 2,
-                    RadialSegments = 16,
-                },
+                Geometry = new CylinderGeometry(radiusTop: 0.5f, height: 2, radialSegments: 16),
                 Position = new Vector3(0, 0, -3),
                 Material = new MeshStandardMaterial()
                 {
@@ -104,11 +85,7 @@
             });
         scene.Add(new Mesh
             {
-                Geometry = new DodecahedronGeometry
-                {
-                    Radius = 1.5f,
-                    //Detail = 1,
-                },
+                Geometry = new DodecahedronGeometry(radius: 1.5f),
                 Position = new Vector3(-5, 0, -5),
                 Material = new MeshStandardMaterial()
                 {
@@ -117,11 +94,7 @@
             });
         scene.Add(new Mesh
             {
-                Geometry = new IcosahedronGeometry
-                {
-                    Radius = 1.5f,
-                    //Detail = 1,
-                },
+                Geometry = new IcosahedronGeometry(radius: 1.5f),
                 Position = new Vector3(5, 0, -5),
                 Material = new MeshStandardMaterial()
                 {
@@ -130,11 +103,8 @@
             });
         scene.Add(new Mesh
             {
-                Geometry = new OctahedronGeometry
-                {
-                    Radius = 1.5f,
-                    //Detail = 10,
-                },
+
+                Geometry = new OctahedronGeometry(radius: 1.5f),
                 Position = new Vector3(0, 0, -5),
                 Material = new MeshStandardMaterial()
                 {
@@ -144,25 +114,18 @@
 
         scene.Add(new Mesh
             {
-                Geometry = new PlaneGeometry
-                {
-                    Width = 0.5f,
-                    Height = 2
-                },
+                Geometry = new PlaneGeometry(width: 0.5f, height: 2),
                 Position = new Vector3(-3, 1, -1),
             });
 
         scene.Add(new Mesh
             {
-                Geometry = new RingGeometry(),
+                Geometry = new RingGeometry(innerRadius: 0.6f, outerRadius: 0.7f),
                 Position = new Vector3(3, 1, -1),
             });
         scene.Add(new Mesh
             {
-                Geometry = new SphereGeometry
-                {
-                    Radius = 1.5f,
-                },
+                Geometry = new SphereGeometry(radius: 1.5f),
                 Material = new MeshStandardMaterial()
                 {
                     Color = "darkgreen"
@@ -171,11 +134,7 @@
             });
         scene.Add(new Mesh
             {
-                Geometry = new TetrahedronGeometry
-                {
-                    Radius = 1.5f,
-                    //Detail = 1,
-                },
+                Geometry = new TetrahedronGeometry(radius: 1.5f),
                 Position = new Vector3(-3, 0, -8),
                 Material = new MeshStandardMaterial()
                 {
@@ -185,13 +144,7 @@
 
         scene.Add(new Mesh
             {
-                Geometry = new TorusGeometry
-                {
-                    Tube = 0.8f,
-                    RadialSegments = 12,
-                    TubularSegments = 12
-                    //Detail = 1,
-                },
+                Geometry = new TorusGeometry(tube: 0.8f, radialSegments: 12, tubularSegments: 12),
                 Position = new Vector3(3, 0, -8),
                 Material = new MeshStandardMaterial()
                 {
@@ -199,17 +152,9 @@
                 }
             });
 
-            scene.Add(new Mesh
+        scene.Add(new Mesh
             {
-                Geometry = new TorusKnotGeometry
-                {
-                    //P = 1,
-                    //Q = 2
-                    //Tube = 0.8f,
-                    //RadialSegments = 12,
-                    //TubularSegments = 12
-                    //Detail = 1,
-                },
+                Geometry = new TorusKnotGeometry(tube: 0.1f),
                 Position = new Vector3(7, 0, -8),
                 Material = new MeshStandardMaterial()
                 {

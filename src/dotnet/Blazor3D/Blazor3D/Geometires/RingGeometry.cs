@@ -12,6 +12,23 @@ namespace Blazor3D.Geometires
         {
         }
 
+        public RingGeometry(
+            float innerRadius = 0.5f,
+            float outerRadius = 1,
+            int thetaSegments = 8,
+            int phiSegments = 1,
+            float thetaStart = 0,
+            float thetaLength = (float)(2 * Math.PI)) : this()
+        {
+            InnerRadius = innerRadius;
+            OuterRadius = outerRadius;
+            ThetaSegments = thetaSegments;
+            PhiSegments = phiSegments;
+            ThetaStart = thetaStart;
+            ThetaLength = thetaLength;
+        }
+
+
         /// <summary>
         ///  Inner radius of the ring. Default is 0.5.
         /// </summary>
@@ -35,6 +52,6 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * System.Math.PI);
+        public float ThetaLength { get; set; } = (float)(2 * Math.PI);
     }
 }

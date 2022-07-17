@@ -8,13 +8,26 @@ namespace Blazor3D.Geometires
     /// </summary>
     public sealed class TetrahedronGeometry : BufferGeometry
     {
+
         public TetrahedronGeometry() : base("TetrahedronGeometry")
         {
         }
         /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="radius">Radius of the tetrahedron. Default is 1.</param>
+        /// <param name="detail"> Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.</param>
+        public TetrahedronGeometry(float radius = 1, int detail = 0) : this()
+        {
+            Radius = radius;
+            Detail = detail;
+        }
+
+        /// <summary>
         /// Radius of the tetrahedron. Default is 1.
         /// </summary>
         public float Radius { get; set; } = 1;
+
         /// <summary>
         ///  Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
         /// </summary>

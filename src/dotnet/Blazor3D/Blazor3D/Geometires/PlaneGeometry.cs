@@ -12,6 +12,21 @@ namespace Blazor3D.Geometires
         {
         }
         /// <summary>
+        /// Constructor with parameters
+        /// </summary>
+        /// <param name="width">The length of the edges parallel to the X axis. Default is 1.</param>
+        /// <param name="height">The length of the edges parallel to the Y axis. Default is 1.</param>
+        /// <param name="widthSegments">Number of segmented rectangular faces along the width of the sides. Default is 1.</param>
+        /// <param name="heightSegments">Number of segmented rectangular faces along the height of the sides. Default is 1.</param>
+        public PlaneGeometry(float width = 1, float height = 1, int widthSegments = 1, int heightSegments = 1) : this()
+        {
+            Width = width;
+            Height = height;
+            WidthSegments = widthSegments;
+            HeightSegments = heightSegments;
+        }
+
+        /// <summary>
         /// The length of the edges parallel to the X axis. Default is 1.
         /// </summary>
         public float Width { get; set; } = 1;
