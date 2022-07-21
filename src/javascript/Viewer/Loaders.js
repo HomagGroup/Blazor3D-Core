@@ -3,6 +3,7 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { ColladaLoader } from "three/examples/jsm/loaders/ColladaLoader";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 
 class Loaders {
   static loadGltf(scene, url, guid) {
@@ -54,6 +55,29 @@ class Loaders {
     return object;
   }
 
+  static loadStl(scene, url, guid) {
+    let mesh;
+    const loader = new STLLoader();
+    loader.load( url, function ( geometry ) {
+
+      // const material = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xff5533,
+      });
+      mesh = new THREE.Mesh( geometry, material );
+      mesh.uuid = guid;
+      // mesh.position.set( 0, - 0.25, 0.6 );
+      // mesh.rotation.set( 0, - Math.PI / 2, 0 );
+      // mesh.scale.set( 0.5, 0.5, 0.5 );
+
+      // mesh.castShadow = true;
+      // mesh.receiveShadow = true;
+
+      scene.add( mesh );
+
+    } );
+  }
+
   static import3DModel(scene, format, objUrl, textureUrl, guid) {
     if(format == "Obj"){
       return Loaders.loadOBJ(scene, objUrl, textureUrl, guid);
@@ -66,6 +90,10 @@ class Loaders {
     }
     if(format == "Gltf"){
       return Loaders.loadGltf(scene, objUrl, guid);
+    }
+
+    if(format == "Stl"){
+      return Loaders.loadStl(scene, objUrl, guid);
     }
     
     return null;
