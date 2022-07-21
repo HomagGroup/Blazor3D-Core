@@ -151,6 +151,11 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/GlTF">glTF</a> format.
             </summary>
         </member>
+        <member name="F:Blazor3D.Enums.Import3DFormats.Stl">
+            <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
             <summary>
             <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>

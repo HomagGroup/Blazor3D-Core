@@ -22,6 +22,10 @@ namespace Blazor3D.Enums
         /// <summary>
         /// <a target="_blank" href="https://en.wikipedia.org/wiki/GlTF">glTF</a> format.
         /// </summary>
-        Gltf
+        Gltf,
+        /// <summary>
+        /// <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
+        /// </summary>
+        Stl
     }
 }
