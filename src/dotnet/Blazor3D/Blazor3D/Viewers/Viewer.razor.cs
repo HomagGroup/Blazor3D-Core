@@ -41,7 +41,8 @@ namespace Blazor3D.Viewers
         /// <summary>
         /// <para><see cref="PerspectiveCamera"/> used to display the scene.</para>
         /// </summary>
-        public PerspectiveCamera Camera { get; } = new PerspectiveCamera();
+        [Parameter]
+        public Camera Camera { get; set; } = new PerspectiveCamera();
 
         /// <summary>
         /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>

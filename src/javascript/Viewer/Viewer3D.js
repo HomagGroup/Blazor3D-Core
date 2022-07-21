@@ -3,6 +3,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Loaders from "./Loaders";
 import Exporters from "./Exporters"; //todo
 import SceneBuilder from "../Builders/SceneBuilder";
+import CameraBuilder from "../Builders/CameraBuilder";
 
 class Viewer3D {
   constructor(options, container) {
@@ -11,7 +12,8 @@ class Viewer3D {
 
     this.scene = new THREE.Scene();
     this.setScene();
-    this.setCamera(this.options.camera);
+
+    this.setCamera();
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.domElement.style.width = "100%";
@@ -19,7 +21,7 @@ class Viewer3D {
     this.container.appendChild(this.renderer.domElement);
 
     this.setOrbitControls(options.orbitControls);
-    
+
     const animate = () => {
       requestAnimationFrame(animate);
       this.renderer.render(this.scene, this.camera);
@@ -48,18 +50,19 @@ class Viewer3D {
       var child = SceneBuilder.BuildChild(childOptions);
       this.scene.add(child);
     });
-    // console.log(this.scene);
   }
 
-  setCamera(camera) {
-    this.camera = new THREE.PerspectiveCamera(
-      camera.fov,
-      this.container.offsetWidth / this.container.offsetHeight,
-      camera.near,
-      camera.far
+  setCamera() {
+    this.camera = CameraBuilder.BuildCamera(
+      this.options.camera,
+      this.container.offsetWidth / this.container.offsetHeight
     );
 
-    this.setCameraPosition({ x: 3, y: 3, z: 3 });
+    this.camera.lookAt(0, 0, 0);
+    if (this.controls && this.controls.target) {
+      this.controls.target.set(0, 0, 0);
+    }
+
     // todo: add camera children (i.e. lights)
   }
 
@@ -73,14 +76,6 @@ class Viewer3D {
     this.controls.update();
   }
 
-  setCameraPosition(position) {
-    let { x, y, z } = position;
-    this.camera.position.set(x, y, z);
-    this.camera.lookAt(0, y / 2, 0);
-    if (this.controls && this.controls.target) {
-      this.controls.target.set(0, y / 2, 0);
-    }
-  }
 
   import3DModel(format, objUrl, textureUrl, guid) {
     return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid);

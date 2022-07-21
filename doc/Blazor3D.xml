@@ -11,6 +11,54 @@
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
+        <member name="T:Blazor3D.Cameras.OrthographicCamera">
+            <summary>
+            <para>Camera that uses <a target="_blank" href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.</para>
+            <para>In this projection mode, an object's size in the rendered image stays constant regardless of its distance from the camera.</para>
+            <para>This can be useful for rendering 2D scenes and UI elements, amongst other things.</para>
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Cameras.OrthographicCamera.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="left">Camera frustum left plane. Default is -1.</param>
+            <param name="right">Camera frustum right plane. Default is 1.</param>
+            <param name="top">Camera frustum top plane. Default is 1.</param>
+            <param name="bottom">Camera frustum bottom plane. Default is -1.</param>
+            <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
+            <param name="far">Camera frustum far plane distance. Default is 1000.</param>
+        </member>
+        <member name="P:Blazor3D.Cameras.OrthographicCamera.Left">
+            <summary>
+            Camera frustum left plane. Default is -1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Cameras.OrthographicCamera.Right">
+            <summary>
+            Camera frustum right plane. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Cameras.OrthographicCamera.Top">
+            <summary>
+            Camera frustum top plane. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Cameras.OrthographicCamera.Bottom">
+            <summary>
+             Camera frustum bottom plane. Default is -1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Cameras.OrthographicCamera.Near">
+            <summary>
+            Camera frustum near plane distance. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Cameras.OrthographicCamera.Far">
+            <summary>
+            Camera frustum far plane distance. Default is 1000.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Cameras.PerspectiveCamera">
             <summary>
             <para>Camera that uses perspective projection.
@@ -20,24 +68,27 @@
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Cameras.Camera"/></inheritdoc>
         </member>
+        <member name="M:Blazor3D.Cameras.PerspectiveCamera.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="fov">Camera frustum vertical field of view. Default is 75.</param>
+            <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
+            <param name="far">Camera frustum far plane distance. Default is 1000.</param>
+        </member>
         <member name="P:Blazor3D.Cameras.PerspectiveCamera.Fov">
             <summary>
-             Camera frustum vertical field of view. Default value is 75;
+             Camera frustum vertical field of view. Default is 75.
             </summary>
         </member>
         <member name="P:Blazor3D.Cameras.PerspectiveCamera.Near">
             <summary>
-            Camera frustum near plane distance.
+            Camera frustum near plane distance. Default is 0.1.
             </summary>
         </member>
         <member name="P:Blazor3D.Cameras.PerspectiveCamera.Far">
             <summary>
-            Camera frustum far plane distance.
-            </summary>
-        </member>
-        <member name="P:Blazor3D.Cameras.PerspectiveCamera.Aspect">
-            <summary>
-             Camera frustum aspect ratio. It is calculated by Blazor3D component as current width divided by current height.
+            Camera frustum far plane distance. Default is 1000.
             </summary>
         </member>
         <member name="T:Blazor3D.Controls.OrbitControls">

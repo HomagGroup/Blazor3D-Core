@@ -7,10 +7,11 @@
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
 @using Blazor3D.Viewers
+@using Blazor3D.Cameras
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene/>
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -27,6 +28,10 @@
         };
 
     private Scene scene = new Scene();
+    private Camera camera = new OrthographicCamera()
+        {
+            Position = new Vector3(6, 6, 6)
+        };
 
     protected override Task OnInitializedAsync()
     {
