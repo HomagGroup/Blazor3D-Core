@@ -30,7 +30,12 @@
     private Scene scene = new Scene();
     private Camera camera = new OrthographicCamera()
         {
-            Position = new Vector3(6, 6, 6)
+            Left = -5,
+            Right = 5,
+            Top = 5,
+            Bottom = -5,
+            Position = new Vector3(6, 6, 6),
+            //Zoom = 0.5
         };
 
     protected override Task OnInitializedAsync()

@@ -2,6 +2,7 @@ import * as THREE from "three";
 import Transforms from "../Utils/Transforms";
 
 class CameraBuilder {
+
   static BuildCamera(options, aspect) {
     let camera;
     console.log(options);
@@ -18,11 +19,12 @@ class CameraBuilder {
       camera = new THREE.OrthographicCamera(
         options.left * aspect,
         options.right * aspect,
-        options.top * aspect,
-        options.bottom * aspect,
+        options.top,
+        options.bottom,
         options.near,
         options.far
       );
+      camera.zoom = options.zoom;
     }
 
     camera.uuid = options.uuid;

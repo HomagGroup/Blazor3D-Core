@@ -21,7 +21,8 @@
         /// <param name="bottom">Camera frustum bottom plane. Default is -1.</param>
         /// <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
         /// <param name="far">Camera frustum far plane distance. Default is 1000.</param>
-        public OrthographicCamera(double left = -1, double right = 1, double top = 1, double bottom = -1, double near = 0.1, double far = 2000)
+        /// <param name="zoom">Zoom factor of the camera. Default is 1.</param>
+        public OrthographicCamera(double left = -1, double right = 1, double top = 1, double bottom = -1, double near = 0.1, double far = 2000, double zoom = 1)
         {
             Left = left;
             Right = right;
@@ -29,6 +30,7 @@
             Bottom = bottom;
             Near = near;
             Far = far;
+            Zoom = zoom;
         }
 
         /// <summary>
@@ -60,5 +62,10 @@
         /// Camera frustum far plane distance. Default is 1000.
         /// </summary>
         public double Far { get; set; } = 2000;
+
+        /// <summary>
+        /// Zoom factor of the camera. Default is 1.
+        /// </summary>
+        public double Zoom { get; set; } = 1;
     }
 }

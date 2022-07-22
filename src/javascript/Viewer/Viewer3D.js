@@ -33,6 +33,12 @@ class Viewer3D {
   onResize() {
     this.camera.aspect =
       this.container.offsetWidth / this.container.offsetHeight;
+
+    if (this.camera.isOrthographicCamera && this.options && this.options.camera) {
+      this.camera.left = this.options.camera.left * this.camera.aspect;
+      this.camera.right = this.options.camera.right * this.camera.aspect;
+    }
+
     this.camera.updateProjectionMatrix();
 
     this.renderer.setSize(
@@ -75,7 +81,6 @@ class Viewer3D {
     this.controls.target.set(x, y, z);
     this.controls.update();
   }
-
 
   import3DModel(format, objUrl, textureUrl, guid) {
     return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid);
