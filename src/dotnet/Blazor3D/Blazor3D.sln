@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		Todo.txt = Todo.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor3D.Tests", "Blazor3D.Tests\Blazor3D.Tests.csproj", "{121CFD4A-111F-439A-A680-7A654426A075}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{F4B9477B-E078-4898-8BF2-50EBDA12D76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4B9477B-E078-4898-8BF2-50EBDA12D76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4B9477B-E078-4898-8BF2-50EBDA12D76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{121CFD4A-111F-439A-A680-7A654426A075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{121CFD4A-111F-439A-A680-7A654426A075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{121CFD4A-111F-439A-A680-7A654426A075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{121CFD4A-111F-439A-A680-7A654426A075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

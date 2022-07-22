@@ -21,5 +21,5 @@ jobs:
       run: dotnet restore ./src/dotnet/Blazor3D/Blazor3D.sln
     - name: Build
       run: dotnet build --no-restore ./src/dotnet/Blazor3D/Blazor3D.sln
-    # - name: Test
-    #  run: dotnet test --no-build --verbosity normal
+    - name: test
+      run: dotnet test --no-build --verbosity normal ./src/dotnet/Blazor3D/Blazor3D.sln

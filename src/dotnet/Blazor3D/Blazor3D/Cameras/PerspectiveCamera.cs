@@ -19,7 +19,7 @@
         /// <param name="fov">Camera frustum vertical field of view. Default is 75.</param>
         /// <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
         /// <param name="far">Camera frustum far plane distance. Default is 1000.</param>
-        public PerspectiveCamera(double fov, double near, double far)
+        public PerspectiveCamera(double fov, double near, double far) : this()
         {
             Fov = fov;
             Near = near;

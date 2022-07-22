@@ -59,7 +59,7 @@
         public double Near { get; set; } = 0.1;
 
         /// <summary>
-        /// Camera frustum far plane distance. Default is 1000.
+        /// Camera frustum far plane distance. Default is 2000.
         /// </summary>
         public double Far { get; set; } = 2000;
 
