@@ -72,6 +72,16 @@ class Viewer3D {
     // todo: add camera children (i.e. lights)
   }
 
+  setCameraPosition(position) {
+    let { x, y, z } = position;
+    this.camera.position.set(x, y, z);
+    this.camera.lookAt(0, y / 2, 0);
+    // this.camera.updateMatrixWorld();
+    if (this.controls && this.controls.target) {
+      this.controls.target.set(0, y / 2, 0);
+    }
+  }
+
   setOrbitControls(orbitControls) {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.screenSpacePanning = true;
