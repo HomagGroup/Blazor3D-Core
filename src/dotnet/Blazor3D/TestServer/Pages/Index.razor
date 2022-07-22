@@ -11,7 +11,8 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
+        @*<Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />*@
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene  />
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -30,10 +31,10 @@
     private Scene scene = new Scene();
     private Camera camera = new OrthographicCamera()
         {
-            Left = -5,
-            Right = 5,
-            Top = 5,
-            Bottom = -5,
+            Left = -10,
+            Right = 10,
+            Top = 10,
+            Bottom = -10,
             Position = new Vector3(6, 6, 6),
             //Zoom = 0.5
         };
@@ -207,7 +208,7 @@
             "https://threejs.org/examples/models/stl/ascii/slotted_disk.stl",
             null,
             500);
-        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 1));
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3));
     }
 
 }

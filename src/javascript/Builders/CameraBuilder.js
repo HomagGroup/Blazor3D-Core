@@ -6,7 +6,7 @@ class CameraBuilder {
   static BuildCamera(options, aspect) {
     let camera;
     console.log(options);
-    if ((options.type = "PerspectiveCamera")) {
+    if ((options.type == "PerspectiveCamera")) {
       camera = new THREE.PerspectiveCamera(
         options.fov,
         aspect,
@@ -15,7 +15,7 @@ class CameraBuilder {
       );
     }
 
-    if ((options.type = "OrthographicCamera")) {
+    if ((options.type == "OrthographicCamera")) {
       camera = new THREE.OrthographicCamera(
         options.left * aspect,
         options.right * aspect,
