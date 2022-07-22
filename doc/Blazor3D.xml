@@ -57,7 +57,7 @@
         </member>
         <member name="P:Blazor3D.Cameras.OrthographicCamera.Far">
             <summary>
-            Camera frustum far plane distance. Default is 1000.
+            Camera frustum far plane distance. Default is 2000.
             </summary>
         </member>
         <member name="P:Blazor3D.Cameras.OrthographicCamera.Zoom">
