@@ -14,20 +14,31 @@
         }
 
         /// <summary>
-        ///  Camera frustum vertical field of view. Default value is 75;
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="fov">Camera frustum vertical field of view. Default is 75.</param>
+        /// <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
+        /// <param name="far">Camera frustum far plane distance. Default is 1000.</param>
+        public PerspectiveCamera(double fov, double near, double far)
+        {
+            Fov = fov;
+            Near = near;
+            Far = far;
+        }
+
+        /// <summary>
+        ///  Camera frustum vertical field of view. Default is 75.
         /// </summary>
         public double Fov { get; set; } = 75;
+
         /// <summary>
-        /// Camera frustum near plane distance.
+        /// Camera frustum near plane distance. Default is 0.1.
         /// </summary>
         public double Near { get; set; } = 0.1;
+
         /// <summary>
-        /// Camera frustum far plane distance.
+        /// Camera frustum far plane distance. Default is 1000.
         /// </summary>
         public double Far { get; set; } = 1000;
-        /// <summary>
-        ///  Camera frustum aspect ratio. It is calculated by Blazor3D component as current width divided by current height.
-        /// </summary>
-        public double Aspect { get; set; } = 4 / 3;
     }
 }
