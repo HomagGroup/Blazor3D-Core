@@ -21,7 +21,7 @@ namespace Blazor3D.Tests.Cameras
         }
 
         [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithPredefinedValues()
+        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
         {
             var camera = new OrthographicCamera(left: -2, right: 2, top: 2, bottom: -2, near: 0, far: 100, zoom: 0.5);
             Assert.AreEqual("OrthographicCamera", camera.Type);

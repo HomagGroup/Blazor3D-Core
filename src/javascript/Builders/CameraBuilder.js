@@ -5,7 +5,6 @@ class CameraBuilder {
 
   static BuildCamera(options, aspect) {
     let camera;
-    console.log(options);
     if ((options.type == "PerspectiveCamera")) {
       camera = new THREE.PerspectiveCamera(
         options.fov,

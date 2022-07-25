@@ -1,3 +1,4 @@
+import HelperBuilder from "./HelperBuilder";
 import LightBuilder from "./LightBuilder";
 import MeshBuilder from "./MeshBuilder";
 
@@ -14,6 +15,10 @@ class SceneBuilder {
 
     if (options.type == "PointLight") {
       return LightBuilder.BuildPointLight(options);
+    }
+
+    if (options.type.includes("Helper")) {
+      return HelperBuilder.BuildHelper(options);
     }
   }
 }

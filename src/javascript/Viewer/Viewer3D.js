@@ -54,7 +54,9 @@ class Viewer3D {
 
     this.options.scene.children.forEach((childOptions) => {
       var child = SceneBuilder.BuildChild(childOptions);
-      this.scene.add(child);
+      if (child){
+        this.scene.add(child);
+      }
     });
   }
 

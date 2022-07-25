@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Blazor3D.Enums
 @using Blazor3D.Geometires
+@using Blazor3D.Helpers
 @using Blazor3D.Lights
 @using Blazor3D.Materials
 @using Blazor3D.Maths
@@ -12,7 +13,7 @@
 <div class="row justify-content-center">
     <div class="col-9 v3d">
         @*<Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />*@
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene  />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -178,6 +179,8 @@
                     Color = "magenta"
                 }
             });
+
+        scene.Add(new ArrowHelper(new Vector3(1, 1, 1), new Vector3(3, 3, 3), 3, "red", 1, 0.2));
     }
 
     private async Task OnLoadObjButtonClick()
