@@ -812,6 +812,25 @@
             The width of the head of the arrow. Default is 0.2 * HeadLength.
             </summary>
         </member>
+        <member name="T:Blazor3D.Helpers.AxesHelper">
+            <summary>
+            <para>An axis object to visualize the 3 axes in a simple way.</para>
+            <para>The X axis is red.The Y axis is green.The Z axis is blue.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/AxesHelper">AxesHelper</a></para>
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Helpers.AxesHelper.#ctor(System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="size">Size of the lines representing the axes. Default is 1.</param>
+        </member>
+        <member name="P:Blazor3D.Helpers.AxesHelper.Size">
+            <summary>
+            Size of the lines representing the axes. Default is 1.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.

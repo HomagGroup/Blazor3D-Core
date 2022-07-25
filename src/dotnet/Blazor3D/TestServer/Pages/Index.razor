@@ -180,7 +180,9 @@
                 }
             });
 
-        scene.Add(new ArrowHelper(new Vector3(1, 1, 1), new Vector3(3, 3, 3), 3, "red", 1, 0.2));
+        scene.Add(new ArrowHelper(new Vector3(1, 1, 1), new Vector3(1, 1, 1), 3, "red", 1, 0.2));
+
+        scene.Add(new AxesHelper(5));
     }
 
     private async Task OnLoadObjButtonClick()
