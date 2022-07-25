@@ -4,7 +4,7 @@ import MeshBuilder from "./MeshBuilder";
 
 class SceneBuilder {
 
-  static BuildChild(options) {
+  static BuildChild(options, scene) {
     if (options.type == "Mesh") {
       return MeshBuilder.BuildMesh(options);
     }
@@ -18,7 +18,7 @@ class SceneBuilder {
     }
 
     if (options.type.includes("Helper")) {
-      return HelperBuilder.BuildHelper(options);
+      return HelperBuilder.BuildHelper(options, scene);
     }
   }
 }

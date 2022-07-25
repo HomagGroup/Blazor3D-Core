@@ -816,7 +816,7 @@
             <summary>
             <para>An axis object to visualize the 3 axes in a simple way.</para>
             <para>The X axis is red.The Y axis is green.The Z axis is blue.</para>
-            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from LineSegments
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/AxesHelper">AxesHelper</a></para>
             </summary>
         </member>
@@ -829,6 +829,18 @@
         <member name="P:Blazor3D.Helpers.AxesHelper.Size">
             <summary>
             Size of the lines representing the axes. Default is 1.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Helpers.BoxHelper">
+            <summary>
+            <para>Helper object to graphically show the world-axis-aligned bounding box around an object.</para>
+            <para>This object inherits from <see cref="P:Blazor3D.Helpers.BoxHelper.Object3D"/></para> //TODO: derive from LineSegments
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/BoxHelper">BoxHelper</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.BoxHelper.Object3D">
+            <summary>
+            The <see cref="P:Blazor3D.Helpers.BoxHelper.Object3D"/> to show the world-axis-aligned boundingbox.
             </summary>
         </member>
         <member name="T:Blazor3D.Lights.AmbientLight">

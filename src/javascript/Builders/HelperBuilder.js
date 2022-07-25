@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 class HelperBuilder{
 
-    static BuildHelper(options){
+    static BuildHelper(options, scene){
         if (options.type == "ArrowHelper"){
             const dir = new THREE.Vector3(options.dir.x, options.dir.y, options.dir.z);
             dir.normalize();
@@ -18,6 +18,18 @@ class HelperBuilder{
             axes.uuid = options.uuid;
             console.log(axes);
             return axes;
+        }
+
+        if (options.type == "BoxHelper"){
+            console.log(options);
+            const obj = scene.getObjectByProperty("uuid", options.object3D.uuid);
+            if(!obj){
+                throw `BoxHelper's object with uuid ${options.object3D.uuid} not found`;
+            }
+            const box = new THREE.BoxHelper(obj, options.color);
+            box.uuid = options.uuid;
+
+            return box;
         }
     }
 }

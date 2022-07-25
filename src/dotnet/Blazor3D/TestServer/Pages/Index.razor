@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Blazor3D.Core
 @using Blazor3D.Enums
 @using Blazor3D.Geometires
 @using Blazor3D.Helpers
@@ -72,7 +73,7 @@
                 Scale = new Vector3(0.5f, 1f, 1f)
             });
 
-        scene.Add(new Mesh
+        var capsule = new Mesh
             {
                 Geometry = new CapsuleGeometry(radius: 1, length: 2),
                 Position = new Vector3(-3, 0, -3),
@@ -80,7 +81,8 @@
                 {
                     Color = "blue"
                 }
-            });
+            };
+        scene.Add(capsule);
 
         scene.Add(new Mesh
             {
@@ -183,6 +185,8 @@
         scene.Add(new ArrowHelper(new Vector3(1, 1, 1), new Vector3(1, 1, 1), 3, "red", 1, 0.2));
 
         scene.Add(new AxesHelper(5));
+
+        scene.Add(new BoxHelper(capsule, "black"));
     }
 
     private async Task OnLoadObjButtonClick()
