@@ -189,9 +189,14 @@
         scene.Add(new BoxHelper(capsule, "black"));
 
         scene.Add(new GridHelper(2, 6, "red", "orange")
-        {
-            Position = new Vector3(-2, 0, 0)
-        });
+            {
+                Position = new Vector3(-2, 0, 0)
+            });
+
+        scene.Add(new PolarGridHelper(radius: 2, radials: 8, circles: 6, divisions: 32, "red", "orange")
+            {
+                Position = new Vector3(2, 0, 0)
+            });
     }
 
     private async Task OnLoadObjButtonClick()

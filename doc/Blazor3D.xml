@@ -846,6 +846,8 @@
         <member name="T:Blazor3D.Helpers.GridHelper">
             <summary>
             <para>The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from Line
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/GridHelper">GridHelper</a></para>
             </summary>
         </member>
         <member name="P:Blazor3D.Helpers.GridHelper.Size">
@@ -853,7 +855,7 @@
             The size of the grid. Default is 10.
             </summary>
         </member>
-        <member name="P:Blazor3D.Helpers.GridHelper.Devisions">
+        <member name="P:Blazor3D.Helpers.GridHelper.Divisions">
             <summary>
             The number of divisions across the grid. Default is 10.
             </summary>
@@ -866,6 +868,43 @@
         <member name="P:Blazor3D.Helpers.GridHelper.ColorGrid">
             <summary>
             The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x888888".
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Helpers.PolarGridHelper">
+            <summary>
+            <para>The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from Line
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PolarGridHelper">PolarGridHelper</a></para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PolarGridHelper.Radius">
+            <summary>
+            The radius of the polar grid. This can be any positive number. Default is 10.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PolarGridHelper.Radials">
+            <summary>
+            The number of radial lines. This can be any positive integer. Default is 16.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PolarGridHelper.Circles">
+            <summary>
+            The number of circles. This can be any positive integer. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PolarGridHelper.Divisions">
+            <summary>
+            The number of line segments used for each circle. This can be any positive integer that is 3 or greater. Default is 64.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PolarGridHelper.Color1">
+            <summary>
+            The first color used for grid elements. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x444444".
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PolarGridHelper.Color2">
+            <summary>
+            The second color used for grid elements. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x888888
             </summary>
         </member>
         <member name="T:Blazor3D.Lights.AmbientLight">

@@ -51,12 +51,28 @@ class HelperBuilder {
     }
 
     if (options.type == "GridHelper") {
-      console.log(options);
       const grid = new THREE.GridHelper(
         options.size,
-        options.devisions,
+        options.divisions,
         options.colorCenterLine,
         options.colorGrid
+      );
+      grid.uuid = options.uuid;
+      Transforms.setPosition(grid, options.position);
+      Transforms.setRotation(grid, options.rotation);
+      Transforms.setScale(grid, options.scale);
+      return grid;
+    }
+
+    if (options.type == "PolarGridHelper") {
+      console.log(options);
+      const grid = new THREE.PolarGridHelper(
+        options.radius,
+        options.radials,
+        options.circles,
+        options.divisions,
+        options.color1,
+        options.color2
       );
       grid.uuid = options.uuid;
       Transforms.setPosition(grid, options.position);
