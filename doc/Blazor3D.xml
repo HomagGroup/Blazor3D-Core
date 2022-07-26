@@ -843,6 +843,31 @@
             The <see cref="P:Blazor3D.Helpers.BoxHelper.Object3D"/> to show the world-axis-aligned boundingbox.
             </summary>
         </member>
+        <member name="T:Blazor3D.Helpers.GridHelper">
+            <summary>
+            <para>The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.</para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.GridHelper.Size">
+            <summary>
+            The size of the grid. Default is 10.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.GridHelper.Devisions">
+            <summary>
+            The number of divisions across the grid. Default is 10.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.GridHelper.ColorCenterLine">
+            <summary>
+            The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x444444:.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.GridHelper.ColorGrid">
+            <summary>
+            The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x888888".
+            </summary>
+        </member>
         <member name="T:Blazor3D.Lights.AmbientLight">
             <summary>
             <para>This light globally illuminates all objects in the scene equally.

@@ -187,6 +187,11 @@
         scene.Add(new AxesHelper(5));
 
         scene.Add(new BoxHelper(capsule, "black"));
+
+        scene.Add(new GridHelper(2, 6, "red", "orange")
+        {
+            Position = new Vector3(-2, 0, 0)
+        });
     }
 
     private async Task OnLoadObjButtonClick()

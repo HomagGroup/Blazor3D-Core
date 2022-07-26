@@ -7,7 +7,7 @@ namespace Blazor3D.Helpers
     /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from LineSegments
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/BoxHelper">BoxHelper</a></para>
     /// </summary>
-    public class BoxHelper : Object3D //TODO: derive from LineSegments
+    public sealed class BoxHelper : Object3D //TODO: derive from LineSegments
     {
         public BoxHelper() : base("BoxHelper")
         {

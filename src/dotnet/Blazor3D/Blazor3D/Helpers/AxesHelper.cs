@@ -8,7 +8,7 @@ namespace Blazor3D.Helpers
     /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from LineSegments
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/AxesHelper">AxesHelper</a></para>
     /// </summary>
-    public class AxesHelper : Object3D //TODO: derive from LineSegments
+    public sealed class AxesHelper : Object3D //TODO: derive from LineSegments
     {
         public AxesHelper() : base("AxesHelper")
         {
