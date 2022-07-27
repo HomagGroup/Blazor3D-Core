@@ -1,6 +1,8 @@
 ﻿@page "/"
+@using Blazor3D.Core
 @using Blazor3D.Enums
 @using Blazor3D.Geometires
+@using Blazor3D.Helpers
 @using Blazor3D.Lights
 @using Blazor3D.Materials
 @using Blazor3D.Maths
@@ -12,7 +14,7 @@
 <div class="row justify-content-center">
     <div class="col-9 v3d">
         @*<Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />*@
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene  />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -48,11 +50,13 @@
     private void FillScene()
     {
         scene.Add(new AmbientLight());
-        scene.Add(new PointLight()
+        var plight = new PointLight()
             {
+                Color = "red",
                 Decay = 2,
-                Position = new Vector3(1, 3, 0)
-            });
+                Position = new Vector3(1, 5, 0)
+            };
+        scene.Add(plight);
         //scene.Add(new Mesh());
         scene.Add(new Mesh
             {
@@ -71,7 +75,7 @@
                 Scale = new Vector3(0.5f, 1f, 1f)
             });
 
-        scene.Add(new Mesh
+        var capsule = new Mesh
             {
                 Geometry = new CapsuleGeometry(radius: 1, length: 2),
                 Position = new Vector3(-3, 0, -3),
@@ -79,7 +83,8 @@
                 {
                     Color = "blue"
                 }
-            });
+            };
+        scene.Add(capsule);
 
         scene.Add(new Mesh
             {
@@ -178,6 +183,27 @@
                     Color = "magenta"
                 }
             });
+
+        scene.Add(new ArrowHelper(new Vector3(1, 1, 1), new Vector3(1, 1, 1), 3, "red", 1, 0.2));
+
+        scene.Add(new AxesHelper(5));
+
+        scene.Add(new BoxHelper(capsule, "black"));
+
+        scene.Add(new GridHelper(2, 6, "red", "orange")
+            {
+                Position = new Vector3(-2, 0, 0)
+            });
+
+        scene.Add(new PolarGridHelper(radius: 2, radials: 8, circles: 6, divisions: 32, "red", "orange")
+            {
+                Position = new Vector3(2, 0, 0)
+            });
+
+        var plane = new Plane(new Vector3(-1, 1, 1), 3);
+        scene.Add(new PlaneHelper(plane, 2, "green"));
+
+        scene.Add(new PointLightHelper(plight, 0.5));
     }
 
     private async Task OnLoadObjButtonClick()

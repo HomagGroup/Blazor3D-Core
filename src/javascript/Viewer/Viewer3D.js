@@ -53,8 +53,10 @@ class Viewer3D {
     this.scene.uuid = this.options.scene.uuid;
 
     this.options.scene.children.forEach((childOptions) => {
-      var child = SceneBuilder.BuildChild(childOptions);
-      this.scene.add(child);
+      var child = SceneBuilder.BuildChild(childOptions, this.scene);
+      if (child){
+        this.scene.add(child);
+      }
     });
   }
 

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Blazor3D.Helpers
+namespace Blazor3D.ComponentHelpers
 {
     internal static class SerializationHelper
     {

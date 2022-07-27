@@ -5,11 +5,11 @@ using Blazor3D.Scenes;
 using Blazor3D.Cameras;
 using Blazor3D.Controls;
 using Newtonsoft.Json;
-using Blazor3D.Helpers;
 using Blazor3D.Maths;
 using Blazor3D.Objects;
 using Blazor3D.Enums;
 using Blazor3D.Lights;
+using Blazor3D.ComponentHelpers;
 
 namespace Blazor3D.Viewers
 {
