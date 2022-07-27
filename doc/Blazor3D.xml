@@ -870,6 +870,36 @@
             The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x888888".
             </summary>
         </member>
+        <member name="T:Blazor3D.Helpers.PlaneHelper">
+            <summary>
+            Helper object to visualize a <see cref="P:Blazor3D.Helpers.PlaneHelper.Plane"/>.
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from LineSegments
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PlaneHelper">PlaneHelper</a></para>
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Helpers.PlaneHelper.#ctor(Blazor3D.Maths.Plane,System.Double,System.String)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="plane">The <see cref="P:Blazor3D.Helpers.PlaneHelper.Plane"/> to visualize.</param>
+            <param name="size">Side length of plane helper. Default is 1.</param>
+            <param name="color">The color of the helper. Default is "0xffff00".</param>
+        </member>
+        <member name="P:Blazor3D.Helpers.PlaneHelper.Plane">
+            <summary>
+            The <see cref="P:Blazor3D.Helpers.PlaneHelper.Plane"/> to visualize.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PlaneHelper.Size">
+            <summary>
+            Side length of plane helper. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PlaneHelper.Color">
+            <summary>
+            The color of the helper. Default is "0xffff00".
+            </summary>
+        </member>
         <member name="T:Blazor3D.Helpers.PolarGridHelper">
             <summary>
             <para>The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.</para>
@@ -1015,6 +1045,29 @@
         <member name="P:Blazor3D.Maths.Euler.Order">
             <summary>
             String representing the order that the rotations are applied. Default is 'XYZ'. Must be upper case.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Maths.Plane">
+            <summary>
+            <para>A two dimensional surface that extends infinitely in 3d space, represented in Hessian normal form by a unit length normal vector and a constant.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Plane">Plane</a></para>
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Maths.Plane.#ctor(Blazor3D.Maths.Vector3,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="normal">A unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).</param>
+            <param name="constant">The signed distance from the origin to the plane. Default is 0.</param>
+        </member>
+        <member name="P:Blazor3D.Maths.Plane.Normal">
+            <summary>
+            A unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Maths.Plane.Constant">
+            <summary>
+            The signed distance from the origin to the plane. Default is 0.
             </summary>
         </member>
         <member name="T:Blazor3D.Maths.Vector3">

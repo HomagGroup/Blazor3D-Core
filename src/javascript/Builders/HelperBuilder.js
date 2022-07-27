@@ -80,6 +80,20 @@ class HelperBuilder {
       Transforms.setScale(grid, options.scale);
       return grid;
     }
+
+    if (options.type == "PlaneHelper") {
+      console.log(options);
+      let { x, y, z } = options.plane.normal;
+      let normal = new THREE.Vector3(x, y, z);
+      let plane = new THREE.Plane(normal, options.plane.constant);
+
+      const planeHelper = new THREE.PlaneHelper(plane, options.size, options.color);
+      planeHelper.uuid = options.uuid;
+      Transforms.setPosition(planeHelper, options.position);
+      Transforms.setRotation(planeHelper, options.rotation);
+      Transforms.setScale(planeHelper, options.scale);
+      return planeHelper;
+    }
   }
 }
 
