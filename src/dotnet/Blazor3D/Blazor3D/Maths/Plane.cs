@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="normal">A unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).</param>
         /// <param name="constant">The signed distance from the origin to the plane. Default is 0.</param>
-        public Plane(Vector3 normal = null!, double constant = 0):this()
+        public Plane(Vector3 normal = null!, double constant = 0)
         {
             Normal = normal ?? new Vector3(1, 0, 0);
             Constant = constant;

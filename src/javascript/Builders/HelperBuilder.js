@@ -94,6 +94,22 @@ class HelperBuilder {
       Transforms.setScale(planeHelper, options.scale);
       return planeHelper;
     }
+
+
+    if (options.type == "PointLightHelper") {
+      const obj = scene.getObjectByProperty("uuid", options.light.uuid);
+      if (!obj) {
+        throw `BoxHelper's object with uuid ${options.light.uuid} not found`;
+      }
+      var color = options.color;
+      if(!color){
+        color = obj.color;
+      }
+      const plight = new THREE.PointLightHelper(obj, options.sphereSize, color);
+      plight.uuid = options.uuid;
+      // transitions do not work here
+      return plight;
+    }
   }
 }
 

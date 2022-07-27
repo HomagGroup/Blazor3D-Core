@@ -50,11 +50,13 @@
     private void FillScene()
     {
         scene.Add(new AmbientLight());
-        scene.Add(new PointLight()
+        var plight = new PointLight()
             {
+                Color = "red",
                 Decay = 2,
-                Position = new Vector3(1, 3, 0)
-            });
+                Position = new Vector3(1, 5, 0)
+            };
+        scene.Add(plight);
         //scene.Add(new Mesh());
         scene.Add(new Mesh
             {
@@ -200,6 +202,8 @@
 
         var plane = new Plane(new Vector3(-1, 1, 1), 3);
         scene.Add(new PlaneHelper(plane, 2, "green"));
+
+        scene.Add(new PointLightHelper(plight, 0.5));
     }
 
     private async Task OnLoadObjButtonClick()

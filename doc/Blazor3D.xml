@@ -900,6 +900,36 @@
             The color of the helper. Default is "0xffff00".
             </summary>
         </member>
+        <member name="T:Blazor3D.Helpers.PointLightHelper">
+            <summary>
+            <para>This displays a helper object consisting of a spherical <see cref="T:Blazor3D.Objects.Mesh"/> for visualizing a <see cref="T:Blazor3D.Lights.PointLight"/>.</para>
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from LineSegments
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper">PointLightHelper</a></para>
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Helpers.PointLightHelper.#ctor(Blazor3D.Lights.PointLight,System.Double,System.String)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="light">The light to be visualized. Must be already added to the scene.</param>
+            <param name="sphereSize">The size of the sphere helper. Default is 1.</param>
+            <param name="color">The size of the sphere helper. If color is not set, the helper will take the color of the light.</param>
+        </member>
+        <member name="P:Blazor3D.Helpers.PointLightHelper.Light">
+            <summary>
+             The light to be visualized. Must be already added to the scene.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PointLightHelper.SphereSize">
+            <summary>
+            The size of the sphere helper. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Helpers.PointLightHelper.Color">
+            <summary>
+            The size of the sphere helper. If color is not set, the helper will take the color of the light.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Helpers.PolarGridHelper">
             <summary>
             <para>The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.</para>
