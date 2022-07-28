@@ -1,4 +1,6 @@
 ﻿using Blazor3D.Core;
+using Blazor3D.Maths;
+using Blazor3D.Settings;
 
 namespace Blazor3D.Cameras
 {
@@ -12,5 +14,15 @@ namespace Blazor3D.Cameras
         protected Camera(string type = "Camera") : base(type)
         {
         }
+
+        /// <summary>
+        /// Settings used for camera's animated rotations.
+        /// </summary>
+        public AnimateRotationSettings AnimateRotationSettings { get; set; } = new AnimateRotationSettings();
+
+        /// <summary>
+        /// The point camera looks at.
+        /// </summary>
+        public Vector3 LookAt { get; set; } = new Vector3();
     }
 }

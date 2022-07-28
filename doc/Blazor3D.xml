@@ -11,6 +11,16 @@
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
+        <member name="P:Blazor3D.Cameras.Camera.AnimateRotationSettings">
+            <summary>
+            Settings used for camera's animated rotations.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Cameras.Camera.LookAt">
+            <summary>
+            The point camera looks at.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Cameras.OrthographicCamera">
             <summary>
             <para>Camera that uses <a target="_blank" href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.</para>
@@ -1180,6 +1190,46 @@
             Scene background color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
             Default value is "DarkSlateBlue">
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Settings.AnimateRotationSettings">
+            <summary>
+            <para>Settings used for animated rotations.</para>
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Settings.AnimateRotationSettings.#ctor(System.Boolean,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="animateRotation">The option indicates whether the rotation animation should be applied. Default is false.</param>
+            <param name="thetaX">The angle in degreees to rotate around the X axis on each animation frame. Default is 0.1.</param>
+            <param name="thetaY">The angle in degreees to rotate around the Y axis on each animation frame. Default is 0.1.</param>
+            <param name="thetaZ">The angle in degreees to rotate around the Z axis on each animation frame. Default is 0.1.</param>
+            <param name="radius">Radius of rotation. Default is 5.</param>
+        </member>
+        <member name="P:Blazor3D.Settings.AnimateRotationSettings.AnimateRotation">
+            <summary>
+            The option indicates whether the rotation animation should be applied. Default is false.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.AnimateRotationSettings.ThetaX">
+            <summary>
+            The angle in degreees to rotate around the X axis on each animation frame. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.AnimateRotationSettings.ThetaY">
+            <summary>
+            The angle in degreees to rotate around the Y axis on each animation frame. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.AnimateRotationSettings.ThetaZ">
+            <summary>
+            The angle in degreees to rotate around the Z axis on each animation frame. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.AnimateRotationSettings.Radius">
+            <summary>
+            Radius of rotation. Default is 5.
             </summary>
         </member>
         <member name="T:Blazor3D.Settings.ViewerSettings">

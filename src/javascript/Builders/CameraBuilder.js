@@ -30,6 +30,8 @@ class CameraBuilder {
     Transforms.setPosition(camera, options.position);
     Transforms.setRotation(camera, options.rotation);
     Transforms.setScale(camera, options.scale);
+    let {x, y, z} = options.lookAt;
+    camera.lookAt(x, y, z);
     return camera;
   }
 }
