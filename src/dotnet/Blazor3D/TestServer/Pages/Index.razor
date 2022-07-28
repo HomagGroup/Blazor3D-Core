@@ -13,8 +13,8 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        @*<Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />*@
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
+        @*<Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />*@
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
@@ -31,16 +31,23 @@
         };
 
     private Scene scene = new Scene();
+    //private Camera camera = new PerspectiveCamera
+    //    {
+    //        Position = new Vector3(3, 3, 3),
+    //        AnimateRotationSettings = new AnimateRotationSettings(true),
+    //        LookAt = new Vector3(0, 0.5f, 0)
+    //    };
+
     private Camera camera = new OrthographicCamera()
         {
-            Left = -10,
-            Right = 10,
-            Top = 10,
-            Bottom = -10,
-            Position = new Vector3(6, 6, 6),
+            Left = -5,
+            Right = 5,
+            Top = 5,
+            Bottom = -5,
+            Position = new Vector3(1, 1, 1),
+            AnimateRotationSettings = new AnimateRotationSettings(true,0.1, 0, 0.1, radius:3),
             //Zoom = 0.5
         };
-
     protected override Task OnInitializedAsync()
     {
         FillScene();

@@ -6,13 +6,15 @@ import SceneBuilder from "../Builders/SceneBuilder";
 import CameraBuilder from "../Builders/CameraBuilder";
 
 class Viewer3D {
+  thetaX = 0;
+  thetaY = 0;
+  thetaZ = 0;
   constructor(options, container) {
     this.options = options;
     this.container = container;
 
     this.scene = new THREE.Scene();
     this.setScene();
-
     this.setCamera();
 
     this.renderer = new THREE.WebGLRenderer();
@@ -24,10 +26,31 @@ class Viewer3D {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      this.renderer.render(this.scene, this.camera);
+      this.render();
     };
     this.onResize();
     animate();
+  }
+
+  render(){
+    let cameraAnimationSettigns = this.options.camera.animateRotationSettings;
+    if (cameraAnimationSettigns && cameraAnimationSettigns.animateRotation == true){
+      let radius = cameraAnimationSettigns.radius;
+      
+      this.thetaX = this.thetaX + cameraAnimationSettigns.thetaX;
+      this.thetaY = this.thetaY + cameraAnimationSettigns.thetaY;
+      this.thetaZ = this.thetaZ + cameraAnimationSettigns.thetaZ;
+
+      this.camera.position.x = cameraAnimationSettigns.thetaX == 0 ? this.camera.position.x : radius * Math.sin( THREE.MathUtils.degToRad( this.thetaX ) );
+			this.camera.position.y = cameraAnimationSettigns.thetaY == 0 ? this.camera.position.y : radius * Math.sin( THREE.MathUtils.degToRad( this.thetaY ) );
+			this.camera.position.z = cameraAnimationSettigns.thetaZ == 0 ? this.camera.position.z : radius * Math.cos( THREE.MathUtils.degToRad( this.thetaZ ) );
+      let { x, y, z } = this.options.camera.lookAt;
+			this.camera.lookAt(x, y, z);
+
+			this.camera.updateMatrixWorld();
+
+    }
+    this.renderer.render(this.scene, this.camera);
   }
 
   onResize() {
@@ -66,22 +89,7 @@ class Viewer3D {
       this.container.offsetWidth / this.container.offsetHeight
     );
 
-    this.camera.lookAt(0, 0, 0);
-    if (this.controls && this.controls.target) {
-      this.controls.target.set(0, 0, 0);
-    }
-
     // todo: add camera children (i.e. lights)
-  }
-
-  setCameraPosition(position) {
-    let { x, y, z } = position;
-    this.camera.position.set(x, y, z);
-    this.camera.lookAt(0, y / 2, 0);
-    // this.camera.updateMatrixWorld();
-    if (this.controls && this.controls.target) {
-      this.controls.target.set(0, y / 2, 0);
-    }
   }
 
   setOrbitControls(orbitControls) {
@@ -89,7 +97,7 @@ class Viewer3D {
     this.controls.screenSpacePanning = true;
     this.controls.minDistance = orbitControls.minDistance;
     this.controls.maxDistance = orbitControls.maxDistance;
-    let { x, y, z } = orbitControls.targetPosition;
+    let { x, y, z } = this.options.camera.lookAt;
     this.controls.target.set(x, y, z);
     this.controls.update();
   }
