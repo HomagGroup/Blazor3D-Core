@@ -13,6 +13,8 @@ namespace Blazor3D.Tests.Cameras
             Assert.AreEqual(0.1, camera.Near);
             Assert.AreEqual(1000, camera.Far);
             Assert.AreEqual(75, camera.Fov);
+            Assert.IsNotNull(camera.AnimateRotationSettings);
+            Assert.IsNotNull(camera.LookAt);
         }
 
         [TestMethod]

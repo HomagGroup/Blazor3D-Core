@@ -17,7 +17,8 @@ namespace Blazor3D.Tests.Cameras
             Assert.AreEqual(1, camera.Top);
             Assert.AreEqual(-1, camera.Bottom);
             Assert.AreEqual(1, camera.Zoom);
-
+            Assert.IsNotNull(camera.AnimateRotationSettings);
+            Assert.IsNotNull(camera.LookAt);
         }
 
         [TestMethod]
