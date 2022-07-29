@@ -1273,11 +1273,12 @@
             <para><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Viewers.Viewer.SetCameraPositionAsync(Blazor3D.Maths.Vector3)">
+        <member name="M:Blazor3D.Viewers.Viewer.SetCameraPositionAsync(Blazor3D.Maths.Vector3,Blazor3D.Maths.Vector3)">
             <summary>
             <para>Sets the camera position to specified <see cref="T:Blazor3D.Maths.Vector3"/> value.</para>
             </summary>
             <param name="position">New <see cref="T:Blazor3D.Maths.Vector3"/> position.</param>
+            <param name="lookAt">New <see cref="T:Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
         <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Int32)">

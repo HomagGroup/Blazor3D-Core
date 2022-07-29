@@ -4,6 +4,7 @@ import Loaders from "./Loaders";
 import Exporters from "./Exporters"; //todo
 import SceneBuilder from "../Builders/SceneBuilder";
 import CameraBuilder from "../Builders/CameraBuilder";
+import Transforms from "../Utils/Transforms";
 
 class Viewer3D {
   thetaX = 0;
@@ -26,10 +27,10 @@ class Viewer3D {
     this.renderer.domElement.style.width = "100%";
     this.renderer.domElement.style.height = "100%";
 
-    this.renderer.domElement.onclick = (event) =>{
+    this.renderer.domElement.onclick = (event) => {
       this.selectObject(event);
-    }
-    
+    };
+
     this.container.appendChild(this.renderer.domElement);
 
     this.setOrbitControls(options.orbitControls);
@@ -155,13 +156,10 @@ class Viewer3D {
     if (intersects.length > 0) {
       if (this.INTERSECTED != intersects[0].object) {
         if (this.INTERSECTED)
-          this.INTERSECTED.material.color.setHex(
-            this.INTERSECTED.currentHex
-          );
+          this.INTERSECTED.material.color.setHex(this.INTERSECTED.currentHex);
 
         this.INTERSECTED = intersects[0].object;
-        this.INTERSECTED.currentHex =
-          this.INTERSECTED.material.color.getHex();
+        this.INTERSECTED.currentHex = this.INTERSECTED.material.color.getHex();
         this.INTERSECTED.material.color.setHex(0xffffff);
       }
     } else {
@@ -169,6 +167,15 @@ class Viewer3D {
         this.INTERSECTED.material.color.setHex(this.INTERSECTED.currentHex);
 
       this.INTERSECTED = null;
+    }
+  }
+
+  setCameraPosition(position, lookAt) {
+    Transforms.setPosition(this.camera, position);
+    if (lookAt != null && this.controls && this.controls.target) {
+      let { x, y, z } = lookAt;
+      this.camera.lookAt(x, y, z);
+      this.controls.target.set(x, y, z);
     }
   }
 }

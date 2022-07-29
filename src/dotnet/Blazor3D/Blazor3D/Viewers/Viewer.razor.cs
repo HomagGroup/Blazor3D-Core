@@ -106,10 +106,11 @@ namespace Blazor3D.Viewers
         /// <para>Sets the camera position to specified <see cref="Vector3"/> value.</para>
         /// </summary>
         /// <param name="position">New <see cref="Vector3"/> position.</param>
+        /// <param name="lookAt">New <see cref="Vector3"/> camera target point coordinates.</param>
         /// <returns>Task</returns>
-        public async Task SetCameraPositionAsync(Vector3 position)
+        public async Task SetCameraPositionAsync(Vector3 position, Vector3 lookAt = null!)
         {
-            await bundleModule.InvokeVoidAsync("setCameraPosition", position);
+            await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
         }
 
         /// <summary>
