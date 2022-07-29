@@ -10,6 +10,7 @@ using Blazor3D.Objects;
 using Blazor3D.Enums;
 using Blazor3D.Lights;
 using Blazor3D.ComponentHelpers;
+using System.Text;
 
 namespace Blazor3D.Viewers
 {
@@ -111,6 +112,13 @@ namespace Blazor3D.Viewers
         public async Task SetCameraPositionAsync(Vector3 position, Vector3 lookAt = null!)
         {
             await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
+        }
+
+        [JSInvokable]
+        public static Task<string> ReceiveSelectedObjectUUID(string containerId, string uuid)
+        {
+            var result = containerId + uuid;
+            return Task.FromResult(result);
         }
 
         /// <summary>

@@ -168,6 +168,12 @@ class Viewer3D {
 
       this.INTERSECTED = null;
     }
+
+    if (this.INTERSECTED){
+      const utf8Encode = new TextEncoder();
+      const data = utf8Encode.encode(this.INTERSECTED.uuid);
+      DotNet.invokeMethodAsync('Blazor3D', 'ReceiveSelectedObjectUUID',this.options.viewerSettings.containerId, this.INTERSECTED.uuid);
+    }
   }
 
   setCameraPosition(position, lookAt) {
