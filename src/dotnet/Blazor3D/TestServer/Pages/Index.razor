@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Blazor3D.Core
 @using Blazor3D.Enums
+@using Blazor3D.Events
 @using Blazor3D.Geometires
 @using Blazor3D.Helpers
 @using Blazor3D.Lights
@@ -19,7 +20,7 @@
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
     </div>
-
+    <div>@selectionMsg</div>
 </div>
 
 @code {
@@ -37,6 +38,8 @@
             LookAt = new Vector3(0, 0.5f, 0)
         };
 
+    private string selectionMsg = string.Empty;
+
     //private Camera camera = new OrthographicCamera()
     //    {
     //        Left = -5,
@@ -49,8 +52,19 @@
     //    };
     protected override Task OnInitializedAsync()
     {
+
         FillScene();
         return base.OnInitializedAsync();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            View3D1.ObjectSelected += OnObjectSelected;
+        }
+
+        return base.OnAfterRenderAsync(firstRender);
     }
 
     private void FillScene()
@@ -210,6 +224,20 @@
         scene.Add(new PlaneHelper(plane, 1, "green"));
 
         scene.Add(new PointLightHelper(plight, 0.5));
+    }
+
+    private void OnObjectSelected(SelectedObjectArgs e)
+    {
+        foreach (var item in scene.Children)
+        {
+            if (item.Uuid == e.UUID)
+            {
+                this.selectionMsg = $"selected object with id = {e.UUID} and type {item.Type}";
+                StateHasChanged();
+                break;
+            }
+        }
+
     }
 
     private async Task OnLoadObjButtonClick()

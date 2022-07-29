@@ -223,6 +223,16 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
             </summary>
         </member>
+        <member name="T:Blazor3D.Events.SelectedObjectArgs">
+            <summary>
+            Arguments for <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected event.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Events.SelectedObjectArgs.UUID">
+            <summary>
+            Selected object unique identifier.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
             <summary>
             <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>
@@ -1246,6 +1256,17 @@
         <member name="T:Blazor3D.Viewers.Viewer">
             <summary>
             <para>Blazor3D viewer component.</para>
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Viewers.Viewer.SelectedObjectEventHandler">
+            <summary>
+            Handler for ObjectSelected event.
+            </summary>
+            <param name="e"><see cref="T:Blazor3D.Events.SelectedObjectArgs"/>ObjectSelected event handler arguments</param>
+        </member>
+        <member name="E:Blazor3D.Viewers.Viewer.ObjectSelected">
+            <summary>
+            ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
