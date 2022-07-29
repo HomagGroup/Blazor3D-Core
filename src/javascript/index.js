@@ -16,7 +16,6 @@ export function loadScene(json) {
   }
 
   viewer3d = new Viewer3D(options, container);
-  // console.log(viewer3d.options.scene);
 }
 
 export function import3DModel(format, objUrl, textureUrl, guid) {
