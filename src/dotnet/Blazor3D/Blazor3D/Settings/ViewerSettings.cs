@@ -14,13 +14,15 @@ namespace Blazor3D.Settings
         public string ContainerId { get; set; } = "blazorview3d";
 
         /// <summary>
-        /// If true, user can select objects by mouse. Default is true.
+        /// If true, user can select objects by mouse. Default is false.
         /// </summary>
-        public bool CanSelect { get; set; } = true;
+        public bool CanSelect { get; set; } = false;
+
         /// <summary>
-        /// If true, the helpers can be selected by mouse. Default is true.
+        /// If true, the helpers can be selected by mouse. Default is false.
         /// </summary>
-        public bool CanSelectHelpers { get; set; } = true;
+        public bool CanSelectHelpers { get; set; } = false;
+
         /// <summary>
         /// Color the selected element is highlighted. Default is "lime".
         /// </summary>

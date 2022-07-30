@@ -1,6 +1,6 @@
 ﻿namespace Blazor3D.Events
 {
-    internal class SelectedObjectStaticArgs
+    internal class Object3DStaticArgs
     {
         public string ContainerId { get; set; } = null!;
 
@@ -8,12 +8,12 @@
     }
 
     /// <summary>
-    /// Arguments for <see cref="Viewers.Viewer"/> ObjectSelected event.
+    /// Arguments for <see cref="Viewers.Viewer"/> ObjectSelected and ObjectLoaded events.
     /// </summary>
-    public class SelectedObjectArgs
+    public class Object3DArgs
     {
         /// <summary>
-        /// Selected object unique identifier.
+        /// Selected or Loaded object unique identifier.
         /// </summary>
         public Guid UUID { get; set; }
     }

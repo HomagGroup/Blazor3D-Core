@@ -223,14 +223,14 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
             </summary>
         </member>
-        <member name="T:Blazor3D.Events.SelectedObjectArgs">
+        <member name="T:Blazor3D.Events.Object3DArgs">
             <summary>
-            Arguments for <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected event.
+            Arguments for <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected and ObjectLoaded events.
             </summary>
         </member>
-        <member name="P:Blazor3D.Events.SelectedObjectArgs.UUID">
+        <member name="P:Blazor3D.Events.Object3DArgs.UUID">
             <summary>
-            Selected object unique identifier.
+            Selected or Loaded object unique identifier.
             </summary>
         </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
@@ -1255,12 +1255,12 @@
         </member>
         <member name="P:Blazor3D.Settings.ViewerSettings.CanSelect">
             <summary>
-            If true, user can select objects by mouse. Default is true.
+            If true, user can select objects by mouse. Default is false.
             </summary>
         </member>
         <member name="P:Blazor3D.Settings.ViewerSettings.CanSelectHelpers">
             <summary>
-            If true, the helpers can be selected by mouse. Default is true.
+            If true, the helpers can be selected by mouse. Default is false.
             </summary>
         </member>
         <member name="P:Blazor3D.Settings.ViewerSettings.SelectedColor">
@@ -1277,11 +1277,22 @@
             <summary>
             Handler for ObjectSelected event.
             </summary>
-            <param name="e"><see cref="T:Blazor3D.Events.SelectedObjectArgs"/>ObjectSelected event handler arguments</param>
+            <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/>ObjectSelected event handler arguments</param>
         </member>
         <member name="E:Blazor3D.Viewers.Viewer.ObjectSelected">
             <summary>
             ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Viewers.Viewer.LoadedObjectEventHandler">
+            <summary>
+            Handler for ObjectLoaded event.
+            </summary>
+            <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/>ObjectLoaded event handler arguments</param>
+        </member>
+        <member name="E:Blazor3D.Viewers.Viewer.ObjectLoaded">
+            <summary>
+            ObjectLoaded event. Raises after complete loading imported file content.
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
@@ -1317,14 +1328,14 @@
             <param name="lookAt">New <see cref="T:Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
-        <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Int32)">
+        <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Nullable{System.Guid})">
             <summary>
             <para>Imports 3D model to scene.</para>
             </summary>
             <param name="format"><see cref="T:Blazor3D.Enums.Import3DFormats"/> format of 3D model.</param>
             <param name="objUrl">URL of the 3D model file</param>
             <param name="textureUrl">URL of the texture file</param>
-            <param name="delay">Delay im miliseconds to get things loaded before displaying. Default is 200 ms</param>
+            <param name="uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
             <returns>Guid of the loaded item</returns>
         </member>
     </members>
