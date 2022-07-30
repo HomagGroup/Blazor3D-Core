@@ -131,7 +131,7 @@ class Viewer3D {
   }
 
   import3DModel(format, objUrl, textureUrl, guid) {
-    return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid);
+    return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid, this.options.viewerSettings.containerId);;
   }
 
   getSceneItemByGuid(guid) {
@@ -152,7 +152,7 @@ class Viewer3D {
     this.raycaster.setFromCamera(this.mouse, this.camera);
     const intersects = this.raycaster.intersectObjects(
       this.scene.children,
-      false
+      true
     );
 
     if (intersects.length == 0) {

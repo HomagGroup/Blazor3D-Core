@@ -8,7 +8,6 @@ window.onresize = function(){
 
 export function loadScene(json) {
   var options = JSON.parse(json);
-  // console.log("scene loading ...");
   let container = document.getElementById(options.viewerSettings.containerId);
   if (!container) {
     console.warn("Container not found");

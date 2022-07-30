@@ -29,6 +29,7 @@
     private ViewerSettings settings = new ViewerSettings()
         {
             ContainerId = "rsid",
+            CanSelect = true,
             CanSelectHelpers = false
         };
 
@@ -40,6 +41,8 @@
         };
 
     private string selectionMsg = string.Empty;
+
+    private Guid loadedObjectGuid = Guid.NewGuid();
 
     //private Camera camera = new OrthographicCamera()
     //    {
@@ -53,6 +56,7 @@
     //    };
     protected override Task OnInitializedAsync()
     {
+        AddLights();
         FillScene();
         return base.OnInitializedAsync();
     }
@@ -62,12 +66,12 @@
         if (firstRender)
         {
             View3D1.ObjectSelected += OnObjectSelected;
+            View3D1.ObjectLoaded += OnObjectLoaded;
         }
 
         return base.OnAfterRenderAsync(firstRender);
     }
-
-    private void FillScene()
+    private void AddLights()
     {
         scene.Add(new AmbientLight());
         var plight = new PointLight()
@@ -77,6 +81,10 @@
                 Position = new Vector3(1, 5, 0)
             };
         scene.Add(plight);
+        scene.Add(new PointLightHelper(plight, 0.5));
+    }
+    private void FillScene()
+    {
         //scene.Add(new Mesh());
         scene.Add(new Mesh
             {
@@ -223,10 +231,10 @@
         var plane = new Plane(new Vector3(-1, 1, 1), 1);
         scene.Add(new PlaneHelper(plane, 1, "green"));
 
-        scene.Add(new PointLightHelper(plight, 0.5));
+        
     }
 
-    private void OnObjectSelected(SelectedObjectArgs e)
+    private void OnObjectSelected(Object3DArgs e)
     {
         foreach (var item in scene.Children)
         {
@@ -240,35 +248,74 @@
 
     }
 
+    private Task OnObjectLoaded(Object3DArgs e)
+    {
+        foreach (var item in scene.Children)
+        {
+            if (item.Uuid == e.UUID)
+            {
+                this.selectionMsg = $"loaded object with id = {e.UUID} and type {item.Type}. Last initial guid was {loadedObjectGuid}";
+                StateHasChanged();
+                break;
+            }
+        }
+        return Task.CompletedTask;
+    }
+
     private async Task OnLoadObjButtonClick()
     {
-        //await View3D1.Import3DModelAsync(
-        //     Import3DFormats.Fbx,
-        //     "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-        //     null,
-        //     500);
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
+        loadedObjectGuid = Guid.NewGuid();// alway do this.
 
         //await View3D1.Import3DModelAsync(
-        //    Import3DFormats.Gltf,
-        //    "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
+        //   Import3DFormats.Obj,//choose appropriate format
+        //   "https://threejs.org/examples/models/obj/male02/male02.obj", // link to your obj file
+        //   "https://threejs.org/examples/textures/uv_grid_opengl.jpg", // link to the texture or null
+        //   loadedObjectGuid);// delay in ms before scene rendering to get things loaded. Default value 200.
+
+        //// set camera position to view your loaded model
+        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
+
+
+        //await View3D1.Import3DModelAsync(
+        //   Import3DFormats.Obj,//choose appropriate format
+        //   "https://threejs.org/examples/models/obj/male02/male02.obj", // link to your obj file
+        //   null, // link to the texture or null
+        //   loadedObjectGuid);// delay in ms before scene rendering to get things loaded. Default value 200.
+
+        //// set camera position to view your loaded model
+        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
+
+
+        //await View3D1.Import3DModelAsync(
+        //  Import3DFormats.Fbx,
+        //  "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+        //  null,
+        //  loadedObjectGuid);
+        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
+
+
+        //await View3D1.Import3DModelAsync(
+        //    Import3DFormats.Collada,
+        //    "https://threejs.org/examples/models/collada/elf/elf.dae",
         //    null,
-        //    500);
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5));
+        //    loadedObjectGuid);
+        //await View3D1.SetCameraPositionAsync(new Vector3(0, 5, 10), new Vector3(0, 3, 0));
 
-        //scene.Add(new AmbientLight());
-        //scene.Add(new PointLight()
-        //    {
-        //        Decay = 2,
-        //        Position = new Vector3(1, 3, 0)
-        //    });
 
         await View3D1.Import3DModelAsync(
-            Import3DFormats.Stl,
-            "https://threejs.org/examples/models/stl/ascii/slotted_disk.stl",
+            Import3DFormats.Gltf,
+            "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
             null,
-            500);
-        await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3), new Vector3(0, 1, 0));
+            loadedObjectGuid);
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5), new Vector3(0, 0.5f, 0));
+
+        //todo: set custom material
+        //await View3D1.Import3DModelAsync(
+        //Import3DFormats.Stl,
+        //"https://threejs.org/examples/models/stl/ascii/slotted_disk.stl",
+        //null,
+        //loadedObjectGuid);
+        //await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3), new Vector3(0, 1, 0));
     }
 
 }

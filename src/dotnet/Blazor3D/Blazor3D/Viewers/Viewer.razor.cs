@@ -20,20 +20,37 @@ namespace Blazor3D.Viewers
     public sealed partial class Viewer
     {
         private IJSObjectReference bundleModule = null!;
+
         //static events
-        private delegate void SelectedObjectStaticEventHandler(SelectedObjectStaticArgs e);
+        private delegate void SelectedObjectStaticEventHandler(Object3DStaticArgs e);
         private static event SelectedObjectStaticEventHandler ObjectSelectedStatic = null!;
+
+        private delegate void LoadedObjectStaticEventHandler(Object3DStaticArgs e);
+        private static event LoadedObjectStaticEventHandler ObjectLoadedStatic = null!;
+  
+        private event LoadedObjectEventHandler ObjectLoadedPrivate = null!;
 
         /// <summary>
         /// Handler for ObjectSelected event.
         /// </summary>
-        /// <param name="e"><see cref="SelectedObjectArgs"/>ObjectSelected event handler arguments</param>
-        public delegate void SelectedObjectEventHandler(SelectedObjectArgs e);
+        /// <param name="e"><see cref="Object3DArgs"/>ObjectSelected event handler arguments</param>
+        public delegate void SelectedObjectEventHandler(Object3DArgs e);
 
         /// <summary>
         /// ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
         /// </summary>
         public event SelectedObjectEventHandler ObjectSelected = null!;
+
+        /// <summary>
+        /// Handler for ObjectLoaded event.
+        /// </summary>
+        /// <param name="e"><see cref="Object3DArgs"/>ObjectLoaded event handler arguments</param>
+        public delegate Task LoadedObjectEventHandler(Object3DArgs e);
+
+        /// <summary>
+        /// ObjectLoaded event. Raises after complete loading imported file content.
+        /// </summary>
+        public event LoadedObjectEventHandler ObjectLoaded = null!;
 
         /// <summary>
         /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
@@ -91,6 +108,8 @@ namespace Blazor3D.Viewers
             if (firstRender)
             {
                 ObjectSelectedStatic += OnObjectSelectedStatic;
+                ObjectLoadedStatic += OnObjectLoadedStatic;
+                ObjectLoadedPrivate += OnObjectLoadedPrivate;
 
                 bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
                     "import",
@@ -135,7 +154,19 @@ namespace Blazor3D.Viewers
         public static Task<string> ReceiveSelectedObjectUUID(string containerId, string uuid)
         {
             var result = containerId + uuid;
-            ObjectSelectedStatic?.Invoke(new SelectedObjectStaticArgs()
+            ObjectSelectedStatic?.Invoke(new Object3DStaticArgs()
+            {
+                ContainerId = containerId,
+                UUID = new Guid(uuid),
+            });
+            return Task.FromResult(result);
+        }
+
+        [JSInvokable]
+        public static Task<string> ReceiveLoadedObjectUUID(string containerId, string uuid)
+        {
+            var result = containerId + uuid;
+            ObjectLoadedStatic?.Invoke(new Object3DStaticArgs()
             {
                 ContainerId = containerId,
                 UUID = new Guid(uuid),
@@ -149,23 +180,12 @@ namespace Blazor3D.Viewers
         /// <param name="format"><see cref="Import3DFormats"/> format of 3D model.</param>
         /// <param name="objUrl">URL of the 3D model file</param>
         /// <param name="textureUrl">URL of the texture file</param>
-        /// <param name="delay">Delay im miliseconds to get things loaded before displaying. Default is 200 ms</param>
+        /// <param name="uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
         /// <returns>Guid of the loaded item</returns>
-        public async Task<Guid> Import3DModelAsync(Import3DFormats format, string objUrl, string textureUrl, int delay = 200)
+        public async Task<Guid> Import3DModelAsync(Import3DFormats format, string objUrl, string textureUrl, Guid? uuid = null)
         {
-            var guid = Guid.NewGuid();
+            Guid guid = uuid ?? Guid.NewGuid();
             await bundleModule.InvokeVoidAsync("import3DModel", format.ToString(), objUrl, textureUrl, guid);
-            await Task.Delay(delay);
-            var json = await bundleModule.InvokeAsync<string>("getSceneItemByGuid", guid);
-            if (json.Contains("\"type\":\"Group\""))
-            {
-                var group = JsonConvert.DeserializeObject<Group>(json);
-                if (group != null)
-                {
-                    Scene.Children.Add(group);
-                }
-
-            }
             return guid;
         }
 
@@ -184,11 +204,43 @@ namespace Blazor3D.Viewers
             Scene.Add(new Mesh());
         }
 
-        private void OnObjectSelectedStatic(SelectedObjectStaticArgs e)
+        private void OnObjectSelectedStatic(Object3DStaticArgs e)
         {
             if (ViewerSettings.ContainerId == e.ContainerId)
             {
-                ObjectSelected?.Invoke(new SelectedObjectArgs() { UUID = e.UUID });
+                ObjectSelected?.Invoke(new Object3DArgs() { UUID = e.UUID });
+            }
+        }
+
+        private void OnObjectLoadedStatic(Object3DStaticArgs e)
+        {
+            if (ViewerSettings.ContainerId == e.ContainerId)
+            {
+                ObjectLoadedPrivate?.Invoke(new Object3DArgs() { UUID = e.UUID });
+            }
+        }
+
+        private async Task OnObjectLoadedPrivate(Object3DArgs e)
+        {
+            var json = await bundleModule.InvokeAsync<string>("getSceneItemByGuid", e.UUID);
+            if (json.Contains("\"type\":\"Group\""))
+            {
+                var group = JsonConvert.DeserializeObject<Group>(json);
+                if (group != null)
+                {
+                    Scene.Children.Add(group);
+                    ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
+                }
+            }
+
+            if (json.Contains("\"type\":\"Mesh\""))
+            {
+                var group = JsonConvert.DeserializeObject<Mesh>(json);
+                if (group != null)
+                {
+                    Scene.Children.Add(group);
+                    ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
+                }
             }
         }
     }
