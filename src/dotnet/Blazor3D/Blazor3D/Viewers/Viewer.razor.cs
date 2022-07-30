@@ -10,6 +10,7 @@ using Blazor3D.Objects;
 using Blazor3D.Enums;
 using Blazor3D.Lights;
 using Blazor3D.ComponentHelpers;
+using Blazor3D.Events;
 
 namespace Blazor3D.Viewers
 {
@@ -19,6 +20,20 @@ namespace Blazor3D.Viewers
     public sealed partial class Viewer
     {
         private IJSObjectReference bundleModule = null!;
+        //static events
+        private delegate void SelectedObjectStaticEventHandler(SelectedObjectStaticArgs e);
+        private static event SelectedObjectStaticEventHandler ObjectSelectedStatic = null!;
+
+        /// <summary>
+        /// Handler for ObjectSelected event.
+        /// </summary>
+        /// <param name="e"><see cref="SelectedObjectArgs"/>ObjectSelected event handler arguments</param>
+        public delegate void SelectedObjectEventHandler(SelectedObjectArgs e);
+
+        /// <summary>
+        /// ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
+        /// </summary>
+        public event SelectedObjectEventHandler ObjectSelected = null!;
 
         /// <summary>
         /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
@@ -53,6 +68,7 @@ namespace Blazor3D.Viewers
         private async Task OnLoad()
         {
             Func<object, EventArgs, Task> handler = Load;
+            
 
             if (handler == null)
             {
@@ -74,6 +90,8 @@ namespace Blazor3D.Viewers
         {
             if (firstRender)
             {
+                ObjectSelectedStatic += OnObjectSelectedStatic;
+
                 bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
                     "import",
                     "./_content/Blazor3D/js/bundle.js")
@@ -106,10 +124,23 @@ namespace Blazor3D.Viewers
         /// <para>Sets the camera position to specified <see cref="Vector3"/> value.</para>
         /// </summary>
         /// <param name="position">New <see cref="Vector3"/> position.</param>
+        /// <param name="lookAt">New <see cref="Vector3"/> camera target point coordinates.</param>
         /// <returns>Task</returns>
-        public async Task SetCameraPositionAsync(Vector3 position)
+        public async Task SetCameraPositionAsync(Vector3 position, Vector3 lookAt = null!)
         {
-            await bundleModule.InvokeVoidAsync("setCameraPosition", position);
+            await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
+        }
+
+        [JSInvokable]
+        public static Task<string> ReceiveSelectedObjectUUID(string containerId, string uuid)
+        {
+            var result = containerId + uuid;
+            ObjectSelectedStatic?.Invoke(new SelectedObjectStaticArgs()
+            {
+                ContainerId = containerId,
+                UUID = new Guid(uuid),
+            });
+            return Task.FromResult(result);
         }
 
         /// <summary>
@@ -151,6 +182,14 @@ namespace Blazor3D.Viewers
                 }
             });
             Scene.Add(new Mesh());
+        }
+
+        private void OnObjectSelectedStatic(SelectedObjectStaticArgs e)
+        {
+            if (ViewerSettings.ContainerId == e.ContainerId)
+            {
+                ObjectSelected?.Invoke(new SelectedObjectArgs() { UUID = e.UUID });
+            }
         }
     }
 }

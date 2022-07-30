@@ -223,6 +223,16 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
             </summary>
         </member>
+        <member name="T:Blazor3D.Events.SelectedObjectArgs">
+            <summary>
+            Arguments for <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected event.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Events.SelectedObjectArgs.UUID">
+            <summary>
+            Selected object unique identifier.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
             <summary>
             <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>
@@ -1240,12 +1250,38 @@
         <member name="P:Blazor3D.Settings.ViewerSettings.ContainerId">
             <summary>
             <para>Identifier of the html container where <see cref="T:Blazor3D.Viewers.Viewer"/>instance will be created.</para>
-            <para>Must be unique on the html page!</para>
+            <para>Must be unique on the html page! Default is "blazorview3d"</para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.CanSelect">
+            <summary>
+            If true, user can select objects by mouse. Default is true.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.CanSelectHelpers">
+            <summary>
+            If true, the helpers can be selected by mouse. Default is true.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.SelectedColor">
+            <summary>
+            Color the selected element is highlighted. Default is "lime".
             </summary>
         </member>
         <member name="T:Blazor3D.Viewers.Viewer">
             <summary>
             <para>Blazor3D viewer component.</para>
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Viewers.Viewer.SelectedObjectEventHandler">
+            <summary>
+            Handler for ObjectSelected event.
+            </summary>
+            <param name="e"><see cref="T:Blazor3D.Events.SelectedObjectArgs"/>ObjectSelected event handler arguments</param>
+        </member>
+        <member name="E:Blazor3D.Viewers.Viewer.ObjectSelected">
+            <summary>
+            ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
@@ -1273,11 +1309,12 @@
             <para><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Viewers.Viewer.SetCameraPositionAsync(Blazor3D.Maths.Vector3)">
+        <member name="M:Blazor3D.Viewers.Viewer.SetCameraPositionAsync(Blazor3D.Maths.Vector3,Blazor3D.Maths.Vector3)">
             <summary>
             <para>Sets the camera position to specified <see cref="T:Blazor3D.Maths.Vector3"/> value.</para>
             </summary>
             <param name="position">New <see cref="T:Blazor3D.Maths.Vector3"/> position.</param>
+            <param name="lookAt">New <see cref="T:Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
         <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Int32)">
