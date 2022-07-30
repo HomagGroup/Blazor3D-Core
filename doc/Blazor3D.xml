@@ -1250,7 +1250,22 @@
         <member name="P:Blazor3D.Settings.ViewerSettings.ContainerId">
             <summary>
             <para>Identifier of the html container where <see cref="T:Blazor3D.Viewers.Viewer"/>instance will be created.</para>
-            <para>Must be unique on the html page!</para>
+            <para>Must be unique on the html page! Default is "blazorview3d"</para>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.CanSelect">
+            <summary>
+            If true, user can select objects by mouse. Default is true.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.CanSelectHelpers">
+            <summary>
+            If true, the helpers can be selected by mouse. Default is true.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.SelectedColor">
+            <summary>
+            Color the selected element is highlighted. Default is "lime".
             </summary>
         </member>
         <member name="T:Blazor3D.Viewers.Viewer">

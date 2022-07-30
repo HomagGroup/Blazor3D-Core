@@ -68,7 +68,7 @@ namespace Blazor3D.Viewers
         private async Task OnLoad()
         {
             Func<object, EventArgs, Task> handler = Load;
-            ObjectSelectedStatic += OnObjectSelectedStatic;
+            
 
             if (handler == null)
             {
@@ -90,6 +90,8 @@ namespace Blazor3D.Viewers
         {
             if (firstRender)
             {
+                ObjectSelectedStatic += OnObjectSelectedStatic;
+
                 bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
                     "import",
                     "./_content/Blazor3D/js/bundle.js")

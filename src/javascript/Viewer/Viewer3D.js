@@ -28,7 +28,9 @@ class Viewer3D {
     this.renderer.domElement.style.height = "100%";
 
     this.renderer.domElement.onclick = (event) => {
-      this.selectObject(event);
+      if (this.options.viewerSettings.canSelect == true) {
+        this.selectObject(event);
+      }
     };
 
     this.container.appendChild(this.renderer.domElement);
@@ -153,26 +155,33 @@ class Viewer3D {
       false
     );
 
-    if (intersects.length > 0) {
-      if (this.INTERSECTED != intersects[0].object) {
-        if (this.INTERSECTED)
-          this.INTERSECTED.material.color.setHex(this.INTERSECTED.currentHex);
-
-        this.INTERSECTED = intersects[0].object;
-        this.INTERSECTED.currentHex = this.INTERSECTED.material.color.getHex();
-        this.INTERSECTED.material.color.setHex(0xffffff);
-      }
-    } else {
-      if (this.INTERSECTED)
+    if (intersects.length == 0) {
+      if (this.INTERSECTED) {
         this.INTERSECTED.material.color.setHex(this.INTERSECTED.currentHex);
+      }
 
       this.INTERSECTED = null;
+      return;
     }
 
-    if (this.INTERSECTED){
+    if (this.options.viewerSettings.canSelectHelpers) {
+      this.processSelection(intersects[0].object);
+    } else {
+      let nonHelper = this.getFirstNonHelper(intersects);
+      if (nonHelper) {
+        this.processSelection(nonHelper);
+      }
+    }
+
+    if (this.INTERSECTED) {
       const utf8Encode = new TextEncoder();
       const data = utf8Encode.encode(this.INTERSECTED.uuid);
-      DotNet.invokeMethodAsync('Blazor3D', 'ReceiveSelectedObjectUUID',this.options.viewerSettings.containerId, this.INTERSECTED.uuid);
+      DotNet.invokeMethodAsync(
+        "Blazor3D",
+        "ReceiveSelectedObjectUUID",
+        this.options.viewerSettings.containerId,
+        this.INTERSECTED.uuid
+      );
     }
   }
 
@@ -182,6 +191,28 @@ class Viewer3D {
       let { x, y, z } = lookAt;
       this.camera.lookAt(x, y, z);
       this.controls.target.set(x, y, z);
+    }
+  }
+
+  getFirstNonHelper(intersects) {
+    for (let i = 0; i < intersects.length; i++) {
+      if (!intersects[i].object.type.includes("Helper")) {
+        return intersects[i].object;
+      }
+    }
+    return null;
+  }
+
+  processSelection(objToSelect) {
+    if (this.INTERSECTED != objToSelect) {
+      if (this.INTERSECTED)
+        this.INTERSECTED.material.color.setHex(this.INTERSECTED.currentHex);
+
+      this.INTERSECTED = objToSelect;
+      this.INTERSECTED.currentHex = this.INTERSECTED.material.color.getHex();
+      this.INTERSECTED.material.color.setHex(
+        new THREE.Color(this.options.viewerSettings.selectedColor).getHex()
+      );
     }
   }
 }

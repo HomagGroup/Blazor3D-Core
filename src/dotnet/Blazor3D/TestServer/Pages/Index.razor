@@ -29,6 +29,7 @@
     private ViewerSettings settings = new ViewerSettings()
         {
             ContainerId = "rsid",
+            CanSelectHelpers = false
         };
 
     private Scene scene = new Scene();
@@ -52,7 +53,6 @@
     //    };
     protected override Task OnInitializedAsync()
     {
-
         FillScene();
         return base.OnInitializedAsync();
     }
