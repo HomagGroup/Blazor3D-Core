@@ -1328,6 +1328,19 @@
             <param name="lookAt">New <see cref="T:Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
+        <member name="M:Blazor3D.Viewers.Viewer.RemoveByUuidAsync(System.Guid)">
+            <summary>
+            Removes object from scene by it's unique identifier.
+            </summary>
+            <param name="uuid">Object's unique identifier.</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.ClearSceneAsync">
+            <summary>
+            Clears scene.
+            </summary>
+            <returns>Task</returns>
+        </member>
         <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Nullable{System.Guid})">
             <summary>
             <para>Imports 3D model to scene.</para>

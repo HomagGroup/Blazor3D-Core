@@ -19,6 +19,8 @@
     </div>
     <div>
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
+        <button @onclick="OnClearAllClick">ClearAll</button>
+        <button @onclick="OnClearLast">RemoveLast</button>
     </div>
     <div>@selectionMsg</div>
 </div>
@@ -256,8 +258,6 @@
         return Task.CompletedTask;
     }
 
-
-
     private async Task OnLoadObjButtonClick()
     {
         loadedObjectGuid = Guid.NewGuid();// alway do this.
@@ -314,5 +314,18 @@
         //await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3), new Vector3(0, 1, 0));
     }
 
+    private async Task OnClearAllClick()
+    {
+        await View3D1.ClearSceneAsync();
+    }
+
+    private async Task OnClearLast()
+    {
+        if (scene.Children.Count > 0)
+        {
+            var last = scene.Children.Last();
+            await View3D1.RemoveByUuidAsync(last.Uuid);
+        }
+    }
 }
 

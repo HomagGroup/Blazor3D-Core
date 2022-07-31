@@ -23,7 +23,6 @@ namespace Blazor3D.Viewers
     {
         private IJSObjectReference bundleModule = null!;
 
-        //static events
         private delegate void SelectedObjectStaticEventHandler(Object3DStaticArgs e);
         private static event SelectedObjectStaticEventHandler ObjectSelectedStatic = null!;
 
@@ -31,7 +30,6 @@ namespace Blazor3D.Viewers
         private static event LoadedObjectStaticEventHandler ObjectLoadedStatic = null!;
 
         private event LoadedObjectEventHandler ObjectLoadedPrivate = null!;
-        //private event Func<object, EventArgs, Task> Load = null!;
 
         /// <summary>
         /// Handler for ObjectSelected event.
@@ -152,6 +150,27 @@ namespace Blazor3D.Viewers
         }
 
         /// <summary>
+        /// Removes object from scene by it's unique identifier.
+        /// </summary>
+        /// <param name="uuid">Object's unique identifier.</param>
+        /// <returns>Task</returns>
+        public async Task RemoveByUuidAsync(Guid uuid)
+        {
+            await bundleModule.InvokeVoidAsync("removeByUuid", uuid);
+            ChildrenHelper.RemoveObjectByUuid(uuid, Scene.Children);
+        }
+       
+        /// <summary>
+        /// Clears scene.
+        /// </summary>
+        /// <returns>Task</returns>
+        public async Task ClearSceneAsync()
+        {
+            await bundleModule.InvokeVoidAsync("clearScene");
+            Scene.Children.Clear();
+        }
+
+        /// <summary>
         /// <para>Imports 3D model to scene.</para>
         /// </summary>
         /// <param name="format"><see cref="Import3DFormats"/> format of 3D model.</param>
@@ -174,46 +193,8 @@ namespace Blazor3D.Viewers
         /// <returns>Found object or null</returns>
         public static Object3D? GetObjectByUuid(Guid uuid, List<Object3D> children)
         {
-            Object3D? result = null;
-            foreach (var child in children)
-            {
-                if (child.Uuid == uuid)
-                {
-                    return child;
-                }
-
-                if (child.Children.Count > 0)
-                {
-                    result = GetObjectByUuid(uuid, child.Children);
-                    if (result != null)
-                    {
-                        return result;
-                    }
-                };
-            }
-            return result;
+            return ChildrenHelper.GetObjectByUuid(uuid, children);
         }
-
-        //private async Task OnLoad()
-        //{
-        //    Func<object, EventArgs, Task> handler = Load;
-
-
-        //    if (handler == null)
-        //    {
-        //        return;
-        //    }
-
-        //    Delegate[] invocationList = handler.GetInvocationList();
-        //    Task[] handlerTasks = new Task[invocationList.Length];
-
-        //    for (int i = 0; i < invocationList.Length; i++)
-        //    {
-        //        handlerTasks[i] = ((Func<object, EventArgs, Task>)invocationList[i])(this, EventArgs.Empty);
-        //    }
-
-        //    await Task.WhenAll(handlerTasks);
-        //}
 
         private void AddDefaultScene()
         {
