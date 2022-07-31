@@ -4,10 +4,11 @@ namespace Blazor3D.Helpers
 {
     /// <summary>
     /// <para>The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.</para>
-    /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from Line
+    /// <para>This object inherits from <see cref="Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/GridHelper">GridHelper</a></para>
     /// </summary>
-    public sealed class GridHelper : Object3D //TODO: derive from Line
+    /// <inheritdoc><see cref="Object3D"/></inheritdoc>
+    public sealed class GridHelper : Object3D
     {
         public GridHelper() : base("GridHelper")
         {

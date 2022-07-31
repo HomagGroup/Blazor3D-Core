@@ -78,6 +78,15 @@ namespace ReferenceGenerator
                     });
                 }
 
+                if (mName.StartsWith("E:"))
+                {
+                    Reference.Types.Last().Events.Add(new EventModel
+                    {
+                        Name = mName.Replace("E:", null),
+                        XmlNode = memberNode
+                    });
+                }
+
                 if (mName.StartsWith("F:"))
                 {
                     Reference.Types.Last().Fields.Add(new FieldModel

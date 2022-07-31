@@ -5,10 +5,11 @@ namespace Blazor3D.Helpers
 {
     /// <summary>
     /// <para>The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.</para>
-    /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from Line
+    /// <para>This object inherits from <see cref="Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PolarGridHelper">PolarGridHelper</a></para>
     /// </summary>
-    public class PolarGridHelper : Object3D //TODO: derive from Line
+    /// <inheritdoc><see cref="Object3D"/></inheritdoc>
+    public class PolarGridHelper : Object3D
     {
         public PolarGridHelper() : base("PolarGridHelper")
         {

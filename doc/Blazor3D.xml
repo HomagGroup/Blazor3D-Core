@@ -223,15 +223,27 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
             </summary>
         </member>
+        <member name="T:Blazor3D.Events.LoadedObjectEventHandler">
+            <summary>
+            <para>Delegate that handles <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectLoaded event.</para>
+            </summary>
+            <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/> arguments for ObjectLoaded event handler.</param>
+        </member>
         <member name="T:Blazor3D.Events.Object3DArgs">
             <summary>
-            Arguments for <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected and ObjectLoaded events.
+            <para>Arguments for <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected and ObjectLoaded event handlers.</para>
             </summary>
         </member>
         <member name="P:Blazor3D.Events.Object3DArgs.UUID">
             <summary>
             Selected or Loaded object unique identifier.
             </summary>
+        </member>
+        <member name="T:Blazor3D.Events.SelectedObjectEventHandler">
+            <summary>
+            <para>Delegate that handles <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected event.</para>
+            </summary>
+            <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/> arguments for ObjectSelected event handler.</param>
         </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
             <summary>
@@ -790,6 +802,7 @@
             <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/ArrowHelper">ArrowHelper</a></para>
             </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="M:Blazor3D.Helpers.ArrowHelper.#ctor(Blazor3D.Maths.Vector3,Blazor3D.Maths.Vector3,System.Double,System.String,System.Double,System.Double)">
             <summary>
@@ -836,9 +849,10 @@
             <summary>
             <para>An axis object to visualize the 3 axes in a simple way.</para>
             <para>The X axis is red.The Y axis is green.The Z axis is blue.</para>
-            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from LineSegments
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/AxesHelper">AxesHelper</a></para>
             </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="M:Blazor3D.Helpers.AxesHelper.#ctor(System.Double)">
             <summary>
@@ -854,9 +868,10 @@
         <member name="T:Blazor3D.Helpers.BoxHelper">
             <summary>
             <para>Helper object to graphically show the world-axis-aligned bounding box around an object.</para>
-            <para>This object inherits from <see cref="P:Blazor3D.Helpers.BoxHelper.Object3D"/></para> //TODO: derive from LineSegments
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/BoxHelper">BoxHelper</a></para>
             </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Helpers.BoxHelper.Object3D">
             <summary>
@@ -866,9 +881,10 @@
         <member name="T:Blazor3D.Helpers.GridHelper">
             <summary>
             <para>The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.</para>
-            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from Line
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/GridHelper">GridHelper</a></para>
             </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Helpers.GridHelper.Size">
             <summary>
@@ -893,9 +909,10 @@
         <member name="T:Blazor3D.Helpers.PlaneHelper">
             <summary>
             Helper object to visualize a <see cref="P:Blazor3D.Helpers.PlaneHelper.Plane"/>.
-            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from LineSegments
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PlaneHelper">PlaneHelper</a></para>
             </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="M:Blazor3D.Helpers.PlaneHelper.#ctor(Blazor3D.Maths.Plane,System.Double,System.String)">
             <summary>
@@ -923,7 +940,7 @@
         <member name="T:Blazor3D.Helpers.PointLightHelper">
             <summary>
             <para>This displays a helper object consisting of a spherical <see cref="T:Blazor3D.Objects.Mesh"/> for visualizing a <see cref="T:Blazor3D.Lights.PointLight"/>.</para>
-            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from LineSegments
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper">PointLightHelper</a></para>
             </summary>
         </member>
@@ -953,9 +970,10 @@
         <member name="T:Blazor3D.Helpers.PolarGridHelper">
             <summary>
             <para>The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.</para>
-            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para> //TODO: derive from Line
+            <para>This object inherits from <see cref="T:Blazor3D.Core.Object3D"/></para>
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PolarGridHelper">PolarGridHelper</a></para>
             </summary>
+            <inheritdoc><see cref="T:Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:Blazor3D.Helpers.PolarGridHelper.Radius">
             <summary>
@@ -1273,26 +1291,14 @@
             <para>Blazor3D viewer component.</para>
             </summary>
         </member>
-        <member name="T:Blazor3D.Viewers.Viewer.SelectedObjectEventHandler">
-            <summary>
-            Handler for ObjectSelected event.
-            </summary>
-            <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/>ObjectSelected event handler arguments</param>
-        </member>
         <member name="E:Blazor3D.Viewers.Viewer.ObjectSelected">
             <summary>
-            ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
+            Raises when user selects object by mouse clicking inside viewer area.
             </summary>
-        </member>
-        <member name="T:Blazor3D.Viewers.Viewer.LoadedObjectEventHandler">
-            <summary>
-            Handler for ObjectLoaded event.
-            </summary>
-            <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/>ObjectLoaded event handler arguments</param>
         </member>
         <member name="E:Blazor3D.Viewers.Viewer.ObjectLoaded">
             <summary>
-            ObjectLoaded event. Raises after complete loading imported file content.
+            Raises after complete loading of imported file content.
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">

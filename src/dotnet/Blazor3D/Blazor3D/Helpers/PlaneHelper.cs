@@ -5,10 +5,11 @@ namespace Blazor3D.Helpers
 {
     /// <summary>
     /// Helper object to visualize a <see cref="Plane"/>.
-    /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from LineSegments
+    /// <para>This object inherits from <see cref="Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PlaneHelper">PlaneHelper</a></para>
     /// </summary>
-    public sealed class PlaneHelper : Object3D //TODO: derive from LineSegments
+    /// <inheritdoc><see cref="Object3D"/></inheritdoc>
+    public sealed class PlaneHelper : Object3D
     {
         public PlaneHelper() : base("PlaneHelper")
         {

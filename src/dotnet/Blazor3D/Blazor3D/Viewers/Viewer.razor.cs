@@ -31,25 +31,14 @@ namespace Blazor3D.Viewers
 
         private event LoadedObjectEventHandler ObjectLoadedPrivate = null!;
 
+        
         /// <summary>
-        /// Handler for ObjectSelected event.
-        /// </summary>
-        /// <param name="e"><see cref="Object3DArgs"/>ObjectSelected event handler arguments</param>
-        public delegate void SelectedObjectEventHandler(Object3DArgs e);
-
-        /// <summary>
-        /// ObjectSelected event. Raises when user selects object by mouse clicking inside viewer.
+        /// Raises when user selects object by mouse clicking inside viewer area.
         /// </summary>
         public event SelectedObjectEventHandler ObjectSelected = null!;
 
         /// <summary>
-        /// Handler for ObjectLoaded event.
-        /// </summary>
-        /// <param name="e"><see cref="Object3DArgs"/>ObjectLoaded event handler arguments</param>
-        public delegate Task LoadedObjectEventHandler(Object3DArgs e);
-
-        /// <summary>
-        /// ObjectLoaded event. Raises after complete loading imported file content.
+        /// Raises after complete loading of imported file content.
         /// </summary>
         public event LoadedObjectEventHandler ObjectLoaded = null!;
 
@@ -196,6 +185,7 @@ namespace Blazor3D.Viewers
             return ChildrenHelper.GetObjectByUuid(uuid, children);
         }
 
+        //todo: move to helper
         private void AddDefaultScene()
         {
             Scene.Add(new AmbientLight());
@@ -227,6 +217,8 @@ namespace Blazor3D.Viewers
             }
         }
 
+
+        //todo: move to children helper
         private List<Object3D> ParseChildren(JToken? children)
         {
             var result = new List<Object3D>();

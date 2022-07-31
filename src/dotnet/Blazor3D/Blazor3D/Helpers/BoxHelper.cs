@@ -4,10 +4,11 @@ namespace Blazor3D.Helpers
 {
     /// <summary>
     /// <para>Helper object to graphically show the world-axis-aligned bounding box around an object.</para>
-    /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from LineSegments
+    /// <para>This object inherits from <see cref="Core.Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/BoxHelper">BoxHelper</a></para>
     /// </summary>
-    public sealed class BoxHelper : Object3D //TODO: derive from LineSegments
+    /// <inheritdoc><see cref="Core.Object3D"/></inheritdoc>
+    public sealed class BoxHelper : Object3D
     {
         public BoxHelper() : base("BoxHelper")
         {

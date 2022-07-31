@@ -8,6 +8,7 @@ namespace Blazor3D.Helpers
     /// <para>This object inherits from <see cref="Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/ArrowHelper">ArrowHelper</a></para>
     /// </summary>
+    /// <inheritdoc><see cref="Object3D"/></inheritdoc>
     public sealed class ArrowHelper : Object3D
     {
         public ArrowHelper() : base("ArrowHelper")

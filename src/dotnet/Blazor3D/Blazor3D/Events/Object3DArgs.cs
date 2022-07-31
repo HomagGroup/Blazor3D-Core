@@ -8,7 +8,7 @@
     }
 
     /// <summary>
-    /// Arguments for <see cref="Viewers.Viewer"/> ObjectSelected and ObjectLoaded events.
+    /// <para>Arguments for <see cref="Viewers.Viewer"/> ObjectSelected and ObjectLoaded event handlers.</para>
     /// </summary>
     public class Object3DArgs
     {
