@@ -231,36 +231,32 @@
         var plane = new Plane(new Vector3(-1, 1, 1), 1);
         scene.Add(new PlaneHelper(plane, 1, "green"));
 
-        
+
     }
 
     private void OnObjectSelected(Object3DArgs e)
     {
-        foreach (var item in scene.Children)
+        var result = Viewer.GetObjectByUuid(e.UUID, scene.Children);
+        if (result != null)
         {
-            if (item.Uuid == e.UUID)
-            {
-                this.selectionMsg = $"selected object with id = {e.UUID} and type {item.Type}";
-                StateHasChanged();
-                break;
-            }
+            this.selectionMsg = $"selected object with id = {result.Uuid}, type = {result.Type} and name = {result.Name}.";
+            StateHasChanged();
         }
-
     }
 
     private Task OnObjectLoaded(Object3DArgs e)
     {
-        foreach (var item in scene.Children)
+        var result = Viewer.GetObjectByUuid(e.UUID, scene.Children);
+        if (result != null)
         {
-            if (item.Uuid == e.UUID)
-            {
-                this.selectionMsg = $"loaded object with id = {e.UUID} and type {item.Type}. Last initial guid was {loadedObjectGuid}";
-                StateHasChanged();
-                break;
-            }
+            this.selectionMsg = $"loaded object with id = {result.Uuid}, type = {result.Type} and name = {result.Name}. Initial guid was {loadedObjectGuid}";
+            StateHasChanged();
         }
+
         return Task.CompletedTask;
     }
+
+
 
     private async Task OnLoadObjButtonClick()
     {
