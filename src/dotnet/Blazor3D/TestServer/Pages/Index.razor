@@ -122,7 +122,10 @@
                 Position = new Vector3(3, 0, -3),
                 Material = new MeshStandardMaterial()
                 {
-                    Color = "green"
+                    Color = "green",
+                    FlatShading = true,
+                    Metalness = 0.5f,
+                    Roughness = 0.5f
                 }
             });
 
@@ -132,7 +135,9 @@
                 Position = new Vector3(0, 0, -3),
                 Material = new MeshStandardMaterial()
                 {
-                    Color = "red"
+                    Color = "red",
+                    Wireframe = true,
+                    WireframeLinecap = 2 // always 1 on most systems
                 }
             });
         scene.Add(new Mesh
