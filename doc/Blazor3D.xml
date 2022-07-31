@@ -1328,6 +1328,19 @@
             <param name="lookAt">New <see cref="T:Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
+        <member name="M:Blazor3D.Viewers.Viewer.RemoveByUuidAsync(System.Guid)">
+            <summary>
+            Removes object from scene by it's unique identifier.
+            </summary>
+            <param name="uuid">Object's unique identifier.</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.ClearSceneAsync">
+            <summary>
+            Clears scene.
+            </summary>
+            <returns>Task</returns>
+        </member>
         <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Nullable{System.Guid})">
             <summary>
             <para>Imports 3D model to scene.</para>
@@ -1337,6 +1350,14 @@
             <param name="textureUrl">URL of the texture file</param>
             <param name="uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
             <returns>Guid of the loaded item</returns>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.GetObjectByUuid(System.Guid,System.Collections.Generic.List{Blazor3D.Core.Object3D})">
+            <summary>
+            <para>Recursively finds object by it's uuid in collection.</para>
+            </summary>
+            <param name="uuid">Object's uuid</param>
+            <param name="children">Children collection. Usually it's Scene.Children</param>
+            <returns>Found object or null</returns>
         </member>
     </members>
 </doc>

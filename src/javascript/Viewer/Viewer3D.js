@@ -131,16 +131,41 @@ class Viewer3D {
   }
 
   import3DModel(format, objUrl, textureUrl, guid) {
-    return Loaders.import3DModel(this.scene, format, objUrl, textureUrl, guid, this.options.viewerSettings.containerId);;
+    return Loaders.import3DModel(
+      this.scene,
+      format,
+      objUrl,
+      textureUrl,
+      guid,
+      this.options.viewerSettings.containerId
+    );
   }
 
   getSceneItemByGuid(guid) {
-    var item = this.scene.getObjectByProperty("uuid", guid);
+    let item = this.scene.getObjectByProperty("uuid", guid);
+
     return {
       uuid: item.uuid,
       type: item.type,
       name: item.name,
+      children: item.type == "Group" ? this.iterateGroup(item.children) : [],
     };
+  }
+
+  iterateGroup(children) {
+    let result = [];
+    for (let i = 0; i < children.length; i++) {
+      result.push({
+        uuid: children[i].uuid,
+        type: children[i].type,
+        name: children[i].name,
+        children:
+          children[i].type == "Group"
+            ? this.iterateGroup(children[i].children)
+            : [],
+      });
+    }
+    return result;
   }
 
   selectObject(event) {
@@ -201,6 +226,17 @@ class Viewer3D {
       }
     }
     return null;
+  }
+
+  removeByUuid(uuid) {
+    let obj = this.scene.getObjectByProperty("uuid", uuid);
+    if (obj) {
+      this.scene.remove(obj);
+    }
+  }
+
+  clearScene() {
+    this.scene.clear();
   }
 
   processSelection(objToSelect) {

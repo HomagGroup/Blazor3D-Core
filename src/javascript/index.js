@@ -17,6 +17,14 @@ export function loadScene(json) {
   viewer3d = new Viewer3D(options, container);
 }
 
+export function removeByUuid(guid) {
+  viewer3d.removeByUuid(guid);
+}
+
+export function clearScene(guid) {
+  viewer3d.clearScene(guid);
+}
+
 export function import3DModel(format, objUrl, textureUrl, guid) {
   return JSON.stringify(viewer3d.import3DModel(format, objUrl, textureUrl, guid));
 }
