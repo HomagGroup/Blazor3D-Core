@@ -112,10 +112,6 @@ namespace Blazor3D.Viewers
                 SerializationHelper.GetSerializerSettings());
 
                 await bundleModule.InvokeVoidAsync("loadScene", json);
-                // todo: return value only on loaders or call methods
-                //var result = await bundleModule.InvokeAsync<string>("loadScene", json);
-                //todo: custom deserialization needed. do we need deserialization??? we have guid in every object
-                //var scene2 = JsonConvert.DeserializeObject<Scene>(result);
                 //await OnLoad();
             }
         }
@@ -317,10 +313,10 @@ namespace Blazor3D.Viewers
 
             if (json.Contains("\"type\":\"Mesh\""))
             {
-                var group = JsonConvert.DeserializeObject<Mesh>(json);
-                if (group != null)
+                var mesh = JsonConvert.DeserializeObject<Mesh>(json);
+                if (mesh != null)
                 {
-                    Scene.Children.Add(group);
+                    Scene.Children.Add(mesh);
                     ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
                 }
             }
