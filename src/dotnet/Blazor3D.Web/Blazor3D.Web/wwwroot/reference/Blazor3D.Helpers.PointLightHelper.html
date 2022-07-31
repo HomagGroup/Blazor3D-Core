@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: SphereGeometry</title>
+    <title>Blazor3D API Reference Guide: PointLightHelper</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -48,11 +48,11 @@
     </header>
     <div class="container topOffset">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: SphereGeometry</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: PointLightHelper</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">SphereGeometry</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">PointLightHelper</li>
                 </ol>
             </nav>
 
@@ -148,15 +148,15 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">SphereGeometry</h2>
-                    <div>NameSpace: <strong>Blazor3D.Geometires</strong></div>
+                    <h2 class="fontlight">PointLightHelper</h2>
+                    <div>NameSpace: <strong>Blazor3D.Helpers</strong></div>
                     <hr />
-                    <div><p>A class for generating sphere geometries.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/SphereGeometry">SphereGeometry</a></p>
+                    <div><p>This displays a helper object consisting of a spherical <a href="Blazor3D.Objects.Mesh.html">Mesh</a> for visualizing a <a href="Blazor3D.Lights.PointLight.html">PointLight</a>.</p><p>This object inherits from <a href="Blazor3D.Core.Object3D.html">Object3D</a></p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper">PointLightHelper</a></p>
 <h3 class="fontlight">Constructors</h3>
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>SphereGeometry(float, Int32, Int32, float, float, float, float)</strong>
+<strong>PointLightHelper(PointLight, Double, string)</strong>
 </td>
 <td>
 <div>Constructor with parameters</div>
@@ -164,58 +164,26 @@
 <div><table class="table table-bordered">
 <tr>
 <td>
-<strong>radius</strong>
+<strong>light</strong>
 </td>
 <td>
-<div>Radius of the sphere. Default is 1.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>widthSegments</strong>
-</td>
-<td>
-<div>Number of horizontal segments. Minimum value is 3, and the default is 32.</div>
+<div>The light to be visualized. Must be already added to the scene.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>heightSegments</strong>
+<strong>sphereSize</strong>
 </td>
 <td>
-<div>Number of vertical segments. Minimum value is 2, and the default is 16.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>phiStart</strong>
-</td>
-<td>
-<div>Specifies horizontal starting angle. Default is 0.</div>
+<div>The size of the sphere helper. Default is 1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>phiLength</strong>
+<strong>color</strong>
 </td>
 <td>
-<div>Specifies horizontal sweep angle size. Default is Math.PI * 2.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>thetaStart</strong>
-</td>
-<td>
-<div>Specifies vertical starting angle. Default is 0.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>thetaLength</strong>
-</td>
-<td>
-<div>Specifies vertical sweep angle size. Default is Math.PI * 2.</div>
+<div>The size of the sphere helper. If color is not set, the helper will take the color of the light.</div>
 </td>
 </tr>
 </table>
@@ -227,58 +195,26 @@
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>Radius</strong>
+<strong>Light</strong>
 </td>
 <td>
-<div>Radius of the sphere. Default is 1.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>WidthSegments</strong>
-</td>
-<td>
-<div>Number of horizontal segments. Minimum value is 3, and the default is 32.</div>
+<div>The light to be visualized. Must be already added to the scene.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>HeightSegments</strong>
+<strong>SphereSize</strong>
 </td>
 <td>
-<div>Number of vertical segments. Minimum value is 2, and the default is 16.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>PhiStart</strong>
-</td>
-<td>
-<div>Specifies horizontal starting angle. Default is 0.</div>
+<div>The size of the sphere helper. Default is 1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>PhiLength</strong>
+<strong>Color</strong>
 </td>
 <td>
-<div>Specifies horizontal sweep angle size. Default is Math.PI * 2.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>ThetaStart</strong>
-</td>
-<td>
-<div>Specifies vertical starting angle. Default is 0.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>ThetaLength</strong>
-</td>
-<td>
-<div>Specifies vertical sweep angle size. Default is Math.PI * 2.</div>
+<div>The size of the sphere helper. If color is not set, the helper will take the color of the light.</div>
 </td>
 </tr>
 </table>

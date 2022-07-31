@@ -61,6 +61,7 @@
                     <h4 class="fontlight">Cameras</h4>
 <ul class="nav flex-column referenceNav">
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Cameras.Camera.html>Camera</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Cameras.OrthographicCamera.html>OrthographicCamera</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Cameras.PerspectiveCamera.html>PerspectiveCamera</a></li>
 </ul>
 <h4 class="fontlight">Controls</h4>
@@ -75,6 +76,12 @@
 <h4 class="fontlight">Enums</h4>
 <ul class="nav flex-column referenceNav">
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Enums.Import3DFormats.html>Import3DFormats</a></li>
+</ul>
+<h4 class="fontlight">Events</h4>
+<ul class="nav flex-column referenceNav">
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.LoadedObjectEventHandler.html>LoadedObjectEventHandler</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.Object3DArgs.html>Object3DArgs</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.SelectedObjectEventHandler.html>SelectedObjectEventHandler</a></li>
 </ul>
 <h4 class="fontlight">Geometires</h4>
 <ul class="nav flex-column referenceNav">
@@ -93,6 +100,16 @@
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.TorusGeometry.html>TorusGeometry</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Geometires.TorusKnotGeometry.html>TorusKnotGeometry</a></li>
 </ul>
+<h4 class="fontlight">Helpers</h4>
+<ul class="nav flex-column referenceNav">
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.ArrowHelper.html>ArrowHelper</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.AxesHelper.html>AxesHelper</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.BoxHelper.html>BoxHelper</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.GridHelper.html>GridHelper</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.PlaneHelper.html>PlaneHelper</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.PointLightHelper.html>PointLightHelper</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Helpers.PolarGridHelper.html>PolarGridHelper</a></li>
+</ul>
 <h4 class="fontlight">Lights</h4>
 <ul class="nav flex-column referenceNav">
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Lights.AmbientLight.html>AmbientLight</a></li>
@@ -107,6 +124,7 @@
 <h4 class="fontlight">Maths</h4>
 <ul class="nav flex-column referenceNav">
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Maths.Euler.html>Euler</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Maths.Plane.html>Plane</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Maths.Vector3.html>Vector3</a></li>
 </ul>
 <h4 class="fontlight">Objects</h4>
@@ -120,6 +138,7 @@
 </ul>
 <h4 class="fontlight">Settings</h4>
 <ul class="nav flex-column referenceNav">
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Settings.AnimateRotationSettings.html>AnimateRotationSettings</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Settings.ViewerSettings.html>ViewerSettings</a></li>
 </ul>
 <h4 class="fontlight">Viewers</h4>
@@ -137,7 +156,7 @@
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>SetCameraPositionAsync(Vector3)</strong>
+<strong>SetCameraPositionAsync(Vector3, Vector3)</strong>
 </td>
 <td>
 <div><p>Sets the camera position to specified <a href="Blazor3D.Maths.Vector3.html">Vector3</a> value.</p></div>
@@ -152,13 +171,51 @@
 <div>New <a href="Blazor3D.Maths.Vector3.html">Vector3</a> position.</div>
 </td>
 </tr>
+<tr>
+<td>
+<strong>lookAt</strong>
+</td>
+<td>
+<div>New <a href="Blazor3D.Maths.Vector3.html">Vector3</a> camera target point coordinates.</div>
+</td>
+</tr>
 </table>
 </div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>Import3DModelAsync(Import3DFormats, string, string, Int32)</strong>
+<strong>RemoveByUuidAsync(Guid)</strong>
+</td>
+<td>
+<div>Removes object from scene by it's unique identifier.</div>
+<div><p><strong>Returns:</strong> Task</p></div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>uuid</strong>
+</td>
+<td>
+<div>Object's unique identifier.</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>ClearSceneAsync()</strong>
+</td>
+<td>
+<div>Clears scene.</div>
+<div><p><strong>Returns:</strong> Task</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Import3DModelAsync(Import3DFormats, string, string, Guid})</strong>
 </td>
 <td>
 <div><p>Imports 3D model to scene.</p></div>
@@ -191,10 +248,39 @@
 </tr>
 <tr>
 <td>
-<strong>delay</strong>
+<strong>uuid</strong>
 </td>
 <td>
-<div>Delay im miliseconds to get things loaded before displaying. Default is 200 ms</div>
+<div>UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>GetObjectByUuid(Guid, Object3D})</strong>
+</td>
+<td>
+<div><p>Recursively finds object by it's uuid in collection.</p></div>
+<div><p><strong>Returns:</strong> Found object or null</p></div>
+<h5 class="fontlight">Parameters</h5>
+<div><table class="table table-bordered">
+<tr>
+<td>
+<strong>uuid</strong>
+</td>
+<td>
+<div>Object's uuid</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>children</strong>
+</td>
+<td>
+<div>Children collection. Usually it's Scene.Children</div>
 </td>
 </tr>
 </table>
@@ -242,6 +328,25 @@
 </td>
 <td>
 <div><p><a href="Blazor3D.Controls.OrbitControls.html">OrbitControls</a> used to rotate, pan and scale the view.</p></div>
+</td>
+</tr>
+</table>
+<h3 class="fontlight">Events</h3>
+<table class="table table-bordered">
+<tr>
+<td>
+<strong>ObjectSelected</strong>
+</td>
+<td>
+<div>Raises when user selects object by mouse clicking inside viewer area.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>ObjectLoaded</strong>
+</td>
+<td>
+<div>Raises after complete loading of imported file content.</div>
 </td>
 </tr>
 </table>

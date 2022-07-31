@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: SphereGeometry</title>
+    <title>Blazor3D API Reference Guide: OrthographicCamera</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -48,11 +48,11 @@
     </header>
     <div class="container topOffset">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: SphereGeometry</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: OrthographicCamera</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">SphereGeometry</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">OrthographicCamera</li>
                 </ol>
             </nav>
 
@@ -148,74 +148,74 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">SphereGeometry</h2>
-                    <div>NameSpace: <strong>Blazor3D.Geometires</strong></div>
+                    <h2 class="fontlight">OrthographicCamera</h2>
+                    <div>NameSpace: <strong>Blazor3D.Cameras</strong></div>
                     <hr />
-                    <div><p>A class for generating sphere geometries.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/SphereGeometry">SphereGeometry</a></p>
+                    <div><p>Camera that uses <a target="_blank" href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.</p><p>In this projection mode, an object's size in the rendered image stays constant regardless of its distance from the camera.</p><p>This can be useful for rendering 2D scenes and UI elements, amongst other things.</p>
 <h3 class="fontlight">Constructors</h3>
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>SphereGeometry(float, Int32, Int32, float, float, float, float)</strong>
+<strong>OrthographicCamera(Double, Double, Double, Double, Double, Double, Double)</strong>
 </td>
 <td>
-<div>Constructor with parameters</div>
+<div>Constructor with parameters.</div>
 <h5 class="fontlight">Parameters</h5>
 <div><table class="table table-bordered">
 <tr>
 <td>
-<strong>radius</strong>
+<strong>left</strong>
 </td>
 <td>
-<div>Radius of the sphere. Default is 1.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>widthSegments</strong>
-</td>
-<td>
-<div>Number of horizontal segments. Minimum value is 3, and the default is 32.</div>
+<div>Camera frustum left plane. Default is -1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>heightSegments</strong>
+<strong>right</strong>
 </td>
 <td>
-<div>Number of vertical segments. Minimum value is 2, and the default is 16.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>phiStart</strong>
-</td>
-<td>
-<div>Specifies horizontal starting angle. Default is 0.</div>
+<div>Camera frustum right plane. Default is 1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>phiLength</strong>
+<strong>top</strong>
 </td>
 <td>
-<div>Specifies horizontal sweep angle size. Default is Math.PI * 2.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>thetaStart</strong>
-</td>
-<td>
-<div>Specifies vertical starting angle. Default is 0.</div>
+<div>Camera frustum top plane. Default is 1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>thetaLength</strong>
+<strong>bottom</strong>
 </td>
 <td>
-<div>Specifies vertical sweep angle size. Default is Math.PI * 2.</div>
+<div>Camera frustum bottom plane. Default is -1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>near</strong>
+</td>
+<td>
+<div>Camera frustum near plane distance. Default is 0.1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>far</strong>
+</td>
+<td>
+<div>Camera frustum far plane distance. Default is 1000.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>zoom</strong>
+</td>
+<td>
+<div>Zoom factor of the camera. Default is 1.</div>
 </td>
 </tr>
 </table>
@@ -227,58 +227,58 @@
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>Radius</strong>
+<strong>Left</strong>
 </td>
 <td>
-<div>Radius of the sphere. Default is 1.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>WidthSegments</strong>
-</td>
-<td>
-<div>Number of horizontal segments. Minimum value is 3, and the default is 32.</div>
+<div>Camera frustum left plane. Default is -1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>HeightSegments</strong>
+<strong>Right</strong>
 </td>
 <td>
-<div>Number of vertical segments. Minimum value is 2, and the default is 16.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>PhiStart</strong>
-</td>
-<td>
-<div>Specifies horizontal starting angle. Default is 0.</div>
+<div>Camera frustum right plane. Default is 1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>PhiLength</strong>
+<strong>Top</strong>
 </td>
 <td>
-<div>Specifies horizontal sweep angle size. Default is Math.PI * 2.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>ThetaStart</strong>
-</td>
-<td>
-<div>Specifies vertical starting angle. Default is 0.</div>
+<div>Camera frustum top plane. Default is 1.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>ThetaLength</strong>
+<strong>Bottom</strong>
 </td>
 <td>
-<div>Specifies vertical sweep angle size. Default is Math.PI * 2.</div>
+<div>Camera frustum bottom plane. Default is -1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Near</strong>
+</td>
+<td>
+<div>Camera frustum near plane distance. Default is 0.1.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Far</strong>
+</td>
+<td>
+<div>Camera frustum far plane distance. Default is 2000.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Zoom</strong>
+</td>
+<td>
+<div>Zoom factor of the camera. Default is 1.</div>
 </td>
 </tr>
 </table>

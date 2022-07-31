@@ -6,7 +6,7 @@ namespace Blazor3D.Helpers
 {
     /// <summary>
     /// <para>This displays a helper object consisting of a spherical <see cref="Mesh"/> for visualizing a <see cref="PointLight"/>.</para>
-    /// <para>This object inherits from <see cref="Object3D"/></para> //TODO: derive from LineSegments
+    /// <para>This object inherits from <see cref="Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper">PointLightHelper</a></para>
     /// </summary>
     public sealed class PointLightHelper : Object3D

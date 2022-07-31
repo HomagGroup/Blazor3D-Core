@@ -79,9 +79,11 @@ namespace ReferenceGenerator
 
             var contentSB = new StringBuilder();
             contentSB.AppendLine($"{typeModel.Summary.ParseSummary()}");
+            CreatePropertiesTable(typeModel.Params, contentSB);
             CreatePropertiesTable(typeModel.Constructors, contentSB);
             CreatePropertiesTable(typeModel.Methods, contentSB);
             CreatePropertiesTable(typeModel.Properties, contentSB);
+            CreatePropertiesTable(typeModel.Events, contentSB);
             CreatePropertiesTable(typeModel.Fields, contentSB);
 
             fileStr = fileStr.Replace(TemplateSettings.ContentTemplate, contentSB.ToString());
@@ -106,6 +108,9 @@ namespace ReferenceGenerator
                     break;
                 case "Property":
                     contentSB.AppendLine($"<h3 class=\"fontlight\">Properties</h3>");
+                    break;
+                case "Event":
+                    contentSB.AppendLine($"<h3 class=\"fontlight\">Events</h3>");
                     break;
                 case "Field":
                     contentSB.AppendLine($"<h3 class=\"fontlight\">Fields</h3>");
@@ -135,6 +140,18 @@ namespace ReferenceGenerator
                         contentSB.AppendLine($"<div><p><strong>Returns:</strong> {returnValue}</p></div>");
                     }
                     var paramsList = (item as MethodModel)?.Params ?? new List<BaseModel>();
+                    if (paramsList.Any())
+                    {
+                        var pSb = new StringBuilder();
+                        CreatePropertiesTable(paramsList, pSb);
+                        contentSB.AppendLine($"<h5 class=\"fontlight\">Parameters</h5>");
+                        contentSB.AppendLine($"<div>{pSb.ToString()}</div>");
+                    }
+                }
+
+                if (type == "Type" )
+                {
+                    var paramsList = (item as TypeModel)?.Params ?? new List<BaseModel>();
                     if (paramsList.Any())
                     {
                         var pSb = new StringBuilder();

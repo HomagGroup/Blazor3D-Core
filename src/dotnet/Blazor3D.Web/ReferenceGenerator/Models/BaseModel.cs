@@ -16,6 +16,8 @@ namespace ReferenceGenerator.Models
         public string Type { get; } = "Base";
         public string Inherit { get; set; }
 
+        public List<BaseModel> Params { get; } = new List<BaseModel>();
+
         public XmlNode XmlNode { get; set; } = null!;
 
         public virtual void Parse()
@@ -43,6 +45,17 @@ namespace ReferenceGenerator.Models
                     {
                         Inherit = node.InnerXml.Trim().ParseSummary();
                     };
+
+                    if (node.Name == "param")
+                    {
+                        var pname = node.Attributes?.GetNamedItem("name")?.Value ?? string.Empty;
+                        Params.Add(new Param
+                        {
+                            ShortName = pname,
+                            Name = pname,
+                            Summary = node.InnerXml.Trim().ParseSummary()
+                        });
+                    }
 
                 }
             }

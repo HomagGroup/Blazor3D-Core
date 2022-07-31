@@ -16,6 +16,7 @@
                     .Replace("<see cref=\"T:Blazor3D.Controls.OrbitControls\" />", "<a href=\"Blazor3D.Controls.OrbitControls.html\">OrbitControls</a>")
                     .Replace("<see cref=\"T:Blazor3D.Core.BufferGeometry\" />", "<a href=\"Blazor3D.Core.BufferGeometry.html\">BufferGeometry</a>")
                     .Replace("<see cref=\"T:Blazor3D.Core.Object3D\" />", "<a href=\"Blazor3D.Core.Object3D.html\">Object3D</a>")
+                    .Replace("<see cref=\"T:Blazor3D.Events.Object3DArgs\" />", "<a href=\"Blazor3D.Events.Object3DArgs.html\">Object3DArgs</a>")
                     .Replace("<see cref=\"T:Blazor3D.Geometires.BoxGeometry\" />", "<a href=\"Blazor3D.Geometires.BoxGeometry.html\">BoxGeometry</a>")
                     .Replace("<see cref=\"T:Blazor3D.Geometires.CircleGeometry\" />", "<a href=\"Blazor3D.Geometires.CircleGeometry.html\">CircleGeometry</a>")
                     .Replace("<see cref=\"T:Blazor3D.Lights.AmbientLight\" />", "<a href=\"Blazor3D.Lights.AmbientLight.html\">AmbientLight</a>")

@@ -12,7 +12,7 @@ namespace ReferenceGenerator.Models
         {
         }
 
-        public List<BaseModel> Params { get; } = new List<BaseModel>();
+        //public List<BaseModel> Params { get; } = new List<BaseModel>();
         public string ReturnValue { get; set; } = string.Empty;
 
         private string ProcessMethodParamsString(string str)
