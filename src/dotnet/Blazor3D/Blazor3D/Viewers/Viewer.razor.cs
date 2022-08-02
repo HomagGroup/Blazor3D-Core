@@ -19,7 +19,7 @@ namespace Blazor3D.Viewers
     /// <summary>
     /// <para>Blazor3D viewer component.</para>
     /// </summary>
-    public sealed partial class Viewer
+    public sealed partial class Viewer : IDisposable
     {
         private IJSObjectReference bundleModule = null!;
 
@@ -41,6 +41,13 @@ namespace Blazor3D.Viewers
         /// Raises after complete loading of imported file content.
         /// </summary>
         public event LoadedObjectEventHandler ObjectLoaded = null!;
+
+        
+        /// <summary>
+        /// Raises after JavaScript module is completely loaded.
+        /// </summary>
+        public event LoadedModuleEventHandler JsModuleLoaded = null!;
+       
 
         /// <summary>
         /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
@@ -99,7 +106,7 @@ namespace Blazor3D.Viewers
                 SerializationHelper.GetSerializerSettings());
 
                 await bundleModule.InvokeVoidAsync("loadScene", json);
-                //await OnLoad();
+                await OnModuleLoaded();
             }
         }
 
@@ -183,6 +190,26 @@ namespace Blazor3D.Viewers
         public static Object3D? GetObjectByUuid(Guid uuid, List<Object3D> children)
         {
             return ChildrenHelper.GetObjectByUuid(uuid, children);
+        }
+
+        private async Task OnModuleLoaded()
+        {
+            LoadedModuleEventHandler handler = JsModuleLoaded;
+
+            if (handler == null)
+            {
+                return;
+            }
+
+            Delegate[] invocationList = handler.GetInvocationList();
+            Task[] handlerTasks = new Task[invocationList.Length];
+
+            for (int i = 0; i < invocationList.Length; i++)
+            {
+                handlerTasks[i] = ((LoadedModuleEventHandler)invocationList[i])();
+            }
+
+            await Task.WhenAll(handlerTasks);
         }
 
         //todo: move to helper
@@ -293,6 +320,13 @@ namespace Blazor3D.Viewers
                     ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            ObjectSelectedStatic -= OnObjectSelectedStatic;
+            ObjectLoadedStatic -= OnObjectLoadedStatic;
+            ObjectLoadedPrivate -= OnObjectLoadedPrivate;
         }
     }
 }
