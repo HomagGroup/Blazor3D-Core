@@ -223,6 +223,12 @@
             <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
             </summary>
         </member>
+        <member name="T:Blazor3D.Events.LoadedModuleEventHandler">
+            <summary>
+            <para>Delegate that handles <see cref="T:Blazor3D.Viewers.Viewer"/> JsModuleLoaded event.</para>
+            </summary>
+            <returns>Task</returns>
+        </member>
         <member name="T:Blazor3D.Events.LoadedObjectEventHandler">
             <summary>
             <para>Delegate that handles <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectLoaded event.</para>
@@ -1325,6 +1331,11 @@
         <member name="E:Blazor3D.Viewers.Viewer.ObjectLoaded">
             <summary>
             Raises after complete loading of imported file content.
+            </summary>
+        </member>
+        <member name="E:Blazor3D.Viewers.Viewer.JsModuleLoaded">
+            <summary>
+            Raises after JavaScript module is completely loaded.
             </summary>
         </member>
         <member name="P:Blazor3D.Viewers.Viewer.ViewerSettings">
