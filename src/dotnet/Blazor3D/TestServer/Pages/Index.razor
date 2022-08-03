@@ -22,11 +22,13 @@
         <button @onclick="OnLoadObjButtonClick">Load OBJ</button>
         <button @onclick="OnClearAllClick">ClearAll</button>
         <button @onclick="OnClearLast">RemoveLast</button>
+        <button @onclick="OnToggleCameraClick">ToggleCamera</button>
     </div>
     <div>@selectionMsg</div>
 </div>
 
 @code {
+    private bool toggler = false;
     private Viewer View3D1 = null!;
     private Guid objGuid;
     private ViewerSettings settings = new ViewerSettings()
@@ -316,11 +318,36 @@
             await View3D1.RemoveByUuidAsync(last.Uuid);
         }
     }
-     public void Dispose()
+    public void Dispose()
+    {
+        View3D1.ObjectSelected -= OnObjectSelected;
+        View3D1.ObjectLoaded -= OnObjectLoaded;
+        View3D1.JsModuleLoaded -= OnModuleLoaded;
+    }
+
+    private async Task OnToggleCameraClick()
+    {
+        if (toggler == false)
         {
-            View3D1.ObjectSelected -= OnObjectSelected;
-            View3D1.ObjectLoaded -= OnObjectLoaded;
-            View3D1.JsModuleLoaded -= OnModuleLoaded;
+            await View3D1.UpdateCamera(new OrthographicCamera()
+                {
+                    Left = -5,
+                    Right = 5,
+                    Top = 5,
+                    Bottom = -5,
+                    Position = new Vector3(1, 1, 1),
+                    AnimateRotationSettings = new AnimateRotationSettings(true, 0.1, 0, 0.1, radius: 3),
+                });
         }
+        else
+        {
+            await View3D1.UpdateCamera(new PerspectiveCamera
+                {
+                    Position = new Vector3(3, 3, 3),
+                    LookAt = new Vector3(0, 0.5f, 0)
+                });
+        }
+        toggler = !toggler;
+    }
 }
 

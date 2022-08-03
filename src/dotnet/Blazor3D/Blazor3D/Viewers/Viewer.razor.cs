@@ -122,6 +122,17 @@ namespace Blazor3D.Viewers
             await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
         }
 
+        /// <summary>
+        /// Apply updated camera settings to viewer.
+        /// </summary>
+        /// <returns>Task</returns>
+        public async Task UpdateCamera(Camera camera)
+        {
+            Camera = camera;
+            var json = JsonConvert.SerializeObject(Camera, SerializationHelper.GetSerializerSettings());
+            await bundleModule.InvokeVoidAsync("updateCamera", json);
+        }
+
         [JSInvokable]
         public static Task<string> ReceiveSelectedObjectUUID(string containerId, string uuid)
         {

@@ -35,7 +35,7 @@ class Viewer3D {
 
     this.container.appendChild(this.renderer.domElement);
 
-    this.setOrbitControls(options.orbitControls);
+    this.setOrbitControls();
     this.onResize();
 
     const animate = () => {
@@ -120,11 +120,17 @@ class Viewer3D {
     // todo: add camera children (i.e. lights)
   }
 
-  setOrbitControls(orbitControls) {
+  updateCamera(newCamera) {
+    this.options.camera = newCamera;
+    this.setCamera();
+    this.setOrbitControls();
+  }
+
+  setOrbitControls() {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.screenSpacePanning = true;
-    this.controls.minDistance = orbitControls.minDistance;
-    this.controls.maxDistance = orbitControls.maxDistance;
+    this.controls.minDistance = this.options.orbitControls.minDistance;
+    this.controls.maxDistance = this.options.orbitControls.maxDistance;
     let { x, y, z } = this.options.camera.lookAt;
     this.controls.target.set(x, y, z);
     this.controls.update();
