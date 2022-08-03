@@ -286,56 +286,21 @@
     {
         loadedObjectGuid = Guid.NewGuid();// alway do this.
 
-        //await View3D1.Import3DModelAsync(
-        //   Import3DFormats.Obj,//choose appropriate format
-        //   "https://threejs.org/examples/models/obj/male02/male02.obj", // link to your obj file
-        //   "https://threejs.org/examples/textures/uv_grid_opengl.jpg", // link to the texture or null
-        //   loadedObjectGuid);// delay in ms before scene rendering to get things loaded. Default value 200.
+        // if you need to control the loaded object uuid, generate it here.
+        loadedObjectGuid = Guid.NewGuid();
+        var settings = new ImportSettings
+            {
+                Format = Import3DFormats.Obj,//choose appropriate format
+                FileURL = "https://threejs.org/examples/models/obj/male02/male02.obj",// link to your model file
+                TextureURL = "https://threejs.org/examples/textures/uv_grid_opengl.jpg", // link to the texture or skip this,
+                Uuid = loadedObjectGuid //// skip this, or set null if you don't care the uuid of loaded mesh or group
+            };
+        await View3D1.Import3DModelAsync(settings);
 
-        //// set camera position to view your loaded model
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
-
-
-        //await View3D1.Import3DModelAsync(
-        //   Import3DFormats.Obj,//choose appropriate format
-        //   "https://threejs.org/examples/models/obj/male02/male02.obj", // link to your obj file
-        //   null, // link to the texture or null
-        //   loadedObjectGuid);// delay in ms before scene rendering to get things loaded. Default value 200.
-
-        //// set camera position to view your loaded model
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
-
-
-        //await View3D1.Import3DModelAsync(
-        //  Import3DFormats.Fbx,
-        //  "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-        //  null,
-        //  loadedObjectGuid);
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
-
-
-        //await View3D1.Import3DModelAsync(
-        //    Import3DFormats.Collada,
-        //    "https://threejs.org/examples/models/collada/elf/elf.dae",
-        //    null,
-        //    loadedObjectGuid);
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 5, 10), new Vector3(0, 3, 0));
-
-
-        //await View3D1.Import3DModelAsync(
-        //    Import3DFormats.Gltf,
-        //    "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
-        //    null,
-        //    loadedObjectGuid);
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5), new Vector3(0, 0.5f, 0));
-
-        //todo: set custom material
-        //await View3D1.Import3DModelAsync(
-        //Import3DFormats.Stl,
-        //"https://threejs.org/examples/models/stl/ascii/slotted_disk.stl",
-        //null,
-        //loadedObjectGuid);
-        //await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3), new Vector3(0, 1, 0));
+        // set camera position to view your loaded model
+        await View3D1.SetCameraPositionAsync(
+            new Vector3(0, 100, 250),// camera position
+            new Vector3(0, 50, 0));// optional camera target
     }
 
     private async Task OnClearAllClick()
