@@ -25,8 +25,9 @@ export function clearScene(guid) {
   viewer3d.clearScene(guid);
 }
 
-export function import3DModel(format, objUrl, textureUrl, guid) {
-  return JSON.stringify(viewer3d.import3DModel(format, objUrl, textureUrl, guid));
+export function import3DModel(json) {
+  var settings = JSON.parse(json);
+  return JSON.stringify(viewer3d.import3DModel(settings));
 }
 
 export function setCameraPosition(position, lookAt){

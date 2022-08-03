@@ -1113,12 +1113,6 @@
             <para>Render geometry as wireframe. Default is false (i.e. render as flat polygons).</para>
             </summary>
         </member>
-        <member name="P:Blazor3D.Materials.MeshStandardMaterial.WireframeLinecap">
-            <summary>
-            <para>Controls wireframe thickness. Default is 1.</para>
-            <para>Due to limitations of the OpenGL Core Profile with the WebGL renderer on most platforms linewidth will always be 1 regardless of the set value.</para>
-            </summary>
-        </member>
         <member name="T:Blazor3D.Maths.Euler">
             <summary>
             <para>Representing Euler Angles.
@@ -1292,6 +1286,38 @@
             Radius of rotation. Default is 5.
             </summary>
         </member>
+        <member name="T:Blazor3D.Settings.ImportSettings">
+            <summary>
+            Settings that will be applied during 3D model file importing.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ImportSettings.Format">
+            <summary>
+            <see cref="T:Blazor3D.Enums.Import3DFormats"/> format of 3D model.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ImportSettings.FileURL">
+            <summary>
+            URL of the 3D model file.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ImportSettings.TextureURL">
+            <summary>
+            URL of the texture file
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ImportSettings.Uuid">
+            <summary>
+            UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.ImportSettings.Material">
+            <summary>
+            <para>Material that will be applied to all loaded meshes.</para>
+            <para>Currently works only for <see cref="F:Blazor3D.Enums.Import3DFormats.Stl"/> STL format.</para>
+            <para>If not specified, the default <see cref="T:Blazor3D.Materials.MeshStandardMaterial"/> is applied to the imported objects.</para>
+            </summary>
+        </member>
         <member name="T:Blazor3D.Settings.ViewerSettings">
             <summary>
             Class for Blazor3D Viewer settings.
@@ -1384,14 +1410,11 @@
             </summary>
             <returns>Task</returns>
         </member>
-        <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Enums.Import3DFormats,System.String,System.String,System.Nullable{System.Guid})">
+        <member name="M:Blazor3D.Viewers.Viewer.Import3DModelAsync(Blazor3D.Settings.ImportSettings)">
             <summary>
             <para>Imports 3D model to scene.</para>
             </summary>
-            <param name="format"><see cref="T:Blazor3D.Enums.Import3DFormats"/> format of 3D model.</param>
-            <param name="objUrl">URL of the 3D model file</param>
-            <param name="textureUrl">URL of the texture file</param>
-            <param name="uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
+            <param name="settings"><see cref="T:Blazor3D.Settings.ImportSettings"/> Settings that will be applied during 3D model file importing.</param>
             <returns>Guid of the loaded item</returns>
         </member>
         <member name="M:Blazor3D.Viewers.Viewer.GetObjectByUuid(System.Guid,System.Collections.Generic.List{Blazor3D.Core.Object3D})">

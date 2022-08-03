@@ -78,12 +78,12 @@
 
     private async Task OnModuleLoaded()
     {
-       await View3D1.Import3DModelAsync(
-          Import3DFormats.Fbx,
-          "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-          null,
-          loadedObjectGuid);
-        await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
+       //await View3D1.Import3DModelAsync(
+       //   Import3DFormats.Fbx,
+       //   "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+       //   null,
+       //   loadedObjectGuid);
+       // await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
     }
 
     private void AddLights()
@@ -150,7 +150,6 @@
                 {
                     Color = "red",
                     Wireframe = true,
-                    WireframeLinecap = 2 // always 1 on most systems
                 }
             });
         scene.Add(new Mesh
@@ -316,12 +315,12 @@
         //await View3D1.SetCameraPositionAsync(new Vector3(0, 5, 10), new Vector3(0, 3, 0));
 
 
-        await View3D1.Import3DModelAsync(
-            Import3DFormats.Gltf,
-            "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
-            null,
-            loadedObjectGuid);
-        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5), new Vector3(0, 0.5f, 0));
+        //await View3D1.Import3DModelAsync(
+        //    Import3DFormats.Gltf,
+        //    "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
+        //    null,
+        //    loadedObjectGuid);
+        //await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5), new Vector3(0, 0.5f, 0));
 
         //todo: set custom material
         //await View3D1.Import3DModelAsync(

@@ -41,11 +41,5 @@ namespace Blazor3D.Materials
         /// <para>Render geometry as wireframe. Default is false (i.e. render as flat polygons).</para>
         /// </summary>
         public bool Wireframe { get; set; } = false;
-
-        /// <summary>
-        /// <para>Controls wireframe thickness. Default is 1.</para>
-        /// <para>Due to limitations of the OpenGL Core Profile with the WebGL renderer on most platforms linewidth will always be 1 regardless of the set value.</para>
-        /// </summary>
-        public float WireframeLinecap { get; set; } = 1;
     }
 }
