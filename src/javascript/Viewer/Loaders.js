@@ -89,7 +89,7 @@ class Loaders {
   static import3DModel(scene, settings, containerId) {
     const format = settings.format;
     let objUrl = settings.fileURL;
-    let textureUrl = settings.textureUrl;
+    let textureUrl = settings.textureURL;
     let guid = settings.uuid;
     let material = settings.material;
 
