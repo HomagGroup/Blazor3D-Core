@@ -2,12 +2,12 @@ import Viewer3D from "./Viewer/Viewer3D";
 
 let viewer3d;
 
-window.onresize = function(){
+window.onresize = function () {
   viewer3d.onResize();
 };
 
 export function loadScene(json) {
-  var options = JSON.parse(json);
+  const options = JSON.parse(json);
   let container = document.getElementById(options.viewerSettings.containerId);
   if (!container) {
     console.warn("Container not found");
@@ -26,15 +26,20 @@ export function clearScene(guid) {
 }
 
 export function import3DModel(json) {
-  var settings = JSON.parse(json);
+  const settings = JSON.parse(json);
   return JSON.stringify(viewer3d.import3DModel(settings));
 }
 
-export function setCameraPosition(position, lookAt){
+export function setCameraPosition(position, lookAt) {
   viewer3d.setCameraPosition(position, lookAt);
 }
 
-export function getSceneItemByGuid(guid){
-  var item = viewer3d.getSceneItemByGuid(guid);
+export function updateCamera(json) {
+  const options = JSON.parse(json);
+  viewer3d.updateCamera(options);
+}
+
+export function getSceneItemByGuid(guid) {
+  const item = viewer3d.getSceneItemByGuid(guid);
   return JSON.stringify(item);
 }

@@ -1397,6 +1397,12 @@
             <param name="lookAt">New <see cref="T:Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
             <returns>Task</returns>
         </member>
+        <member name="M:Blazor3D.Viewers.Viewer.UpdateCamera(Blazor3D.Cameras.Camera)">
+            <summary>
+            Apply updated camera settings to viewer.
+            </summary>
+            <returns>Task</returns>
+        </member>
         <member name="M:Blazor3D.Viewers.Viewer.RemoveByUuidAsync(System.Guid)">
             <summary>
             Removes object from scene by it's unique identifier.
