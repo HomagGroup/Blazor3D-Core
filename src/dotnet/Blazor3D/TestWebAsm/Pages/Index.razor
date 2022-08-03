@@ -78,19 +78,19 @@
 
     private async Task OnLoadObjButtonClick()
     {
-       await View3D1.Import3DModelAsync(
-            Import3DFormats.Fbx,
-            "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-            null,
-            Guid.NewGuid());
-        await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
+       //await View3D1.Import3DModelAsync(
+       //     Import3DFormats.Fbx,
+       //     "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
+       //     null,
+       //     Guid.NewGuid());
+       // await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
 
-        await View3D1.Import3DModelAsync(
-            Import3DFormats.Gltf,
-            "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
-            null,
-            Guid.NewGuid());
-        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5));
+       // await View3D1.Import3DModelAsync(
+       //     Import3DFormats.Gltf,
+       //     "https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf",
+       //     null,
+       //     Guid.NewGuid());
+       // await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5));
     }
 
 }

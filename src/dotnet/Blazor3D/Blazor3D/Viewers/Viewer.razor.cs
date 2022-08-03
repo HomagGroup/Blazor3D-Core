@@ -13,6 +13,7 @@ using Blazor3D.ComponentHelpers;
 using Blazor3D.Events;
 using Newtonsoft.Json.Linq;
 using Blazor3D.Core;
+using Blazor3D.Materials;
 
 namespace Blazor3D.Viewers
 {
@@ -169,16 +170,15 @@ namespace Blazor3D.Viewers
         /// <summary>
         /// <para>Imports 3D model to scene.</para>
         /// </summary>
-        /// <param name="format"><see cref="Import3DFormats"/> format of 3D model.</param>
-        /// <param name="objUrl">URL of the 3D model file</param>
-        /// <param name="textureUrl">URL of the texture file</param>
-        /// <param name="uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
+        /// <param name="settings"><see cref="ImportSettings"/> Settings that will be applied during 3D model file importing.</param>
         /// <returns>Guid of the loaded item</returns>
-        public async Task<Guid> Import3DModelAsync(Import3DFormats format, string objUrl, string textureUrl, Guid? uuid = null)
+        public async Task<Guid> Import3DModelAsync(ImportSettings settings)
         {
-            Guid guid = uuid ?? Guid.NewGuid();
-            await bundleModule.InvokeVoidAsync("import3DModel", format.ToString(), objUrl, textureUrl, guid);
-            return guid;
+            settings.Uuid = settings.Uuid ?? Guid.NewGuid();
+            settings.Material = settings.Material ?? new MeshStandardMaterial();
+            var json = JsonConvert.SerializeObject(settings, SerializationHelper.GetSerializerSettings());
+            await bundleModule.InvokeVoidAsync("import3DModel", json);
+            return settings.Uuid.Value;
         }
 
         /// <summary>

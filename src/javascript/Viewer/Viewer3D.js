@@ -130,13 +130,10 @@ class Viewer3D {
     this.controls.update();
   }
 
-  import3DModel(format, objUrl, textureUrl, guid) {
+  import3DModel(settings) {
     return Loaders.import3DModel(
       this.scene,
-      format,
-      objUrl,
-      textureUrl,
-      guid,
+      settings,
       this.options.viewerSettings.containerId
     );
   }
