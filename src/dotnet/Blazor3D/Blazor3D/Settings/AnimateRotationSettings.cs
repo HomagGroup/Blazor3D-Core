@@ -50,5 +50,9 @@ namespace Blazor3D.Settings
         /// Radius of rotation. Default is 5.
         /// </summary>
         public double Radius { get; set; } = 5;
+        /// <summary>
+        /// Stops animation when user starts using orbit controls. Default is false.
+        /// </summary>
+        public bool StopAnimationOnOrbitControlMove { get; set; } = false;
     }
 }

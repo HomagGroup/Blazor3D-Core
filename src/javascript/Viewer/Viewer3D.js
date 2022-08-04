@@ -31,6 +31,12 @@ class Viewer3D {
       if (this.options.viewerSettings.canSelect == true) {
         this.selectObject(event);
       }
+      if (
+        this.options.camera.animateRotationSettings
+          .stopAnimationOnOrbitControlMove == true
+      ) {
+        this.options.camera.animateRotationSettings.animateRotation = false;
+      }
     };
 
     this.container.appendChild(this.renderer.domElement);
