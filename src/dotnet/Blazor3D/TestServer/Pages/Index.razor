@@ -39,26 +39,31 @@
         };
 
     private Scene scene = new Scene();
-    private Camera camera = new PerspectiveCamera
-        {
-            Position = new Vector3(3, 3, 3),
-            LookAt = new Vector3(0, 0.5f, 0)
-        };
+    //private Camera camera = new PerspectiveCamera
+    //    {
+    //        Position = new Vector3(3, 3, 3),
+    //        LookAt = new Vector3(0, 0.5f, 0)
+    //    };
+
 
     private string selectionMsg = string.Empty;
 
     private Guid loadedObjectGuid = Guid.NewGuid();
 
-    //private Camera camera = new OrthographicCamera()
-    //    {
-    //        Left = -5,
-    //        Right = 5,
-    //        Top = 5,
-    //        Bottom = -5,
-    //        Position = new Vector3(1, 1, 1),
-    //        AnimateRotationSettings = new AnimateRotationSettings(true,0.1, 0, 0.1, radius:3),
-    //        //Zoom = 0.5
-    //    };
+    private Camera camera = new OrthographicCamera()
+        {
+            Left = -5,
+            Right = 5,
+            Top = 5,
+            Bottom = -5,
+            Position = new Vector3(1, 1, 1),
+            AnimateRotationSettings = new AnimateRotationSettings(true,0.1, 0, 0.1, radius: 3)
+            {
+                StopAnimationOnOrbitControlMove = true
+            },
+            
+            //Zoom = 0.5
+        };
     protected override Task OnInitializedAsync()
     {
         AddLights();

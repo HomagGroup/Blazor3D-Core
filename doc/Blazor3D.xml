@@ -1286,6 +1286,11 @@
             Radius of rotation. Default is 5.
             </summary>
         </member>
+        <member name="P:Blazor3D.Settings.AnimateRotationSettings.StopAnimationOnOrbitControlMove">
+            <summary>
+            Stops animation when user starts using orbit controls. Default is false.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Settings.ImportSettings">
             <summary>
             Settings that will be applied during 3D model file importing.
