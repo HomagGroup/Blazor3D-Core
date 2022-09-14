@@ -23,7 +23,11 @@ class Viewer3D {
     this.setScene();
     this.setCamera();
 
-    this.renderer = new THREE.WebGLRenderer();
+    this.renderer = new THREE.WebGLRenderer(
+      {
+        antialias : this.options.viewerSettings.webGLRendererSettings.antialias
+      }
+    );
     this.renderer.domElement.style.width = "100%";
     this.renderer.domElement.style.height = "100%";
 

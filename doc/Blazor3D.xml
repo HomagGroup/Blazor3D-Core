@@ -1349,6 +1349,21 @@
             Color the selected element is highlighted. Default is "lime".
             </summary>
         </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.WebGLRendererSettings">
+            <summary>
+            Blazor3D Viewer WebGLRenderer settings
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Settings.WebGLRendererSettings">
+            <summary>
+            Class for Blazor3D Viewer WebGLRenderer settings.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Settings.WebGLRendererSettings.Antialias">
+            <summary>
+            Whether to perform antialiasing. Default is false.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Viewers.Viewer">
             <summary>
             <para>Blazor3D viewer component.</para>
