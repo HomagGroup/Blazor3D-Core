@@ -27,5 +27,10 @@ namespace Blazor3D.Settings
         /// Color the selected element is highlighted. Default is "lime".
         /// </summary>
         public string SelectedColor { get; set; } = "lime";
+
+        /// <summary>
+        /// Blazor3D Viewer WebGLRenderer settings
+        /// </summary>
+        public WebGLRendererSettings WebGLRendererSettings { get; set; } = new WebGLRendererSettings();
     }
 }
