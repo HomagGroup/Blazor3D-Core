@@ -8,8 +8,7 @@ class MaterialBuilder {
         flatShading : options.flatShading,
         metalness: options.metalness,
         roughness: options.roughness,
-        wireframe: options.wireframe,
-        wireframeLinewidth: options.wireframeLinewidth
+        wireframe: options.wireframe
       });
       material.uuid = options.uuid;
       return material;

@@ -136,6 +136,11 @@ class Viewer3D {
     this.setOrbitControls();
   }
 
+  showCurrentCameraInfo() {
+    console.log('Current camera info:', this.camera);
+    console.log('Orbit controls info:', this.controls);
+  }
+
   setOrbitControls() {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.screenSpacePanning = true;

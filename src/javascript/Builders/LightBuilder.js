@@ -16,7 +16,6 @@ class LightBuilder {
       options.decay
     );
     light.uuid = options.uuid;
-    console.log("plight", light.uuid);
     Transforms.setPosition(light, options.position);
     return light;
   }

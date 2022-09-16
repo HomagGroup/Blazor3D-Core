@@ -6,8 +6,8 @@
     public class WebGLRendererSettings
     {
         /// <summary>
-        /// Whether to perform antialiasing. Default is false.
+        /// Whether to perform antialiasing. Default is true.
         /// </summary>
-        public bool Antialias { get; set; } = false;
+        public bool Antialias { get; set; } = true;
     }
 }

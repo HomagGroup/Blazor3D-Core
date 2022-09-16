@@ -1361,7 +1361,7 @@
         </member>
         <member name="P:Blazor3D.Settings.WebGLRendererSettings.Antialias">
             <summary>
-            Whether to perform antialiasing. Default is false.
+            Whether to perform antialiasing. Default is true.
             </summary>
         </member>
         <member name="T:Blazor3D.Viewers.Viewer">
@@ -1420,6 +1420,12 @@
         <member name="M:Blazor3D.Viewers.Viewer.UpdateCamera(Blazor3D.Cameras.Camera)">
             <summary>
             Apply updated camera settings to viewer.
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.ShowCurrentCameraInfo">
+            <summary>
+            Prints information about current camera and orbit controls into browser console.
             </summary>
             <returns>Task</returns>
         </member>

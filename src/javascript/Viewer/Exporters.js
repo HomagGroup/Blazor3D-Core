@@ -21,7 +21,6 @@ function saveArrayBuffer(buffer, filename) {
 
 class Exporters {
   static exportOBJ(input) {
-    console.log("export as obj");
     const objExporter = new OBJExporter();
     const result = objExporter.parse(input);
     saveString(result, "scene.obj");
@@ -31,10 +30,8 @@ class Exporters {
     const gltfExporter = new GLTFExporter();
     gltfExporter.parse(input, function (result) {
       if (result instanceof ArrayBuffer) {
-        console.log("export as glb");
         saveArrayBuffer(result, "scene.glb");
       } else {
-        console.log("export as gltf");
         const output = JSON.stringify(result, null, 2);
         saveString(output, "scene.gltf");
       }
