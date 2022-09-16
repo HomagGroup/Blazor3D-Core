@@ -7,7 +7,6 @@ using Blazor3D.Controls;
 using Newtonsoft.Json;
 using Blazor3D.Maths;
 using Blazor3D.Objects;
-using Blazor3D.Enums;
 using Blazor3D.Lights;
 using Blazor3D.ComponentHelpers;
 using Blazor3D.Events;
@@ -131,6 +130,15 @@ namespace Blazor3D.Viewers
             Camera = camera;
             var json = JsonConvert.SerializeObject(Camera, SerializationHelper.GetSerializerSettings());
             await bundleModule.InvokeVoidAsync("updateCamera", json);
+        }
+
+        /// <summary>
+        /// Prints information about current camera and orbit controls into browser console.
+        /// </summary>
+        /// <returns>Task</returns>
+        public async Task ShowCurrentCameraInfo()
+        {
+            await bundleModule.InvokeVoidAsync("showCurrentCameraInfo");
         }
 
         [JSInvokable]

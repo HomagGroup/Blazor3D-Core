@@ -39,6 +39,10 @@ export function updateCamera(json) {
   viewer3d.updateCamera(options);
 }
 
+export function showCurrentCameraInfo() {
+  viewer3d.showCurrentCameraInfo();
+}
+
 export function getSceneItemByGuid(guid) {
   const item = viewer3d.getSceneItemByGuid(guid);
   return JSON.stringify(item);

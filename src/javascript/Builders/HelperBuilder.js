@@ -30,7 +30,6 @@ class HelperBuilder {
     }
 
     if (options.type == "AxesHelper") {
-      console.log(options);
       const axes = new THREE.AxesHelper(options.size);
       axes.uuid = options.uuid;
       Transforms.setPosition(axes, options.position);
@@ -65,7 +64,6 @@ class HelperBuilder {
     }
 
     if (options.type == "PolarGridHelper") {
-      console.log(options);
       const grid = new THREE.PolarGridHelper(
         options.radius,
         options.radials,
@@ -82,7 +80,6 @@ class HelperBuilder {
     }
 
     if (options.type == "PlaneHelper") {
-      console.log(options);
       let { x, y, z } = options.plane.normal;
       let normal = new THREE.Vector3(x, y, z);
       let plane = new THREE.Plane(normal, options.plane.constant);
