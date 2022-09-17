@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Blazor3D API Reference Guide: TetrahedronGeometry</title>
+    <title>Blazor3D API Reference Guide: ImportSettings</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -48,11 +48,11 @@
     </header>
     <div class="container topOffset">
         <main role="main" class="pb-3">
-            <h1 class="display-6">Blazor3D API Reference Guide: TetrahedronGeometry</h1>
+            <h1 class="display-6">Blazor3D API Reference Guide: ImportSettings</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">TetrahedronGeometry</li>
+                    <li class="breadcrumb-item active"><a href="/reference/Index.html">Reference Guide</a></li><li class="breadcrumb-item" aria-current="page">ImportSettings</li>
                 </ol>
             </nav>
 
@@ -151,57 +151,50 @@
 
                 </div>
                 <div class="col-sm-9 border-start">
-                    <h2 class="fontlight">TetrahedronGeometry</h2>
-                    <div>NameSpace: <strong>Blazor3D.Geometires</strong></div>
+                    <h2 class="fontlight">ImportSettings</h2>
+                    <div>NameSpace: <strong>Blazor3D.Settings</strong></div>
                     <hr />
-                    <div><p>A class for generating a tetrahedron geometries.</p><p>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TetrahedronGeometry">TetrahedronGeometry</a></p>
-<h3 class="fontlight">Constructors</h3>
-<table class="table table-bordered">
-<tr>
-<td>
-<strong>TetrahedronGeometry(float, Int32)</strong>
-</td>
-<td>
-<div>Constructor with parameters</div>
-<h5 class="fontlight">Parameters</h5>
-<div><table class="table table-bordered">
-<tr>
-<td>
-<strong>radius</strong>
-</td>
-<td>
-<div>Radius of the tetrahedron. Default is 1.</div>
-</td>
-</tr>
-<tr>
-<td>
-<strong>detail</strong>
-</td>
-<td>
-<div>Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.</div>
-</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
+                    <div>Settings that will be applied during 3D model file importing.
 <h3 class="fontlight">Properties</h3>
 <table class="table table-bordered">
 <tr>
 <td>
-<strong>Radius</strong>
+<strong>Format</strong>
 </td>
 <td>
-<div>Radius of the tetrahedron. Default is 1.</div>
+<div><a href="Blazor3D.Enums.Import3DFormats.html">Import3DFormats</a> format of 3D model.</div>
 </td>
 </tr>
 <tr>
 <td>
-<strong>Detail</strong>
+<strong>FileURL</strong>
 </td>
 <td>
-<div>Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.</div>
+<div>URL of the 3D model file.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>TextureURL</strong>
+</td>
+<td>
+<div>URL of the texture file</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Uuid</strong>
+</td>
+<td>
+<div>UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Material</strong>
+</td>
+<td>
+<div><p>Material that will be applied to all loaded meshes.</p><p>Currently works only for <see cref="F:Blazor3D.Enums.Import3DFormats.Stl" /> STL format.</p><p>If not specified, the default <a href="Blazor3D.Materials.MeshStandardMaterial.html">MeshStandardMaterial</a> is applied to the imported objects.</p></div>
 </td>
 </tr>
 </table>

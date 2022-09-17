@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-Blazor3D.Web-2ED8FB4E-D473-438D-B544-D5600D703B71</UserSecretsId>
+    <UserSecretsId>aspnet-Blazor3D.Web-2ED8FB4E-D473-438D-B544-D5600D703B72</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 

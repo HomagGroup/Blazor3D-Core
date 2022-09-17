@@ -79,6 +79,7 @@
 </ul>
 <h4 class="fontlight">Events</h4>
 <ul class="nav flex-column referenceNav">
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.LoadedModuleEventHandler.html>LoadedModuleEventHandler</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.LoadedObjectEventHandler.html>LoadedObjectEventHandler</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.Object3DArgs.html>Object3DArgs</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Events.SelectedObjectEventHandler.html>SelectedObjectEventHandler</a></li>
@@ -139,7 +140,9 @@
 <h4 class="fontlight">Settings</h4>
 <ul class="nav flex-column referenceNav">
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Settings.AnimateRotationSettings.html>AnimateRotationSettings</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Settings.ImportSettings.html>ImportSettings</a></li>
 <li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Settings.ViewerSettings.html>ViewerSettings</a></li>
+<li class="nav-item"><a class="nav-link refNavLink" href = Blazor3D.Settings.WebGLRendererSettings.html>WebGLRendererSettings</a></li>
 </ul>
 <h4 class="fontlight">Viewers</h4>
 <ul class="nav flex-column referenceNav">
@@ -162,6 +165,38 @@
 <div><p>Light color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
             Default value is "orange"</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>FlatShading</strong>
+</td>
+<td>
+<div><p>Define whether the material is rendered with flat shading. Default is false.</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Metalness</strong>
+</td>
+<td>
+<div><p>How much the material is like a metal. Non-metallic materials such as wood or stone use 0.0, metallic use 1.0, with nothing (usually) in between. Default is 0.0. A value between 0.0 and 1.0 could be used for a rusty metal look. If metalnessMap is also provided, both values are multiplied.</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Roughness</strong>
+</td>
+<td>
+<div><p>How rough the material appears. 0.0 means a smooth mirror reflection, 1.0 means fully diffuse. Default is 1.0. If roughnessMap is also provided, both values are multiplied.</p></div>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Wireframe</strong>
+</td>
+<td>
+<div><p>Render geometry as wireframe. Default is false (i.e. render as flat polygons).</p></div>
 </td>
 </tr>
 </table>
