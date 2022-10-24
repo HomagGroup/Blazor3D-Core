@@ -13,6 +13,7 @@ using Blazor3D.Events;
 using Newtonsoft.Json.Linq;
 using Blazor3D.Core;
 using Blazor3D.Materials;
+using System.Linq;
 
 namespace Blazor3D.Viewers
 {
@@ -105,9 +106,19 @@ namespace Blazor3D.Viewers
                 },
                 SerializationHelper.GetSerializerSettings());
 
-                await bundleModule.InvokeVoidAsync("loadScene", json);
+                await bundleModule.InvokeVoidAsync("loadViewer", json);
                 await OnModuleLoaded();
             }
+        }
+
+        /// <summary>
+        /// Updates scene changes.
+        /// </summary>
+        /// <returns>Task</returns>
+        public async Task UpdateScene()
+        {
+            var json = JsonConvert.SerializeObject(Scene, SerializationHelper.GetSerializerSettings());
+            await bundleModule.InvokeVoidAsync("updateScene", json);
         }
 
         /// <summary>
@@ -144,17 +155,18 @@ namespace Blazor3D.Viewers
         [JSInvokable]
         public static Task<string> ReceiveSelectedObjectUUID(string containerId, string uuid)
         {
+            var guid = string.IsNullOrWhiteSpace(uuid) ? Guid.Empty : Guid.Parse(uuid);
             var result = containerId + uuid;
             ObjectSelectedStatic?.Invoke(new Object3DStaticArgs()
             {
                 ContainerId = containerId,
-                UUID = new Guid(uuid),
+                UUID = guid,
             });
             return Task.FromResult(result);
         }
 
         [JSInvokable]
-        public static Task<string> ReceiveLoadedObjectUUID(string containerId, string uuid)
+        public static Task ReceiveLoadedObjectUUID(string containerId, string uuid)
         {
             var result = containerId + uuid;
             ObjectLoadedStatic?.Invoke(new Object3DStaticArgs()
@@ -162,7 +174,7 @@ namespace Blazor3D.Viewers
                 ContainerId = containerId,
                 UUID = new Guid(uuid),
             });
-            return Task.FromResult(result);
+            return Task.CompletedTask;
         }
 
         /// <summary>
@@ -172,8 +184,11 @@ namespace Blazor3D.Viewers
         /// <returns>Task</returns>
         public async Task RemoveByUuidAsync(Guid uuid)
         {
-            await bundleModule.InvokeVoidAsync("removeByUuid", uuid);
-            ChildrenHelper.RemoveObjectByUuid(uuid, Scene.Children);
+            var result = await bundleModule.InvokeAsync<bool>("removeByUuid", uuid);
+            if (result)
+            {
+                ChildrenHelper.RemoveObjectByUuid(uuid, Scene.Children);
+            }
         }
        
         /// <summary>
@@ -262,7 +277,6 @@ namespace Blazor3D.Viewers
                 ObjectLoadedPrivate?.Invoke(new Object3DArgs() { UUID = e.UUID });
             }
         }
-
 
         //todo: move to children helper
         private List<Object3D> ParseChildren(JToken? children)
