@@ -6,7 +6,7 @@ window.onresize = function () {
   viewer3d.onResize();
 };
 
-export function loadScene(json) {
+export function loadViewer(json) {
   const options = JSON.parse(json);
   let container = document.getElementById(options.viewerSettings.containerId);
   if (!container) {
@@ -17,12 +17,17 @@ export function loadScene(json) {
   viewer3d = new Viewer3D(options, container);
 }
 
-export function removeByUuid(guid) {
-  viewer3d.removeByUuid(guid);
+export function updateScene(json) {
+  const sceneOptions = JSON.parse(json);
+  viewer3d.updateScene(sceneOptions);
 }
 
-export function clearScene(guid) {
-  viewer3d.clearScene(guid);
+export function removeByUuid(guid) {
+  return viewer3d.removeByUuid(guid);
+}
+
+export function clearScene() {
+  viewer3d.clearScene();
 }
 
 export function import3DModel(json) {

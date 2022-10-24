@@ -121,6 +121,12 @@ class Viewer3D {
     });
   }
 
+  updateScene(sceneOptions){
+    this.clearScene();
+    this.options.scene = sceneOptions;
+    this.setScene();
+  }
+
   setCamera() {
     this.camera = CameraBuilder.BuildCamera(
       this.options.camera,
@@ -204,6 +210,12 @@ class Viewer3D {
       }
 
       this.INTERSECTED = null;
+      DotNet.invokeMethodAsync(
+        "Blazor3D",
+        "ReceiveSelectedObjectUUID",
+        this.options.viewerSettings.containerId,
+        null
+      );
       return;
     }
 
@@ -218,7 +230,7 @@ class Viewer3D {
 
     if (this.INTERSECTED) {
       const utf8Encode = new TextEncoder();
-      const data = utf8Encode.encode(this.INTERSECTED.uuid);
+      // const data = utf8Encode.encode(this.INTERSECTED.uuid);
       DotNet.invokeMethodAsync(
         "Blazor3D",
         "ReceiveSelectedObjectUUID",
@@ -250,7 +262,9 @@ class Viewer3D {
     let obj = this.scene.getObjectByProperty("uuid", uuid);
     if (obj) {
       this.scene.remove(obj);
+      return true;
     }
+    return false;
   }
 
   clearScene() {
