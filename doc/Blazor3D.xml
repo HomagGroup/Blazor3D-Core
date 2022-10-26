@@ -1409,6 +1409,12 @@
             <para><see cref="T:Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
             </summary>
         </member>
+        <member name="M:Blazor3D.Viewers.Viewer.UpdateScene">
+            <summary>
+            Updates scene changes.
+            </summary>
+            <returns>Task</returns>
+        </member>
         <member name="M:Blazor3D.Viewers.Viewer.SetCameraPositionAsync(Blazor3D.Maths.Vector3,Blazor3D.Maths.Vector3)">
             <summary>
             <para>Sets the camera position to specified <see cref="T:Blazor3D.Maths.Vector3"/> value.</para>
