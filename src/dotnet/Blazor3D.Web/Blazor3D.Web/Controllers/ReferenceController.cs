@@ -28,7 +28,7 @@ namespace Blazor3D.Web.Controllers
                 var refPath = PathCombiner.Combine(_hostEnvironment.WebRootPath, "/reference/");
                 var templatePath = PathCombiner.Combine(Directory.GetCurrentDirectory(), "\\Templates\\Index.html");
                 await generator.Generate(parser.Reference, refPath, templatePath);
-                return RedirectToAction(nameof(Index));
+                return Redirect("/reference/Index.html");
             }
             catch
             {
