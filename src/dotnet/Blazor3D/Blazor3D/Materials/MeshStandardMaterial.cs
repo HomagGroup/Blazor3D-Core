@@ -1,4 +1,6 @@
 ﻿
+using Blazor3D.Textures;
+
 namespace Blazor3D.Materials
 {
     /// <summary>
@@ -41,5 +43,10 @@ namespace Blazor3D.Materials
         /// <para>Render geometry as wireframe. Default is false (i.e. render as flat polygons).</para>
         /// </summary>
         public bool Wireframe { get; set; } = false;
+
+        /// <summary>
+        /// The color map. May optionally include an alpha channel, typically combined with Transparent (todo) or AlphaTest(todo). Default is null. The texture map color is modulated by the diffuse Color.
+        /// </summary>
+        public Texture Map { get; set; } = new Texture();
     }
 }
