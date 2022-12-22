@@ -10,6 +10,7 @@
 @using Blazor3D.Maths
 @using Blazor3D.Objects
 @using Blazor3D.Scenes
+@using Blazor3D.Textures;
 @using Blazor3D.Viewers
 @using Blazor3D.Cameras
 @using System.Globalization
@@ -99,10 +100,25 @@
 
     private async Task OnCreateCubeButtonClick()
     {
+        var texture = new Texture()
+            {
+                TextureUrl = "uv_grid_opengl.jpg",
+                WrapS = WrappingType.MirroredRepeatWrapping,
+                WrapT = WrappingType.MirroredRepeatWrapping,
+                Repeat = new Vector2(3, 3),
+                Offset = new Vector2(0.2f, 0.2f),
+                Rotation = (float)(Math.PI / 4)
+
+        };
         var mesh = new Mesh
             {
                 Geometry = new BoxGeometry(),
-                Position = new Vector3(xCoord, yCoord, zCoord)
+                Position = new Vector3(xCoord, yCoord, zCoord),
+                Material = new MeshStandardMaterial()
+                {
+                    Color = "white",
+                    Map = texture
+                }
             };
 
         scene.Add(mesh);
