@@ -20,6 +20,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    app.UseWebAssemblyDebugging();
 }
 else
 {
@@ -29,6 +30,7 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -38,6 +40,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
+app.MapFallbackToFile("index.html");
 
 app.Run();
