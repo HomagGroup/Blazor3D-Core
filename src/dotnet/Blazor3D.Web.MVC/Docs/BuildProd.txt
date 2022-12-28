@@ -1,0 +1,71 @@
++++++++++++++++++++
+CONTAINER ROUTINE
++++++++++++++++++++
+
+From solution folder run in terminal
+docker build -t simutaroman/blazor3dwebmvc:v0.0.1 -f "Blazor3D.Web.MVC\Dockerfile" .
+
+docker build -t simutaroman/blazor3dwebmvc -f "Blazor3D.Web.MVC\Dockerfile" .
+
+docker push simutaroman/blazor3dwebmvc:v0.0.1
+
+docker push simutaroman/blazor3dwebmvc
+
+
+docker run -p 127.0.0.1:80:80/tcp simutaroman/blazor3dwebmvc:v0.0.1
+
+
+!!!!!!!!!TODOOO
++++++++++++++++++++
+SETUP HOSTING
++++++++++++++++++++
+on digital ocean 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+https://docs.microsoft.com/ru-ru/aspnet/core/host-and-deploy/linux-apache?view=aspnetcore-6.0
+for docker compose probably this 
+https://docs.docker.com/engine/install/ubuntu/
+
+install apache
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
+virtual hosts
+https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04-quickstart-ru#4
+certificates letsencrypt
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-20-04
+
+probably few apache mods required installation like rewrite etc
+
+set apache as reverse proxy 
+https://docs.microsoft.com/ru-ru/aspnet/core/host-and-deploy/linux-apache?view=aspnetcore-6.0
+
+final config = sayingsmart-le-ssl.conf
+
+final docker-compose - 
+
+
++++++++++++++++++++
+DELPOY
++++++++++++++++++++
+
+go to the directory with docker-compose.yml
+/home/simutaroman
+
+stop containers
+docker-compose stop
+
+check they are stopped
+docker ps
+
+docker login 
+simutaroman
+Inspiron_0108
+
+get fresh container
+docker pull simutaroman/sayingsmart
+
+docker-compose up -d
+
+check they are started
+docker ps
+
+
+

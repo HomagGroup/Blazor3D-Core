@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  blazor3d.web.mvc:
+    #image: ${DOCKER_REGISTRY-}blazor3dwebmvc
+    image: ${DOCKER_REGISTRY-}simutaroman/blazor3dwebmvc:v0.0.1
+    build:
+      context: .
+      dockerfile: Blazor3D.Web.MVC/Dockerfile
+    ports:
+      - "5000:80"

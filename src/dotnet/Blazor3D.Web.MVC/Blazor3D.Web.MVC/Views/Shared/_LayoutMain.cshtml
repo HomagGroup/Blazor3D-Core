@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Blazor3D.Web.styles.css" asp-append-version="true" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <img class="blazor3d" src="~/blazor3d.svg" alt="Blazor3D" title="Blazor3D" />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Blazor3D</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Tutorials">Tutorials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/reference/Index.html">Reference Guide</a>
+                        </li>
+
+                        <environment include="Development">
+                            <form id="generateRef" asp-controller="Reference" asp-action="Generate" method="post" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-link">Generate Reference</button>
+                            </form>
+                            @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reference" asp-action="Index">Generate Reference</a>
+                            </li>*@
+                        </environment>
+
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="video-wrapper">
+        <video playsinline autoplay muted loop poster="img/main01.jpg">
+            <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- This will be positioned on top of our video background -->
+        <div class="header">
+            <h1>Blazor3D</h1>
+            <div>Simple way to get 3D into your Blazor apps</div>
+            <pre class="headerCode">&lt;Viewer UseDefaultScene=@true&gt;&lt;/Viewer&gt;;</pre>
+            <a class="btn btn-warning" asp-action="GettingStarted">Getting started</a>
+        </div>
+    </div>
+
+    <div class="container topOffset">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Blazor3D - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
