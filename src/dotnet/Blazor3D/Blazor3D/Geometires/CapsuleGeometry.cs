@@ -19,7 +19,7 @@ namespace Blazor3D.Geometires
         /// <param name="length">Length of the middle section. Default is 1.</param>
         /// <param name="capSegments">Number of curve segments used to build the caps. Default is 4.</param>
         /// <param name="radialSegments">Number of segmented faces around the circumference of the capsule. Default is 8.</param>
-        public CapsuleGeometry(float radius = 1, float length = 1, int capSegments = 4, int radialSegments = 8) : this()
+        public CapsuleGeometry(double radius = 1, double length = 1, int capSegments = 4, int radialSegments = 8) : this()
         {
             Radius = radius;
             Length = length;
@@ -30,12 +30,12 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the capsule. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         /// Length of the middle section. Default is 1.
         /// </summary>
-        public float Length { get; set; } = 1;
+        public double Length { get; set; } = 1;
 
         /// <summary>
         /// Number of curve segments used to build the caps. Default is 4.

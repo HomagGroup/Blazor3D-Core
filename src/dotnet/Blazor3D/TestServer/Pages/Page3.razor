@@ -26,11 +26,11 @@
     </div>
     <div>
         <label>X</label>
-        <input type="number" value="@(xCoord.ToString())" @onchange="@(e => xCoord = float.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
+        <input type="number" value="@(xCoord.ToString())" @onchange="@(e => xCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
         <label>Y</label>
-        <input type="number" value="@(yCoord.ToString())" @onchange="@(e => yCoord = float.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
+        <input type="number" value="@(yCoord.ToString())" @onchange="@(e => yCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
         <label>Z</label>
-        <input type="number" value="@(zCoord.ToString())" @onchange="@(e => zCoord = float.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
+        <input type="number" value="@(zCoord.ToString())" @onchange="@(e => zCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
         <button @onclick="OnCreateCubeButtonClick">Create cube with location</button>
         <button @onclick="OnUpdateCubeButtonClick">Update selected</button>
         <button @onclick="OnDeleteSelected">Delete selected </button>
@@ -56,9 +56,9 @@
             LookAt = new Vector3(0, 0.5f, 0)
         };
 
-    private float xCoord { get; set; }
-    private float yCoord { get; set; }
-    private float zCoord { get; set; }
+    private double xCoord { get; set; }
+    private double yCoord { get; set; }
+    private double zCoord { get; set; }
 
     private string selectionMsg = string.Empty;
 
@@ -107,7 +107,7 @@
                 WrapT = WrappingType.MirroredRepeatWrapping,
                 Repeat = new Vector2(3, 3),
                 Offset = new Vector2(0.2f, 0.2f),
-                Rotation = (float)(Math.PI / 4)
+                Rotation = Math.PI / 4
 
         };
         var mesh = new Mesh

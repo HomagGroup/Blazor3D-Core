@@ -24,6 +24,6 @@
         /// <para>The amount the light dims along the distance of the light</para>
         /// <para>Default is 1.</para>
         /// </summary>
-        public float Decay { get; set; } = 1;
+        public double Decay { get; set; } = 1;
     }
 }

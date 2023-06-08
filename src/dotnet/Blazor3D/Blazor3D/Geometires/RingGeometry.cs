@@ -22,12 +22,12 @@ namespace Blazor3D.Geometires
         /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
         /// <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
         public RingGeometry(
-            float innerRadius = 0.5f,
-            float outerRadius = 1,
+            double innerRadius = 0.5f,
+            double outerRadius = 1,
             int thetaSegments = 8,
             int phiSegments = 1,
-            float thetaStart = 0,
-            float thetaLength = (float)(2 * Math.PI)) : this()
+            double thetaStart = 0,
+            double thetaLength = (double)(2 * Math.PI)) : this()
         {
             InnerRadius = innerRadius;
             OuterRadius = outerRadius;
@@ -41,12 +41,12 @@ namespace Blazor3D.Geometires
         /// <summary>
         ///  Inner radius of the ring. Default is 0.5.
         /// </summary>
-        public float InnerRadius { get; set; } = 0.5f;
+        public double InnerRadius { get; set; } = 0.5f;
 
         /// <summary>
         /// Outer radius of the ring. Default is 1.
         /// </summary>
-        public float OuterRadius { get; set; } = 1;
+        public double OuterRadius { get; set; } = 1;
 
         /// <summary>
         /// Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
@@ -61,11 +61,11 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Start angle for first segment. Default is 0 (three o'clock position).
         /// </summary>
-        public float ThetaStart { get; set; } = 0;
+        public double ThetaStart { get; set; } = 0;
 
         /// <summary>
         /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * Math.PI);
+        public double ThetaLength { get; set; } = (double)(2 * Math.PI);
     }
 }

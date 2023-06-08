@@ -24,7 +24,7 @@ namespace Blazor3D.Geometires
         /// <param name="segments">Number of segments (triangles). Minimum = 3, default = 8.</param>
         /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
         /// <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
-        public CircleGeometry(float radius = 1, int segments = 8, float thetaStart = 0, float thetaLength = (float)(2 * System.Math.PI)) : this()
+        public CircleGeometry(double radius = 1, int segments = 8, double thetaStart = 0, double thetaLength = (double)(2 * System.Math.PI)) : this()
         {
             Radius = radius;
             Segments = segments;
@@ -35,7 +35,7 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the circle. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         /// Number of segments (triangles). Minimum = 3, default = 8.
@@ -45,12 +45,12 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Start angle for first segment. Default is 0 (three o'clock position).
         /// </summary>
-        public float ThetaStart { get; set; } = 0;
+        public double ThetaStart { get; set; } = 0;
 
         /// <summary>
         /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * System.Math.PI);
+        public double ThetaLength { get; set; } = (double)(2 * System.Math.PI);
 
     }
 }

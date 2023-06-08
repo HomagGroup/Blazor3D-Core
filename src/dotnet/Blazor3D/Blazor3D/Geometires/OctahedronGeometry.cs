@@ -16,7 +16,7 @@ namespace Blazor3D.Geometires
         /// </summary>
         /// <param name="radius">Radius of the octahedron. Default is 1.</param>
         /// <param name="detail">Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an octahedron.</param>
-        public OctahedronGeometry(float radius = 1, int detail = 0) : this()
+        public OctahedronGeometry(double radius = 1, int detail = 0) : this()
         {
             Radius = radius;
             Detail = detail;
@@ -25,7 +25,7 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the octahedron. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         ///  Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an octahedron.

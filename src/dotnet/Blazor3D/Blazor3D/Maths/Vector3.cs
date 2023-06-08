@@ -23,10 +23,10 @@
         /// <summary>
         /// Constructor with parameters.
         /// </summary>
-        /// <param name="x">Float X value of this vector. Default is 0.</param>
-        /// <param name="y">Float Y value of this vector. Default is 0.</param>
-        /// <param name="z">Float Z value of this vector. Default is 0.</param>
-        public Vector3(float x, float y, float z)
+        /// <param name="x">double X value of this vector. Default is 0.</param>
+        /// <param name="y">double Y value of this vector. Default is 0.</param>
+        /// <param name="z">double Z value of this vector. Default is 0.</param>
+        public Vector3(double x, double y, double z)
         {
             X = x;
             Y = y;
@@ -34,18 +34,18 @@
         }
 
         /// <summary>
-        /// Float X value of this vector. Default is 0.
+        /// double X value of this vector. Default is 0.
         /// </summary>
-        public float X { get; set; }
+        public double X { get; set; }
 
         /// <summary>
-        /// Float Y value of this vector. Default is 0.
+        /// double Y value of this vector. Default is 0.
         /// </summary>
-        public float Y { get; set; }
+        public double Y { get; set; }
 
         /// <summary>
-        /// Float Z value of this vector. Default is 0.
+        /// double Z value of this vector. Default is 0.
         /// </summary>
-        public float Z { get; set; }
+        public double Z { get; set; }
     }
 }

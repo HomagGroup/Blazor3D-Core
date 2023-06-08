@@ -23,13 +23,13 @@ namespace Blazor3D.Geometires
         /// <param name="thetaStart">Specifies vertical starting angle. Default is 0.</param>
         /// <param name="thetaLength">Specifies vertical sweep angle size. Default is Math.PI * 2.</param>
         public SphereGeometry(
-            float radius = 1,
+            double radius = 1,
             int widthSegments = 32,
             int heightSegments = 16,
-            float phiStart = 0,
-            float phiLength = (float)(2 * Math.PI),
-            float thetaStart = 0,
-            float thetaLength = (float)(2 * Math.PI)) : this()
+            double phiStart = 0,
+            double phiLength = (double)(2 * Math.PI),
+            double thetaStart = 0,
+            double thetaLength = (double)(2 * Math.PI)) : this()
         {
             Radius = radius;
             WidthSegments = widthSegments;
@@ -43,7 +43,7 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the sphere. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         /// Number of horizontal segments. Minimum value is 3, and the default is 32.
@@ -58,21 +58,21 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Specifies horizontal starting angle. Default is 0.
         /// </summary>
-        public float PhiStart { get; set; } = 0;
+        public double PhiStart { get; set; } = 0;
 
         /// <summary>
         /// Specifies horizontal sweep angle size. Default is Math.PI * 2.
         /// </summary>
-        public float PhiLength { get; set; } = (float)(2 * Math.PI);
+        public double PhiLength { get; set; } = (double)(2 * Math.PI);
 
         /// <summary>
         /// Specifies vertical starting angle. Default is 0.
         /// </summary>
-        public float ThetaStart { get; set; } = 0;
+        public double ThetaStart { get; set; } = 0;
 
         /// <summary>
         /// Specifies vertical sweep angle size. Default is Math.PI * 2.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * Math.PI);
+        public double ThetaLength { get; set; } = (double)(2 * Math.PI);
     }
 }

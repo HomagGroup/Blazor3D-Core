@@ -23,13 +23,13 @@ namespace Blazor3D.Geometires
         /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
         /// <param name="thetaLength">he central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
         public ConeGeometry(
-            float radius = 1,
-            float height = 1,
+            double radius = 1,
+            double height = 1,
             int radialSegments = 8,
             int heightSegments = 1,
             bool openEnded = false,
-            float thetaStart = 0,
-            float thetaLength = (float)(2 * System.Math.PI)) : this()
+            double thetaStart = 0,
+            double thetaLength = (double)(2 * System.Math.PI)) : this()
         {
             Radius = radius;
             Height = height;
@@ -43,12 +43,12 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the cone base. Defaults to 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         /// Height of the cone. Default is 1.
         /// </summary>
-        public float Height { get; set; } = 1;
+        public double Height { get; set; } = 1;
 
         /// <summary>
         /// Number of segmented faces around the circumference of the cone. Default is 8.
@@ -68,12 +68,12 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Start angle for first segment. Default is 0 (three o'clock position).
         /// </summary>
-        public float ThetaStart { get; set; } = 0;
+        public double ThetaStart { get; set; } = 0;
 
         /// <summary>
         /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * System.Math.PI);
+        public double ThetaLength { get; set; } = (double)(2 * System.Math.PI);
 
     }
 }

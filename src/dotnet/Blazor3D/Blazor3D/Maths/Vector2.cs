@@ -17,22 +17,22 @@
         /// <summary>
         /// Constructor with parameters.
         /// </summary>
-        /// <param name="x">Float X value of this vector. Default is 0.</param>
-        /// <param name="y">Float Y value of this vector. Default is 0.</param>
-        public Vector2(float x, float y)
+        /// <param name="x">double X value of this vector. Default is 0.</param>
+        /// <param name="y">double Y value of this vector. Default is 0.</param>
+        public Vector2(double x, double y)
         {
             X = x;
             Y = y;
         }
 
         /// <summary>
-        /// Float X value of this vector. Default is 0.
+        /// double X value of this vector. Default is 0.
         /// </summary>
-        public float X { get; set; }
+        public double X { get; set; }
 
         /// <summary>
-        /// Float Y value of this vector. Default is 0.
+        /// double Y value of this vector. Default is 0.
         /// </summary>
-        public float Y { get; set; }
+        public double Y { get; set; }
     }
 }

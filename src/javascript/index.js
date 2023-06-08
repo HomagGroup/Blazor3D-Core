@@ -26,6 +26,10 @@ export function removeByUuid(guid) {
   return viewer3d.removeByUuid(guid);
 }
 
+export function selectByUuid(guid) {
+  return viewer3d.selectByUuid(guid);
+}
+
 export function clearScene() {
   viewer3d.clearScene();
 }

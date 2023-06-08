@@ -14,11 +14,11 @@ namespace Blazor3D.Controls
         /// <summary>
         /// Minimal distance. Default is 0.
         /// </summary>
-        public float MinDistance { get; set; } = 0;
+        public double MinDistance { get; set; } = 0;
         /// <summary>
         /// Maximal distance to zoom. Default is 10000;
         /// </summary>
-        public float MaxDistance { get; set; } = 10000;
+        public double MaxDistance { get; set; } = 10000;
 
         /// <summary>
         /// The point where the camera is looking at. Default is (0,0,0).

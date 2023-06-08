@@ -23,6 +23,6 @@ namespace Blazor3D.Lights
         /// <summary>
         /// <para>Value of the light's strength/intensity. Default is 1.</para>
         /// </summary>
-        public float Intensity { get; set; } = 1;
+        public double Intensity { get; set; } = 1;
     }
 }

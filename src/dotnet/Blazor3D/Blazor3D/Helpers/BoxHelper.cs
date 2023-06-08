@@ -23,7 +23,7 @@ namespace Blazor3D.Helpers
         /// <summary>
         /// The <see cref="Object3D"/> to show the world-axis-aligned boundingbox.
         /// </summary>
-        public Object3D Object3D { get; set; }
+        public Object3D Object3D { get; set; } = null!;
 
         public string Color { get; set; } = "0xffff00";
 

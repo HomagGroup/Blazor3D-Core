@@ -65,6 +65,6 @@ namespace Blazor3D.Textures
         /// <summary>
         /// How much the texture is rotated around the center point, in radians. Positive values are counter-clockwise. Default is 0.
         /// </summary>
-        public float Rotation { get; set; } = 0;
+        public double Rotation { get; set; } = 0;
     }
 }
