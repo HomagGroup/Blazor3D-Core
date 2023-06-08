@@ -20,7 +20,7 @@ namespace Blazor3D.Geometires
         /// <param name="radialSegments">Number of radial segments. Default is 8.</param>
         /// <param name="tubularSegments">Number of tubular segments. Default is 6.</param>
         /// <param name="arc">Central angle. Default is Math.PI * 2.</param>
-        public TorusGeometry(float radius = 1, float tube = 0.4f, int radialSegments = 8, int tubularSegments = 6, float arc = (float)(2 * Math.PI)) : this()
+        public TorusGeometry(double radius = 1, double tube = 0.4f, int radialSegments = 8, int tubularSegments = 6, double arc = (double)(2 * Math.PI)) : this()
         {
             Radius = radius;
             Tube = tube;
@@ -32,12 +32,12 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         /// Radius of the tube. Default is 0.4.
         /// </summary>
-        public float Tube { get; set; } = 0.4f;
+        public double Tube { get; set; } = 0.4f;
 
         /// <summary>
         /// Number of radial segments. Default is 8.
@@ -52,6 +52,6 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Central angle. Default is Math.PI * 2.
         /// </summary>
-        public float Arc { get; set; } = (float)(2 * Math.PI);
+        public double Arc { get; set; } = (double)(2 * Math.PI);
     }
 }

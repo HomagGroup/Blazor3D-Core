@@ -17,7 +17,7 @@ namespace Blazor3D.Geometires
         /// </summary>
         /// <param name="radius">Radius of the dodecahedron. Default is 1.</param>
         /// <param name="detail">Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.</param>
-        public DodecahedronGeometry(float radius = 1, int detail = 0) : this()
+        public DodecahedronGeometry(double radius = 1, int detail = 0) : this()
         {
             Radius = radius;
             Detail = detail;
@@ -26,7 +26,7 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Radius of the dodecahedron. Default is 1.
         /// </summary>
-        public float Radius { get; set; } = 1;
+        public double Radius { get; set; } = 1;
 
         /// <summary>
         /// Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.

@@ -267,6 +267,15 @@ class Viewer3D {
     return false;
   }
 
+  selectByUuid(uuid) {
+    let obj = this.scene.getObjectByProperty("uuid", uuid);
+    if (obj) {
+      this.processSelection(obj)
+      return true;
+    }
+    return false;
+  }
+
   clearScene() {
     this.scene.clear();
   }

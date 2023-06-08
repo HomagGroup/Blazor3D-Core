@@ -13,7 +13,6 @@ using Blazor3D.Events;
 using Newtonsoft.Json.Linq;
 using Blazor3D.Core;
 using Blazor3D.Materials;
-using System.Linq;
 
 namespace Blazor3D.Viewers
 {
@@ -132,6 +131,8 @@ namespace Blazor3D.Viewers
             await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
         }
 
+        
+
         /// <summary>
         /// Apply updated camera settings to viewer.
         /// </summary>
@@ -190,7 +191,17 @@ namespace Blazor3D.Viewers
                 ChildrenHelper.RemoveObjectByUuid(uuid, Scene.Children);
             }
         }
-       
+
+        /// <summary>
+        /// <para>Selects object in scene by it's unique identifier</para>
+        /// </summary>
+        /// <param name="uuid">Unique identifier of object to select</param>
+        /// <returns>Task</returns>
+        public async Task SelectByUuidAsync(Guid uuid)
+        {
+            await bundleModule.InvokeVoidAsync("selectByUuid", uuid);
+        }
+
         /// <summary>
         /// Clears scene.
         /// </summary>

@@ -279,7 +279,7 @@
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
         </member>
-        <member name="M:Blazor3D.Geometires.BoxGeometry.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Blazor3D.Geometires.BoxGeometry.#ctor(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -326,7 +326,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CapsuleGeometry">CapsuleGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.CapsuleGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+        <member name="M:Blazor3D.Geometires.CapsuleGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -366,7 +366,7 @@
             </summary>
             <inheritdoc><see cref="T:Blazor3D.Core.BufferGeometry"/></inheritdoc>
         </member>
-        <member name="M:Blazor3D.Geometires.CircleGeometry.#ctor(System.Single,System.Int32,System.Single,System.Single)">
+        <member name="M:Blazor3D.Geometires.CircleGeometry.#ctor(System.Double,System.Int32,System.Double,System.Double)">
             <summary>
             Constructor with parameters
             </summary>
@@ -401,7 +401,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/ConeGeometry">ConeGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.ConeGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Boolean,System.Single,System.Single)">
+        <member name="M:Blazor3D.Geometires.ConeGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Boolean,System.Double,System.Double)">
             <summary>
             Constructor with parameters
             </summary>
@@ -454,7 +454,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CylinderGeometry">CylinderGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.CylinderGeometry.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Boolean,System.Single,System.Single)">
+        <member name="M:Blazor3D.Geometires.CylinderGeometry.#ctor(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Boolean,System.Double,System.Double)">
             <summary>
             Constructor with parameters
             </summary>
@@ -513,7 +513,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/DodecahedronGeometry">DodecahedronGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.DodecahedronGeometry.#ctor(System.Single,System.Int32)">
+        <member name="M:Blazor3D.Geometires.DodecahedronGeometry.#ctor(System.Double,System.Int32)">
             <summary>
             Constructor with parametes
             </summary>
@@ -536,7 +536,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/IcosahedronGeometry">IcosahedronGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.IcosahedronGeometry.#ctor(System.Single,System.Int32)">
+        <member name="M:Blazor3D.Geometires.IcosahedronGeometry.#ctor(System.Double,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -559,7 +559,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/OctahedronGeometry">OctahedronGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.OctahedronGeometry.#ctor(System.Single,System.Int32)">
+        <member name="M:Blazor3D.Geometires.OctahedronGeometry.#ctor(System.Double,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -582,7 +582,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry">PlaneGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.PlaneGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+        <member name="M:Blazor3D.Geometires.PlaneGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -617,7 +617,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/RingGeometry">RingGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.RingGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Single)">
+        <member name="M:Blazor3D.Geometires.RingGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Double,System.Double)">
             <summary>
             Constructor with parameters
             </summary>
@@ -664,7 +664,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/SphereGeometry">SphereGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.SphereGeometry.#ctor(System.Single,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Blazor3D.Geometires.SphereGeometry.#ctor(System.Double,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Constructor with parameters
             </summary>
@@ -717,7 +717,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TetrahedronGeometry">TetrahedronGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.TetrahedronGeometry.#ctor(System.Single,System.Int32)">
+        <member name="M:Blazor3D.Geometires.TetrahedronGeometry.#ctor(System.Double,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -740,7 +740,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusGeometry">TorusGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.TorusGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Single)">
+        <member name="M:Blazor3D.Geometires.TorusGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Double)">
             <summary>
             Constructor with parameters
             </summary>
@@ -781,7 +781,7 @@
             <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusKnotGeometry">TorusKnotGeometry</a></para>
             </summary>
         </member>
-        <member name="M:Blazor3D.Geometires.TorusKnotGeometry.#ctor(System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Blazor3D.Geometires.TorusKnotGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Constructor with parameters
             </summary>
@@ -1148,17 +1148,17 @@
         </member>
         <member name="P:Blazor3D.Maths.Euler.X">
             <summary>
-            The float angle of the X axis in radians. Default is 0. Optional.
+            The double angle of the X axis in radians. Default is 0. Optional.
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Euler.Y">
             <summary>
-            The float angle of the Y axis in radians. Default is 0. Optional.
+            The double angle of the Y axis in radians. Default is 0. Optional.
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Euler.Z">
             <summary>
-            The float angle of the Z axis in radians. Default is 0. Optional.
+            The double angle of the Z axis in radians. Default is 0. Optional.
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Euler.Order">
@@ -1200,21 +1200,21 @@
             Default constructor.
             </summary>
         </member>
-        <member name="M:Blazor3D.Maths.Vector2.#ctor(System.Single,System.Single)">
+        <member name="M:Blazor3D.Maths.Vector2.#ctor(System.Double,System.Double)">
             <summary>
             Constructor with parameters.
             </summary>
-            <param name="x">Float X value of this vector. Default is 0.</param>
-            <param name="y">Float Y value of this vector. Default is 0.</param>
+            <param name="x">double X value of this vector. Default is 0.</param>
+            <param name="y">double Y value of this vector. Default is 0.</param>
         </member>
         <member name="P:Blazor3D.Maths.Vector2.X">
             <summary>
-            Float X value of this vector. Default is 0.
+            double X value of this vector. Default is 0.
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Vector2.Y">
             <summary>
-            Float Y value of this vector. Default is 0.
+            double Y value of this vector. Default is 0.
             </summary>
         </member>
         <member name="T:Blazor3D.Maths.Vector3">
@@ -1234,27 +1234,27 @@
             Default constructor.
             </summary>
         </member>
-        <member name="M:Blazor3D.Maths.Vector3.#ctor(System.Single,System.Single,System.Single)">
+        <member name="M:Blazor3D.Maths.Vector3.#ctor(System.Double,System.Double,System.Double)">
             <summary>
             Constructor with parameters.
             </summary>
-            <param name="x">Float X value of this vector. Default is 0.</param>
-            <param name="y">Float Y value of this vector. Default is 0.</param>
-            <param name="z">Float Z value of this vector. Default is 0.</param>
+            <param name="x">double X value of this vector. Default is 0.</param>
+            <param name="y">double Y value of this vector. Default is 0.</param>
+            <param name="z">double Z value of this vector. Default is 0.</param>
         </member>
         <member name="P:Blazor3D.Maths.Vector3.X">
             <summary>
-            Float X value of this vector. Default is 0.
+            double X value of this vector. Default is 0.
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Vector3.Y">
             <summary>
-            Float Y value of this vector. Default is 0.
+            double Y value of this vector. Default is 0.
             </summary>
         </member>
         <member name="P:Blazor3D.Maths.Vector3.Z">
             <summary>
-            Float Z value of this vector. Default is 0.
+            double Z value of this vector. Default is 0.
             </summary>
         </member>
         <member name="T:Blazor3D.Objects.Group">
@@ -1545,6 +1545,13 @@
             Removes object from scene by it's unique identifier.
             </summary>
             <param name="uuid">Object's unique identifier.</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Blazor3D.Viewers.Viewer.SelectByUuidAsync(System.Guid)">
+            <summary>
+            <para>Selects object in scene by it's unique identifier</para>
+            </summary>
+            <param name="uuid">Unique identifier of object to select</param>
             <returns>Task</returns>
         </member>
         <member name="M:Blazor3D.Viewers.Viewer.ClearSceneAsync">

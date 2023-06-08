@@ -23,14 +23,14 @@ namespace Blazor3D.Geometires
         /// <param name="openEnded">A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.</param>
         /// <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
         /// <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
-        public CylinderGeometry(float radiusTop = 1,
-            float radiusBottom = 1,
-            float height = 1,
+        public CylinderGeometry(double radiusTop = 1,
+            double radiusBottom = 1,
+            double height = 1,
             int radialSegments = 8,
             int heightSegments = 1,
             bool openEnded = false,
-            float thetaStart = 0,
-            float thetaLength = (float)(2 * Math.PI)) : this()
+            double thetaStart = 0,
+            double thetaLength = (double)(2 * Math.PI)) : this()
         {
             RadiusTop = radiusTop;
             RadiusBottom = radiusBottom;
@@ -46,17 +46,17 @@ namespace Blazor3D.Geometires
         /// <summary>
         ///  Radius of the cylinder at the top. Default is 1.
         /// </summary>
-        public float RadiusTop { get; set; } = 1;
+        public double RadiusTop { get; set; } = 1;
 
         /// <summary>
         /// Radius of the cylinder at the bottom. Default is 1.
         /// </summary>
-        public float RadiusBottom { get; set; } = 1;
+        public double RadiusBottom { get; set; } = 1;
 
         /// <summary>
         /// Height of the cylinder. Default is 1.
         /// </summary>
-        public float Height { get; set; } = 1;
+        public double Height { get; set; } = 1;
 
         /// <summary>
         /// Number of segmented faces around the circumference of the cylinder. Default is 8.
@@ -76,11 +76,11 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// Start angle for first segment. Default is 0 (three o'clock position).
         /// </summary>
-        public float ThetaStart { get; set; } = 0;
+        public double ThetaStart { get; set; } = 0;
 
         /// <summary>
         /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
         /// </summary>
-        public float ThetaLength { get; set; } = (float)(2 * Math.PI);
+        public double ThetaLength { get; set; } = (double)(2 * Math.PI);
     }
 }

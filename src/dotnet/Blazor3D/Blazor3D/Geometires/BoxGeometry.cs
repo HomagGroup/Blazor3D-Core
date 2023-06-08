@@ -25,9 +25,9 @@ namespace Blazor3D.Geometires
         /// <param name="heightSegments">Number of segmented rectangular faces along the height of the sides. Default is 1.</param>
         /// <param name="depthSegments">Number of segmented rectangular faces along the depth of the sides. Default is 1.</param>
         public BoxGeometry(
-            float width = 1,
-            float height = 1,
-            float depth = 1,
+            double width = 1,
+            double height = 1,
+            double depth = 1,
             int widthSegments = 1,
             int heightSegments = 1,
             int depthSegments = 1):this()
@@ -43,17 +43,17 @@ namespace Blazor3D.Geometires
         /// <summary>
         /// The length of the edges parallel to the X axis. Default is 1.
         /// </summary>
-        public float Width { get; set; } = 1;
+        public double Width { get; set; } = 1;
 
         /// <summary>
         /// The length of the edges parallel to the Y axis. Default is 1.
         /// </summary>
-        public float Height { get; set; } = 1;
+        public double Height { get; set; } = 1;
 
         /// <summary>
         /// The length of the edges parallel to the Z axis. Default is 1.
         /// </summary>
-        public float Depth { get; set; } = 1;
+        public double Depth { get; set; } = 1;
 
         /// <summary>
         /// Number of segmented rectangular faces along the width of the sides. Default is 1.
