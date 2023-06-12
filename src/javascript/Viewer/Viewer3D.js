@@ -5,6 +5,7 @@ import Exporters from "./Exporters"; //todo
 import SceneBuilder from "../Builders/SceneBuilder";
 import CameraBuilder from "../Builders/CameraBuilder";
 import Transforms from "../Utils/Transforms";
+import {ViewHelper} from "three/examples/jsm/helpers/ViewHelper"
 
 class Viewer3D {
   thetaX = 0;
@@ -21,13 +22,13 @@ class Viewer3D {
 
     this.scene = new THREE.Scene();
     this.setScene();
-    this.setCamera();
 
     this.renderer = new THREE.WebGLRenderer(
       {
         antialias : this.options.viewerSettings.webGLRendererSettings.antialias
       }
     );
+    this.renderer.autoClear = false;
     this.renderer.domElement.style.width = "100%";
     this.renderer.domElement.style.height = "100%";
 
@@ -45,6 +46,7 @@ class Viewer3D {
 
     this.container.appendChild(this.renderer.domElement);
 
+    this.setCamera();
     this.setOrbitControls();
     this.onResize();
 
@@ -84,7 +86,10 @@ class Viewer3D {
 
       this.camera.updateMatrixWorld();
     }
+
+    this.renderer.clear();
     this.renderer.render(this.scene, this.camera);
+    this.helper.render( this.renderer );
   }
 
   onResize() {
@@ -132,6 +137,10 @@ class Viewer3D {
       this.options.camera,
       this.container.offsetWidth / this.container.offsetHeight
     );
+
+    if(this.camera && this.renderer && this.renderer.domElement){
+      this.helper = new ViewHelper(this.camera, this.renderer.domElement);
+    }
 
     // todo: add camera children (i.e. lights)
   }
