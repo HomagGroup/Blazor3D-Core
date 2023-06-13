@@ -5,7 +5,7 @@ import Exporters from "./Exporters"; //todo
 import SceneBuilder from "../Builders/SceneBuilder";
 import CameraBuilder from "../Builders/CameraBuilder";
 import Transforms from "../Utils/Transforms";
-import {ViewHelper} from "three/examples/jsm/helpers/ViewHelper"
+import { ViewHelper } from "three/examples/jsm/helpers/ViewHelper"
 
 class Viewer3D {
   thetaX = 0;
@@ -25,7 +25,7 @@ class Viewer3D {
 
     this.renderer = new THREE.WebGLRenderer(
       {
-        antialias : this.options.viewerSettings.webGLRendererSettings.antialias
+        antialias: this.options.viewerSettings.webGLRendererSettings.antialias
       }
     );
     this.renderer.autoClear = false;
@@ -88,8 +88,11 @@ class Viewer3D {
     }
 
     this.renderer.clear();
-    this.renderer.render(this.scene, this.camera);
-    this.helper.render( this.renderer );
+      this.renderer.render(this.scene, this.camera);
+
+    if (this.options.viewerSettings.showViewHelper) {
+      this.viewHelper.render(this.renderer);
+    }
   }
 
   onResize() {
@@ -126,7 +129,7 @@ class Viewer3D {
     });
   }
 
-  updateScene(sceneOptions){
+  updateScene(sceneOptions) {
     this.clearScene();
     this.options.scene = sceneOptions;
     this.setScene();
@@ -138,8 +141,8 @@ class Viewer3D {
       this.container.offsetWidth / this.container.offsetHeight
     );
 
-    if(this.camera && this.renderer && this.renderer.domElement){
-      this.helper = new ViewHelper(this.camera, this.renderer.domElement);
+    if (this.camera && this.renderer && this.renderer.domElement) {
+      this.viewHelper = new ViewHelper(this.camera, this.renderer.domElement);
     }
 
     // todo: add camera children (i.e. lights)
