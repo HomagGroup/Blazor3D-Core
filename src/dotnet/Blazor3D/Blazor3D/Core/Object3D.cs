@@ -54,5 +54,14 @@ namespace Blazor3D.Core
         {
             Children.Add(child);
         }
+
+        /// <summary>
+        /// Adds the <see cref="Object3D"/> elements of the specified collection to the end of Children list.
+        /// </summary>
+        /// <param name="elements">Collection of children objects.</param>
+        public void AddRange(IEnumerable<Object3D> elements)
+        {
+            Children.AddRange(elements);
+        }
     }
 }

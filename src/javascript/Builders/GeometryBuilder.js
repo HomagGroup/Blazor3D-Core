@@ -164,6 +164,25 @@ class GeometryBuilder {
       geometry.uuid = options.uuid;
       return geometry;
     }
+
+    if (options.type == "ShapeGeometry") {
+      const shape = new THREE.Shape(options.shape.points);
+      shape.uuid = options.shape.uuid;
+      const geometry = new THREE.ShapeGeometry(shape);
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "ExtrudeGeometry") {
+      const shape = new THREE.Shape(options.shape.points);
+      shape.uuid = options.shape.uuid;
+
+      const geometry = new THREE.ExtrudeGeometry(shape, options.extrudeOptions);
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    console.log("not found geometry type", options);
   }
 }
 

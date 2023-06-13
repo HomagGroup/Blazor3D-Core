@@ -28,6 +28,8 @@ namespace Blazor3D.Settings
         /// </summary>
         public string SelectedColor { get; set; } = "lime";
 
+        public bool ShowViewHelper { get; set; } = true;
+
         /// <summary>
         /// Blazor3D Viewer WebGLRenderer settings
         /// </summary>
