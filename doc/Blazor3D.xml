@@ -193,6 +193,12 @@
             </summary>
             <param name="child">Child <see cref="T:Blazor3D.Core.Object3D"/> to be added.</param>
         </member>
+        <member name="M:Blazor3D.Core.Object3D.AddRange(System.Collections.Generic.IEnumerable{Blazor3D.Core.Object3D})">
+            <summary>
+            Adds the <see cref="T:Blazor3D.Core.Object3D"/> elements of the specified collection to the end of Children list.
+            </summary>
+            <param name="elements">Collection of children objects.</param>
+        </member>
         <member name="T:Blazor3D.Enums.Import3DFormats">
             <summary>
             3D model formats, which can be used for importing to or exporting from <see cref="T:Blazor3D.Scenes.Scene"/>.
@@ -270,6 +276,50 @@
             <para>Delegate that handles <see cref="T:Blazor3D.Viewers.Viewer"/> ObjectSelected event.</para>
             </summary>
             <param name="e"><see cref="T:Blazor3D.Events.Object3DArgs"/> arguments for ObjectSelected event handler.</param>
+        </member>
+        <member name="T:Blazor3D.Extras.Core.Shape">
+            <summary>
+            Defines an arbitrary 2d shape plane using paths with optional holes).
+            It can be used with <see cref="T:Blazor3D.Geometires.ExtrudeGeometry"/>, <see cref="T:Blazor3D.Geometires.ShapeGeometry"/>, to get points, or to get triangulated faces.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Extras.Core.Shape.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a>
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Extras.Core.Shape.Points">
+            <summary>
+            Array of <see cref="T:Blazor3D.Maths.Vector2"/> representing the shape verticies.
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Extras.Core.Shape.MoveTo(Blazor3D.Maths.Vector2)">
+            <summary>
+            Moves the current point to the specified <see cref="T:Blazor3D.Maths.Vector2"/> point. Can be used for the first element of the Points collection.
+            </summary>
+            <param name="point"><see cref="T:Blazor3D.Maths.Vector2"/> point.</param>
+            <exception cref="T:System.OverflowException">MoveTo() can be used only to define first shape point</exception>
+        </member>
+        <member name="M:Blazor3D.Extras.Core.Shape.MoveTo(System.Double,System.Double)">
+            <summary>
+            Moves the current point to the specified point.
+            </summary>
+            <param name="x">X coordinate of the specified point.</param>
+            <param name="y">Y coordinate of the specified point.</param>
+        </member>
+        <member name="M:Blazor3D.Extras.Core.Shape.LineTo(Blazor3D.Maths.Vector2)">
+            <summary>
+            Adds the <see cref="T:Blazor3D.Maths.Vector2"/> vertice to the shape path.
+            </summary>
+            <param name="point"><see cref="T:Blazor3D.Maths.Vector2"/> point.</param>
+            <exception cref="T:System.OverflowException">LineTo() cannot be used to define first shape point</exception>
+        </member>
+        <member name="M:Blazor3D.Extras.Core.Shape.LineTo(System.Double,System.Double)">
+            <summary>
+            Adds the vertice to the shape path.
+            </summary>
+            <param name="x">X coordinate of the specified vertice.</param>
+            <param name="y">Y coordinate of the specified vertice.</param>
         </member>
         <member name="T:Blazor3D.Geometires.BoxGeometry">
             <summary>
@@ -530,6 +580,43 @@
             Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.
             </summary>
         </member>
+        <member name="T:Blazor3D.Geometires.ExtrudeGeometry">
+            <summary>
+            Creates extruded geometry from a path shape.
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.ExtrudeGeometry.#ctor(Blazor3D.Extras.Core.Shape,Blazor3D.Geometires.ExtrudeGeometryOptions)">
+            <summary>
+            Construcor with parameters.
+            </summary>
+            <param name="shape"><see cref="P:Blazor3D.Geometires.ExtrudeGeometry.Shape"/> polygonal shape.</param>
+            <param name="options"><see cref="T:Blazor3D.Geometires.ExtrudeGeometryOptions"/> options used for extrusion.</param>
+        </member>
+        <member name="P:Blazor3D.Geometires.ExtrudeGeometry.Shape">
+            <summary>
+            <see cref="P:Blazor3D.Geometires.ExtrudeGeometry.Shape"/> polygonal shape.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ExtrudeGeometry.ExtrudeOptions">
+            <summary>
+            <see cref="T:Blazor3D.Geometires.ExtrudeGeometryOptions"/> options used for extrusion.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.ExtrudeGeometryOptions">
+            <summary>
+            Options used for extrusion.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ExtrudeGeometryOptions.Depth">
+            <summary>
+            Extrusion depth. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.ExtrudeGeometryOptions.BevelEnabled">
+            <summary>
+            Apply beveling to the shape. Default is true.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.IcosahedronGeometry">
             <summary>
             <para>A class for generating an icosahedron geometry.</para>
@@ -656,6 +743,22 @@
         <member name="P:Blazor3D.Geometires.RingGeometry.ThetaLength">
             <summary>
             The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
+        <member name="T:Blazor3D.Geometires.ShapeGeometry">
+            <summary>
+            Creates an one-sided polygonal geometry from one or more path shapes.
+            </summary>
+        </member>
+        <member name="M:Blazor3D.Geometires.ShapeGeometry.#ctor(Blazor3D.Extras.Core.Shape)">
+            <summary>
+            onstructor with parameters
+            </summary>
+            <param name="shape"><see cref="P:Blazor3D.Geometires.ShapeGeometry.Shape"/> polygonal shape.</param>
+        </member>
+        <member name="P:Blazor3D.Geometires.ShapeGeometry.Shape">
+            <summary>
+            <see cref="P:Blazor3D.Geometires.ShapeGeometry.Shape"/> polygonal shape.
             </summary>
         </member>
         <member name="T:Blazor3D.Geometires.SphereGeometry">
