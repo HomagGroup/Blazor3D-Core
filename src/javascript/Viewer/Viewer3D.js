@@ -28,7 +28,11 @@ class Viewer3D {
         antialias: this.options.viewerSettings.webGLRendererSettings.antialias
       }
     );
-    this.renderer.autoClear = false;
+
+    if (this.options.viewerSettings.showViewHelper) {
+      this.renderer.autoClear = false;
+    };
+    
     this.renderer.domElement.style.width = "100%";
     this.renderer.domElement.style.height = "100%";
 
@@ -87,10 +91,13 @@ class Viewer3D {
       this.camera.updateMatrixWorld();
     }
 
-    this.renderer.clear();
-      this.renderer.render(this.scene, this.camera);
+    if (this.options.viewerSettings.showViewHelper && this.viewHelper) {
+      this.renderer.clear();
+    }
 
-    if (this.options.viewerSettings.showViewHelper) {
+    this.renderer.render(this.scene, this.camera);
+
+    if (this.options.viewerSettings.showViewHelper && this.viewHelper) {
       this.viewHelper.render(this.renderer);
     }
   }
@@ -141,7 +148,7 @@ class Viewer3D {
       this.container.offsetWidth / this.container.offsetHeight
     );
 
-    if (this.camera && this.renderer && this.renderer.domElement) {
+    if (this.options.viewerSettings.showViewHelper && this.camera && this.renderer && this.renderer.domElement) {
       this.viewHelper = new ViewHelper(this.camera, this.renderer.domElement);
     }
 
