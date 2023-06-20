@@ -248,8 +248,7 @@ class Viewer3D {
     }
 
     if (this.INTERSECTED) {
-      const utf8Encode = new TextEncoder();
-      // const data = utf8Encode.encode(this.INTERSECTED.uuid);
+
       DotNet.invokeMethodAsync(
         "Blazor3D",
         "ReceiveSelectedObjectUUID",

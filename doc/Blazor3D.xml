@@ -1505,6 +1505,11 @@
             Color the selected element is highlighted. Default is "lime".
             </summary>
         </member>
+        <member name="P:Blazor3D.Settings.ViewerSettings.ShowViewHelper">
+            <summary>
+            Show or hide ViewHelper
+            </summary>
+        </member>
         <member name="P:Blazor3D.Settings.ViewerSettings.WebGLRendererSettings">
             <summary>
             Blazor3D Viewer WebGLRenderer settings

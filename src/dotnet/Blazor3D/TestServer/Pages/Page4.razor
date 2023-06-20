@@ -29,7 +29,6 @@
             ContainerId = "rsid",
             CanSelect = true,
             CanSelectHelpers = false,
-            ShowViewHelper = false
         };
 
     private Scene scene = new Scene();
@@ -40,9 +39,6 @@
         };
 
     private string selectionMsg = string.Empty;
-
-
-
 
     protected override Task OnInitializedAsync()
     {
@@ -94,12 +90,13 @@
         shape.LineTo(-3, -1);
         shape.LineTo(-4, -3);
         shape.LineTo(-2, -3);
+        shape.LineTo(-1, -5);
 
-        scene.Add(new Mesh
+        var group = new Group();
+        group.Add(new Mesh
             {
                 Geometry = new ShapeGeometry(shape),
             });
-
 
         var options = new ExtrudeGeometryOptions
             {
@@ -107,11 +104,23 @@
                 BevelEnabled = false
             };
 
-        scene.Add(new Mesh
+        group.Add(new Mesh
             {
                 Geometry = new ExtrudeGeometry(shape, options),
                 Position = new Vector3() { X = 3 }
             });
+
+        scene.Add(group);
+
+        group = new Group();
+        group.Add(new Mesh
+            {
+                Geometry = new ShapeGeometry(shape),
+                Material = new MeshStandardMaterial { Color = "blue"}
+            });
+        group.Position.Z = -5;
+        scene.Add(group);
+
     }
 
     private void OnObjectSelected(Object3DArgs e)
@@ -123,7 +132,6 @@
             StateHasChanged();
         }
     }
-
 
     public void Dispose()
     {
