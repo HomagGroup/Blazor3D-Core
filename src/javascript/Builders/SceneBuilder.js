@@ -1,12 +1,17 @@
 import HelperBuilder from "./HelperBuilder";
 import LightBuilder from "./LightBuilder";
 import MeshBuilder from "./MeshBuilder";
+import GroupBuilder from "./GroupBuilder";
 
 class SceneBuilder {
 
   static BuildChild(options, scene) {
     if (options.type == "Mesh") {
       return MeshBuilder.BuildMesh(options);
+    }
+
+    if (options.type == "Group") {
+      return GroupBuilder.BuildGroup(options);
     }
 
     if (options.type == "AmbientLight") {

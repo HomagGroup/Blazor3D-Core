@@ -28,6 +28,9 @@ namespace Blazor3D.Settings
         /// </summary>
         public string SelectedColor { get; set; } = "lime";
 
+        /// <summary>
+        /// Show or hide ViewHelper
+        /// </summary>
         public bool ShowViewHelper { get; set; } = true;
 
         /// <summary>
