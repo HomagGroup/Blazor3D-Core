@@ -5,9 +5,9 @@ import GroupBuilder from "./GroupBuilder";
 
 class SceneBuilder {
 
-  static BuildChild(options, scene) {
+  static async BuildChild(options, scene) {
     if (options.type == "Mesh") {
-      return MeshBuilder.BuildMesh(options);
+      return await MeshBuilder.BuildMesh(options);
     }
 
     if (options.type == "Group") {

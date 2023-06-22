@@ -837,6 +837,47 @@
              Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
             </summary>
         </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.Font">
+            <summary>
+            The path or URL to the font file. This can also be a Data URI.
+            </summary>
+            <remarks>This is the equivalent of what is passed into FontLoader.load() as the url parameter.</remarks>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.Size">
+            <summary>
+            Size of the text
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.Height">
+            <summary>
+            Thickness to extrude text
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.CurveSegments">
+            <summary>
+            Number of points on the curves
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.BevelEnabled">
+            <summary>
+            Turn on bevel, default false.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.BevelThickness">
+            <summary>
+            How deep into text bevel goes
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.BevelSize">
+            <summary>
+            How far from text outline (including <see cref="P:Blazor3D.Geometires.TextGeometryOptions.BevelOffset"/>) is the bevel
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometryOptions.BevelOffset">
+            <summary>
+            How far from text outline does bevel start
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.TorusGeometry">
             <summary>
             <para> A class for generating torus geometries.</para>

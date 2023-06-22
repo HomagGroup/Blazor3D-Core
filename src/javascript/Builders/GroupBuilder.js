@@ -7,10 +7,14 @@ class GroupBuilder {
     static BuildGroup(options, scene) {
         const group = new THREE.Group();
         options.children.forEach((childOptions) => {
-            var child = SceneBuilder.BuildChild(childOptions, scene);
-            if (child) {
-                group.add(child);
-            }
+            SceneBuilder.BuildChild(childOptions, scene)
+            .then(child =>{
+                if (child) {
+                    group.add(child);
+                }
+            }).catch(error =>{
+                console.error(error);
+            });
         });
         Transforms.setPosition(group, options.position);
         Transforms.setRotation(group, options.rotation);

@@ -1,7 +1,9 @@
 import * as THREE from "three";
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 
 class GeometryBuilder {
-  static buildGeometry(options) {
+  static async buildGeometry(options) {
     if (options.type == "BoxGeometry") {
       const geometry = new THREE.BoxGeometry(
         options.width,
@@ -181,7 +183,26 @@ class GeometryBuilder {
       geometry.uuid = options.uuid;
       return geometry;
     }
+    if (options.type == "TextGeometry") {
+        const loader = new FontLoader();
+        const parameters = options.textOptions;
 
+        try {
+          // I'm not too sure on this promise approach for handling loading the font before returning the geometry but
+          // I am unware of another way without re-architecting the way this method (and callers higher up the chain) 
+          // is called even more.
+          const font = await new Promise((resolve, reject) => {
+            loader.load(options.textOptions.font, resolve, undefined, reject);
+          });
+  
+          parameters.font = font;
+          const geometry = new TextGeometry(options.text, parameters);
+          geometry.uuid = options.uuid;
+          return geometry;
+        }catch(error){
+          console.error("Error while loading font %s", options.font, error)
+        }
+      }
     console.log("not found geometry type", options);
   }
 }

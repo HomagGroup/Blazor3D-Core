@@ -1,0 +1,122 @@
+﻿@page "/page5"
+@using Blazor3D.Cameras;
+@using Blazor3D.Geometires;
+@using Blazor3D.Materials;
+@using Blazor3D.Maths;
+@using Blazor3D.Objects;
+@using Blazor3D.Scenes;
+@using Blazor3D.Viewers;
+<div class="row justify-content-center">
+    <div class="col-9 v3d">
+        <Viewer @ref="View3D1" ViewerSettings=settings Scene=scene Camera=camera />
+    </div>
+    <div>
+        <label for="text-input">Text:</label>
+        <input id="text-input" type="text" @bind-value="@DisplayText" />
+        <button type="button" @onclick="UpdateText">Update Text</button>
+        <label for="size-input">Font Size:</label>
+        <input id="size-input" type="number" @bind-value="@FontSize" />
+        <button type="button" @onclick="UpdateText">Update Font Size</button>
+        <label for="height-input">Height:</label>
+        <input id="height-input" type="number" @bind-value="@Height" />
+        <button type="button" @onclick="UpdateText">Update Height</button>
+        <label for="curve-input">Curve Segments:</label>
+        <input id="curve-input" type="number" @bind-value="@CurveSegments" />
+        <button type="button" @onclick="UpdateText">Update Curves</button>
+        <label for="bevel-enabled-input">Toggle Bevel:</label>
+        <input id="bevel-enabled-input" type="checkbox" @bind-value="@BevelEnabled" />
+        <button type="button" @onclick="UpdateText">Update Bevel</button>
+        <label for="bevel-size-input">Bevel Size:</label>
+        <input id="bevel-size-input" type="number" @bind-value="@BevelSize" />
+        <button type="button" @onclick="UpdateText">Update Bevel Size</button>
+        <label for="bevel-thickness-input">Bevel Thickness:</label>
+        <input id="bevel-thickness-input" type="number" @bind-value="@BevelThickness" />
+        <button type="button" @onclick="UpdateText">Update Bevel Thickness</button>
+        <label for="bevel-offset-input">Bevel Offset:</label>
+        <input id="bevel-offset-input" type="number" @bind-value="@BevelOffset" />
+        <button type="button" @onclick="UpdateText">Update Bevel Offset</button>
+    </div>
+</div>
+
+
+@code {
+    public string DisplayText { get; set; } = "Test";
+    public string FontPath { get; set; } = "fonts/helvetiker_regular.typeface.json";
+    public int FontSize { get; set; } = 64;
+    public bool BevelEnabled { get; set; }
+    public float BevelOffset { get; set; } = 0;
+    public float BevelSize { get; set; } = 8;
+    public float BevelThickness { get; set; } = 10;
+    public int CurveSegments { get; set; } = 12;
+    public float Height { get; set; } = 50;
+
+    private Viewer View3D1 = null!;
+
+    private ViewerSettings settings = new ViewerSettings()
+        {
+            ContainerId = "rsid",
+            CanSelect = true,
+            CanSelectHelpers = false,
+        };
+
+    private Scene scene = new Scene();
+    private Camera camera = new PerspectiveCamera
+        {
+            Position = new Vector3(3, 3, 3),
+            LookAt = new Vector3(0, 0.5f, 0)
+        };
+
+    private Guid textId;
+
+    protected override Task OnInitializedAsync()
+    {
+        FillScene();
+        return base.OnInitializedAsync();
+    }
+
+    private void FillScene()
+    {
+        scene.Add(CreateTextMesh());
+    }
+
+    private Mesh CreateTextMesh()
+    {
+        var mesh = new Mesh
+            {
+                Geometry = new TextGeometry(DisplayText, new TextGeometryOptions
+                {
+                    Font = FontPath,
+                    Size = FontSize,
+                    BevelEnabled = BevelEnabled,
+                    BevelOffset = BevelOffset,
+                    BevelSize = BevelSize,
+                    BevelThickness = BevelThickness,
+                    CurveSegments = CurveSegments,
+                    Height = Height
+                }),
+            };
+
+        textId = mesh.Uuid;
+
+        return mesh;
+    }
+
+    private async void UpdateText()
+    {
+        var textMesh = scene.Children.FirstOrDefault(c => c.Uuid == textId);
+        if (textMesh != null)
+        {
+            // Remove old mesh
+            await View3D1.RemoveByUuidAsync(textId);
+
+            // Create new mesh
+            var mesh = CreateTextMesh();
+
+            // Add newly created mesh to scene
+            scene.Add(mesh);
+
+            // Update the viewer (re-draw scene)
+            await View3D1.UpdateScene();
+        }
+    }
+}
