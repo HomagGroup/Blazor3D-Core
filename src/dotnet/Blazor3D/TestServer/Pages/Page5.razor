@@ -1,4 +1,4 @@
-﻿@page "/page4"
+﻿@page "/page5"
 @implements IDisposable
 @using Blazor3D.Core
 @using Blazor3D.Enums
@@ -82,46 +82,19 @@
     }
     private void FillScene()
     {
-        //scene.Add(new Mesh());
-
-        var shape = new Shape();
-
-        shape.MoveTo(-1, -1);
-        shape.LineTo(-3, -1);
-        shape.LineTo(-4, -3);
-        shape.LineTo(-2, -3);
-        shape.LineTo(-1, -5);
-
-        var group = new Group();
-        group.Add(new Mesh
+        var n = 500;
+        var r = 10;
+        var arr = new Mesh[n];
+        for (int i = 0; i < n; i++)
+        {
+            var p = -(double)i * r / n;
+            arr[i] = new Mesh()
             {
-                Geometry = new ShapeGeometry(shape),
-            });
-
-        var options = new ExtrudeGeometryOptions
-            {
-                Depth = 0.5,
-                BevelEnabled = false
+                Position = new Vector3 { X = p, Y = p, Z = p}
             };
+        }
 
-        group.Add(new Mesh
-            {
-                Geometry = new ExtrudeGeometry(shape, options),
-                Position = new Vector3() { X = 3 },
-                Material = new MeshStandardMaterial { Color = "green", Transparent = true, Opacity = 0.7 }
-            });
-
-        scene.Add(group);
-
-        group = new Group();
-        group.Add(new Mesh
-            {
-                Geometry = new ShapeGeometry(shape),
-                Material = new MeshStandardMaterial { Color = "blue", Transparent = true, Opacity = 0.7 }
-            });
-        group.Position.Z = -5;
-        scene.Add(group);
-
+        scene.AddRange(arr);
     }
 
     private void OnObjectSelected(Object3DArgs e)

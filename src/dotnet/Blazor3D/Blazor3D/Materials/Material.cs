@@ -1,4 +1,6 @@
-﻿namespace Blazor3D.Materials
+﻿using System;
+
+namespace Blazor3D.Materials
 {
     /// <summary>
     /// <para>Abstract base class for materials.</para>
@@ -23,5 +25,19 @@
         /// <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
         /// </summary>
         public Guid Uuid { get; set; } = Guid.NewGuid();
+
+        /// <summary>
+        /// Defines whether this material is transparent. This has an effect on rendering as transparent objects need special treatment and are rendered after non-transparent objects.
+        /// When set to true, the extent to which the material is transparent is controlled by setting its opacity property.
+        /// Default is false.
+        /// </summary>
+        public bool Transparent { get; set; }
+
+        /// <summary>
+        /// Float in the range of 0.0 - 1.0 indicating how transparent the material is. A value of 0.0 indicates fully transparent, 1.0 is fully opaque.
+        /// If the material's transparent property is not set to true, the material will remain fully opaque and this value will only affect its color.
+        /// Default is 1.0.
+        /// </summary>
+        public double Opacity { get; set; } = 1;
     }
 }

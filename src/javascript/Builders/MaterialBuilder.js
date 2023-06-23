@@ -9,6 +9,8 @@ class MaterialBuilder {
       
       const material = new THREE.MeshStandardMaterial({
         color: options.color,
+        transparent : options.transparent,
+        opacity : options.opacity,
         flatShading : options.flatShading,
         metalness: options.metalness,
         roughness: options.roughness,
