@@ -1,7 +1,4 @@
-﻿using Blazor3D.Enums;
-using System.Numerics;
-
-namespace Blazor3D.Core
+﻿namespace Blazor3D.Core
 {
     /// <summary>
     /// <para>A representation of geometry for mesh, line, or point. 
