@@ -1,4 +1,5 @@
 ﻿using Blazor3D.Enums;
+using System.Numerics;
 
 namespace Blazor3D.Core
 {

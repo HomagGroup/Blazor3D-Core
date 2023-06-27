@@ -16,6 +16,7 @@ namespace Blazor3D.Objects
         {
 
         }
+        
         //TODO: make Array of materials
         /// <summary>
         /// <para>Collection of <see cref="Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>

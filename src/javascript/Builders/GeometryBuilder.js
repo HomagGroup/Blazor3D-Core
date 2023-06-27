@@ -182,6 +182,12 @@ class GeometryBuilder {
       return geometry;
     }
 
+    if (options.type == "LineGeometry") {
+      const geometry = new THREE.BufferGeometry().setFromPoints( options.points )
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
     console.log("not found geometry type", options);
   }
 }

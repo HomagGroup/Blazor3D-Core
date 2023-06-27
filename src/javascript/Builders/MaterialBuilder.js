@@ -20,6 +20,20 @@ class MaterialBuilder {
       material.uuid = options.uuid;
       return material;
     }
+
+    if (options.type == "LineBasicMaterial") {
+
+      const material = new THREE.LineBasicMaterial({
+        color: options.color,
+        transparent : options.transparent,
+        opacity : options.opacity,
+        linecap : options.lineCap,
+        linejoin : options.lineJoin,
+        linewidth : options.lineWidth
+      });
+      material.uuid = options.uuid;
+      return material;
+    }
   }
 }
 
