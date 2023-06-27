@@ -5,6 +5,7 @@
 @using Blazor3D.Events
 @using Blazor3D.Extras.Core;
 @using Blazor3D.Geometires
+@using Blazor3D.Geometires.Lines;
 @using Blazor3D.Helpers
 @using Blazor3D.Lights
 @using Blazor3D.Materials
@@ -82,19 +83,29 @@
     }
     private void FillScene()
     {
-        var n = 500;
-        var r = 10;
-        var arr = new Mesh[n];
-        for (int i = 0; i < n; i++)
+        var points = new List<Vector3>()
         {
-            var p = -(double)i * r / n;
-            arr[i] = new Mesh()
-            {
-                Position = new Vector3 { X = p, Y = p, Z = p}
-            };
-        }
+            new Vector3(-1, 0, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(1, 0, 0),
 
-        scene.AddRange(arr);
+        };
+
+        var line = new Line
+            {
+                Material = new LineBasicMaterial
+                {
+                    Color = "red",
+                    LineWidth = 2,
+                    LineCap = "square"
+                },
+                Geometry = new LineGeometry
+                {
+                    Points = points
+                }
+            };
+
+        scene.Add(line);
     }
 
     private void OnObjectSelected(Object3DArgs e)

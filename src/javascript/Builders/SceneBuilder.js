@@ -2,12 +2,17 @@ import HelperBuilder from "./HelperBuilder";
 import LightBuilder from "./LightBuilder";
 import MeshBuilder from "./MeshBuilder";
 import GroupBuilder from "./GroupBuilder";
+import LineBuilder from "./LineBuilder";
 
 class SceneBuilder {
 
   static BuildChild(options, scene) {
     if (options.type == "Mesh") {
       return MeshBuilder.BuildMesh(options);
+    }
+
+    if (options.type == "Line") {
+      return LineBuilder.BuildMesh(options);
     }
 
     if (options.type == "Group") {
