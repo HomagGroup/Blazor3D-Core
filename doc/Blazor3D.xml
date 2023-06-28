@@ -837,6 +837,11 @@
              Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
             </summary>
         </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.Text">
+            <summary>
+            The text that needs to be shown
+            </summary>
+        </member>
         <member name="P:Blazor3D.Geometires.TextGeometry.FontURL">
             <summary>
             The path or URL to the file. This can also be a Data URI
@@ -860,6 +865,26 @@
         <member name="P:Blazor3D.Geometires.TextGeometry.BevelEnabled">
             <summary>
             Turn on bevel. Default is False.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.BevelThickness">
+            <summary>
+            How deep into text bevel goes. Default is 10.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.BevelSize">
+            <summary>
+            How far from text outline is bevel. Default is 8.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.BevelOffset">
+            <summary>
+            How far from text outline bevel starts. Default is 0.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.BevelSegments">
+            <summary>
+            Number of bevel segments
             </summary>
         </member>
         <member name="T:Blazor3D.Geometires.TorusGeometry">

@@ -7,6 +7,7 @@ class GroupBuilder {
     static BuildGroup(options, scene) {
         const group = new THREE.Group();
         options.children.forEach((childOptions) => {
+            // todo: changes for text here (see Viewer.SetScene)
             var child = SceneBuilder.BuildChild(childOptions, scene);
             if (child) {
                 group.add(child);
