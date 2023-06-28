@@ -837,6 +837,31 @@
              Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
             </summary>
         </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.FontURL">
+            <summary>
+            The path or URL to the file. This can also be a Data URI
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.Size">
+            <summary>
+            Size of the text. Default is 100.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.Height">
+            <summary>
+            Thickness to extrude text. Default is 50.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.CurveSegments">
+            <summary>
+            Number of points on the curves. Default is 12.
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.TextGeometry.BevelEnabled">
+            <summary>
+            Turn on bevel. Default is False.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Geometires.TorusGeometry">
             <summary>
             <para> A class for generating torus geometries.</para>

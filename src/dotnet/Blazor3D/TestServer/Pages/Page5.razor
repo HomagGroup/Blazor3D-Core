@@ -83,29 +83,20 @@
     }
     private void FillScene()
     {
-        var points = new List<Vector3>()
-        {
-            new Vector3(-1, 0, 0),
-            new Vector3(0, 1, 0),
-            new Vector3(1, 0, 0),
-
-        };
-
-        var line = new Line
+        var text = new Text
             {
-                Material = new LineBasicMaterial
+                Material = new MeshStandardMaterial
                 {
                     Color = "red",
-                    LineWidth = 2,
-                    LineCap = "square"
                 },
-                Geometry = new LineGeometry
+                Geometry = new TextGeometry
                 {
-                    Points = points
+                    FontURL = "fonts/helvetiker_regular.typeface.json"
+                    // todo: check other props
                 }
             };
 
-        scene.Add(line);
+        scene.Add(text);
     }
 
     private void OnObjectSelected(Object3DArgs e)
