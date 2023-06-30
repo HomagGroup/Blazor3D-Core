@@ -2,6 +2,9 @@
 
 namespace Blazor3D.Geometires.Text
 {
+    /// <summary>
+    /// Represents geometry to build shape text
+    /// </summary>
     public class TextShapeGeometry : BufferGeometry
     {
         public TextShapeGeometry() : base("TextShapeGeometry")

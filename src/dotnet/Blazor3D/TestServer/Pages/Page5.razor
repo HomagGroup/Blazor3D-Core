@@ -135,6 +135,22 @@
             };
         scene.Add(text);
 
+        text = new Text
+            {
+                Material = new MeshStandardMaterial
+                {
+                    Color = "violet",
+                },
+                Geometry = new TextStrokeGeometry
+                {
+                    FontURL = "fonts/helvetiker_regular.typeface.json",
+                    Size = 1,
+                    StrokeWidth = 0.05
+                },
+                Position = new Vector3(0, 0, 2)
+            };
+        scene.Add(text);
+
     }
 
     private void OnObjectSelected(Object3DArgs e)

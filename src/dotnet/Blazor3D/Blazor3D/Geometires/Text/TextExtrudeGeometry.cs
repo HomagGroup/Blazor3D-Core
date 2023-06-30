@@ -2,6 +2,9 @@
 
 namespace Blazor3D.Geometires.Text
 {
+    /// <summary>
+    /// Represents geometry to build extruded text
+    /// </summary>
     public class TextExtrudeGeometry : TextShapeGeometry
     {
         public TextExtrudeGeometry() : base("TextExtrudeGeometry")

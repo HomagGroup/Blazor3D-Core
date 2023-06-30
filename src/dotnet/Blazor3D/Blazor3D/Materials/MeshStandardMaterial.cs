@@ -1,5 +1,4 @@
-﻿
-using Blazor3D.Textures;
+﻿using Blazor3D.Textures;
 
 namespace Blazor3D.Materials
 {
@@ -16,13 +15,6 @@ namespace Blazor3D.Materials
         {
 
         }
-
-        /// <summary>
-        /// <para>Light color. 
-        /// You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
-        /// Default value is "orange"</para>
-        /// </summary>
-        public string Color { get; set; } = "orange";
 
         /// <summary>
         /// <para>Define whether the material is rendered with flat shading. Default is false.</para>

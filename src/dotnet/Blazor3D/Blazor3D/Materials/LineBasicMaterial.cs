@@ -1,7 +1,4 @@
-﻿using Blazor3D.Enums.Lines;
-using System;
-
-namespace Blazor3D.Materials
+﻿namespace Blazor3D.Materials
 {
     /// <summary>
     /// A material for drawing wireframe-style geometries.
@@ -14,11 +11,6 @@ namespace Blazor3D.Materials
         public LineBasicMaterial() : base("LineBasicMaterial")
         {
         }
-
-        /// <summary>
-        /// Color of the material, by default set to white (0xffffff).
-        /// </summary>
-        public string Color { get; set; } = "white";
 
         /// <summary>
         /// Define appearance of line ends. Possible values are 'butt', 'round' and 'square'. Default is 'round'.
