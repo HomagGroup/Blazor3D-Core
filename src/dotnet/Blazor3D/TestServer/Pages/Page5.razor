@@ -6,6 +6,7 @@
 @using Blazor3D.Extras.Core;
 @using Blazor3D.Geometires
 @using Blazor3D.Geometires.Lines;
+@using Blazor3D.Geometires.Text;
 @using Blazor3D.Helpers
 @using Blazor3D.Lights
 @using Blazor3D.Materials
@@ -83,29 +84,73 @@
     }
     private void FillScene()
     {
-        var points = new List<Vector3>()
-        {
-            new Vector3(-1, 0, 0),
-            new Vector3(0, 1, 0),
-            new Vector3(1, 0, 0),
-
-        };
-
-        var line = new Line
+        var text = new Text
             {
-                Material = new LineBasicMaterial
+                Material = new MeshStandardMaterial
                 {
                     Color = "red",
-                    LineWidth = 2,
-                    LineCap = "square"
                 },
-                Geometry = new LineGeometry
+                Geometry = new TextExtrudeGeometry
                 {
-                    Points = points
+                    FontURL = "fonts/helvetiker_regular.typeface.json",
+                    Size = 1,
+                    Height = 0.1,
                 }
             };
 
-        scene.Add(line);
+        scene.Add(text);
+
+        text = new Text
+            {
+                Material = new MeshStandardMaterial
+                {
+                    Color = "blue",
+                },
+                Geometry = new TextExtrudeGeometry
+                {
+                    FontURL = "fonts/helvetiker_regular.typeface.json",
+                    Size = 1,
+                    Height = 0.5,
+                    BevelEnabled = true,
+                    BevelSegments = 2,
+                    BevelSize = 0.05,
+                    BevelThickness = 0.1
+                },
+                Position = new Vector3(0, 0, -1)
+            };
+        scene.Add(text);
+
+        text = new Text
+            {
+                Material = new MeshStandardMaterial
+                {
+                    Color = "violet",
+                },
+                Geometry = new TextShapeGeometry
+                {
+                    FontURL = "fonts/helvetiker_regular.typeface.json",
+                    Size = 1,
+                },
+                Position = new Vector3(0, 0, 1)
+            };
+        scene.Add(text);
+
+        text = new Text
+            {
+                Material = new MeshStandardMaterial
+                {
+                    Color = "violet",
+                },
+                Geometry = new TextStrokeGeometry
+                {
+                    FontURL = "fonts/helvetiker_regular.typeface.json",
+                    Size = 1,
+                    StrokeWidth = 0.05
+                },
+                Position = new Vector3(0, 0, 2)
+            };
+        scene.Add(text);
+
     }
 
     private void OnObjectSelected(Object3DArgs e)

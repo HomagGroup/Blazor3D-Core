@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Blazor3D\Blazor3D.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\fonts\" />
+  </ItemGroup>
+
 </Project>

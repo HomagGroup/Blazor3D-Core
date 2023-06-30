@@ -2,10 +2,11 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Loaders from "./Loaders";
 import Exporters from "./Exporters"; //todo
+import TextBuilder from "../Builders/TextBuilder";
 import SceneBuilder from "../Builders/SceneBuilder";
 import CameraBuilder from "../Builders/CameraBuilder";
 import Transforms from "../Utils/Transforms";
-import { ViewHelper } from "three/examples/jsm/helpers/ViewHelper"
+import { ViewHelper } from "three/examples/jsm/helpers/ViewHelper";
 
 class Viewer3D {
   thetaX = 0;
@@ -32,7 +33,7 @@ class Viewer3D {
     if (this.options.viewerSettings.showViewHelper) {
       this.renderer.autoClear = false;
     };
-    
+
     this.renderer.domElement.style.width = "100%";
     this.renderer.domElement.style.height = "100%";
 
@@ -129,10 +130,17 @@ class Viewer3D {
     this.scene.uuid = this.options.scene.uuid;
 
     this.options.scene.children.forEach((childOptions) => {
-      var child = SceneBuilder.BuildChild(childOptions, this.scene);
-      if (child) {
-        this.scene.add(child);
+      if (childOptions.type == "Text") {
+        
+        TextBuilder.BuildText(childOptions, this.scene);
       }
+      else {
+        var child = SceneBuilder.BuildChild(childOptions, this.scene);
+        if (child) {
+          this.scene.add(child);
+        }
+      }
+
     });
   }
 

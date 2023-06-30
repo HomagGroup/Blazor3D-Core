@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Blazor3D.Materials
+﻿namespace Blazor3D.Materials
 {
     /// <summary>
     /// <para>Abstract base class for materials.</para>
@@ -15,6 +13,13 @@ namespace Blazor3D.Materials
         }
 
         public string Type { get; } = "Material";
+
+        /// <summary>
+        /// <para>Light color. 
+        /// You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+        /// Default value is "orange"</para>
+        /// </summary>
+        public string Color { get; set; } = "orange";
 
         /// <summary>
         /// Optional name of the object. Default is an empty string. It has not to be unique. 
