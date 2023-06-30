@@ -837,54 +837,54 @@
              Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.Text">
-            <summary>
-            The text that needs to be shown
-            </summary>
-        </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.FontURL">
-            <summary>
-            The path or URL to the file. This can also be a Data URI
-            </summary>
-        </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.Size">
-            <summary>
-            Size of the text. Default is 100.
-            </summary>
-        </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.Height">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.Height">
             <summary>
             Thickness to extrude text. Default is 50.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.CurveSegments">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.CurveSegments">
             <summary>
             Number of points on the curves. Default is 12.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.BevelEnabled">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelEnabled">
             <summary>
             Turn on bevel. Default is False.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.BevelThickness">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelThickness">
             <summary>
             How deep into text bevel goes. Default is 10.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.BevelSize">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelSize">
             <summary>
             How far from text outline is bevel. Default is 8.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.BevelOffset">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelOffset">
             <summary>
             How far from text outline bevel starts. Default is 0.
             </summary>
         </member>
-        <member name="P:Blazor3D.Geometires.TextGeometry.BevelSegments">
+        <member name="P:Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelSegments">
             <summary>
             Number of bevel segments
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.Text.TextShapeGeometry.Text">
+            <summary>
+            The text that needs to be shown
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.Text.TextShapeGeometry.FontURL">
+            <summary>
+            The path or URL to the file. This can also be a Data URI
+            </summary>
+        </member>
+        <member name="P:Blazor3D.Geometires.Text.TextShapeGeometry.Size">
+            <summary>
+            Size of the text. Default is 100.
             </summary>
         </member>
         <member name="T:Blazor3D.Geometires.TorusGeometry">

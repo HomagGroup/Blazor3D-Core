@@ -6,6 +6,7 @@
 @using Blazor3D.Extras.Core;
 @using Blazor3D.Geometires
 @using Blazor3D.Geometires.Lines;
+@using Blazor3D.Geometires.Text;
 @using Blazor3D.Helpers
 @using Blazor3D.Lights
 @using Blazor3D.Materials
@@ -89,7 +90,7 @@
                 {
                     Color = "red",
                 },
-                Geometry = new TextGeometry
+                Geometry = new TextExtrudeGeometry
                 {
                     FontURL = "fonts/helvetiker_regular.typeface.json",
                     Size = 1,
@@ -105,7 +106,7 @@
                 {
                     Color = "blue",
                 },
-                Geometry = new TextGeometry
+                Geometry = new TextExtrudeGeometry
                 {
                     FontURL = "fonts/helvetiker_regular.typeface.json",
                     Size = 1,
@@ -116,6 +117,21 @@
                     BevelThickness = 0.1
                 },
                 Position = new Vector3(0, 0, -1)
+            };
+        scene.Add(text);
+
+        text = new Text
+            {
+                Material = new MeshStandardMaterial
+                {
+                    Color = "violet",
+                },
+                Geometry = new TextShapeGeometry
+                {
+                    FontURL = "fonts/helvetiker_regular.typeface.json",
+                    Size = 1,
+                },
+                Position = new Vector3(0, 0, 1)
             };
         scene.Add(text);
 
