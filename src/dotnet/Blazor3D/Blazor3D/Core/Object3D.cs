@@ -44,7 +44,7 @@ namespace Blazor3D.Core
         /// <summary>
         /// Collection of <see cref="Object3D"/> child objects.
         /// </summary>
-        public List<Object3D> Children { get; } = new List<Object3D>();
+        public List<Object3D> Children { get; set; } = new List<Object3D>();
 
         /// <summary>
         /// Adds a child <see cref="Object3D"/> object to the Children collection.
