@@ -1511,6 +1511,11 @@
             <para>An instance of <see cref="T:Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</para>
             </summary>
         </member>
+        <member name="P:Blazor3D.Objects.Mesh.EdgesMaterial">
+            <summary>
+            Material <see cref="T:Blazor3D.Materials.LineBasicMaterial"/> to draw edges with EdgesGeometry. If not specified, no edges will be drawn.
+            </summary>
+        </member>
         <member name="T:Blazor3D.Scenes.Scene">
             <summary>
             <para>Scenes allow you to set up what and where is to be rendered by Blazor3D. 

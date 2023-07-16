@@ -130,6 +130,10 @@
                 Rotation = new Euler
                 {
                     X = Math.PI / 4
+                },
+                EdgesMaterial = new LineBasicMaterial
+                {
+                    Color = "black"
                 }
             });
 
@@ -147,6 +151,10 @@
                 Material = new MeshStandardMaterial()
                 {
                     Color = "blue"
+                },
+                EdgesMaterial = new LineBasicMaterial
+                {
+                    Color = "black"
                 }
             };
         scene.Add(capsule);

@@ -32,5 +32,10 @@ namespace Blazor3D.Objects
         /// <para>An instance of <see cref="BufferGeometry"/> (or derived classes), defining the object's structure.</para>
         /// </summary>
         public BufferGeometry Geometry { get; set; } = new BoxGeometry();
+
+        /// <summary>
+        /// Material <see cref="LineBasicMaterial"/> to draw edges with EdgesGeometry. If not specified, no edges will be drawn.
+        /// </summary>
+        public LineBasicMaterial EdgesMaterial { get; set; } = null!;
     }
 }
