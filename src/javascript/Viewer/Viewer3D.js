@@ -121,7 +121,7 @@ class Viewer3D {
     this.renderer.setSize(
       this.container.offsetWidth,
       this.container.offsetHeight,
-      true // required
+      false // required
     );
   }
 
@@ -140,7 +140,6 @@ class Viewer3D {
           this.scene.add(child);
         }
       }
-
     });
   }
 
