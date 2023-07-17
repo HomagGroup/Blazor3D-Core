@@ -2,9 +2,9 @@ import Viewer3D from "./Viewer/Viewer3D";
 
 let viewer3d;
 
-window.onresize = function () {
+const resizeObserver = new ResizeObserver((entries) => {
   viewer3d.onResize();
-};
+});
 
 export function loadViewer(json) {
   const options = JSON.parse(json);
@@ -13,7 +13,7 @@ export function loadViewer(json) {
     console.warn("Container not found");
     return;
   }
-
+  resizeObserver.observe(container);
   viewer3d = new Viewer3D(options, container);
 }
 

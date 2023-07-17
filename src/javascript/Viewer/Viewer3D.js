@@ -140,7 +140,6 @@ class Viewer3D {
           this.scene.add(child);
         }
       }
-
     });
   }
 
