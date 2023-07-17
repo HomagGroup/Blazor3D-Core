@@ -121,7 +121,7 @@ class Viewer3D {
     this.renderer.setSize(
       this.container.offsetWidth,
       this.container.offsetHeight,
-      false // required
+      true // required
     );
   }
 
