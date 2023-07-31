@@ -24,5 +24,4 @@ jobs:
     - name: Push
       run: dotnet nuget push Blazor3D.${VERSION}.nupkg --api-key ${NUGET_TOKEN} --source https://api.nuget.org/v3/index.json
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
