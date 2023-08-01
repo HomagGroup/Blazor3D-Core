@@ -10,14 +10,13 @@
 
 	<PropertyGroup>
 		<PackageId>Blazor3D</PackageId>
-		<Authors>Roman Simuta</Authors>
-		<PackageTags>Blazor3D, three.js, Blazor, Razor, Homag-Group</PackageTags>
+		<Authors>HOMAG-Group</Authors>
+		<PackageTags>Blazor3D, three.js, Blazor, Razor, Homag-Group, Homag, HomagGroup</PackageTags>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/HomagGroup/Blazor3D-Core</RepositoryUrl>
-		<Description>
-			This Razor class library (RCL) contains the Blazor component which allows you create 3D scenes inside your Blazor application.
-			This Blazor3d component uses three.js library to display 3D scenes on html canvas.
-			See examples of using here https://github.com/HomagGroup/Blazor3D
+		<Description>This Razor class library (RCL) contains the Blazor component which allows you create 3D scenes inside your Blazor application.
+This Blazor3d component uses three.js library to display 3D scenes on html canvas.
+See examples of using here https://github.com/HomagGroup/Blazor3D
 		</Description>
 	</PropertyGroup>
 	
