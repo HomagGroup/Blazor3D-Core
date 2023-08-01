@@ -52,7 +52,7 @@ class TextGeometryBuilder {
       return geometries;
     }
 
-    console.log("not found geometry type", options);
+    console.log("geometry type not found", options);
   }
 }
 

@@ -188,7 +188,7 @@ class GeometryBuilder {
       return geometry;
     }
 
-    console.log("not found geometry type", options);
+    console.log("geometry type not found", options);
   }
 }
 

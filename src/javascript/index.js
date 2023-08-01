@@ -10,7 +10,7 @@ export function loadViewer(json) {
   const options = JSON.parse(json);
   let container = document.getElementById(options.viewerSettings.containerId);
   if (!container) {
-    console.warn("Container not found");
+    console.warn("Container not found!");
     return;
   }
   resizeObserver.observe(container);
