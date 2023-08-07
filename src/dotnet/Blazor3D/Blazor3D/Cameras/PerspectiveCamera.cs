@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Cameras
+﻿namespace HomagGroup.Blazor3D.Cameras
 {
     /// <summary>
     /// <para>Camera that uses perspective projection.

@@ -1,6 +1,6 @@
-﻿using Blazor3D.Core;
+﻿using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.Geometires
+namespace HomagGroup.Blazor3D.Geometires
 {
     /// <summary>
     /// <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>

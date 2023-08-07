@@ -1,9 +1,9 @@
-﻿using Blazor3D.Core;
+﻿using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.Scenes
+namespace HomagGroup.Blazor3D.Scenes
 {
     /// <summary>
-    /// <para>Scenes allow you to set up what and where is to be rendered by Blazor3D. 
+    /// <para>Scenes allow you to set up what and where is to be rendered by HomagGroup.Blazor3D. 
     /// This is the place where you put your 3D objects and lights.</para>
     /// <para>This object inherits from <see cref="Object3D"/></para>
     /// <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></para>

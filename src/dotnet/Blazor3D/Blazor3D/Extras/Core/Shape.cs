@@ -1,7 +1,7 @@
-﻿using Blazor3D.Geometires;
-using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Geometires;
+using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Extras.Core
+namespace HomagGroup.Blazor3D.Extras.Core
 {
     /// <summary>
     /// Defines an arbitrary 2d shape plane using paths with optional holes).

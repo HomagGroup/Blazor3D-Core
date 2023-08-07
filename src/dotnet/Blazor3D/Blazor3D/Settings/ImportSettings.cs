@@ -1,10 +1,10 @@
 ﻿
-using Blazor3D.Enums;
-using Blazor3D.Materials;
+using HomagGroup.Blazor3D.Enums;
+using HomagGroup.Blazor3D.Materials;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Blazor3D.Settings
+namespace HomagGroup.Blazor3D.Settings
 {
     /// <summary>
     /// Settings that will be applied during 3D model file importing.

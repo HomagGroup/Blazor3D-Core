@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Core
+﻿namespace HomagGroup.Blazor3D.Core
 {
     /// <summary>
     /// <para>A representation of geometry for mesh, line, or point. 

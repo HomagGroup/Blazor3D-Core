@@ -1,23 +1,23 @@
 ﻿using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Components;
-using Blazor3D.Settings;
-using Blazor3D.Scenes;
-using Blazor3D.Cameras;
-using Blazor3D.Controls;
+using HomagGroup.Blazor3D.Settings;
+using HomagGroup.Blazor3D.Scenes;
+using HomagGroup.Blazor3D.Cameras;
+using HomagGroup.Blazor3D.Controls;
 using Newtonsoft.Json;
-using Blazor3D.Maths;
-using Blazor3D.Objects;
-using Blazor3D.Lights;
-using Blazor3D.ComponentHelpers;
-using Blazor3D.Events;
+using HomagGroup.Blazor3D.Maths;
+using HomagGroup.Blazor3D.Objects;
+using HomagGroup.Blazor3D.Lights;
+using HomagGroup.Blazor3D.ComponentHelpers;
+using HomagGroup.Blazor3D.Events;
 using Newtonsoft.Json.Linq;
-using Blazor3D.Core;
-using Blazor3D.Materials;
+using HomagGroup.Blazor3D.Core;
+using HomagGroup.Blazor3D.Materials;
 
-namespace Blazor3D.Viewers
+namespace HomagGroup.Blazor3D.Viewers
 {
     /// <summary>
-    /// <para>Blazor3D viewer component.</para>
+    /// <para>HomagGroup.Blazor3D viewer component.</para>
     /// </summary>
     public sealed partial class Viewer : IDisposable
     {
@@ -88,7 +88,7 @@ namespace Blazor3D.Viewers
 
                 bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
                     "import",
-                    "./_content/Blazor3D/js/bundle.js")
+                    "./_content/HomagGroup.Blazor3D/js/bundle.js")
                 .AsTask();
 
                 if (UseDefaultScene && !Scene.Children.Any())

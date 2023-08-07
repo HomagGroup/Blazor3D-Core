@@ -1,6 +1,6 @@
-﻿using Blazor3D.Core;
+﻿using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.Geometires.Text
+namespace HomagGroup.Blazor3D.Geometires.Text
 {
     /// <summary>
     /// Represents geometry to build extruded text

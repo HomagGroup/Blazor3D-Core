@@ -1,7 +1,7 @@
-﻿using Blazor3D.Enums;
-using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Enums;
+using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Textures
+namespace HomagGroup.Blazor3D.Textures
 {
     public class Texture
     {

@@ -1,9 +1,9 @@
-﻿using Blazor3D.Viewers;
+﻿using HomagGroup.Blazor3D.Viewers;
 
-namespace Blazor3D.Settings
+namespace HomagGroup.Blazor3D.Settings
 {
     /// <summary>
-    /// Class for Blazor3D Viewer settings.
+    /// Class for HomagGroup.Blazor3D Viewer settings.
     /// </summary>
     public sealed class ViewerSettings
     {
@@ -34,7 +34,7 @@ namespace Blazor3D.Settings
         public bool ShowViewHelper { get; set; } = true;
 
         /// <summary>
-        /// Blazor3D Viewer WebGLRenderer settings
+        /// HomagGroup.Blazor3D Viewer WebGLRenderer settings
         /// </summary>
         public WebGLRendererSettings WebGLRendererSettings { get; set; } = new WebGLRendererSettings();
     }

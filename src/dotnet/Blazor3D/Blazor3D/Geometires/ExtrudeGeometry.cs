@@ -1,7 +1,7 @@
-﻿using Blazor3D.Core;
-using Blazor3D.Extras.Core;
+﻿using HomagGroup.Blazor3D.Core;
+using HomagGroup.Blazor3D.Extras.Core;
 
-namespace Blazor3D.Geometires
+namespace HomagGroup.Blazor3D.Geometires
 {
     /// <summary>
     /// Creates extruded geometry from a path shape.

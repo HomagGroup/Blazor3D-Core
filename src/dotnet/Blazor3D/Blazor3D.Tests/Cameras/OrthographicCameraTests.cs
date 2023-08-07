@@ -1,6 +1,6 @@
-using Blazor3D.Cameras;
+using HomagGroup.Blazor3D.Cameras;
 
-namespace Blazor3D.Tests.Cameras
+namespace HomagGroup.Blazor3D.Tests.Cameras
 {
     [TestClass]
     public class OrthographicCameraTests

@@ -1,6 +1,6 @@
-﻿using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Settings
+namespace HomagGroup.Blazor3D.Settings
 {
     /// <summary>
     /// <para>Settings used for animated rotations.</para>

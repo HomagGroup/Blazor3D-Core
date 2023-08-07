@@ -1,6 +1,6 @@
-﻿using Blazor3D.Core;
+﻿using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.Geometires.Text
+namespace HomagGroup.Blazor3D.Geometires.Text
 {
     /// <summary>
     /// Represents geometry to build shape text
@@ -18,7 +18,7 @@ namespace Blazor3D.Geometires.Text
         /// <summary>
         /// The text that needs to be shown
         /// </summary>
-        public string Text { get; set; } = "Hello, Blazor3D!";
+        public string Text { get; set; } = "Hello, HomagGroup.Blazor3D!";
 
         /// <summary>
         /// The path or URL to the file. This can also be a Data URI

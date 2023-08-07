@@ -1,8 +1,8 @@
-﻿using Blazor3D.Core;
-using Blazor3D.Lights;
-using Blazor3D.Objects;
+﻿using HomagGroup.Blazor3D.Core;
+using HomagGroup.Blazor3D.Lights;
+using HomagGroup.Blazor3D.Objects;
 
-namespace Blazor3D.Helpers
+namespace HomagGroup.Blazor3D.Helpers
 {
     /// <summary>
     /// <para>This displays a helper object consisting of a spherical <see cref="Mesh"/> for visualizing a <see cref="PointLight"/>.</para>
