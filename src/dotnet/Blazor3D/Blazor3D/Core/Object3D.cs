@@ -1,9 +1,9 @@
-﻿using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Core
+namespace HomagGroup.Blazor3D.Core
 {
     /// <summary>
-    /// <para>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
+    /// <para>It's a base abstract class for most objects in <strong>HomagGroup.Blazor3D</strong>. 
     /// It provides functionality for manipulating objects in 3D space.</para>
     ///<para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></para>
     /// </summary>

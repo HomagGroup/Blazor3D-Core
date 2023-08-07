@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Geometires
+﻿namespace HomagGroup.Blazor3D.Geometires
 {
     /// <summary>
     /// Options used for extrusion.

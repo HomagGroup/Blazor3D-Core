@@ -1,6 +1,6 @@
-﻿using Blazor3D.Textures;
+﻿using HomagGroup.Blazor3D.Textures;
 
-namespace Blazor3D.Materials
+namespace HomagGroup.Blazor3D.Materials
 {
     /// <summary>
     /// <para>A standard physically based Material, using Metallic-Roughness workflow.</para>

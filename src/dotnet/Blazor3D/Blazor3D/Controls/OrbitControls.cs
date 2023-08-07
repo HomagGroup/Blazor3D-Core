@@ -1,6 +1,6 @@
-﻿using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Controls
+namespace HomagGroup.Blazor3D.Controls
 {
     /// <summary>
     /// Orbit controls.

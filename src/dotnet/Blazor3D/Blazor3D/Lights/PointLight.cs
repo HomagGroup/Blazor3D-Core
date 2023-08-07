@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Lights
+﻿namespace HomagGroup.Blazor3D.Lights
 {
     /// <summary>
     /// <para>A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.</para>

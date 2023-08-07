@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blazor3D\Blazor3D.csproj" />
+    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\fonts\" />
+    <ProjectReference Include="..\Blazor3D\HomagGroup.Blazor3D.csproj" />
   </ItemGroup>
 
 </Project>

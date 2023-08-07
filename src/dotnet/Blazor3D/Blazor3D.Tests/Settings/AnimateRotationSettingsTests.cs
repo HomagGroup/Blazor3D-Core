@@ -1,6 +1,6 @@
-﻿using Blazor3D.Settings;
+﻿using HomagGroup.Blazor3D.Settings;
 
-namespace Blazor3D.Tests.Settings
+namespace HomagGroup.Blazor3D.Tests.Settings
 {
     [TestClass]
     public class AnimateRotationSettingsTests

@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Maths
+﻿namespace HomagGroup.Blazor3D.Maths
 {
     /// <summary>
     /// <para>Class representing a 2D vector. A 2D vector is an ordered pair of numbers (labeled x and y), which can be used to represent a number of things, such as point in 2D space, direction or any ordered pair of numbers.</para>

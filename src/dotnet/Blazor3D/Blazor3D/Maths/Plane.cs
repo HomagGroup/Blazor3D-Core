@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Maths
+﻿namespace HomagGroup.Blazor3D.Maths
 {
     /// <summary>
     /// <para>A two dimensional surface that extends infinitely in 3d space, represented in Hessian normal form by a unit length normal vector and a constant.</para>

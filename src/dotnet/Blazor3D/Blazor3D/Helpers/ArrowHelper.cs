@@ -1,7 +1,7 @@
-﻿using Blazor3D.Core;
-using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Core;
+using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Helpers
+namespace HomagGroup.Blazor3D.Helpers
 {
     /// <summary>
     /// <para>An 3D arrow object for visualizing directions.</para>

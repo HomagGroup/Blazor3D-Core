@@ -1,0 +1,1817 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HomagGroup.Blazor3D</name>
+    </assembly>
+    <members>
+        <member name="T:HomagGroup.Blazor3D.Cameras.Camera">
+            <summary>
+            <para>Abstract base class for cameras.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/Camera">Camera</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.Camera.AnimateRotationSettings">
+            <summary>
+            Settings used for camera's animated rotations.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.Camera.LookAt">
+            <summary>
+            The point camera looks at.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Cameras.OrthographicCamera">
+            <summary>
+            <para>Camera that uses <a target="_blank" href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.</para>
+            <para>In this projection mode, an object's size in the rendered image stays constant regardless of its distance from the camera.</para>
+            <para>This can be useful for rendering 2D scenes and UI elements, amongst other things.</para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Cameras.OrthographicCamera.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="left">Camera frustum left plane. Default is -1.</param>
+            <param name="right">Camera frustum right plane. Default is 1.</param>
+            <param name="top">Camera frustum top plane. Default is 1.</param>
+            <param name="bottom">Camera frustum bottom plane. Default is -1.</param>
+            <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
+            <param name="far">Camera frustum far plane distance. Default is 1000.</param>
+            <param name="zoom">Zoom factor of the camera. Default is 1.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Left">
+            <summary>
+            Camera frustum left plane. Default is -1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Right">
+            <summary>
+            Camera frustum right plane. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Top">
+            <summary>
+            Camera frustum top plane. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Bottom">
+            <summary>
+             Camera frustum bottom plane. Default is -1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Near">
+            <summary>
+            Camera frustum near plane distance. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Far">
+            <summary>
+            Camera frustum far plane distance. Default is 2000.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.OrthographicCamera.Zoom">
+            <summary>
+            Zoom factor of the camera. Default is 1.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Cameras.PerspectiveCamera">
+            <summary>
+            <para>Camera that uses perspective projection.
+            This projection mode is designed to mimic the way the human eyes see.
+            It is the most common projection mode used for rendering a 3D scene.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera">PerspectiveCamera</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Cameras.Camera"/></inheritdoc>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Cameras.PerspectiveCamera.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="fov">Camera frustum vertical field of view. Default is 75.</param>
+            <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
+            <param name="far">Camera frustum far plane distance. Default is 1000.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.PerspectiveCamera.Fov">
+            <summary>
+             Camera frustum vertical field of view. Default is 75.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.PerspectiveCamera.Near">
+            <summary>
+            Camera frustum near plane distance. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.PerspectiveCamera.Far">
+            <summary>
+            Camera frustum far plane distance. Default is 1000.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Controls.OrbitControls">
+            <summary>
+            Orbit controls.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.Enabled">
+            <summary>
+            If true, then enabled. Otherwise, disabled. Default is true.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.MinDistance">
+            <summary>
+            Minimal distance. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.MaxDistance">
+            <summary>
+            Maximal distance to zoom. Default is 10000;
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.TargetPosition">
+            <summary>
+            The point where the camera is looking at. Default is (0,0,0).
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Core.BufferGeometry">
+            <summary>
+            <para>A representation of geometry for mesh, line, or point. 
+            Includes vertex positions, face indices, normals, colors, UVs, and custom attributes within buffers, 
+            reducing the cost of passing all this data to the GPU.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/BufferGeometry">BufferGeometry</a></para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.BufferGeometry.Name">
+            <summary>
+            Optional name of the object. Default is an empty string. It has not to be unique. 
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.BufferGeometry.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Core.Object3D">
+             <summary>
+             <para>It's a base abstract class for most objects in <strong>HomagGroup.Blazor3D</strong>. 
+             It provides functionality for manipulating objects in 3D space.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></para>
+             </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.Position">
+            <summary>
+            Represents the object's local <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> position. Default is (0, 0, 0).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.Rotation">
+            <summary>
+            Object's local <see cref="T:HomagGroup.Blazor3D.Maths.Euler"/> rotation, in radians.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.Scale">
+            <summary>
+            Represents the object's local <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> scale. Default is (1, 1, 1).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.Name">
+            <summary>
+            Optional name of the object. Default is an empty string. It has not to be unique. 
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.Children">
+            <summary>
+            Collection of <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/> child objects.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Core.Object3D.Add(HomagGroup.Blazor3D.Core.Object3D)">
+            <summary>
+            Adds a child <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/> object to the Children collection.
+            </summary>
+            <param name="child">Child <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/> to be added.</param>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Core.Object3D.AddRange(System.Collections.Generic.IEnumerable{HomagGroup.Blazor3D.Core.Object3D})">
+            <summary>
+            Adds the <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/> elements of the specified collection to the end of Children list.
+            </summary>
+            <param name="elements">Collection of children objects.</param>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Enums.Import3DFormats">
+            <summary>
+            3D model formats, which can be used for importing to or exporting from <see cref="T:HomagGroup.Blazor3D.Scenes.Scene"/>.
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Obj">
+             <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront Object</a> format.
+             </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Collada">
+            <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/COLLADA">Collada</a> format.
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Fbx">
+            <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/FBX">Autodesk FBX</a> format.
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Gltf">
+            <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/GlTF">glTF</a> format.
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Stl">
+            <summary>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Enums.WrappingType">
+            <summary>
+            These define the texture's WrapS and WrapT properties, which define horizontal and vertical texture wrapping.
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.WrappingType.RepeatWrapping">
+            <summary>
+            The texture will simply repeat to infinity
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.WrappingType.ClampToEdgeWrapping">
+            <summary>
+            The last pixel of the texture stretches to the edge of the mesh.
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Enums.WrappingType.MirroredRepeatWrapping">
+            <summary>
+            The texture will repeats to infinity, mirroring on each repeat.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Events.LoadedModuleEventHandler">
+            <summary>
+            <para>Delegate that handles <see cref="T:HomagGroup.Blazor3D.Viewers.Viewer"/> JsModuleLoaded event.</para>
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Events.LoadedObjectEventHandler">
+            <summary>
+            <para>Delegate that handles <see cref="T:HomagGroup.Blazor3D.Viewers.Viewer"/> ObjectLoaded event.</para>
+            </summary>
+            <param name="e"><see cref="T:HomagGroup.Blazor3D.Events.Object3DArgs"/> arguments for ObjectLoaded event handler.</param>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Events.Object3DArgs">
+            <summary>
+            <para>Arguments for <see cref="T:HomagGroup.Blazor3D.Viewers.Viewer"/> ObjectSelected and ObjectLoaded event handlers.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Events.Object3DArgs.UUID">
+            <summary>
+            Selected or Loaded object unique identifier.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Events.SelectedObjectEventHandler">
+            <summary>
+            <para>Delegate that handles <see cref="T:HomagGroup.Blazor3D.Viewers.Viewer"/> ObjectSelected event.</para>
+            </summary>
+            <param name="e"><see cref="T:HomagGroup.Blazor3D.Events.Object3DArgs"/> arguments for ObjectSelected event handler.</param>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Extras.Core.Shape">
+            <summary>
+            Defines an arbitrary 2d shape plane using paths with optional holes).
+            It can be used with <see cref="T:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry"/>, <see cref="T:HomagGroup.Blazor3D.Geometires.ShapeGeometry"/>, to get points, or to get triangulated faces.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Extras.Core.Shape.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Extras.Core.Shape.Points">
+            <summary>
+            Array of <see cref="T:HomagGroup.Blazor3D.Maths.Vector2"/> representing the shape verticies.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Extras.Core.Shape.MoveTo(HomagGroup.Blazor3D.Maths.Vector2)">
+            <summary>
+            Moves the current point to the specified <see cref="T:HomagGroup.Blazor3D.Maths.Vector2"/> point. Can be used for the first element of the Points collection.
+            </summary>
+            <param name="point"><see cref="T:HomagGroup.Blazor3D.Maths.Vector2"/> point.</param>
+            <exception cref="T:System.OverflowException">MoveTo() can be used only to define first shape point</exception>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Extras.Core.Shape.MoveTo(System.Double,System.Double)">
+            <summary>
+            Moves the current point to the specified point.
+            </summary>
+            <param name="x">X coordinate of the specified point.</param>
+            <param name="y">Y coordinate of the specified point.</param>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Extras.Core.Shape.LineTo(HomagGroup.Blazor3D.Maths.Vector2)">
+            <summary>
+            Adds the <see cref="T:HomagGroup.Blazor3D.Maths.Vector2"/> vertice to the shape path.
+            </summary>
+            <param name="point"><see cref="T:HomagGroup.Blazor3D.Maths.Vector2"/> point.</param>
+            <exception cref="T:System.OverflowException">LineTo() cannot be used to define first shape point</exception>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Extras.Core.Shape.LineTo(System.Double,System.Double)">
+            <summary>
+            Adds the vertice to the shape path.
+            </summary>
+            <param name="x">X coordinate of the specified vertice.</param>
+            <param name="y">Y coordinate of the specified vertice.</param>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.BoxGeometry">
+            <summary>
+            <para>Class for rectangular cuboid with a given 'width', 'height', and 'depth'.</para>
+            <para>This class inherits from <see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry">BoxGeometry</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/></inheritdoc>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.BoxGeometry.#ctor(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="width">The length of the edges parallel to the X axis. Default is 1.</param>
+            <param name="height">The length of the edges parallel to the Y axis. Default is 1.</param>
+            <param name="depth">The length of the edges parallel to the Z axis. Default is 1.</param>
+            <param name="widthSegments">Number of segmented rectangular faces along the width of the sides. Default is 1.</param>
+            <param name="heightSegments">Number of segmented rectangular faces along the height of the sides. Default is 1.</param>
+            <param name="depthSegments">Number of segmented rectangular faces along the depth of the sides. Default is 1.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.BoxGeometry.Width">
+            <summary>
+            The length of the edges parallel to the X axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.BoxGeometry.Height">
+            <summary>
+            The length of the edges parallel to the Y axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.BoxGeometry.Depth">
+            <summary>
+            The length of the edges parallel to the Z axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.BoxGeometry.WidthSegments">
+            <summary>
+            Number of segmented rectangular faces along the width of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.BoxGeometry.HeightSegments">
+            <summary>
+            Number of segmented rectangular faces along the height of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.BoxGeometry.DepthSegments">
+            <summary>
+            Number of segmented rectangular faces along the depth of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.CapsuleGeometry">
+            <summary>
+            <para>Class for a capsule with given radus and height. It is constructed using a lathe.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CapsuleGeometry">CapsuleGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.CapsuleGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the capsule. Default is 1.</param>
+            <param name="length">Length of the middle section. Default is 1.</param>
+            <param name="capSegments">Number of curve segments used to build the caps. Default is 4.</param>
+            <param name="radialSegments">Number of segmented faces around the circumference of the capsule. Default is 8.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CapsuleGeometry.Radius">
+            <summary>
+            Radius of the capsule. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CapsuleGeometry.Length">
+            <summary>
+            Length of the middle section. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CapsuleGeometry.CapSegments">
+            <summary>
+            Number of curve segments used to build the caps. Default is 4.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CapsuleGeometry.RadialSegments">
+            <summary>
+            Number of segmented faces around the circumference of the capsule. Default is 8.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.CircleGeometry">
+            <summary>
+            <para>Class for a simple shape of Euclidean geometry. 
+            It is constructed from a number of triangular segments that are oriented around a central point and extend as far out as a given radius. 
+            It is built counter-clockwise from a start angle and a given central angle. 
+            It can also be used to create regular polygons, where the number of segments determines the number of sides.</para>
+            <para>This class inherits from <see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CircleGeometry">CircleGeometry</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/></inheritdoc>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.CircleGeometry.#ctor(System.Double,System.Int32,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the circle. Default is 1.</param>
+            <param name="segments">Number of segments (triangles). Minimum = 3, default = 8.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CircleGeometry.Radius">
+            <summary>
+            Radius of the circle. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CircleGeometry.Segments">
+            <summary>
+            Number of segments (triangles). Minimum = 3, default = 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CircleGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CircleGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.ConeGeometry">
+            <summary>
+            <para></para>A class for generating cone geometries.
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/ConeGeometry">ConeGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.ConeGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Boolean,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the cone base. Defaults to 1.</param>
+            <param name="height">Height of the cone. Default is 1.</param>
+            <param name="radialSegments">Number of segmented faces around the circumference of the cone. Default is 8.</param>
+            <param name="heightSegments">umber of rows of faces along the height of the cone. Default is 1.</param>
+            <param name="openEnded">A Boolean indicating whether the base of the cone is open or capped. Default is false, meaning capped.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">he central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.Radius">
+            <summary>
+            Radius of the cone base. Defaults to 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.Height">
+            <summary>
+            Height of the cone. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.RadialSegments">
+            <summary>
+            Number of segmented faces around the circumference of the cone. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.HeightSegments">
+            <summary>
+            Number of rows of faces along the height of the cone. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.OpenEnded">
+            <summary>
+            A Boolean indicating whether the base of the cone is open or capped. Default is false, meaning capped.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ConeGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.CylinderGeometry">
+            <summary>
+            <para>A class for generating cylinder geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/CylinderGeometry">CylinderGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.CylinderGeometry.#ctor(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Boolean,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radiusTop">Radius of the cylinder at the top. Default is 1.</param>
+            <param name="radiusBottom">Radius of the cylinder at the bottom. Default is 1.</param>
+            <param name="height">Height of the cylinder. Default is 1.</param>
+            <param name="radialSegments">Number of segmented faces around the circumference of the cylinder. Default is 8.</param>
+            <param name="heightSegments">Number of rows of faces along the height of the cylinder. Default is 1.</param>
+            <param name="openEnded">A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.RadiusTop">
+            <summary>
+             Radius of the cylinder at the top. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.RadiusBottom">
+            <summary>
+            Radius of the cylinder at the bottom. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.Height">
+            <summary>
+            Height of the cylinder. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.RadialSegments">
+            <summary>
+            Number of segmented faces around the circumference of the cylinder. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.HeightSegments">
+            <summary>
+            Number of rows of faces along the height of the cylinder. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.OpenEnded">
+            <summary>
+            A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.CylinderGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.DodecahedronGeometry">
+            <summary>
+            <para>A class for generating a dodecahedron geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/DodecahedronGeometry">DodecahedronGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.DodecahedronGeometry.#ctor(System.Double,System.Int32)">
+            <summary>
+            Constructor with parametes
+            </summary>
+            <param name="radius">Radius of the dodecahedron. Default is 1.</param>
+            <param name="detail">Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.DodecahedronGeometry.Radius">
+            <summary>
+            Radius of the dodecahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.DodecahedronGeometry.Detail">
+            <summary>
+            Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a dodecahedron.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry">
+            <summary>
+            Creates extruded geometry from a path shape.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry.#ctor(HomagGroup.Blazor3D.Extras.Core.Shape,HomagGroup.Blazor3D.Geometires.ExtrudeGeometryOptions)">
+            <summary>
+            Construcor with parameters.
+            </summary>
+            <param name="shape"><see cref="P:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry.Shape"/> polygonal shape.</param>
+            <param name="options"><see cref="T:HomagGroup.Blazor3D.Geometires.ExtrudeGeometryOptions"/> options used for extrusion.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry.Shape">
+            <summary>
+            <see cref="P:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry.Shape"/> polygonal shape.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ExtrudeGeometry.ExtrudeOptions">
+            <summary>
+            <see cref="T:HomagGroup.Blazor3D.Geometires.ExtrudeGeometryOptions"/> options used for extrusion.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.ExtrudeGeometryOptions">
+            <summary>
+            Options used for extrusion.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ExtrudeGeometryOptions.Depth">
+            <summary>
+            Extrusion depth. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ExtrudeGeometryOptions.BevelEnabled">
+            <summary>
+            Apply beveling to the shape. Default is true.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.IcosahedronGeometry">
+            <summary>
+            <para>A class for generating an icosahedron geometry.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/IcosahedronGeometry">IcosahedronGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.IcosahedronGeometry.#ctor(System.Double,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the icosahedron. Default is 1.</param>
+            <param name="detail">Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an icosahedron. When detail is greater than 1, it's closer to a sphere.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.IcosahedronGeometry.Radius">
+            <summary>
+            Radius of the icosahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.IcosahedronGeometry.Detail">
+            <summary>
+             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an icosahedron. When detail is greater than 1, it's closer to a sphere.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.OctahedronGeometry">
+            <summary>
+            <para>A class for generating an octahedron geometry.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/OctahedronGeometry">OctahedronGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.OctahedronGeometry.#ctor(System.Double,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the octahedron. Default is 1.</param>
+            <param name="detail">Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an octahedron.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.OctahedronGeometry.Radius">
+            <summary>
+            Radius of the octahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.OctahedronGeometry.Detail">
+            <summary>
+             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an octahedron.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.PlaneGeometry">
+            <summary>
+            A class for generating plane geometries.
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry">PlaneGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.PlaneGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="width">The length of the edges parallel to the X axis. Default is 1.</param>
+            <param name="height">The length of the edges parallel to the Y axis. Default is 1.</param>
+            <param name="widthSegments">Number of segmented rectangular faces along the width of the sides. Default is 1.</param>
+            <param name="heightSegments">Number of segmented rectangular faces along the height of the sides. Default is 1.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.PlaneGeometry.Width">
+            <summary>
+            The length of the edges parallel to the X axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.PlaneGeometry.Height">
+            <summary>
+            The length of the edges parallel to the Y axis. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.PlaneGeometry.WidthSegments">
+            <summary>
+            Number of segmented rectangular faces along the width of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.PlaneGeometry.HeightSegments">
+            <summary>
+            Number of segmented rectangular faces along the height of the sides. Default is 1.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.RingGeometry">
+            <summary>
+            <para>A class for generating a two-dimensional ring geometry.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/RingGeometry">RingGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.RingGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="innerRadius">Inner radius of the ring. Default is 0.5.</param>
+            <param name="outerRadius">Outer radius of the ring. Default is 1.</param>
+            <param name="thetaSegments">Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.</param>
+            <param name="phiSegments">Number of rows of faces from inner to outer radii. Minimum is 1. Default is 1.</param>
+            <param name="thetaStart">Start angle for first segment. Default is 0 (three o'clock position).</param>
+            <param name="thetaLength">The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.RingGeometry.InnerRadius">
+            <summary>
+             Inner radius of the ring. Default is 0.5.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.RingGeometry.OuterRadius">
+            <summary>
+            Outer radius of the ring. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.RingGeometry.ThetaSegments">
+            <summary>
+            Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.RingGeometry.PhiSegments">
+            <summary>
+            Number of rows of faces from inner to outer radii. Minimum is 1. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.RingGeometry.ThetaStart">
+            <summary>
+            Start angle for first segment. Default is 0 (three o'clock position).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.RingGeometry.ThetaLength">
+            <summary>
+            The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.ShapeGeometry">
+            <summary>
+            Creates an one-sided polygonal geometry from one or more path shapes.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.ShapeGeometry.#ctor(HomagGroup.Blazor3D.Extras.Core.Shape)">
+            <summary>
+            onstructor with parameters
+            </summary>
+            <param name="shape"><see cref="P:HomagGroup.Blazor3D.Geometires.ShapeGeometry.Shape"/> polygonal shape.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.ShapeGeometry.Shape">
+            <summary>
+            <see cref="P:HomagGroup.Blazor3D.Geometires.ShapeGeometry.Shape"/> polygonal shape.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.SphereGeometry">
+            <summary>
+            <para>A class for generating sphere geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/SphereGeometry">SphereGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.SphereGeometry.#ctor(System.Double,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the sphere. Default is 1.</param>
+            <param name="widthSegments">Number of horizontal segments. Minimum value is 3, and the default is 32.</param>
+            <param name="heightSegments">Number of vertical segments. Minimum value is 2, and the default is 16.</param>
+            <param name="phiStart">Specifies horizontal starting angle. Default is 0.</param>
+            <param name="phiLength">Specifies horizontal sweep angle size. Default is Math.PI * 2.</param>
+            <param name="thetaStart">Specifies vertical starting angle. Default is 0.</param>
+            <param name="thetaLength">Specifies vertical sweep angle size. Default is Math.PI * 2.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.Radius">
+            <summary>
+            Radius of the sphere. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.WidthSegments">
+            <summary>
+            Number of horizontal segments. Minimum value is 3, and the default is 32.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.HeightSegments">
+            <summary>
+            Number of vertical segments. Minimum value is 2, and the default is 16.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.PhiStart">
+            <summary>
+            Specifies horizontal starting angle. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.PhiLength">
+            <summary>
+            Specifies horizontal sweep angle size. Default is Math.PI * 2.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.ThetaStart">
+            <summary>
+            Specifies vertical starting angle. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.SphereGeometry.ThetaLength">
+            <summary>
+            Specifies vertical sweep angle size. Default is Math.PI * 2.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.TetrahedronGeometry">
+            <summary>
+            <para>A class for generating a tetrahedron geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TetrahedronGeometry">TetrahedronGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.TetrahedronGeometry.#ctor(System.Double,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the tetrahedron. Default is 1.</param>
+            <param name="detail"> Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TetrahedronGeometry.Radius">
+            <summary>
+            Radius of the tetrahedron. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TetrahedronGeometry.Detail">
+            <summary>
+             Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an tetrahedron.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry">
+            <summary>
+            Represents geometry to build extruded text
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.Height">
+            <summary>
+            Thickness to extrude text. Default is 50.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.CurveSegments">
+            <summary>
+            Number of points on the curves. Default is 12.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelEnabled">
+            <summary>
+            Turn on bevel. Default is False.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelThickness">
+            <summary>
+            How deep into text bevel goes. Default is 10.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelSize">
+            <summary>
+            How far from text outline is bevel. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelOffset">
+            <summary>
+            How far from text outline bevel starts. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextExtrudeGeometry.BevelSegments">
+            <summary>
+            Number of bevel segments
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.Text.TextShapeGeometry">
+            <summary>
+            Represents geometry to build shape text
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextShapeGeometry.Text">
+            <summary>
+            The text that needs to be shown
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextShapeGeometry.FontURL">
+            <summary>
+            The path or URL to the file. This can also be a Data URI
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextShapeGeometry.Size">
+            <summary>
+            Size of the text. Default is 100.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.Text.TextStrokeGeometry">
+            <summary>
+            Represents geometry to build stroke text 
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.Text.TextStrokeGeometry.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Text.TextStrokeGeometry.StrokeWidth">
+            <summary>
+            Stroke width
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.TorusGeometry">
+            <summary>
+            <para> A class for generating torus geometries.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusGeometry">TorusGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.TorusGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</param>
+            <param name="tube">Radius of the tube. Default is 0.4.</param>
+            <param name="radialSegments">Number of radial segments. Default is 8.</param>
+            <param name="tubularSegments">Number of tubular segments. Default is 6.</param>
+            <param name="arc">Central angle. Default is Math.PI * 2.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusGeometry.Radius">
+            <summary>
+            Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusGeometry.Tube">
+            <summary>
+            Radius of the tube. Default is 0.4.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusGeometry.RadialSegments">
+            <summary>
+            Number of radial segments. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusGeometry.TubularSegments">
+            <summary>
+            Number of tubular segments. Default is 6.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusGeometry.Arc">
+            <summary>
+            Central angle. Default is Math.PI * 2.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry">
+            <summary>
+            <para>Class for torus knot, the particular shape of which is defined by a pair of coprime integers, p and q. If p and q are not coprime, the result will be a torus link.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/geometries/TorusKnotGeometry">TorusKnotGeometry</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.#ctor(System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="radius">Radius of the torus, from the center of the torus to the center of the tube. Default is 1.</param>
+            <param name="tube">Radius of the tube. Default is 0.4.</param>
+            <param name="radialSegments">Number of radial segments. Default is 8.</param>
+            <param name="tubularSegments">Number of tubular segments. Default is 64.</param>
+            <param name="p">This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.</param>
+            <param name="q">This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.Radius">
+            <summary>
+            Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.Tube">
+            <summary>
+            Radius of the tube. Default is 0.4.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.RadialSegments">
+            <summary>
+            Number of radial segments. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.TubularSegments">
+            <summary>
+            Number of tubular segments. Default is 64.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.P">
+            <summary>
+            This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.TorusKnotGeometry.Q">
+            <summary>
+            This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.ArrowHelper">
+            <summary>
+            <para>An 3D arrow object for visualizing directions.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/ArrowHelper">ArrowHelper</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Helpers.ArrowHelper.#ctor(HomagGroup.Blazor3D.Maths.Vector3,HomagGroup.Blazor3D.Maths.Vector3,System.Double,System.String,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="dir">Direction from origin. Must be a unit vector. It's normilized before applying. Default is (0, 0, 1).</param>
+            <param name="origin">Point at which the arrow starts. Default is (0, 0, 0).</param>
+            <param name="length">Length of the arrow. Default is 1.</param>
+            <param name="color">Color. Default is "0xffff00".</param>
+            <param name="headLength">The length of the head of the arrow. Default is 0.2 * Length.</param>
+            <param name="headWidth">The width of the head of the arrow. Default is 0.2 * HeadLength.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.ArrowHelper.Dir">
+            <summary>
+             Direction from origin. Must be a unit vector. It's normilized before applying. Default is (0, 0, 1).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.ArrowHelper.Origin">
+            <summary>
+            Point at which the arrow starts. Default is (0, 0, 0).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.ArrowHelper.Length">
+            <summary>
+            Length of the arrow. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.ArrowHelper.Color">
+            <summary>
+            Color. Default is "0xffff00".
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.ArrowHelper.HeadLength">
+            <summary>
+            The length of the head of the arrow. Default is 0.2 * Length.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.ArrowHelper.HeadWidth">
+            <summary>
+            The width of the head of the arrow. Default is 0.2 * HeadLength.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.AxesHelper">
+            <summary>
+            <para>An axis object to visualize the 3 axes in a simple way.</para>
+            <para>The X axis is red.The Y axis is green.The Z axis is blue.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/AxesHelper">AxesHelper</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Helpers.AxesHelper.#ctor(System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="size">Size of the lines representing the axes. Default is 1.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.AxesHelper.Size">
+            <summary>
+            Size of the lines representing the axes. Default is 1.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.BoxHelper">
+            <summary>
+            <para>Helper object to graphically show the world-axis-aligned bounding box around an object.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/BoxHelper">BoxHelper</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.BoxHelper.Object3D">
+            <summary>
+            The <see cref="P:HomagGroup.Blazor3D.Helpers.BoxHelper.Object3D"/> to show the world-axis-aligned boundingbox.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.GridHelper">
+            <summary>
+            <para>The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/GridHelper">GridHelper</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.GridHelper.Size">
+            <summary>
+            The size of the grid. Default is 10.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.GridHelper.Divisions">
+            <summary>
+            The number of divisions across the grid. Default is 10.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.GridHelper.ColorCenterLine">
+            <summary>
+            The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x444444:.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.GridHelper.ColorGrid">
+            <summary>
+            The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x888888".
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.PlaneHelper">
+            <summary>
+            Helper object to visualize a <see cref="P:HomagGroup.Blazor3D.Helpers.PlaneHelper.Plane"/>.
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PlaneHelper">PlaneHelper</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Helpers.PlaneHelper.#ctor(HomagGroup.Blazor3D.Maths.Plane,System.Double,System.String)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="plane">The <see cref="P:HomagGroup.Blazor3D.Helpers.PlaneHelper.Plane"/> to visualize.</param>
+            <param name="size">Side length of plane helper. Default is 1.</param>
+            <param name="color">The color of the helper. Default is "0xffff00".</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PlaneHelper.Plane">
+            <summary>
+            The <see cref="P:HomagGroup.Blazor3D.Helpers.PlaneHelper.Plane"/> to visualize.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PlaneHelper.Size">
+            <summary>
+            Side length of plane helper. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PlaneHelper.Color">
+            <summary>
+            The color of the helper. Default is "0xffff00".
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.PointLightHelper">
+            <summary>
+            <para>This displays a helper object consisting of a spherical <see cref="T:HomagGroup.Blazor3D.Objects.Mesh"/> for visualizing a <see cref="T:HomagGroup.Blazor3D.Lights.PointLight"/>.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper">PointLightHelper</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Helpers.PointLightHelper.#ctor(HomagGroup.Blazor3D.Lights.PointLight,System.Double,System.String)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="light">The light to be visualized. Must be already added to the scene.</param>
+            <param name="sphereSize">The size of the sphere helper. Default is 1.</param>
+            <param name="color">The size of the sphere helper. If color is not set, the helper will take the color of the light.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PointLightHelper.Light">
+            <summary>
+             The light to be visualized. Must be already added to the scene.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PointLightHelper.SphereSize">
+            <summary>
+            The size of the sphere helper. Default is 1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PointLightHelper.Color">
+            <summary>
+            The size of the sphere helper. If color is not set, the helper will take the color of the light.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Helpers.PolarGridHelper">
+            <summary>
+            <para>The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/helpers/PolarGridHelper">PolarGridHelper</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PolarGridHelper.Radius">
+            <summary>
+            The radius of the polar grid. This can be any positive number. Default is 10.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PolarGridHelper.Radials">
+            <summary>
+            The number of radial lines. This can be any positive integer. Default is 16.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PolarGridHelper.Circles">
+            <summary>
+            The number of circles. This can be any positive integer. Default is 8.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PolarGridHelper.Divisions">
+            <summary>
+            The number of line segments used for each circle. This can be any positive integer that is 3 or greater. Default is 64.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PolarGridHelper.Color1">
+            <summary>
+            The first color used for grid elements. This can be a Color, a hexadecimal value and an CSS-Color name. Default is "0x444444".
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Helpers.PolarGridHelper.Color2">
+            <summary>
+            The second color used for grid elements. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x888888
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Lights.AmbientLight">
+            <summary>
+            <para>This light globally illuminates all objects in the scene equally.
+            This light cannot be used to cast shadows as it does not have a direction.</para>
+            <para>This class inherits from <see cref="T:HomagGroup.Blazor3D.Lights.Light"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight">AmbientLight</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Lights.Light"/></inheritdoc>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Lights.Light">
+            <summary>
+            <para>Abstract base class for lights.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/Light">Light</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Lights.Light.Color">
+            <summary>
+            <para>Light color. 
+            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            Default value is "white"</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Lights.Light.Intensity">
+            <summary>
+            <para>Value of the light's strength/intensity. Default is 1.</para>
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Lights.PointLight">
+            <summary>
+            <para>A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.</para>
+            <para>This light can cast shadows</para>
+            <para>This class inherits from <see cref="T:HomagGroup.Blazor3D.Lights.Light"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/lights/PointLight">PointLight</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Lights.Light"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Lights.PointLight.Distance">
+            <summary>
+            <para>When distance value is NOT 0, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light.</para>
+            <para>When distance is zero, light does not attenuate.</para>
+            <para>Default is 0.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Lights.PointLight.Decay">
+            <summary>
+            <para>The amount the light dims along the distance of the light</para>
+            <para>Default is 1.</para>
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Materials.LineBasicMaterial">
+            <summary>
+            A material for drawing wireframe-style geometries.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Materials.LineBasicMaterial.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.LineBasicMaterial.LineCap">
+            <summary>
+            Define appearance of line ends. Possible values are 'butt', 'round' and 'square'. Default is 'round'.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.LineBasicMaterial.LineJoin">
+            <summary>
+            Define appearance of line joints. Possible values are 'round', 'bevel' and 'miter'. Default is 'round'.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.LineBasicMaterial.LineWidth">
+            <summary>
+            Controls line thickness. Default is 1.
+            Due to limitations of the OpenGL Core Profile with the WebGL renderer on most platforms linewidth will always be 1 regardless of the set value.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Materials.Material">
+            <summary>
+            <para>Abstract base class for materials.</para>
+            <para>Materials describe the appearance of objects. They are defined in a mostly renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/Material">Material</a></para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.Color">
+            <summary>
+            <para>Light color. 
+            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            Default value is "orange"</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.Name">
+            <summary>
+            Optional name of the object. Default is an empty string. It has not to be unique. 
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.Transparent">
+            <summary>
+            Defines whether this material is transparent. This has an effect on rendering as transparent objects need special treatment and are rendered after non-transparent objects.
+            When set to true, the extent to which the material is transparent is controlled by setting its opacity property.
+            Default is false.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.Opacity">
+            <summary>
+            Float in the range of 0.0 - 1.0 indicating how transparent the material is. A value of 0.0 indicates fully transparent, 1.0 is fully opaque.
+            If the material's transparent property is not set to true, the material will remain fully opaque and this value will only affect its color.
+            Default is 1.0.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Materials.MeshStandardMaterial">
+            <summary>
+            <para>A standard physically based Material, using Metallic-Roughness workflow.</para>
+            <para>This class inherits from <see cref="T:HomagGroup.Blazor3D.Materials.Material"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Materials.MeshStandardMaterial"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.MeshStandardMaterial.FlatShading">
+            <summary>
+            <para>Define whether the material is rendered with flat shading. Default is false.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.MeshStandardMaterial.Metalness">
+            <summary>
+            <para>How much the material is like a metal. Non-metallic materials such as wood or stone use 0.0, metallic use 1.0, with nothing (usually) in between. Default is 0.0. A value between 0.0 and 1.0 could be used for a rusty metal look. If metalnessMap is also provided, both values are multiplied.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.MeshStandardMaterial.Roughness">
+            <summary>
+            <para>How rough the material appears. 0.0 means a smooth mirror reflection, 1.0 means fully diffuse. Default is 1.0. If roughnessMap is also provided, both values are multiplied.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.MeshStandardMaterial.Wireframe">
+            <summary>
+            <para>Render geometry as wireframe. Default is false (i.e. render as flat polygons).</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.MeshStandardMaterial.Map">
+            <summary>
+            The color map. May optionally include an alpha channel, typically combined with Transparent (todo) or AlphaTest(todo). Default is null. The texture map color is modulated by the diffuse Color.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Maths.Euler">
+            <summary>
+            <para>Representing Euler Angles.
+            Euler angles describe a rotational transformation by rotating an object on its various axes in specified amounts per axis, and a specified axis order.
+            Iterating through a Euler instance will yield its components (x, y, z, order) in the corresponding order.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Euler">Euler</a></para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Euler.X">
+            <summary>
+            The double angle of the X axis in radians. Default is 0. Optional.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Euler.Y">
+            <summary>
+            The double angle of the Y axis in radians. Default is 0. Optional.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Euler.Z">
+            <summary>
+            The double angle of the Z axis in radians. Default is 0. Optional.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Euler.Order">
+            <summary>
+            String representing the order that the rotations are applied. Default is 'XYZ'. Must be upper case.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Maths.Plane">
+            <summary>
+            <para>A two dimensional surface that extends infinitely in 3d space, represented in Hessian normal form by a unit length normal vector and a constant.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Plane">Plane</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Maths.Plane.#ctor(HomagGroup.Blazor3D.Maths.Vector3,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="normal">A unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).</param>
+            <param name="constant">The signed distance from the origin to the plane. Default is 0.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Plane.Normal">
+            <summary>
+            A unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Plane.Constant">
+            <summary>
+            The signed distance from the origin to the plane. Default is 0.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Maths.Vector2">
+            <summary>
+            <para>Class representing a 2D vector. A 2D vector is an ordered pair of numbers (labeled x and y), which can be used to represent a number of things, such as point in 2D space, direction or any ordered pair of numbers.</para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector2">Vector2</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Maths.Vector2.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Maths.Vector2.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="x">double X value of this vector. Default is 0.</param>
+            <param name="y">double Y value of this vector. Default is 0.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Vector2.X">
+            <summary>
+            double X value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Vector2.Y">
+            <summary>
+            double Y value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Maths.Vector3">
+            <summary>
+            <para>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
+            which can be used to represent a number of things, such as:</para>
+            <ul>
+            <li>A point in 3D space.</li>
+            <li>A direction, length or scale in 3D space. </li>
+            <li>Any arbitrary ordered triplet of numbers.</li>
+            </ul>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/math/Vector3">Vector3</a></para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Maths.Vector3.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Maths.Vector3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters.
+            </summary>
+            <param name="x">double X value of this vector. Default is 0.</param>
+            <param name="y">double Y value of this vector. Default is 0.</param>
+            <param name="z">double Z value of this vector. Default is 0.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Vector3.X">
+            <summary>
+            double X value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Vector3.Y">
+            <summary>
+            double Y value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Maths.Vector3.Z">
+            <summary>
+            double Z value of this vector. Default is 0.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Objects.Group">
+            <summary>
+            <para>This is almost identical to an <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/>. Its purpose is to make working with groups of objects syntactically clearer.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Group">Group</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Line.Material">
+            <summary>
+            <para>Collection of <see cref="T:HomagGroup.Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Line.Geometry">
+            <summary>
+            <para>An instance of <see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</para>
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Objects.Mesh">
+            <summary>
+            <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Mesh.Material">
+            <summary>
+            <para>Collection of <see cref="T:HomagGroup.Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Mesh.Geometry">
+            <summary>
+            <para>An instance of <see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Mesh.EdgesMaterial">
+            <summary>
+            Material <see cref="T:HomagGroup.Blazor3D.Materials.LineBasicMaterial"/> to draw edges with EdgesGeometry. If not specified, no edges will be drawn.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Scenes.Scene">
+            <summary>
+            <para>Scenes allow you to set up what and where is to be rendered by HomagGroup.Blazor3D. 
+            This is the place where you put your 3D objects and lights.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/scenes/Scene">Scene</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Scenes.Scene.BackGroundColor">
+            <summary>
+            Scene background color. 
+            You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
+            Default value is "DarkSlateBlue">
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Settings.AnimateRotationSettings">
+            <summary>
+            <para>Settings used for animated rotations.</para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.#ctor(System.Boolean,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="animateRotation">The option indicates whether the rotation animation should be applied. Default is false.</param>
+            <param name="thetaX">The angle in degreees to rotate around the X axis on each animation frame. Default is 0.1.</param>
+            <param name="thetaY">The angle in degreees to rotate around the Y axis on each animation frame. Default is 0.1.</param>
+            <param name="thetaZ">The angle in degreees to rotate around the Z axis on each animation frame. Default is 0.1.</param>
+            <param name="radius">Radius of rotation. Default is 5.</param>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.AnimateRotation">
+            <summary>
+            The option indicates whether the rotation animation should be applied. Default is false.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.ThetaX">
+            <summary>
+            The angle in degreees to rotate around the X axis on each animation frame. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.ThetaY">
+            <summary>
+            The angle in degreees to rotate around the Y axis on each animation frame. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.ThetaZ">
+            <summary>
+            The angle in degreees to rotate around the Z axis on each animation frame. Default is 0.1.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.Radius">
+            <summary>
+            Radius of rotation. Default is 5.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateRotationSettings.StopAnimationOnOrbitControlMove">
+            <summary>
+            Stops animation when user starts using orbit controls. Default is false.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Settings.ImportSettings">
+            <summary>
+            Settings that will be applied during 3D model file importing.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ImportSettings.Format">
+            <summary>
+            <see cref="T:HomagGroup.Blazor3D.Enums.Import3DFormats"/> format of 3D model.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ImportSettings.FileURL">
+            <summary>
+            URL of the 3D model file.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ImportSettings.TextureURL">
+            <summary>
+            URL of the texture file
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ImportSettings.Uuid">
+            <summary>
+            UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ImportSettings.Material">
+            <summary>
+            <para>Material that will be applied to all loaded meshes.</para>
+            <para>Currently works only for <see cref="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Stl"/> STL format.</para>
+            <para>If not specified, the default <see cref="T:HomagGroup.Blazor3D.Materials.MeshStandardMaterial"/> is applied to the imported objects.</para>
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Settings.ViewerSettings">
+            <summary>
+            Class for HomagGroup.Blazor3D Viewer settings.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ViewerSettings.ContainerId">
+            <summary>
+            <para>Identifier of the html container where <see cref="T:HomagGroup.Blazor3D.Viewers.Viewer"/>instance will be created.</para>
+            <para>Must be unique on the html page! Default is "blazorview3d"</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ViewerSettings.CanSelect">
+            <summary>
+            If true, user can select objects by mouse. Default is false.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ViewerSettings.CanSelectHelpers">
+            <summary>
+            If true, the helpers can be selected by mouse. Default is false.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ViewerSettings.SelectedColor">
+            <summary>
+            Color the selected element is highlighted. Default is "lime".
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ViewerSettings.ShowViewHelper">
+            <summary>
+            Show or hide ViewHelper
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.ViewerSettings.WebGLRendererSettings">
+            <summary>
+            HomagGroup.Blazor3D Viewer WebGLRenderer settings
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Settings.WebGLRendererSettings">
+            <summary>
+            Class for HomagGroup.Blazor3D Viewer WebGLRenderer settings.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.WebGLRendererSettings.Antialias">
+            <summary>
+            Whether to perform antialiasing. Default is true.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.Name">
+            <summary>
+            Optional name of the texture (doesn't need to be unique). Default is an empty string. 
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.Uuid">
+            <summary>
+            <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">Universal unique identifier</a> of this object instance. It's automatically assigned Guid, so it shouldn't be edited.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.TextureUrl">
+            <summary>
+            URL of the texture image file.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.WrapS">
+            <summary>
+            <para>This defines how the texture is wrapped horizontally and corresponds to U in UV mapping.</para>
+            <para>The default is <see cref="F:HomagGroup.Blazor3D.Enums.WrappingType.ClampToEdgeWrapping"/>, where the edge is clamped to the outer edge texels.</para>
+            <para>See the <see cref="T:HomagGroup.Blazor3D.Enums.WrappingType"/> for details.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.WrapT">
+            <summary>
+            <para>This defines how the texture is wrapped vertically and corresponds to V in UV mapping.</para>
+            <para>The same choices are available as for WrapS. See the <see cref="T:HomagGroup.Blazor3D.Enums.WrappingType"/> for details.</para>
+            <para>NOTE: tiling of images in textures only functions if image dimensions are powers of two (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, ...) in terms of pixels. Individual dimensions need not be equal, but each must be a power of two. This is a limitation of WebGL, not three.js.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.Repeat">
+            <summary>
+            <para>How many times the texture is repeated across the surface, in each direction U and V. </para>
+            <para>If repeat is set greater than 1 in either direction, the corresponding Wrap parameter should also be set to <see cref="F:HomagGroup.Blazor3D.Enums.WrappingType.RepeatWrapping"/> or <see cref="F:HomagGroup.Blazor3D.Enums.WrappingType.MirroredRepeatWrapping"/> to achieve the desired tiling effect.</para>
+            <para>Setting different repeat values for textures is restricted in the same way like Offset.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.Offset">
+            <summary>
+            <para>How much a single repetition of the texture is offset from the beginning, in each direction U and V. Typical range is 0.0 to 1.0.</para>
+            <para>For more details see <a target="_blank" href="https://threejs.org/docs/index.html?q=texture#api/en/textures/Texture.offset">here</a> </para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.Center">
+            <summary>
+            The point around which rotation occurs. A value of (0.5, 0.5) corresponds to the center of the texture. Default is (0, 0), the lower left.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Textures.Texture.Rotation">
+            <summary>
+            How much the texture is rotated around the center point, in radians. Positive values are counter-clockwise. Default is 0.
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Viewers.Viewer">
+            <summary>
+            <para>HomagGroup.Blazor3D viewer component.</para>
+            </summary>
+        </member>
+        <member name="E:HomagGroup.Blazor3D.Viewers.Viewer.ObjectSelected">
+            <summary>
+            Raises when user selects object by mouse clicking inside viewer area.
+            </summary>
+        </member>
+        <member name="E:HomagGroup.Blazor3D.Viewers.Viewer.ObjectLoaded">
+            <summary>
+            Raises after complete loading of imported file content.
+            </summary>
+        </member>
+        <member name="E:HomagGroup.Blazor3D.Viewers.Viewer.JsModuleLoaded">
+            <summary>
+            Raises after JavaScript module is completely loaded.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Viewers.Viewer.ViewerSettings">
+            <summary>
+            <para><see cref="T:HomagGroup.Blazor3D.Settings.ViewerSettings"/> parameter of the component.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Viewers.Viewer.Scene">
+            <summary>
+            <para><see cref="T:HomagGroup.Blazor3D.Scenes.Scene"/> parameter of the component. Default is empty scene.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Viewers.Viewer.UseDefaultScene">
+            <summary>
+            <para>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Viewers.Viewer.Camera">
+            <summary>
+            <para><see cref="T:HomagGroup.Blazor3D.Cameras.PerspectiveCamera"/> used to display the scene.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Viewers.Viewer.OrbitControls">
+            <summary>
+            <para><see cref="T:HomagGroup.Blazor3D.Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
+            </summary>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.UpdateScene">
+            <summary>
+            Updates scene changes.
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.SetCameraPositionAsync(HomagGroup.Blazor3D.Maths.Vector3,HomagGroup.Blazor3D.Maths.Vector3)">
+            <summary>
+            <para>Sets the camera position to specified <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> value.</para>
+            </summary>
+            <param name="position">New <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> position.</param>
+            <param name="lookAt">New <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> camera target point coordinates.</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.UpdateCamera(HomagGroup.Blazor3D.Cameras.Camera)">
+            <summary>
+            Apply updated camera settings to viewer.
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.ShowCurrentCameraInfo">
+            <summary>
+            Prints information about current camera and orbit controls into browser console.
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.RemoveByUuidAsync(System.Guid)">
+            <summary>
+            Removes object from scene by it's unique identifier.
+            </summary>
+            <param name="uuid">Object's unique identifier.</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.SelectByUuidAsync(System.Guid)">
+            <summary>
+            <para>Selects object in scene by it's unique identifier</para>
+            </summary>
+            <param name="uuid">Unique identifier of object to select</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.ClearSceneAsync">
+            <summary>
+            Clears scene.
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.Import3DModelAsync(HomagGroup.Blazor3D.Settings.ImportSettings)">
+            <summary>
+            <para>Imports 3D model to scene.</para>
+            </summary>
+            <param name="settings"><see cref="T:HomagGroup.Blazor3D.Settings.ImportSettings"/> Settings that will be applied during 3D model file importing.</param>
+            <returns>Guid of the loaded item</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.GetObjectByUuid(System.Guid,System.Collections.Generic.List{HomagGroup.Blazor3D.Core.Object3D})">
+            <summary>
+            <para>Recursively finds object by it's uuid in collection.</para>
+            </summary>
+            <param name="uuid">Object's uuid</param>
+            <param name="children">Children collection. Usually it's Scene.Children</param>
+            <returns>Found object or null</returns>
+        </member>
+    </members>
+</doc>

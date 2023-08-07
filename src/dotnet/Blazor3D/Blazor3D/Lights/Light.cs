@@ -1,6 +1,6 @@
-﻿using Blazor3D.Core;
+﻿using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.Lights
+namespace HomagGroup.Blazor3D.Lights
 {
     /// <summary>
     /// <para>Abstract base class for lights.</para>

@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Events
+﻿namespace HomagGroup.Blazor3D.Events
 {
     /// <summary>
     /// <para>Delegate that handles <see cref="Viewers.Viewer"/> JsModuleLoaded event.</para>

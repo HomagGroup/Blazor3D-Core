@@ -1,8 +1,8 @@
-﻿using Blazor3D.Core;
-using Blazor3D.Maths;
-using Blazor3D.Settings;
+﻿using HomagGroup.Blazor3D.Core;
+using HomagGroup.Blazor3D.Maths;
+using HomagGroup.Blazor3D.Settings;
 
-namespace Blazor3D.Cameras
+namespace HomagGroup.Blazor3D.Cameras
 {
     /// <summary>
     /// <para>Abstract base class for cameras.</para>

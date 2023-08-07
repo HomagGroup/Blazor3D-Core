@@ -1,6 +1,6 @@
-﻿using Blazor3D.Core;
+﻿using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.Helpers
+namespace HomagGroup.Blazor3D.Helpers
 {
     /// <summary>
     /// <para>The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.</para>

@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Lights
+﻿namespace HomagGroup.Blazor3D.Lights
 {
     /// <summary>
     /// <para>This light globally illuminates all objects in the scene equally.

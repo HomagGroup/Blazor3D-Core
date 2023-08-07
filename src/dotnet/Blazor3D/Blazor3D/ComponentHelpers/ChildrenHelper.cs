@@ -1,7 +1,7 @@
 ﻿
-using Blazor3D.Core;
+using HomagGroup.Blazor3D.Core;
 
-namespace Blazor3D.ComponentHelpers
+namespace HomagGroup.Blazor3D.ComponentHelpers
 {
     internal static class ChildrenHelper
     {

@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Enums
+﻿namespace HomagGroup.Blazor3D.Enums
 {
     /// <summary>
     /// These define the texture's WrapS and WrapT properties, which define horizontal and vertical texture wrapping.

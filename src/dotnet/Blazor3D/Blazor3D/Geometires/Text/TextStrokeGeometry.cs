@@ -1,4 +1,4 @@
-﻿namespace Blazor3D.Geometires.Text
+﻿namespace HomagGroup.Blazor3D.Geometires.Text
 {
     /// <summary>
     /// Represents geometry to build stroke text 

@@ -1,6 +1,6 @@
-﻿using Blazor3D.Helpers;
+﻿using HomagGroup.Blazor3D.Helpers;
 
-namespace Blazor3D.Tests.Helpers
+namespace HomagGroup.Blazor3D.Tests.Helpers
 {
     [TestClass]
     public class GridHelperTests

@@ -1,7 +1,7 @@
-﻿using Blazor3D.Core;
-using Blazor3D.Maths;
+﻿using HomagGroup.Blazor3D.Core;
+using HomagGroup.Blazor3D.Maths;
 
-namespace Blazor3D.Geometires.Lines
+namespace HomagGroup.Blazor3D.Geometires.Lines
 {
     public class LineGeometry : BufferGeometry
     {
