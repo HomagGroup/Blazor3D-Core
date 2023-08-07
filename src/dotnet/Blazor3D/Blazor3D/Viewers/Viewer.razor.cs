@@ -88,7 +88,7 @@ namespace HomagGroup.Blazor3D.Viewers
 
                 bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
                     "import",
-                    "./_content/HomagGroup.Blazor3D/js/bundle.js")
+                    "./_content/Blazor3D/js/bundle.js")
                 .AsTask();
 
                 if (UseDefaultScene && !Scene.Children.Any())
