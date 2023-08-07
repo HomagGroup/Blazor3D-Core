@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>HomagGroup.Blazor3D</name>
+        <name>Blazor3D</name>
     </assembly>
     <members>
         <member name="T:HomagGroup.Blazor3D.Cameras.Camera">

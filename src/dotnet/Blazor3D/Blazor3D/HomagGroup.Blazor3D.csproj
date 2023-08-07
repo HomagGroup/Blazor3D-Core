@@ -18,6 +18,7 @@
 This HomagGroup.Blazor3D component uses three.js library to display 3D scenes on html canvas.
 See examples of using here https://github.com/HomagGroup/HomagGroup.Blazor3D
 		</Description>
+		<AssemblyName>Blazor3D</AssemblyName>
 	</PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
