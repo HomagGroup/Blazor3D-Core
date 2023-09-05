@@ -27,6 +27,9 @@
     <div>
         <input type="text" @bind="selectObjectGuid"></input> <button @onclick="OnSelectObjectByUUIDClick">Select object</button>
     </div>
+        <div>
+            <input type="text" @bind="setBackgroundColor" ></input> <button @onclick="OnSetBackgroundColorClick">Background color</button>
+        </div>
     <div>@selectionMsg</div>
 </div>
 
@@ -41,10 +44,11 @@
             CanSelectHelpers = false,
             WebGLRendererSettings = new WebGLRendererSettings
             {
-                Antialias = true
-            }
+                Antialias = true,
+                Alpha = 0,
+            },
         };
-
+    
     private Scene scene = new Scene();
     //private Camera camera = new PerspectiveCamera
     //    {
@@ -57,6 +61,7 @@
 
     private Guid loadedObjectGuid = Guid.NewGuid();
     private Guid? selectObjectGuid = null;
+    private string setBackgroundColor = String.Empty;
 
     private Camera camera = new OrthographicCamera()
         {
@@ -371,6 +376,12 @@
                 });
         }
         toggler = !toggler;
+    }
+
+    private async Task OnSetBackgroundColorClick()
+    {
+        scene.BackGroundColor = setBackgroundColor;
+        await View3D1.UpdateScene();
     }
 
     private async Task OnSelectObjectByUUIDClick()

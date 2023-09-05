@@ -26,7 +26,8 @@ class Viewer3D {
 
     this.renderer = new THREE.WebGLRenderer(
       {
-        antialias: this.options.viewerSettings.webGLRendererSettings.antialias
+        antialias: this.options.viewerSettings.webGLRendererSettings.antialias,
+        alpha: this.options.viewerSettings.webGLRendererSettings.alpha,
       }
     );
 
