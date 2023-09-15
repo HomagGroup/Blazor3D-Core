@@ -52,6 +52,11 @@ export function showCurrentCameraInfo() {
   viewer3d.showCurrentCameraInfo();
 }
 
+export function updateOrbitControls(json){
+  const options = JSON.parse(json);
+  viewer3d.updateOrbitControls(options);
+}
+
 export function getSceneItemByGuid(guid) {
   const item = viewer3d.getSceneItemByGuid(guid);
   return JSON.stringify(item);

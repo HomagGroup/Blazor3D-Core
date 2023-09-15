@@ -56,6 +56,7 @@ class Viewer3D {
     this.onResize();
 
     const animate = () => {
+      this.controls.update();
       requestAnimationFrame(animate);
       this.render();
     };
@@ -88,7 +89,6 @@ class Viewer3D {
           : radius * Math.cos(THREE.MathUtils.degToRad(this.thetaZ));
       let { x, y, z } = this.options.camera.lookAt;
       this.camera.lookAt(x, y, z);
-
       this.camera.updateMatrixWorld();
     }
 
@@ -178,9 +178,17 @@ class Viewer3D {
     this.controls.screenSpacePanning = true;
     this.controls.minDistance = this.options.orbitControls.minDistance;
     this.controls.maxDistance = this.options.orbitControls.maxDistance;
+    this.controls.enablePan = this.options.orbitControls.enablePan;
+    this.controls.enableDamping = this.options.orbitControls.enableDamping;
+    this.controls.dampingFactor = this.options.orbitControls.dampingFactor;
     let { x, y, z } = this.options.camera.lookAt;
     this.controls.target.set(x, y, z);
     this.controls.update();
+  }
+
+  updateOrbitControls(newOrbitControls) {
+    this.options.orbitControls = newOrbitControls;
+    this.setOrbitControls();
   }
 
   import3DModel(settings) {

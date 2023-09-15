@@ -76,6 +76,7 @@ namespace HomagGroup.Blazor3D.Viewers
         /// <summary>
         /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
         /// </summary>
+        [Parameter]
         public OrbitControls OrbitControls { get; set; } = new OrbitControls();
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -151,6 +152,18 @@ namespace HomagGroup.Blazor3D.Viewers
         public async Task ShowCurrentCameraInfo()
         {
             await bundleModule.InvokeVoidAsync("showCurrentCameraInfo");
+        }
+
+        /// <summary>
+        /// Apply updated orbit controls to viewer.
+        /// </summary>
+        /// <param name="orbitControls">new orbit controls</param>
+        /// <returns>Task</returns>
+        public async Task UpdateOrbitControls(OrbitControls orbitControls)
+        {
+            OrbitControls = orbitControls;
+            var json = JsonConvert.SerializeObject(OrbitControls, SerializationHelper.GetSerializerSettings());
+            await bundleModule.InvokeVoidAsync("updateOrbitControls", json);
         }
 
         [JSInvokable]
