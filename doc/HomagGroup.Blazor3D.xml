@@ -132,6 +132,21 @@
             The point where the camera is looking at. Default is (0,0,0).
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.EnablePan">
+            <summary>
+            If true, then panning enabled. Otherwise, panning disabled. Default is true
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Controls.OrbitControls.EnableDamping">
+            <summary>
+            If true, than damping enabled. Otherwise, damping disabled. Default is true
+            </summary>
+        </member>
+        <member name="F:HomagGroup.Blazor3D.Controls.OrbitControls.DampingFactor">
+            <summary>
+            Damping factor. Default is 0.05
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Core.BufferGeometry">
             <summary>
             <para>A representation of geometry for mesh, line, or point. 
