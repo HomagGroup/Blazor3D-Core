@@ -1655,6 +1655,16 @@
             Whether to perform antialiasing. Default is true.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.WebGLRendererSettings.Alpha">
+            <summary>
+            controls the default clear alpha value. When set to true, the value is 0. Otherwise it's 1. Default is false.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.WebGLRendererSettings.PremultipliedAlpha">
+            <summary>
+            whether the renderer will assume that colors have premultiplied alpha. Default is true.
+            </summary>
+        </member>
         <member name="P:HomagGroup.Blazor3D.Textures.Texture.Name">
             <summary>
             Optional name of the texture (doesn't need to be unique). Default is an empty string. 
