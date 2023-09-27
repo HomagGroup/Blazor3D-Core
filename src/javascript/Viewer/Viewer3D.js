@@ -128,7 +128,7 @@ class Viewer3D {
   }
 
   setScene() {
-    if (this.options.backgroundColor){
+    if (this.options.scene.backGroundColor){
       this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
     }
     
