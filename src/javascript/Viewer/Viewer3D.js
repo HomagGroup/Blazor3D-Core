@@ -26,7 +26,9 @@ class Viewer3D {
 
     this.renderer = new THREE.WebGLRenderer(
       {
-        antialias: this.options.viewerSettings.webGLRendererSettings.antialias
+        antialias: this.options.viewerSettings.webGLRendererSettings.antialias,
+        premultipliedAlpha: this.options.viewerSettings.webGLRendererSettings.premultipliedAlpha,
+        alpha: this.options.viewerSettings.webGLRendererSettings.alpha,
       }
     );
 
@@ -126,7 +128,10 @@ class Viewer3D {
   }
 
   setScene() {
-    this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
+    if (this.options.scene.backGroundColor){
+      this.scene.background = new THREE.Color(this.options.scene.backGroundColor);
+    }
+    
     this.scene.uuid = this.options.scene.uuid;
 
     this.options.scene.children.forEach((childOptions) => {
