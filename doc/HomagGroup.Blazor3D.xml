@@ -1338,6 +1338,17 @@
             Default is 1.0.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.DepthTest">
+            <summary>
+            Wether to have depth test enabled when rendering this material. Default is true.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.Material.DepthWrite">
+            <summary>
+            Wether rendering this material has any affect on the depth buffer. Default is true.
+            When drawing 2D overlays it can be useful to disable the depth writing in order to layer several things together without creating z-index artifacts.
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Materials.MeshStandardMaterial">
             <summary>
             <para>A standard physically based Material, using Metallic-Roughness workflow.</para>

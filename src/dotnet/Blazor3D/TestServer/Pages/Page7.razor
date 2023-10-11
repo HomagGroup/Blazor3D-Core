@@ -77,6 +77,8 @@
                 Transparent = true,
                 Name = "BlazorLogo",
                 Color = "white",
+                DepthTest = false,
+                DepthWrite = false,
             };
 
         var settings = new SpriteImportSettings
@@ -110,6 +112,16 @@
     }
     private void FillScene()
     {
+        scene.Add(new Mesh
+            {
+                Geometry = new BoxGeometry(width: 2, height: 0.5f),
+                Position = new Vector3(-1, 1, -1),
+                Rotation = new Euler
+                {
+                    X = Math.PI / 4
+                }
+            });
+
         var rotation = new Euler();
         //rotation.Y = 0.78;
         rotation.X = 0.78;
