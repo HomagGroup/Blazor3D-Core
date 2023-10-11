@@ -204,6 +204,14 @@ class Viewer3D {
     );
   }
 
+  importSprite(settings) {
+    return Loaders.importSprite(
+      this.scene,
+      settings,
+      this.options.viewerSettings.containerId
+    );
+  }
+
   getSceneItemByGuid(guid) {
     let item = this.scene.getObjectByProperty("uuid", guid);
 

@@ -39,6 +39,11 @@ export function import3DModel(json) {
   return JSON.stringify(viewer3d.import3DModel(settings));
 }
 
+export function importSprite(json) {
+  const settings = JSON.parse(json);
+  return JSON.stringify(viewer3d.importSprite(settings));
+}
+
 export function setCameraPosition(position, lookAt) {
   viewer3d.setCameraPosition(position, lookAt);
 }

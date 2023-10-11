@@ -1371,6 +1371,17 @@
             The color map. May optionally include an alpha channel, typically combined with Transparent (todo) or AlphaTest(todo). Default is null. The texture map color is modulated by the diffuse Color.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.SpriteMaterial.Map">
+            <summary>
+            The color map. May optionally include an alpha channel, typically combined with Transparent (todo) or AlphaTest(todo). Default is null. The texture map color is modulated by the diffuse Color.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.SpriteMaterial.SizeAttenuation">
+            <summary>
+            Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.)
+            Default is true.
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Maths.Euler">
             <summary>
             <para>Representing Euler Angles.
@@ -1531,6 +1542,26 @@
             Material <see cref="T:HomagGroup.Blazor3D.Materials.LineBasicMaterial"/> to draw edges with EdgesGeometry. If not specified, no edges will be drawn.
             </summary>
         </member>
+        <member name="T:HomagGroup.Blazor3D.Objects.Sprite">
+            <summary>
+            <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Sprite.Material">
+            <summary>
+            <para>Collection of <see cref="T:HomagGroup.Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Objects.Sprite.Center">
+            <summary>
+            <para>The sprite's anchor point, and the point around which the sprite rotates. A value of (0.5,0.5)</para>
+            <para>coresponds to the midpoint of the sprite. A value of (0,0) corresponds to the lower left corner of the sprite.</para>
+            <para>The default is (0.5,0.5)</para>
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Scenes.Scene">
             <summary>
             <para>Scenes allow you to set up what and where is to be rendered by HomagGroup.Blazor3D. 
@@ -1622,6 +1653,42 @@
             <para>Material that will be applied to all loaded meshes.</para>
             <para>Currently works only for <see cref="F:HomagGroup.Blazor3D.Enums.Import3DFormats.Stl"/> STL format.</para>
             <para>If not specified, the default <see cref="T:HomagGroup.Blazor3D.Materials.MeshStandardMaterial"/> is applied to the imported objects.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.FileURL">
+            <summary>
+            URL of the sprite image.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.Uuid">
+            <summary>
+            UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.Material">
+            <summary>
+            <para>Material that will be applied to loaded sprites.</para>
+            <para>If not specified, the default <see cref="T:HomagGroup.Blazor3D.Materials.SpriteMaterial"/> is applied to the imported objects.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.Name">
+            <summary>
+            Optional name of the object. Default is an empty string. It has not to be unique. 
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.Position">
+            <summary>
+            A Vector3 representing the object's local position. Default is (0,0,0).
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.Rotation">
+            <summary>
+            Ojbect's local rotation
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.SpriteImportSettings.Scale">
+            <summary>
+            The object's local scale. Default is a Vector3(1, 1, 1)
             </summary>
         </member>
         <member name="T:HomagGroup.Blazor3D.Settings.ViewerSettings">
@@ -1835,6 +1902,13 @@
             <para>Imports 3D model to scene.</para>
             </summary>
             <param name="settings"><see cref="T:HomagGroup.Blazor3D.Settings.ImportSettings"/> Settings that will be applied during 3D model file importing.</param>
+            <returns>Guid of the loaded item</returns>
+        </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.ImportSpriteAsync(HomagGroup.Blazor3D.Settings.SpriteImportSettings)">
+            <summary>
+            <para>Imports sprite to scene.</para>
+            </summary>
+            <param name="settings"> Settings that will be applied during 2D sprite file importing.</param>
             <returns>Guid of the loaded item</returns>
         </member>
         <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.GetObjectByUuid(System.Guid,System.Collections.Generic.List{HomagGroup.Blazor3D.Core.Object3D})">

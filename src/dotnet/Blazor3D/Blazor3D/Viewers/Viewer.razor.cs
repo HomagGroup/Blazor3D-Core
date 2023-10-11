@@ -240,6 +240,20 @@ namespace HomagGroup.Blazor3D.Viewers
         }
 
         /// <summary>
+        /// <para>Imports sprite to scene.</para>
+        /// </summary>
+        /// <param name="settings"> Settings that will be applied during 2D sprite file importing.</param>
+        /// <returns>Guid of the loaded item</returns>
+        public async Task<Guid> ImportSpriteAsync(SpriteImportSettings settings)
+        {
+            settings.Uuid = settings.Uuid ?? Guid.NewGuid();
+            settings.Material = settings.Material ?? new SpriteMaterial();
+            var json = JsonConvert.SerializeObject(settings, SerializationHelper.GetSerializerSettings());
+            await bundleModule.InvokeVoidAsync("importSprite", json);
+            return settings.Uuid.Value;
+        }
+
+        /// <summary>
         /// <para>Recursively finds object by it's uuid in collection.</para>
         /// </summary>
         /// <param name="uuid">Object's uuid</param>
@@ -375,6 +389,16 @@ namespace HomagGroup.Blazor3D.Viewers
                 {
                     Scene.Children.Add(mesh);
                     ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
+                }
+            }
+
+            if (json.Contains("\"type\":\"Sprite\""))
+            {
+                var sprite = JsonConvert.DeserializeObject<Sprite>(json);
+                if (sprite != null)
+                {
+                    Scene.Children.Add(sprite);
+                    ObjectLoaded?.Invoke(new Object3DArgs() { UUID= e.UUID });
                 }
             }
         }
