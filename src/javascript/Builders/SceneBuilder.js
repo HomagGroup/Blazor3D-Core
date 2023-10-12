@@ -3,6 +3,7 @@ import LightBuilder from "./LightBuilder";
 import MeshBuilder from "./MeshBuilder";
 import GroupBuilder from "./GroupBuilder";
 import LineBuilder from "./LineBuilder";
+import SplineCurveBuilder from "./SplineCurveBuilder";
 
 class SceneBuilder {
 
@@ -13,6 +14,10 @@ class SceneBuilder {
 
     if (options.type == "Line") {
       return LineBuilder.BuildMesh(options);
+    }
+    
+    if (options.type == "SplineCurve"){
+      return SplineCurveBuilder.BuildMesh(options)
     }
 
     if (options.type == "Group") {

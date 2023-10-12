@@ -182,7 +182,7 @@ class GeometryBuilder {
       return geometry;
     }
 
-    if (options.type == "LineGeometry") {
+    if (options.type == "LineGeometry" || options.type == "SplineCurveGeometry") {
       const geometry = new THREE.BufferGeometry().setFromPoints( options.points )
       geometry.uuid = options.uuid;
       return geometry;
