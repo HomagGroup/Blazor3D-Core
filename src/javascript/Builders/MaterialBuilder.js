@@ -42,7 +42,8 @@ class MaterialBuilder {
         color: options.color,
         transparent : options.transparent,
         opacity : options.opacity,
-        map: map
+        map: map,
+        rotation: options.rotation
       })
       material.uuid = options.uuid;
       return material;

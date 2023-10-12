@@ -1382,6 +1382,11 @@
             Default is true.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Materials.SpriteMaterial.Rotation">
+            <summary>
+            The rotation of the sprite in radians. Default is 0.
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Maths.Euler">
             <summary>
             <para>Representing Euler Angles.
