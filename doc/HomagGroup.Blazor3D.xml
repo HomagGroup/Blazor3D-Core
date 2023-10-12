@@ -1559,14 +1559,6 @@
             Material <see cref="T:HomagGroup.Blazor3D.Materials.LineBasicMaterial"/> to draw edges with EdgesGeometry. If not specified, no edges will be drawn.
             </summary>
         </member>
-        <member name="T:HomagGroup.Blazor3D.Objects.Sprite">
-            <summary>
-            <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
-            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
-            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></para>
-            </summary>
-            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
-        </member>
         <member name="T:HomagGroup.Blazor3D.Objects.SplineCurve">
             <summary>
             Create a smooth 2d spline curve from a series of points. Internally this uses Interpolations.CatmullRom to create the curve.
@@ -1581,6 +1573,14 @@
             <summary>
             <para>An instance of <see cref="T:HomagGroup.Blazor3D.Geometires.Curves.SplineCurveGeometry"/> (or derived classes), defining the object's structure.</para>
             </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Objects.Sprite">
+            <summary>
+            <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
+            <para>This object inherits from <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></para>
+            <para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a></para>
+            </summary>
+            <inheritdoc><see cref="T:HomagGroup.Blazor3D.Core.Object3D"/></inheritdoc>
         </member>
         <member name="P:HomagGroup.Blazor3D.Objects.Sprite.Material">
             <summary>
