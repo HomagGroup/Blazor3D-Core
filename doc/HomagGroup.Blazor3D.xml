@@ -1560,7 +1560,7 @@
         </member>
         <member name="P:HomagGroup.Blazor3D.Objects.SplineCurve.Geometry">
             <summary>
-            <para>An instance of <see cref="T:HomagGroup.Blazor3D.Core.BufferGeometry"/> (or derived classes), defining the object's structure.</para>
+            <para>An instance of <see cref="T:HomagGroup.Blazor3D.Geometires.Curves.SplineCurveGeometry"/> (or derived classes), defining the object's structure.</para>
             </summary>
         </member>
         <member name="T:HomagGroup.Blazor3D.Scenes.Scene">
