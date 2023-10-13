@@ -4,6 +4,7 @@ import MeshBuilder from "./MeshBuilder";
 import GroupBuilder from "./GroupBuilder";
 import LineBuilder from "./LineBuilder";
 import SplineCurveBuilder from "./SplineCurveBuilder";
+import SpriteBuilder from "./SpriteBuilder";
 
 class SceneBuilder {
 
@@ -34,6 +35,10 @@ class SceneBuilder {
 
     if (options.type.includes("Helper")) {
       return HelperBuilder.BuildHelper(options, scene);
+    }
+
+    if (options.type.includes("Sprite")) {
+      return SpriteBuilder.BuildSprite(options);
     }
   }
 }

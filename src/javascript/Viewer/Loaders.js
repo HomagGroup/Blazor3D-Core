@@ -4,6 +4,7 @@ import { ColladaLoader } from "three/examples/jsm/loaders/ColladaLoader";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import Transforms from "../Utils/Transforms";
 import MaterialBuilder from "../Builders/MaterialBuilder";
 
 class Loaders {
@@ -112,6 +113,24 @@ class Loaders {
     
     return null;
   }
+
+  static importSprite(scene, settings, containerId)
+  {
+    let url = settings.fileURL;
+    let guid = settings.uuid;
+    let sprite;
+    settings.material.map.textureUrl = url;
+    const material = MaterialBuilder.buildMaterial(settings.material);
+    sprite = new THREE.Sprite(material); 
+    Transforms.setPosition(sprite,settings.position);
+    Transforms.setRotation(sprite, settings.rotation);
+    Transforms.setScale(sprite, settings.scale);
+    sprite.uuid = guid;
+    sprite.name = settings.name;
+    scene.add (sprite);
+    Loaders.callDotNet(containerId,guid);
+  }
+
 
   static callDotNet(containerId, uuid){
     DotNet.invokeMethodAsync(

@@ -34,6 +34,20 @@ class MaterialBuilder {
       material.uuid = options.uuid;
       return material;
     }
+
+    if(options.type == "SpriteMaterial") {
+      let map = TextureBuilder.buildTexture(options.map);
+      const material = new THREE.SpriteMaterial({
+        isSpriteMaterial:true,
+        color: options.color,
+        transparent : options.transparent,
+        opacity : options.opacity,
+        map: map,
+        rotation: options.rotation
+      })
+      material.uuid = options.uuid;
+      return material;
+    }
   }
 }
 
