@@ -44,5 +44,16 @@
         /// Default is 1.0.
         /// </summary>
         public double Opacity { get; set; } = 1;
+
+        /// <summary>
+        /// Wether to have depth test enabled when rendering this material. Default is true.
+        /// </summary>
+        public bool DepthTest { get; set; } = true;
+
+        /// <summary>
+        /// Wether rendering this material has any affect on the depth buffer. Default is true.
+        /// When drawing 2D overlays it can be useful to disable the depth writing in order to layer several things together without creating z-index artifacts.
+        /// </summary>
+        public bool DepthWrite { get; set; } = true;
     }
 }

@@ -15,7 +15,9 @@ class MaterialBuilder {
         metalness: options.metalness,
         roughness: options.roughness,
         wireframe: options.wireframe,
-        map: map
+        map: map,
+        depthTest: options.depthTest,
+        depthWrite: options.depthWrite
       });
       material.uuid = options.uuid;
       return material;
@@ -29,7 +31,9 @@ class MaterialBuilder {
         opacity : options.opacity,
         linecap : options.lineCap,
         linejoin : options.lineJoin,
-        linewidth : options.lineWidth
+        linewidth : options.lineWidth,
+        depthTest: options.depthTest,
+        depthWrite: options.depthWrite
       });
       material.uuid = options.uuid;
       return material;
@@ -43,7 +47,9 @@ class MaterialBuilder {
         transparent : options.transparent,
         opacity : options.opacity,
         map: map,
-        rotation: options.rotation
+        rotation: options.rotation,
+        depthTest: options.depthTest,
+        depthWrite: options.depthWrite
       })
       material.uuid = options.uuid;
       return material;
