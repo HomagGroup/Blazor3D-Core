@@ -1,13 +1,14 @@
 ﻿@page "/page6"
 @implements IDisposable
 @using HomagGroup.Blazor3D.Events
-@using HomagGroup.Blazor3D.Helpers
-@using HomagGroup.Blazor3D.Lights
 @using HomagGroup.Blazor3D.Maths
 @using HomagGroup.Blazor3D.Objects
 @using HomagGroup.Blazor3D.Scenes
 @using HomagGroup.Blazor3D.Viewers
 @using HomagGroup.Blazor3D.Cameras
+@using HomagGroup.Blazor3D.Geometires
+@using HomagGroup.Blazor3D.Geometires.Curves
+@using HomagGroup.Blazor3D.Materials
 
 <div class="row justify-content-center">
     <div style="background: black" class="col-9 v3d">
@@ -28,6 +29,7 @@
             {
                 PremultipliedAlpha = false,
                 Alpha = true,
+                Antialias = true,
             }
         };
 
@@ -38,15 +40,13 @@
     
     private Camera camera = new PerspectiveCamera
         {
-            Position = new Vector3(3, 3, 3),
-            LookAt = new Vector3(0, 0.5f, 0)
+            Position = new Vector3(0, 0, -20),
         };
 
     private string selectionMsg = string.Empty;
 
     protected override Task OnInitializedAsync()
     {
-        AddLights();
         FillScene();
         return base.OnInitializedAsync();
     }
@@ -66,29 +66,13 @@
     {
     }
 
-    private void AddLights()
-    {
-        scene.Add(new AmbientLight());
-        var plight = new PointLight()
-            {
-                Decay = 2,
-                Position = new Vector3(1, 5, 0)
-            };
-        scene.Add(plight);
-        scene.Add(new PointLightHelper(plight, 0.5));
-    }
-
     private void FillScene()
     {
-        var splineCurve = new SplineCurve
+        var splineMesh = new Line()
         {
-            Divisions = 50,
-            Material =
+            Geometry = new SplineCurveGeometry
             {
-                Color = "red",
-            },
-            Geometry =
-            {
+                Divisions = 150,
                 Points = new List<Vector2>
                 {
                     new(-5, 5),
@@ -96,10 +80,18 @@
                     new(0, 0),
                     new(5, -5),
                     new(10, 0),
-                },
+                }
             },
+            Material = new LineBasicMaterial {Color = "red"},
         };
-        scene.Add(splineCurve);
+        
+        var mesh = new Mesh
+        {
+            Geometry = new CircleGeometry(radius: 1.5f, segments: 12),
+            Position = new Vector3(1, 1, -1),
+            Scale = new Vector3(0.5f, 1f, 1f)
+        };
+        scene.Add(splineMesh);
     }
 
     private void OnObjectSelected(Object3DArgs e)

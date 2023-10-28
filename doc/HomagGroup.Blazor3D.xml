@@ -513,6 +513,17 @@
             The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Curves.SplineCurveGeometry.ArcLengthDivisions">
+            <summary>
+            This value determines the amount of divisions when calculating the cumulative segment lengths of a curve via .getLengths. 
+            To ensure precision when using methods like .getSpacedPoints, it is recommended to increase .arcLengthDivisions if the curve is very large. Default is 200.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Geometires.Curves.SplineCurveGeometry.Divisions">
+            <summary>
+            number of pieces to divide the curve into. Default is 5.
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Geometires.CylinderGeometry">
             <summary>
             <para>A class for generating cylinder geometries.</para>
@@ -1517,23 +1528,6 @@
             double Z value of this vector. Default is 0.
             </summary>
         </member>
-        <member name="T:HomagGroup.Blazor3D.Objects.Curve">
-            <summary>
-            An abstract base class for creating a Curve object that contains methods for interpolation. 
-            For an array of Curves see CurvePath.
-            </summary>
-        </member>
-        <member name="P:HomagGroup.Blazor3D.Objects.Curve.ArcLengthDivisions">
-            <summary>
-            This value determines the amount of divisions when calculating the cumulative segment lengths of a curve via .getLengths. 
-            To ensure precision when using methods like .getSpacedPoints, it is recommended to increase .arcLengthDivisions if the curve is very large. Default is 200.
-            </summary>
-        </member>
-        <member name="P:HomagGroup.Blazor3D.Objects.Curve.Divisions">
-            <summary>
-            number of pieces to divide the curve into. Default is 5.
-            </summary>
-        </member>
         <member name="T:HomagGroup.Blazor3D.Objects.Group">
             <summary>
             <para>This is almost identical to an <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/>. Its purpose is to make working with groups of objects syntactically clearer.</para>
@@ -1573,21 +1567,6 @@
         <member name="P:HomagGroup.Blazor3D.Objects.Mesh.EdgesMaterial">
             <summary>
             Material <see cref="T:HomagGroup.Blazor3D.Materials.LineBasicMaterial"/> to draw edges with EdgesGeometry. If not specified, no edges will be drawn.
-            </summary>
-        </member>
-        <member name="T:HomagGroup.Blazor3D.Objects.SplineCurve">
-            <summary>
-            Create a smooth 2d spline curve from a series of points. Internally this uses Interpolations.CatmullRom to create the curve.
-            </summary>
-        </member>
-        <member name="P:HomagGroup.Blazor3D.Objects.SplineCurve.Material">
-            <summary>
-            <para>Collection of <see cref="T:HomagGroup.Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
-            </summary>
-        </member>
-        <member name="P:HomagGroup.Blazor3D.Objects.SplineCurve.Geometry">
-            <summary>
-            <para>An instance of <see cref="T:HomagGroup.Blazor3D.Geometires.Curves.SplineCurveGeometry"/> (or derived classes), defining the object's structure.</para>
             </summary>
         </member>
         <member name="T:HomagGroup.Blazor3D.Objects.Sprite">
