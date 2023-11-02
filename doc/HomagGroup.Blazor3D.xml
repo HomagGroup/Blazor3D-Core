@@ -202,6 +202,11 @@
             Collection of <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/> child objects.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Core.Object3D.AnimateObject3DSettings">
+            <summary>
+            Settings to create movement animations on the object
+            </summary>
+        </member>
         <member name="M:HomagGroup.Blazor3D.Core.Object3D.Add(HomagGroup.Blazor3D.Core.Object3D)">
             <summary>
             Adds a child <see cref="T:HomagGroup.Blazor3D.Core.Object3D"/> object to the Children collection.
@@ -1603,6 +1608,36 @@
             Scene background color. 
             You can use <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">web color values</a> to set up required color.
             Default value is "DarkSlateBlue">
+            </summary>
+        </member>
+        <member name="T:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings">
+            <summary>
+            <para>Settings used for animations on Object3D/>.</para>
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings.AnimateObject">
+            <summary>
+            The option indicates whether the animation on the object should be applied. Default is false.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings.Points">
+            <summary>
+            a list of <see cref="T:HomagGroup.Blazor3D.Maths.Vector3"/> points representing the path for object movement.
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings.Speed">
+            <summary>
+            The animation speed
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings.IndexPointer">
+            <summary>
+            An index pointer for traversing the <see cref="P:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings.Points"/> list
+            </summary>
+        </member>
+        <member name="P:HomagGroup.Blazor3D.Settings.AnimateObject3DSettings.LoopAnimation">
+            <summary>
+            The option to indicate whether the animation should restart when it finishes.
             </summary>
         </member>
         <member name="T:HomagGroup.Blazor3D.Settings.AnimateRotationSettings">

@@ -1256,10 +1256,12 @@ class Viewer3D {
   raycaster = new three__WEBPACK_IMPORTED_MODULE_8__.Raycaster();
 
   INTERSECTED = null;
+  clock = null;
 
   constructor(options, container) {
     this.options = options;
     this.container = container;
+    this.clock = new three__WEBPACK_IMPORTED_MODULE_8__.Clock();
 
     this.scene = new three__WEBPACK_IMPORTED_MODULE_8__.Scene();
     this.setScene();
@@ -1302,37 +1304,13 @@ class Viewer3D {
       requestAnimationFrame(animate);
       this.render();
     };
+    
     animate();
   }
 
   render() {
-    let cameraAnimationSettigns = this.options.camera.animateRotationSettings;
-    if (
-      cameraAnimationSettigns &&
-      cameraAnimationSettigns.animateRotation == true
-    ) {
-      let radius = cameraAnimationSettigns.radius;
-
-      this.thetaX = this.thetaX + cameraAnimationSettigns.thetaX;
-      this.thetaY = this.thetaY + cameraAnimationSettigns.thetaY;
-      this.thetaZ = this.thetaZ + cameraAnimationSettigns.thetaZ;
-
-      this.camera.position.x =
-        cameraAnimationSettigns.thetaX == 0
-          ? this.camera.position.x
-          : radius * Math.sin(three__WEBPACK_IMPORTED_MODULE_8__.MathUtils.degToRad(this.thetaX));
-      this.camera.position.y =
-        cameraAnimationSettigns.thetaY == 0
-          ? this.camera.position.y
-          : radius * Math.sin(three__WEBPACK_IMPORTED_MODULE_8__.MathUtils.degToRad(this.thetaY));
-      this.camera.position.z =
-        cameraAnimationSettigns.thetaZ == 0
-          ? this.camera.position.z
-          : radius * Math.cos(three__WEBPACK_IMPORTED_MODULE_8__.MathUtils.degToRad(this.thetaZ));
-      let { x, y, z } = this.options.camera.lookAt;
-      this.camera.lookAt(x, y, z);
-      this.camera.updateMatrixWorld();
-    }
+      this.rotateCamera();
+      this.animateObjects();
 
     if (this.options.viewerSettings.showViewHelper && this.viewHelper) {
       this.renderer.clear();
@@ -1411,6 +1389,67 @@ class Viewer3D {
     this.options.camera = newCamera;
     this.setCamera();
     this.setOrbitControls();
+  }
+
+  rotateCamera() {
+    let cameraAnimationSettings = this.options.camera.animateRotationSettings;
+
+    if (
+        !cameraAnimationSettings ||
+        cameraAnimationSettings.animateRotation === false
+    ){
+      return;
+    }
+      
+    let radius = cameraAnimationSettings.radius;
+
+    this.thetaX = this.thetaX + cameraAnimationSettings.thetaX;
+    this.thetaY = this.thetaY + cameraAnimationSettings.thetaY;
+    this.thetaZ = this.thetaZ + cameraAnimationSettings.thetaZ;
+
+    this.camera.position.x =
+        cameraAnimationSettings.thetaX === 0
+            ? this.camera.position.x
+            : radius * Math.sin(three__WEBPACK_IMPORTED_MODULE_8__.MathUtils.degToRad(this.thetaX));
+    this.camera.position.y =
+        cameraAnimationSettings.thetaY === 0
+            ? this.camera.position.y
+            : radius * Math.sin(three__WEBPACK_IMPORTED_MODULE_8__.MathUtils.degToRad(this.thetaY));
+    this.camera.position.z =
+        cameraAnimationSettings.thetaZ === 0
+            ? this.camera.position.z
+            : radius * Math.cos(three__WEBPACK_IMPORTED_MODULE_8__.MathUtils.degToRad(this.thetaZ));
+    let { x, y, z } = this.options.camera.lookAt;
+    this.camera.lookAt(x, y, z);
+    this.camera.updateMatrixWorld();
+  }
+  
+  animateObjects(){
+    const objectsToAnimate = this.options.scene.children.filter(x => x.animateObject3DSettings?.animateObject === true);
+    objectsToAnimate.forEach(object3dOptions => {
+      const object3d = this.scene.children.find(x => x.uuid === object3dOptions.uuid)
+      const animationSettings = object3dOptions.animateObject3DSettings;
+      
+      if (animationSettings.points.length === animationSettings.indexPointer){
+        if (animationSettings.loopAnimation === false){
+          return;
+        }
+        animationSettings.indexPointer = 0;
+        object3d.position.copy(new three__WEBPACK_IMPORTED_MODULE_8__.Vector3(animationSettings.points[0].x, animationSettings.points[0].y, animationSettings.points[0].z))
+      }
+      
+      const {x, y, z} = animationSettings.points[animationSettings.indexPointer];
+      
+      const target = new three__WEBPACK_IMPORTED_MODULE_8__.Vector3(x, y, z).sub(object3d.position);
+      target.normalize();
+      
+      object3d.translateOnAxis(target, this.clock.getDelta() * animationSettings.speed);
+
+      const distance = new three__WEBPACK_IMPORTED_MODULE_8__.Vector3(x, y, z).sub(object3d.position).length();
+      if (distance < 0.1) {
+        animationSettings.indexPointer++;
+      }
+    });
   }
 
   showCurrentCameraInfo() {
