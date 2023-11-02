@@ -192,6 +192,7 @@ class Viewer3D {
       
       if (animationSettings.points.length === animationSettings.indexPointer){
         if (animationSettings.loopAnimation === false){
+          animationSettings.animateObject = false;
           return;
         }
         animationSettings.indexPointer = 0;
