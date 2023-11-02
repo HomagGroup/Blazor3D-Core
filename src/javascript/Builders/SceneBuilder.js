@@ -3,7 +3,6 @@ import LightBuilder from "./LightBuilder";
 import MeshBuilder from "./MeshBuilder";
 import GroupBuilder from "./GroupBuilder";
 import LineBuilder from "./LineBuilder";
-import SplineCurveBuilder from "./SplineCurveBuilder";
 import SpriteBuilder from "./SpriteBuilder";
 
 class SceneBuilder {

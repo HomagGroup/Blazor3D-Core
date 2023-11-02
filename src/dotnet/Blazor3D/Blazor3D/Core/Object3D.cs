@@ -1,4 +1,5 @@
 ﻿using HomagGroup.Blazor3D.Maths;
+using HomagGroup.Blazor3D.Settings;
 
 namespace HomagGroup.Blazor3D.Core
 {
@@ -45,6 +46,11 @@ namespace HomagGroup.Blazor3D.Core
         /// Collection of <see cref="Object3D"/> child objects.
         /// </summary>
         public List<Object3D> Children { get; set; } = new List<Object3D>();
+
+        /// <summary>
+        /// Settings to create movement animations on the object
+        /// </summary>
+        public AnimateObject3DSettings AnimateObject3DSettings { get; set; }
 
         /// <summary>
         /// Adds a child <see cref="Object3D"/> object to the Children collection.

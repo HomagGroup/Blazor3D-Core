@@ -1,13 +1,15 @@
 ﻿@page "/page6"
 @implements IDisposable
 @using HomagGroup.Blazor3D.Events
-@using HomagGroup.Blazor3D.Helpers
-@using HomagGroup.Blazor3D.Lights
 @using HomagGroup.Blazor3D.Maths
 @using HomagGroup.Blazor3D.Objects
 @using HomagGroup.Blazor3D.Scenes
 @using HomagGroup.Blazor3D.Viewers
 @using HomagGroup.Blazor3D.Cameras
+@using HomagGroup.Blazor3D.Geometires
+@using HomagGroup.Blazor3D.Geometires.Curves
+@using HomagGroup.Blazor3D.Lights
+@using HomagGroup.Blazor3D.Materials
 
 <div class="row justify-content-center">
     <div style="background: black" class="col-9 v3d">
@@ -28,6 +30,7 @@
             {
                 PremultipliedAlpha = false,
                 Alpha = true,
+                Antialias = true,
             }
         };
 
@@ -38,8 +41,7 @@
     
     private Camera camera = new PerspectiveCamera
         {
-            Position = new Vector3(3, 3, 3),
-            LookAt = new Vector3(0, 0.5f, 0)
+            Position = new Vector3(0, 0, 10),
         };
 
     private string selectionMsg = string.Empty;
@@ -65,30 +67,25 @@
     private async Task OnModuleLoaded()
     {
     }
-
+    
     private void AddLights()
     {
         scene.Add(new AmbientLight());
         var plight = new PointLight()
-            {
-                Decay = 2,
-                Position = new Vector3(1, 5, 0)
-            };
+        {
+            Decay = 2,
+            Position = new Vector3(0, 5, 10),
+        };
         scene.Add(plight);
-        scene.Add(new PointLightHelper(plight, 0.5));
     }
 
     private void FillScene()
     {
-        var splineCurve = new SplineCurve
+        var splineMesh = new Line()
         {
-            Divisions = 50,
-            Material =
+            Geometry = new SplineCurveGeometry
             {
-                Color = "red",
-            },
-            Geometry =
-            {
+                Divisions = 50,
                 Points = new List<Vector2>
                 {
                     new(-5, 5),
@@ -96,10 +93,81 @@
                     new(0, 0),
                     new(5, -5),
                     new(10, 0),
+                }
+            },
+            Material = new LineBasicMaterial {Color = "red"},
+        };
+        
+        var mesh = new Mesh
+        {
+            Geometry = new CircleGeometry(radius: 1f, segments: 12),
+            Position = new Vector3(-5,5, 0),
+            Scale = new Vector3(0.3f,0.3f, 0.3f),
+            Material = new MeshStandardMaterial(){Color = "green"},
+            AnimateObject3DSettings = new AnimateObject3DSettings()
+            {
+                Speed = 3,
+                AnimateObject = true,
+                Points = new List<Vector3>
+                {
+                    new(-5, 5, 0),
+                    new(-5.27488, 4.75456, 0),
+                    new(-5.6790400000000005, 4.42848, 0),
+                    new(-6.18176, 4.03712, 0),
+                    new(-6.75232, 3.59584, 0),
+                    new(-7.36, 3.12, 0),
+                    new(-7.97408, 2.6249599999999997, 0),
+                    new(-8.563839999999999, 2.12608, 0),
+                    new(-9.098559999999999, 1.6387200000000002, 0),
+                    new(-9.547519999999999, 1.1782400000000002, 0),
+                    new(-9.88, 0.7599999999999998, 0),
+                    new(-10.065280000000001, 0.3993599999999997, 0),
+                    new(-10.07264, 0.11167999999999978, 0),
+                    new(-9.87264, -0.08832000000000007, 0),
+                    new(-9.46528, -0.2006400000000001, 0),
+                    new(-8.88, -0.24000000000000005, 0),
+                    new(-8.14752, -0.22176, 0),
+                    new(-7.298559999999998, -0.16127999999999987, 0),
+                    new(-6.363840000000001, -0.07391999999999999, 0),
+                    new(-5.37408, 0.02495999999999987, 0),
+                    new(-4.359999999999999, 0.11999999999999988, 0),
+                    new(-3.3523200000000006, 0.19584000000000001, 0),
+                    new(-2.38176, 0.23711999999999955, 0),
+                    new(-1.4790399999999995, 0.2284799999999998, 0),
+                    new(-0.6748800000000017, 0.15456000000000003, 0),
+                    new(0, 0, 0),
+                    new(0.5692800000000005, -0.2601600000000003, 0),
+                    new(1.082240000000001, -0.6252800000000007, 0),
+                    new(1.5465600000000013, -1.0723200000000013, 0),
+                    new(1.969919999999999, -1.5782399999999988, 0),
+                    new(2.3599999999999994, -2.119999999999999, 0),
+                    new(2.72448, -2.6745599999999996, 0),
+                    new(3.07104, -3.2188800000000004, 0),
+                    new(3.40736, -3.729920000000001, 0),
+                    new(3.7411200000000004, -4.184640000000001, 0),
+                    new(4.079999999999999, -4.559999999999999, 0),
+                    new(4.43168, -4.83296, 0),
+                    new(4.803839999999999, -4.98048, 0),
+                    new(5.2038400000000005, -4.98048, 0),
+                    new(5.63168, -4.83296, 0),
+                    new(6.080000000000001, -4.56, 0),
+                    new(6.541119999999999, -4.184640000000001, 0),
+                    new(7.007359999999999, -3.729920000000001, 0),
+                    new(7.47104, -3.2188800000000004, 0),
+                    new(7.92448, -2.6745599999999996, 0),
+                    new(8.36, -2.1199999999999997, 0),
+                    new(8.76992, -1.5782399999999988, 0),
+                    new(9.14656, -1.0723200000000013, 0),
+                    new(9.48224, -0.625280000000001, 0),
+                    new(9.76928, -0.26016000000000084, 0),
+                    new(10, 0, 0),
                 },
+                LoopAnimation = true,
             },
         };
-        scene.Add(splineCurve);
+        
+        scene.Add(splineMesh);
+        scene.Add(mesh);
     }
 
     private void OnObjectSelected(Object3DArgs e)

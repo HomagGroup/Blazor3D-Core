@@ -182,7 +182,15 @@ class GeometryBuilder {
       return geometry;
     }
 
-    if (options.type == "LineGeometry" || options.type == "SplineCurveGeometry") {
+    if (options.type == "SplineCurveGeometry") {
+      const curve = new THREE.SplineCurve(options.points);
+      const curvePoints = curve.getPoints(options.divisions)
+      const geometry = new THREE.BufferGeometry().setFromPoints( curvePoints )
+      geometry.uuid = options.uuid;
+      return geometry;
+    }
+
+    if (options.type == "LineGeometry") {
       const geometry = new THREE.BufferGeometry().setFromPoints( options.points )
       geometry.uuid = options.uuid;
       return geometry;
