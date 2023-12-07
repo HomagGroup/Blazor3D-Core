@@ -19,6 +19,7 @@ namespace HomagGroup.Blazor3D.Tests.Cameras
             Assert.AreEqual(1, camera.Zoom);
             Assert.IsNotNull(camera.AnimateRotationSettings);
             Assert.IsNotNull(camera.LookAt);
+            Assert.IsNotNull(camera.Up);
         }
 
         [TestMethod]
