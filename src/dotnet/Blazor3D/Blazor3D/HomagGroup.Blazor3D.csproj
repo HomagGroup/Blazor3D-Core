@@ -39,4 +39,8 @@ See examples of using here https://github.com/HomagGroup/HomagGroup.Blazor3D
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
 </Project>

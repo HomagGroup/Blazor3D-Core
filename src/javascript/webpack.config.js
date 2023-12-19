@@ -24,6 +24,6 @@ module.exports = (env, argv) => {
           ],
           experiments: {
             outputModule: true,
-          },
+          }
     };
 };
