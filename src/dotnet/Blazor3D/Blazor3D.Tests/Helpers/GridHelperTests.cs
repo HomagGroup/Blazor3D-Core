@@ -1,13 +1,13 @@
 ﻿using HomagGroup.Blazor3D.Helpers;
 
-namespace HomagGroup.Blazor3D.Tests.Helpers
+namespace HomagGroup.Blazor3D.Tests.Helpers;
+
+[TestClass]
+public class GridHelperTests
 {
-    [TestClass]
-    public class GridHelperTests
+    [TestMethod]
+    public void DefaultConstuctorShouldCreateWithPredefinedValues()
     {
-        [TestMethod]
-        public void DefaultConstuctorShouldCreateWithPredefinedValues()
-        {
             var grid = new GridHelper();
             Assert.AreEqual("GridHelper", grid.Type);
             Assert.AreEqual(10, grid.Size);
@@ -17,9 +17,9 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
 
         }
 
-        [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
-        {
+    [TestMethod]
+    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    {
             var grid = new GridHelper(6, 6, "red", "orange");
             Assert.AreEqual("GridHelper", grid.Type);
             Assert.AreEqual(6, grid.Size);
@@ -27,5 +27,4 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual("red", grid.ColorCenterLine);
             Assert.AreEqual("orange", grid.ColorGrid);
         }
-    }
 }

@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>..\..\..\..\doc\HomagGroup.Blazor3D.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>..\..\..\..\doc\HomagGroup.Blazor3D.xml</DocumentationFile>
+	</PropertyGroup>
 
 	<PropertyGroup>
 		<PackageId>Blazor3D</PackageId>
@@ -14,29 +15,30 @@
 		<PackageTags>Blazor3D, three.js, Blazor, Razor, Homag-Group, Homag, HomagGroup</PackageTags>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/HomagGroup/HomagGroup.Blazor3D-Core</RepositoryUrl>
-		<Description>This Razor class library (RCL) contains the Blazor component which allows you create 3D scenes inside your Blazor application.
-This Blazor3D component uses three.js library to display 3D scenes on html canvas.
-See examples of using here https://github.com/HomagGroup/HomagGroup.Blazor3D
+		<Description>
+			This Razor class library (RCL) contains the Blazor component which allows you create 3D scenes inside your Blazor application.
+			This Blazor3D component uses three.js library to display 3D scenes on html canvas.
+			See examples of using here https://github.com/HomagGroup/HomagGroup.Blazor3D
 		</Description>
 		<AssemblyName>Blazor3D</AssemblyName>
 	</PropertyGroup>
-	
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>1701;1702;1591</NoWarn>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>1701;1702;1591</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<NoWarn>1701;1702;1591</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<NoWarn>1701;1702;1591</NoWarn>
+	</PropertyGroup>
 
 
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
 
 </Project>

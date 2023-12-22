@@ -1,9 +1,8 @@
-﻿namespace HomagGroup.Blazor3D.Enums.Lines
+﻿namespace HomagGroup.Blazor3D.Enums.Lines;
+
+public enum LineCap
 {
-    public enum LineCap
-    {
-        Round,
-        Butt,
-        Square
-    }
+    Round,
+    Butt,
+    Square
 }

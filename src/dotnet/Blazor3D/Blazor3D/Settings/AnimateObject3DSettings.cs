@@ -1,5 +1,3 @@
-using HomagGroup.Blazor3D.Maths;
-
 namespace HomagGroup.Blazor3D.Settings;
 
 /// <summary>

@@ -1,9 +1,8 @@
-﻿namespace HomagGroup.Blazor3D.Enums.Lines
+﻿namespace HomagGroup.Blazor3D.Enums.Lines;
+
+public enum LineJoin
 {
-    public enum LineJoin
-    {
-        Round,
-        Bevel,
-        Miter
-    }
+    Round,
+    Bevel,
+    Miter
 }

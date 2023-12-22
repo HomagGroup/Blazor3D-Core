@@ -1,14 +1,14 @@
 ﻿using HomagGroup.Blazor3D.Helpers;
 using HomagGroup.Blazor3D.Maths;
 
-namespace HomagGroup.Blazor3D.Tests.Helpers
+namespace HomagGroup.Blazor3D.Tests.Helpers;
+
+[TestClass]
+public class ArrowHelperTests
 {
-    [TestClass]
-    public class ArrowHelperTests
+    [TestMethod]
+    public void DefaultConstuctorShouldCreateWithPredefinedValues()
     {
-        [TestMethod]
-        public void DefaultConstuctorShouldCreateWithPredefinedValues()
-        {
             var arrow = new ArrowHelper();
             Assert.AreEqual("ArrowHelper", arrow.Type);
             Assert.AreEqual(0, arrow.Dir.X);
@@ -23,9 +23,9 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual(0.2*0.2, arrow.HeadWidth);
         }
 
-        [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
-        {
+    [TestMethod]
+    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    {
             var arrow = new ArrowHelper(
                 dir: new Vector3(3, 3, 3),
                 origin: new Vector3(3,3,3),
@@ -45,5 +45,4 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual(2, arrow.HeadLength);
             Assert.AreEqual(4, arrow.HeadWidth);
         }
-    }
 }

@@ -1,13 +1,13 @@
 ﻿using HomagGroup.Blazor3D.Helpers;
 
-namespace HomagGroup.Blazor3D.Tests.Helpers
+namespace HomagGroup.Blazor3D.Tests.Helpers;
+
+[TestClass]
+public class PolarGridHelperTests
 {
-    [TestClass]
-    public class PolarGridHelperTests
+    [TestMethod]
+    public void DefaultConstuctorShouldCreateWithPredefinedValues()
     {
-        [TestMethod]
-        public void DefaultConstuctorShouldCreateWithPredefinedValues()
-        {
             var grid = new PolarGridHelper();
             Assert.AreEqual("PolarGridHelper", grid.Type);
             Assert.AreEqual(10, grid.Radius);
@@ -19,9 +19,9 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
 
         }
 
-        [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
-        {
+    [TestMethod]
+    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    {
             var grid = new PolarGridHelper(2, 2, 6, 32, "red", "orange");
             Assert.AreEqual("PolarGridHelper", grid.Type);
             Assert.AreEqual(2, grid.Radius);
@@ -31,5 +31,4 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual("red", grid.Color1);
             Assert.AreEqual("orange", grid.Color2);
         }
-    }
 }

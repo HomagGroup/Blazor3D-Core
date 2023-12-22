@@ -1,14 +1,14 @@
 ﻿using HomagGroup.Blazor3D.Helpers;
 using HomagGroup.Blazor3D.Maths;
 
-namespace HomagGroup.Blazor3D.Tests.Helpers
+namespace HomagGroup.Blazor3D.Tests.Helpers;
+
+[TestClass]
+public class PlaneHelperTests
 {
-    [TestClass]
-    public class PlaneHelperTests
+    [TestMethod]
+    public void DefaultConstuctorShouldCreateWithPredefinedValues()
     {
-        [TestMethod]
-        public void DefaultConstuctorShouldCreateWithPredefinedValues()
-        {
             var plane = new PlaneHelper();
             Assert.AreEqual("PlaneHelper", plane.Type);
             Assert.IsNotNull(plane.Plane);
@@ -22,9 +22,9 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
 
         }
 
-        [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
-        {
+    [TestMethod]
+    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    {
             var plane = new PlaneHelper(new Plane(new Vector3(1, 1, 1), 1));
             Assert.AreEqual("PlaneHelper", plane.Type);
             Assert.IsNotNull(plane.Plane);
@@ -36,5 +36,4 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual(1, plane.Size);
             Assert.AreEqual("0xffff00", plane.Color);
         }
-    }
 }

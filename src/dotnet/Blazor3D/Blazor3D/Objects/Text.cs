@@ -1,10 +1,9 @@
-﻿namespace HomagGroup.Blazor3D.Objects
+﻿namespace HomagGroup.Blazor3D.Objects;
+
+public class Text : Mesh
 {
-    public class Text : Mesh
+    public Text() : base("Text")
     {
-        public Text() : base("Text")
-        {
             
-        }
     }
 }

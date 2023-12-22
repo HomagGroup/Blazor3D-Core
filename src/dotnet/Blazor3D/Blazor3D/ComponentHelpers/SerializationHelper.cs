@@ -1,17 +1,15 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using Newtonsoft.Json.Serialization;
 
-namespace HomagGroup.Blazor3D.ComponentHelpers
+namespace HomagGroup.Blazor3D.ComponentHelpers;
+
+internal static class SerializationHelper
 {
-    internal static class SerializationHelper
+    internal static JsonSerializerSettings GetSerializerSettings()
     {
-        internal static JsonSerializerSettings GetSerializerSettings()
+        return new JsonSerializerSettings()
         {
-            return new JsonSerializerSettings()
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            };
-        }
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+        };
     }
 }

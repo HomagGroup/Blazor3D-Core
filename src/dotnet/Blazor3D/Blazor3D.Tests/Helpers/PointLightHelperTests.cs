@@ -1,14 +1,14 @@
 ﻿using HomagGroup.Blazor3D.Helpers;
 using HomagGroup.Blazor3D.Lights;
 
-namespace HomagGroup.Blazor3D.Tests.Helpers
+namespace HomagGroup.Blazor3D.Tests.Helpers;
+
+[TestClass]
+public class PointLightHelperTests
 {
-    [TestClass]
-    public class PointLightHelperTests
+    [TestMethod]
+    public void DefaultConstuctorShouldCreateWithPredefinedValues()
     {
-        [TestMethod]
-        public void DefaultConstuctorShouldCreateWithPredefinedValues()
-        {
             var helper = new PointLightHelper();
             Assert.AreEqual("PointLightHelper", helper.Type);
             Assert.IsNotNull(helper.Light);
@@ -16,9 +16,9 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual(1, helper.SphereSize);
         }
 
-        [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
-        {
+    [TestMethod]
+    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    {
             var light = new PointLight()
             {
                 Color = "red"
@@ -31,5 +31,4 @@ namespace HomagGroup.Blazor3D.Tests.Helpers
             Assert.AreEqual(2, helper.SphereSize);
             Assert.AreEqual("blue", helper.Color);
         }
-    }
 }

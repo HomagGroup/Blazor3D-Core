@@ -1,13 +1,13 @@
 ﻿using HomagGroup.Blazor3D.Settings;
 
-namespace HomagGroup.Blazor3D.Tests.Settings
+namespace HomagGroup.Blazor3D.Tests.Settings;
+
+[TestClass]
+public class AnimateRotationSettingsTests
 {
-    [TestClass]
-    public class AnimateRotationSettingsTests
+    [TestMethod]
+    public void DefaultConstuctorShouldCreateWithPredefinedValues()
     {
-        [TestMethod]
-        public void DefaultConstuctorShouldCreateWithPredefinedValues()
-        {
             var settings = new AnimateRotationSettings();
 
             Assert.AreEqual(false, settings.AnimateRotation);
@@ -18,9 +18,9 @@ namespace HomagGroup.Blazor3D.Tests.Settings
            
         }
 
-        [TestMethod]
-        public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
-        {
+    [TestMethod]
+    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    {
             var settings = new AnimateRotationSettings(true, 1, 1, 1, 1);
 
             Assert.AreEqual(true, settings.AnimateRotation);
@@ -29,5 +29,4 @@ namespace HomagGroup.Blazor3D.Tests.Settings
             Assert.AreEqual(1, settings.ThetaZ);
             Assert.AreEqual(1, settings.Radius);
         }
-    }
 }
