@@ -13,6 +13,7 @@ using HomagGroup.Blazor3D.Events;
 using Newtonsoft.Json.Linq;
 using HomagGroup.Blazor3D.Core;
 using HomagGroup.Blazor3D.Materials;
+using HomagGroup.Blazor3D.Enums;
 
 namespace HomagGroup.Blazor3D.Viewers
 {
@@ -237,6 +238,40 @@ namespace HomagGroup.Blazor3D.Viewers
             var json = JsonConvert.SerializeObject(settings, SerializationHelper.GetSerializerSettings());
             await bundleModule.InvokeVoidAsync("import3DModel", json);
             return settings.Uuid.Value;
+        }
+
+        /// <summary>
+        /// <para>Imports 3D model file to scene.</para>
+        /// </summary>
+        /// <param name="fileUrl">URL of the 3D model file.</param>
+        /// <param name="material"><see cref="MeshStandardMaterial"/>Material that will be applied to all loaded meshes.</param>
+        /// <param name="textureUrl">URL of the texture file.</param>
+        /// <param name="Uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
+        /// <returns>Guid of the loaded item</returns>
+        public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null, string? textureUrl = null, Guid? Uuid = null)
+        {
+            var settings = new ImportSettings()
+            {
+                FileURL = fileUrl,
+                Format = fileUrl.Split('.')[1].ToLower() switch
+                {
+                    "stl" => Import3DFormats.Stl,
+                    "obj" => Import3DFormats.Obj,
+                    "gltf" => Import3DFormats.Gltf,
+                    "glb" => Import3DFormats.Gltf,
+                    "dae" => Import3DFormats.Collada,
+                    "fbx" => Import3DFormats.Fbx,
+                    _ => Import3DFormats.Obj
+                }
+            };
+
+            if (material is not null) settings.Material = material;
+
+            if (textureUrl is not null) settings.TextureURL = textureUrl;
+
+            if (Uuid is not null) settings.Uuid = Uuid;
+
+            return Import3DModelAsync(settings);
         }
 
         /// <summary>
