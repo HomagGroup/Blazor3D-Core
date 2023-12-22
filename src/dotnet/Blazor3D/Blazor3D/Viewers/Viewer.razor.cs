@@ -15,7 +15,7 @@ public sealed partial class Viewer : IDisposable
 
     private event LoadedObjectEventHandler ObjectLoadedPrivate = null!;
 
-        
+
     /// <summary>
     /// Raises when user selects object by mouse clicking inside viewer area.
     /// </summary>
@@ -26,12 +26,12 @@ public sealed partial class Viewer : IDisposable
     /// </summary>
     public event LoadedObjectEventHandler ObjectLoaded = null!;
 
-        
+
     /// <summary>
     /// Raises after JavaScript module is completely loaded.
     /// </summary>
     public event LoadedModuleEventHandler JsModuleLoaded = null!;
-       
+
 
     /// <summary>
     /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
@@ -82,12 +82,12 @@ public sealed partial class Viewer : IDisposable
             }
 
             var json = JsonConvert.SerializeObject(new
-                {
-                    Scene = Scene,
-                    ViewerSettings = ViewerSettings,
-                    Camera = Camera,
-                    OrbitControls = OrbitControls,
-                },
+            {
+                Scene = Scene,
+                ViewerSettings = ViewerSettings,
+                Camera = Camera,
+                OrbitControls = OrbitControls,
+            },
                 SerializationHelper.GetSerializerSettings());
 
             await bundleModule.InvokeVoidAsync("loadViewer", json);
@@ -116,7 +116,7 @@ public sealed partial class Viewer : IDisposable
         await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
     }
 
-        
+
 
     /// <summary>
     /// Apply updated camera settings to viewer.
@@ -239,12 +239,11 @@ public sealed partial class Viewer : IDisposable
             Format = fileUrl.Split('.')[1].ToLower() switch
             {
                 "stl" => Import3DFormats.Stl,
-                "obj" => Import3DFormats.Obj,
-                "gltf" => Import3DFormats.Gltf,
-                "glb" => Import3DFormats.Gltf,
+                "gltf" or "glb" => Import3DFormats.Gltf,
                 "dae" => Import3DFormats.Collada,
                 "fbx" => Import3DFormats.Fbx,
-                _ => Import3DFormats.Obj
+                "usd" or "usda" or "usdc" or "usdz" => Import3DFormats.Usdz,
+                "obj" or _ => Import3DFormats.Obj
             }
         };
 
@@ -416,7 +415,7 @@ public sealed partial class Viewer : IDisposable
             if (sprite != null)
             {
                 Scene.Children.Add(sprite);
-                ObjectLoaded?.Invoke(new Object3DArgs() { UUID= e.UUID });
+                ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
             }
         }
     }
