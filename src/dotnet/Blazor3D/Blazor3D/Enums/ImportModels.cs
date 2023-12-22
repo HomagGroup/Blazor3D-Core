@@ -24,5 +24,9 @@ public enum Import3DFormats
     /// <summary>
     /// <a target="_blank" href="https://en.wikipedia.org/wiki/STL_(file_format)">Stl</a> format.
     /// </summary>
-    Stl
+    Stl,
+    /// <summary>
+    /// <a target="_blank" href="https://en.wikipedia.org/wiki/Universal_Scene_Description">Usdz</a> format.
+    /// </summary>
+    Usdz
 }
