@@ -1966,6 +1966,16 @@
             <param name="settings"><see cref="T:HomagGroup.Blazor3D.Settings.ImportSettings"/> Settings that will be applied during 3D model file importing.</param>
             <returns>Guid of the loaded item</returns>
         </member>
+        <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.Import3DModelFileAsync(System.String,HomagGroup.Blazor3D.Materials.MeshStandardMaterial,System.String,System.Nullable{System.Guid})">
+            <summary>
+            <para>Imports 3D model file to scene.</para>
+            </summary>
+            <param name="fileUrl">URL of the 3D model file.</param>
+            <param name="material"><see cref="T:HomagGroup.Blazor3D.Materials.MeshStandardMaterial"/>Material that will be applied to all loaded meshes.</param>
+            <param name="textureUrl">URL of the texture file.</param>
+            <param name="Uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
+            <returns>Guid of the loaded item</returns>
+        </member>
         <member name="M:HomagGroup.Blazor3D.Viewers.Viewer.ImportSpriteAsync(HomagGroup.Blazor3D.Settings.SpriteImportSettings)">
             <summary>
             <para>Imports sprite to scene.</para>

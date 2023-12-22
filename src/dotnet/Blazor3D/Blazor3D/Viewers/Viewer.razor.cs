@@ -271,7 +271,7 @@ namespace HomagGroup.Blazor3D.Viewers
 
             if (Uuid is not null) settings.Uuid = Uuid;
 
-            return Import3DModelAsync(settings);
+            return await Import3DModelAsync(settings);
         }
 
         /// <summary>
