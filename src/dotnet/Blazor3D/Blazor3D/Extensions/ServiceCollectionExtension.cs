@@ -6,14 +6,20 @@ public static class ServiceCollectionExtension
     {
         var provider = new FileExtensionContentTypeProvider();
 
-        provider.Mappings.Add(".fbx", "application/octet-stream");
-        provider.Mappings.Add(".gltf", "model/gltf+json");
-        provider.Mappings.Add(".glb", "model/gltf-binary");
-        provider.Mappings.Add(".dae", "model/vnd.collada+xml");
-        provider.Mappings.Add(".stl", "model/stl");
+        provider.AddMapping(".fbx", "application/octet-stream");
+        provider.AddMapping(".gltf", "model/gltf+json");
+        provider.AddMapping(".glb", "model/gltf-binary");
+        provider.AddMapping(".dae", "model/vnd.collada+xml");
+        provider.AddMapping(".stl", "model/stl");
 
         services.Configure<StaticFileOptions>(s => s.ContentTypeProvider = provider);
 
         return services;
+    }
+
+    private static void AddMapping(this FileExtensionContentTypeProvider provider, string fileExtension, string mimeType)
+    {
+        if (!provider.Mappings.ContainsKey(fileExtension))
+            provider.Mappings.Add(fileExtension, mimeType);
     }
 }
