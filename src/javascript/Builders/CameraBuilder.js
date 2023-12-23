@@ -30,6 +30,7 @@ class CameraBuilder {
     Transforms.setPosition(camera, options.position);
     Transforms.setRotation(camera, options.rotation);
     Transforms.setScale(camera, options.scale);
+    camera.up = new THREE.Vector3(options.up.x, options.up.y, options.up.z);
     let {x, y, z} = options.lookAt;
     camera.lookAt(x, y, z);
     return camera;
