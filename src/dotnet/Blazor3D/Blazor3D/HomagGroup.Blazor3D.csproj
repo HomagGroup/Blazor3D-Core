@@ -19,6 +19,9 @@ This Blazor3D component uses three.js library to display 3D scenes on html canva
 See examples of using here https://github.com/HomagGroup/HomagGroup.Blazor3D
 		</Description>
 		<AssemblyName>Blazor3D</AssemblyName>
+		<AssemblyVersion>0.203</AssemblyVersion>
+		<FileVersion>0.203</FileVersion>
+		<Version>0.203-alpha</Version>
 	</PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -37,6 +40,10 @@ See examples of using here https://github.com/HomagGroup/HomagGroup.Blazor3D
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>
