@@ -1,17 +1,5 @@
 ﻿@page "/page2"
 @implements IDisposable
-@using HomagGroup.Blazor3D.Core
-@using HomagGroup.Blazor3D.Enums
-@using HomagGroup.Blazor3D.Events
-@using HomagGroup.Blazor3D.Geometires
-@using HomagGroup.Blazor3D.Helpers
-@using HomagGroup.Blazor3D.Lights
-@using HomagGroup.Blazor3D.Materials
-@using HomagGroup.Blazor3D.Maths
-@using HomagGroup.Blazor3D.Objects
-@using HomagGroup.Blazor3D.Scenes
-@using HomagGroup.Blazor3D.Viewers
-@using HomagGroup.Blazor3D.Cameras
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
@@ -79,12 +67,9 @@
 
     private async Task OnModuleLoaded()
     {
-        //await View3D1.Import3DModelAsync(
-        //   Import3DFormats.Fbx,
-        //   "https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx",
-        //   null,
-        //   loadedObjectGuid);
-        // await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
+        await View3D1.Import3DModelFileAsync("https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx", Uuid: loadedObjectGuid);
+         
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
     }
 
     private void AddLights()

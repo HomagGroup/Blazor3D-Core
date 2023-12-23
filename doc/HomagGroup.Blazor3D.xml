@@ -21,6 +21,12 @@
             The point camera looks at.
             </summary>
         </member>
+        <member name="P:HomagGroup.Blazor3D.Cameras.Camera.Up">
+            <summary>
+            This is used by the LookAt method, for example, to determine the orientation of the result.
+            Default is ( 0, 1, 0 ).
+            </summary>
+        </member>
         <member name="T:HomagGroup.Blazor3D.Cameras.OrthographicCamera">
             <summary>
             <para>Camera that uses <a target="_blank" href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.</para>
