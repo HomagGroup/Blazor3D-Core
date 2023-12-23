@@ -10,10 +10,8 @@ namespace HomagGroup.Blazor3D.Materials;
 /// <inheritdoc><see cref="MeshStandardMaterial"/></inheritdoc>
 public sealed class MeshStandardMaterial : Material
 {
-        
     public MeshStandardMaterial() : base("MeshStandardMaterial")
     {
-
     }
 
     /// <summary>

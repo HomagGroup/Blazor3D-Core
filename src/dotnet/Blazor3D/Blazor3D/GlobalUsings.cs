@@ -4,6 +4,7 @@ global using HomagGroup.Blazor3D.Controls;
 global using HomagGroup.Blazor3D.Core;
 global using HomagGroup.Blazor3D.Enums;
 global using HomagGroup.Blazor3D.Events;
+global using HomagGroup.Blazor3D.Geometires;
 global using HomagGroup.Blazor3D.Lights;
 global using HomagGroup.Blazor3D.Materials;
 global using HomagGroup.Blazor3D.Maths;

@@ -8,9 +8,11 @@ public sealed partial class Viewer : IDisposable
     private IJSObjectReference bundleModule = null!;
 
     private delegate void SelectedObjectStaticEventHandler(Object3DStaticArgs e);
+
     private static event SelectedObjectStaticEventHandler ObjectSelectedStatic = null!;
 
     private delegate void LoadedObjectStaticEventHandler(Object3DStaticArgs e);
+
     private static event LoadedObjectStaticEventHandler ObjectLoadedStatic = null!;
 
     private event LoadedObjectEventHandler ObjectLoadedPrivate = null!;
@@ -82,12 +84,12 @@ public sealed partial class Viewer : IDisposable
             }
 
             var json = JsonConvert.SerializeObject(new
-            {
-                Scene = Scene,
-                ViewerSettings = ViewerSettings,
-                Camera = Camera,
-                OrbitControls = OrbitControls,
-            },
+                {
+                    Scene = Scene,
+                    ViewerSettings = ViewerSettings,
+                    Camera = Camera,
+                    OrbitControls = OrbitControls,
+                },
                 SerializationHelper.GetSerializerSettings());
 
             await bundleModule.InvokeVoidAsync("loadViewer", json);
@@ -115,7 +117,6 @@ public sealed partial class Viewer : IDisposable
     {
         await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
     }
-
 
 
     /// <summary>
@@ -231,7 +232,8 @@ public sealed partial class Viewer : IDisposable
     /// <param name="textureUrl">URL of the texture file.</param>
     /// <param name="Uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
     /// <returns>Guid of the loaded item</returns>
-    public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null, string? textureUrl = null, Guid? Uuid = null)
+    public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null,
+        string? textureUrl = null, Guid? Uuid = null)
     {
         var settings = new ImportSettings()
         {
@@ -375,6 +377,7 @@ public sealed partial class Viewer : IDisposable
                 group.Children.AddRange(childrenResult);
             }
         }
+
         return result;
     }
 

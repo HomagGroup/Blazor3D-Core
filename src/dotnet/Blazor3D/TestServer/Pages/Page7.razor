@@ -3,7 +3,7 @@
 
 <div class="row justify-content-center">
     <div style="background: cadetblue" class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera/>
     </div>
     <div>@selectionMsg</div>
 </div>
@@ -11,17 +11,18 @@
 @code {
     private Viewer View3D1 = null!;
     private Guid objGuid;
+
     private ViewerSettings settings = new ViewerSettings()
+    {
+        ContainerId = "rsid",
+        CanSelect = true,
+        CanSelectHelpers = false,
+        WebGLRendererSettings = new WebGLRendererSettings()
         {
-            ContainerId = "rsid",
-            CanSelect = true,
-            CanSelectHelpers = false,
-            WebGLRendererSettings = new WebGLRendererSettings()
-            {
-                PremultipliedAlpha = false,
-                Alpha = true,
-            }
-        };
+            PremultipliedAlpha = false,
+            Alpha = true,
+        }
+    };
 
     private Scene scene = new Scene()
     {
@@ -29,10 +30,10 @@
     };
 
     private Camera camera = new PerspectiveCamera
-        {
-            Position = new Vector3(3, 3, 3),
-            LookAt = new Vector3(0, 0.5f, 0)
-        };
+    {
+        Position = new Vector3(3, 3, 3),
+        LookAt = new Vector3(0, 0.5f, 0)
+    };
 
     private string selectionMsg = string.Empty;
 
@@ -56,23 +57,21 @@
 
     private async Task OnModuleLoaded()
     {
-
         var spriteMaterial = new SpriteMaterial
-            {
-                Transparent = true,
-                Name = "BlazorLogo",
-                Color = "white",
-                DepthTest = false,
-                DepthWrite = false,
-            };
+        {
+            Transparent = true,
+            Name = "BlazorLogo",
+            Color = "white",
+            DepthTest = false,
+            DepthWrite = false,
+        };
 
         var settings = new SpriteImportSettings
-            {
-                FileURL = "images/Blazor.png",
-                Material = spriteMaterial,
-                Position = new Vector3(3, 0, 0)
-
-            };
+        {
+            FileURL = "images/Blazor.png",
+            Material = spriteMaterial,
+            Position = new Vector3(3, 0, 0)
+        };
 
         await View3D1.ImportSpriteAsync(settings);
         //await View3D1.Import3DModelAsync(
@@ -87,42 +86,42 @@
     {
         scene.Add(new AmbientLight());
         var plight = new PointLight()
-            {
-                //Color = "red",
-                Decay = 2,
-                Position = new Vector3(1, 5, 0)
-            };
+        {
+            //Color = "red",
+            Decay = 2,
+            Position = new Vector3(1, 5, 0)
+        };
         scene.Add(plight);
         scene.Add(new PointLightHelper(plight, 0.5));
     }
+
     private void FillScene()
     {
         scene.Add(new Mesh
+        {
+            Geometry = new BoxGeometry(width: 2, height: 0.5f),
+            Position = new Vector3(-1, 1, -1),
+            Rotation = new Euler
             {
-                Geometry = new BoxGeometry(width: 2, height: 0.5f),
-                Position = new Vector3(-1, 1, -1),
-                Rotation = new Euler
-                {
-                    X = Math.PI / 4
-                }
-            });
+                X = Math.PI / 4
+            }
+        });
 
         var rotation = new Euler();
         //rotation.Y = 0.78;
         rotation.X = 0.78;
         rotation.Z = 0.78;
         var sprite = new Sprite()
+        {
+            Position = new Vector3(0, -2, 0),
+            Material = new SpriteMaterial()
             {
-                Position = new Vector3(0, -2, 0),
-                Material = new SpriteMaterial()
-                {
-                    Color = "magenta",
-                    Rotation = Math.PI / 4.0,
-    },
-                Name = "Magenta Sprite",
-            };
+                Color = "magenta",
+                Rotation = Math.PI / 4.0,
+            },
+            Name = "Magenta Sprite",
+        };
         scene.Add(sprite);
-
     }
 
     private void OnObjectSelected(Object3DArgs e)
@@ -140,4 +139,5 @@
         View3D1.ObjectSelected -= OnObjectSelected;
         View3D1.JsModuleLoaded -= OnModuleLoaded;
     }
+
 }

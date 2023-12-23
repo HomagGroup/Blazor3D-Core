@@ -3,7 +3,7 @@
 
 <div class="row justify-content-center">
     <div style="background: black" class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera/>
     </div>
     <div>@selectionMsg</div>
 </div>
@@ -11,28 +11,29 @@
 @code {
     private Viewer View3D1 = null!;
     private Guid objGuid;
+
     private ViewerSettings settings = new ViewerSettings()
+    {
+        ContainerId = "rsid",
+        CanSelect = true,
+        CanSelectHelpers = false,
+        WebGLRendererSettings = new WebGLRendererSettings()
         {
-            ContainerId = "rsid",
-            CanSelect = true,
-            CanSelectHelpers = false,
-            WebGLRendererSettings = new WebGLRendererSettings()
-            {
-                PremultipliedAlpha = false,
-                Alpha = true,
-                Antialias = true,
-            }
-        };
+            PremultipliedAlpha = false,
+            Alpha = true,
+            Antialias = true,
+        }
+    };
 
     private Scene scene = new Scene()
     {
         BackGroundColor = string.Empty,
     };
-    
+
     private Camera camera = new PerspectiveCamera
-        {
-            Position = new Vector3(0, 0, 10),
-        };
+    {
+        Position = new Vector3(0, 0, 10),
+    };
 
     private string selectionMsg = string.Empty;
 
@@ -57,7 +58,7 @@
     private async Task OnModuleLoaded()
     {
     }
-    
+
     private void AddLights()
     {
         scene.Add(new AmbientLight());
@@ -85,15 +86,15 @@
                     new(10, 0),
                 }
             },
-            Material = new LineBasicMaterial {Color = "red"},
+            Material = new LineBasicMaterial { Color = "red" },
         };
-        
+
         var mesh = new Mesh
         {
             Geometry = new CircleGeometry(radius: 1f, segments: 12),
-            Position = new Vector3(-5,5, 0),
-            Scale = new Vector3(0.3f,0.3f, 0.3f),
-            Material = new MeshStandardMaterial(){Color = "green"},
+            Position = new Vector3(-5, 5, 0),
+            Scale = new Vector3(0.3f, 0.3f, 0.3f),
+            Material = new MeshStandardMaterial() { Color = "green" },
             AnimateObject3DSettings = new AnimateObject3DSettings()
             {
                 Speed = 3,
@@ -155,7 +156,7 @@
                 LoopAnimation = true,
             },
         };
-        
+
         scene.Add(splineMesh);
         scene.Add(mesh);
     }
@@ -175,4 +176,5 @@
         View3D1.ObjectSelected -= OnObjectSelected;
         View3D1.JsModuleLoaded -= OnModuleLoaded;
     }
+
 }

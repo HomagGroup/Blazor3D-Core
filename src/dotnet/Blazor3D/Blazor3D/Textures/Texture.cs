@@ -2,9 +2,11 @@
 
 public class Texture
 {
-    public Texture() { }
+    public Texture()
+    {
+    }
 
-    protected Texture(string type) 
+    protected Texture(string type)
     {
         Type = type;
     }

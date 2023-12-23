@@ -9,10 +9,12 @@ public sealed class OrbitControls
     /// If true, then enabled. Otherwise, disabled. Default is true.
     /// </summary>
     public bool Enabled { get; set; } = true;
+
     /// <summary>
     /// Minimal distance. Default is 0.
     /// </summary>
     public double MinDistance { get; set; } = 0;
+
     /// <summary>
     /// Maximal distance to zoom. Default is 10000;
     /// </summary>

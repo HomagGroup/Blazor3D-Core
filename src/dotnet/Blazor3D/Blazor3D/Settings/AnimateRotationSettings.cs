@@ -7,7 +7,6 @@ public sealed class AnimateRotationSettings
 {
     public AnimateRotationSettings()
     {
-
     }
 
     /// <summary>
@@ -18,7 +17,8 @@ public sealed class AnimateRotationSettings
     /// <param name="thetaY">The angle in degreees to rotate around the Y axis on each animation frame. Default is 0.1.</param>
     /// <param name="thetaZ">The angle in degreees to rotate around the Z axis on each animation frame. Default is 0.1.</param>
     /// <param name="radius">Radius of rotation. Default is 5.</param>
-    public AnimateRotationSettings(bool animateRotation = false,  double thetaX = 0.1, double thetaY = 0.1, double thetaZ = 0.1, double radius = 5)
+    public AnimateRotationSettings(bool animateRotation = false, double thetaX = 0.1, double thetaY = 0.1,
+        double thetaZ = 0.1, double radius = 5)
     {
         AnimateRotation = animateRotation;
         ThetaX = thetaX;
@@ -36,18 +36,22 @@ public sealed class AnimateRotationSettings
     /// The angle in degreees to rotate around the X axis on each animation frame. Default is 0.1.
     /// </summary>
     public double ThetaX { get; set; } = 0.1;
+
     /// <summary>
     /// The angle in degreees to rotate around the Y axis on each animation frame. Default is 0.1.
     /// </summary>
     public double ThetaY { get; set; } = 0.1;
+
     /// <summary>
     /// The angle in degreees to rotate around the Z axis on each animation frame. Default is 0.1.
     /// </summary>
     public double ThetaZ { get; set; } = 0.1;
+
     /// <summary>
     /// Radius of rotation. Default is 5.
     /// </summary>
     public double Radius { get; set; } = 5;
+
     /// <summary>
     /// Stops animation when user starts using orbit controls. Default is false.
     /// </summary>

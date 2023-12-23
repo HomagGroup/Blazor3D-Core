@@ -4,13 +4,9 @@
     flex-direction: column;
 }
 
-main {
-    flex: 1;
-}
+main { flex: 1; }
 
-.sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
+.sidebar { background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%); }
 
 .top-row {
     background-color: #f7f7f7;
@@ -21,39 +17,29 @@ main {
     align-items: center;
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
+.top-row ::deep a, .top-row ::deep .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    text-decoration: none;
+}
 
-    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
+.top-row ::deep a:hover, .top-row ::deep .btn-link:hover { text-decoration: underline; }
 
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.top-row ::deep a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 @media (max-width: 640.98px) {
-    .top-row:not(.auth) {
-        display: none;
-    }
+    .top-row:not(.auth) { display: none; }
 
-    .top-row.auth {
-        justify-content: space-between;
-    }
+    .top-row.auth { justify-content: space-between; }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        margin-left: 0;
-    }
+    .top-row ::deep a, .top-row ::deep .btn-link { margin-left: 0; }
 }
 
 @media (min-width: 641px) {
-    .page {
-        flex-direction: row;
-    }
+    .page { flex-direction: row; }
 
     .sidebar {
         width: 250px;

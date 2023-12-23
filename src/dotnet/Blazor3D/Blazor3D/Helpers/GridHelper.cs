@@ -12,7 +12,8 @@ public sealed class GridHelper : Object3D
     {
     }
 
-    public GridHelper(double size = 10, int devisions = 10, string colorCenterLine = "0x444444", string colorGrid = "0x888888") : this()
+    public GridHelper(double size = 10, int devisions = 10, string colorCenterLine = "0x444444",
+        string colorGrid = "0x888888") : this()
     {
         Size = size;
         Divisions = devisions;

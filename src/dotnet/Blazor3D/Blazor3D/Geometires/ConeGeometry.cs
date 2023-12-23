@@ -27,7 +27,7 @@ public sealed class ConeGeometry : BufferGeometry
         int heightSegments = 1,
         bool openEnded = false,
         double thetaStart = 0,
-        double thetaLength = (double)(2 * System.Math.PI)) : this()
+        double thetaLength = (double)(2 * Math.PI)) : this()
     {
         Radius = radius;
         Height = height;
@@ -71,6 +71,5 @@ public sealed class ConeGeometry : BufferGeometry
     /// <summary>
     /// The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete circle.
     /// </summary>
-    public double ThetaLength { get; set; } = (double)(2 * System.Math.PI);
-
+    public double ThetaLength { get; set; } = (double)(2 * Math.PI);
 }

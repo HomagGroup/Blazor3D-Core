@@ -6,10 +6,10 @@
 /// </summary>
 public sealed class TetrahedronGeometry : BufferGeometry
 {
-
     public TetrahedronGeometry() : base("TetrahedronGeometry")
     {
     }
+
     /// <summary>
     /// Constructor with parameters
     /// </summary>

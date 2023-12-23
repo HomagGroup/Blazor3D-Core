@@ -17,8 +17,7 @@ public sealed class Vector3
     /// </summary>
     public Vector3()
     {
-
-        }
+    }
 
     /// <summary>
     /// Constructor with parameters.
@@ -28,10 +27,10 @@ public sealed class Vector3
     /// <param name="z">double Z value of this vector. Default is 0.</param>
     public Vector3(double x, double y, double z)
     {
-            X = x;
-            Y = y;
-            Z = z;
-        }
+        X = x;
+        Y = y;
+        Z = z;
+    }
 
     /// <summary>
     /// double X value of this vector. Default is 0.

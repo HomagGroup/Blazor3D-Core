@@ -1,5 +1,4 @@
-﻿using HomagGroup.Blazor3D.Geometires;
-using HomagGroup.Blazor3D.Textures;
+﻿using HomagGroup.Blazor3D.Textures;
 
 namespace HomagGroup.Blazor3D.Objects;
 
@@ -13,12 +12,10 @@ public class Sprite : Object3D
 {
     public Sprite() : base("Sprite")
     {
-            
     }
 
     protected Sprite(string type) : base(type)
     {
-
     }
 
     /// <summary>
@@ -31,5 +28,5 @@ public class Sprite : Object3D
     /// <para>coresponds to the midpoint of the sprite. A value of (0,0) corresponds to the lower left corner of the sprite.</para>
     /// <para>The default is (0.5,0.5)</para>
     /// </summary>
-    public Vector2 Center { get; set; } = new Vector2(0.5,0.5);
+    public Vector2 Center { get; set; } = new Vector2(0.5, 0.5);
 }

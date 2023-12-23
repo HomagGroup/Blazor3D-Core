@@ -4,6 +4,5 @@ public class Text : Mesh
 {
     public Text() : base("Text")
     {
-            
     }
 }

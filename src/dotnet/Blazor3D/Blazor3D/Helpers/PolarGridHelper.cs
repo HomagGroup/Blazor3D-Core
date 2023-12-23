@@ -42,6 +42,7 @@ public class PolarGridHelper : Object3D
     /// The number of circles. This can be any positive integer. Default is 8.
     /// </summary>
     public int Circles { get; set; } = 8;
+
     /// <summary>
     /// The number of line segments used for each circle. This can be any positive integer that is 3 or greater. Default is 64.
     /// </summary>

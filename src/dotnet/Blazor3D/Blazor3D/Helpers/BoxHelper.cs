@@ -24,5 +24,4 @@ public sealed class BoxHelper : Object3D
     public Object3D Object3D { get; set; } = null!;
 
     public string Color { get; set; } = "0xffff00";
-
 }

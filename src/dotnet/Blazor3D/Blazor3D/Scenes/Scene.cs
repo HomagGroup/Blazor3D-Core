@@ -11,7 +11,6 @@ public sealed class Scene : Object3D
 {
     public Scene() : base("Scene")
     {
-
     }
 
     /// <summary>

@@ -11,8 +11,8 @@ public sealed class PointLight : Light
 {
     public PointLight() : base("PointLight")
     {
-
     }
+
     /// <summary>
     /// <para>When distance value is NOT 0, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light.</para>
     /// <para>When distance is zero, light does not attenuate.</para>

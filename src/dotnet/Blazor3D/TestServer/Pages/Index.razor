@@ -3,7 +3,7 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera/>
         @*<Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene />*@
     </div>
     <div>
@@ -22,16 +22,17 @@
     private bool toggler = false;
     private Viewer View3D1 = null!;
     private Guid objGuid;
+
     private ViewerSettings settings = new ViewerSettings()
+    {
+        ContainerId = "rsid",
+        CanSelect = true,
+        CanSelectHelpers = false,
+        WebGLRendererSettings = new WebGLRendererSettings
         {
-            ContainerId = "rsid",
-            CanSelect = true,
-            CanSelectHelpers = false,
-            WebGLRendererSettings = new WebGLRendererSettings
-            {
-                Antialias = true
-            }
-        };
+            Antialias = true
+        }
+    };
 
     private Scene scene = new Scene();
     //private Camera camera = new PerspectiveCamera
@@ -47,19 +48,20 @@
     private Guid? selectObjectGuid = null;
 
     private Camera camera = new OrthographicCamera()
+    {
+        Left = -5,
+        Right = 5,
+        Top = 5,
+        Bottom = -5,
+        Position = new Vector3(1, 1, 1),
+        AnimateRotationSettings = new AnimateRotationSettings(true, 0.1, 0, 0.1, radius: 3)
         {
-            Left = -5,
-            Right = 5,
-            Top = 5,
-            Bottom = -5,
-            Position = new Vector3(1, 1, 1),
-            AnimateRotationSettings = new AnimateRotationSettings(true,0.1, 0, 0.1, radius: 3)
-            {
-                StopAnimationOnOrbitControlMove = true
-            },
+            StopAnimationOnOrbitControlMove = true
+        },
 
-            //Zoom = 0.5
-        };
+        //Zoom = 0.5
+    };
+
     protected override Task OnInitializedAsync()
     {
         AddLights();
@@ -82,16 +84,16 @@
     private async Task OnModuleLoaded()
     {
         var settings = new ImportSettings
+        {
+            Format = Import3DFormats.Stl,
+            FileURL = "https://threejs.org/examples/models/stl/ascii/slotted_disk.stl",
+            Material = new MeshStandardMaterial
             {
-                Format = Import3DFormats.Stl,
-                FileURL = "https://threejs.org/examples/models/stl/ascii/slotted_disk.stl",
-                Material = new MeshStandardMaterial
-                {
-                    Color = "lightgrey",
-                    Roughness = 0.5f,
-                    Metalness = 0.5f
-                }
-            };
+                Color = "lightgrey",
+                Roughness = 0.5f,
+                Metalness = 0.5f
+            }
+        };
         loadedObjectGuid = await View3D1.Import3DModelAsync(settings);
         await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3), new Vector3(0, 1, 0));
     }
@@ -100,154 +102,154 @@
     {
         scene.Add(new AmbientLight());
         var plight = new PointLight()
-            {
-                //Color = "red",
-                Decay = 2,
-                Position = new Vector3(1, 5, 0)
-            };
+        {
+            //Color = "red",
+            Decay = 2,
+            Position = new Vector3(1, 5, 0)
+        };
         scene.Add(plight);
         scene.Add(new PointLightHelper(plight, 0.5));
     }
+
     private void FillScene()
     {
         //scene.Add(new Mesh());
         scene.Add(new Mesh
+        {
+            Geometry = new BoxGeometry(width: 2, height: 0.5f),
+            Position = new Vector3(-1, 1, -1),
+            Rotation = new Euler
             {
-                Geometry = new BoxGeometry(width: 2, height: 0.5f),
-                Position = new Vector3(-1, 1, -1),
-                Rotation = new Euler
-                {
-                    X = Math.PI / 4
-                },
-                EdgesMaterial = new LineBasicMaterial
-                {
-                    Color = "black"
-                }
-            });
+                X = Math.PI / 4
+            },
+            EdgesMaterial = new LineBasicMaterial
+            {
+                Color = "black"
+            }
+        });
 
         scene.Add(new Mesh
-            {
-                Geometry = new CircleGeometry(radius: 1.5f, segments: 12),
-                Position = new Vector3(1, 1, -1),
-                Scale = new Vector3(0.5f, 1f, 1f)
-            });
+        {
+            Geometry = new CircleGeometry(radius: 1.5f, segments: 12),
+            Position = new Vector3(1, 1, -1),
+            Scale = new Vector3(0.5f, 1f, 1f)
+        });
 
         var capsule = new Mesh
+        {
+            Geometry = new CapsuleGeometry(radius: 1, length: 2),
+            Position = new Vector3(-3, 0, -3),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new CapsuleGeometry(radius: 1, length: 2),
-                Position = new Vector3(-3, 0, -3),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "blue"
-                },
-                EdgesMaterial = new LineBasicMaterial
-                {
-                    Color = "black"
-                }
-            };
+                Color = "blue"
+            },
+            EdgesMaterial = new LineBasicMaterial
+            {
+                Color = "black"
+            }
+        };
         scene.Add(capsule);
 
         scene.Add(new Mesh
+        {
+            Geometry = new ConeGeometry(radius: 1.3f, height: 2, radialSegments: 16),
+            Position = new Vector3(3, 0, -3),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new ConeGeometry(radius: 1.3f, height: 2, radialSegments: 16),
-                Position = new Vector3(3, 0, -3),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "green",
-                    FlatShading = true,
-                    Metalness = 0.5f,
-                    Roughness = 0.5f
-                }
-            });
+                Color = "green",
+                FlatShading = true,
+                Metalness = 0.5f,
+                Roughness = 0.5f
+            }
+        });
 
         scene.Add(new Mesh
+        {
+            Geometry = new CylinderGeometry(radiusTop: 0.5f, height: 2, radialSegments: 16),
+            Position = new Vector3(0, 0, -3),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new CylinderGeometry(radiusTop: 0.5f, height: 2, radialSegments: 16),
-                Position = new Vector3(0, 0, -3),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "red",
-                    Wireframe = true,
-                }
-            });
+                Color = "red",
+                Wireframe = true,
+            }
+        });
         scene.Add(new Mesh
+        {
+            Geometry = new DodecahedronGeometry(radius: 1.5f),
+            Position = new Vector3(-5, 0, -5),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new DodecahedronGeometry(radius: 1.5f),
-                Position = new Vector3(-5, 0, -5),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "darkviolet"
-                }
-            });
+                Color = "darkviolet"
+            }
+        });
         scene.Add(new Mesh
+        {
+            Geometry = new IcosahedronGeometry(radius: 1.5f),
+            Position = new Vector3(5, 0, -5),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new IcosahedronGeometry(radius: 1.5f),
-                Position = new Vector3(5, 0, -5),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "violet"
-                }
-            });
+                Color = "violet"
+            }
+        });
         scene.Add(new Mesh
+        {
+            Geometry = new OctahedronGeometry(radius: 1.5f),
+            Position = new Vector3(0, 0, -5),
+            Material = new MeshStandardMaterial()
             {
-
-                Geometry = new OctahedronGeometry(radius: 1.5f),
-                Position = new Vector3(0, 0, -5),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "pink"
-                }
-            });
-
-        scene.Add(new Mesh
-            {
-                Geometry = new PlaneGeometry(width: 0.5f, height: 2),
-                Position = new Vector3(-3, 1, -1),
-            });
+                Color = "pink"
+            }
+        });
 
         scene.Add(new Mesh
-            {
-                Geometry = new RingGeometry(innerRadius: 0.6f, outerRadius: 0.7f),
-                Position = new Vector3(3, 1, -1),
-            });
-        scene.Add(new Mesh
-            {
-                Geometry = new SphereGeometry(radius: 1.5f),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "darkgreen"
-                },
-                Position = new Vector3(0, 0, -8),
-            });
-        scene.Add(new Mesh
-            {
-                Geometry = new TetrahedronGeometry(radius: 1.5f),
-                Position = new Vector3(-3, 0, -8),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "lightblue"
-                }
-            });
+        {
+            Geometry = new PlaneGeometry(width: 0.5f, height: 2),
+            Position = new Vector3(-3, 1, -1),
+        });
 
         scene.Add(new Mesh
+        {
+            Geometry = new RingGeometry(innerRadius: 0.6f, outerRadius: 0.7f),
+            Position = new Vector3(3, 1, -1),
+        });
+        scene.Add(new Mesh
+        {
+            Geometry = new SphereGeometry(radius: 1.5f),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new TorusGeometry(tube: 0.8f, radialSegments: 12, tubularSegments: 12),
-                Position = new Vector3(3, 0, -8),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "lightgreen"
-                }
-            });
+                Color = "darkgreen"
+            },
+            Position = new Vector3(0, 0, -8),
+        });
+        scene.Add(new Mesh
+        {
+            Geometry = new TetrahedronGeometry(radius: 1.5f),
+            Position = new Vector3(-3, 0, -8),
+            Material = new MeshStandardMaterial()
+            {
+                Color = "lightblue"
+            }
+        });
 
         scene.Add(new Mesh
+        {
+            Geometry = new TorusGeometry(tube: 0.8f, radialSegments: 12, tubularSegments: 12),
+            Position = new Vector3(3, 0, -8),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new TorusKnotGeometry(tube: 0.1f),
-                Position = new Vector3(7, 0, -8),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "magenta"
-                }
-            });
+                Color = "lightgreen"
+            }
+        });
+
+        scene.Add(new Mesh
+        {
+            Geometry = new TorusKnotGeometry(tube: 0.1f),
+            Position = new Vector3(7, 0, -8),
+            Material = new MeshStandardMaterial()
+            {
+                Color = "magenta"
+            }
+        });
 
         scene.Add(new ArrowHelper(new Vector3(1, 1, 1), new Vector3(1, 1, 1), 3, "red", 1, 0.2));
 
@@ -256,19 +258,17 @@
         scene.Add(new BoxHelper(capsule, "black"));
 
         scene.Add(new GridHelper(2, 6, "red", "orange")
-            {
-                Position = new Vector3(-2, 0, 0)
-            });
+        {
+            Position = new Vector3(-2, 0, 0)
+        });
 
         scene.Add(new PolarGridHelper(radius: 2, radials: 8, circles: 6, divisions: 32, "red", "orange")
-            {
-                Position = new Vector3(2, 0, 0)
-            });
+        {
+            Position = new Vector3(2, 0, 0)
+        });
 
         var plane = new Plane(new Vector3(-1, 1, 1), 1);
         scene.Add(new PlaneHelper(plane, 1, "green"));
-
-
     }
 
     private void OnObjectSelected(Object3DArgs e)
@@ -295,30 +295,29 @@
 
     private async Task OnLoadObjButtonClick()
     {
-        loadedObjectGuid = Guid.NewGuid();// alway do this.
+        loadedObjectGuid = Guid.NewGuid(); // alway do this.
 
         // if you need to control the loaded object uuid, generate it here.
         loadedObjectGuid = Guid.NewGuid();
         var settings = new ImportSettings
-            {
-                Format = Import3DFormats.Obj,//choose appropriate format
-                FileURL = "https://threejs.org/examples/models/obj/male02/male02.obj",// link to your model file
-                TextureURL = "https://threejs.org/examples/textures/uv_grid_opengl.jpg", // link to the texture or skip this,
-                Uuid = loadedObjectGuid //// skip this, or set null if you don't care the uuid of loaded mesh or group
-            };
+        {
+            Format = Import3DFormats.Obj, //choose appropriate format
+            FileURL = "https://threejs.org/examples/models/obj/male02/male02.obj", // link to your model file
+            TextureURL = "https://threejs.org/examples/textures/uv_grid_opengl.jpg", // link to the texture or skip this,
+            Uuid = loadedObjectGuid //// skip this, or set null if you don't care the uuid of loaded mesh or group
+        };
         await View3D1.Import3DModelAsync(settings);
 
         // set camera position to view your loaded model
         await View3D1.SetCameraPositionAsync(
-            new Vector3(0, 100, 250),// camera position
-            new Vector3(0, 50, 0));// optional camera target
+            new Vector3(0, 100, 250), // camera position
+            new Vector3(0, 50, 0)); // optional camera target
     }
 
     private async Task OnClearAllClick()
     {
         await View3D1.ClearSceneAsync();
     }
-
 
 
     private async Task OnClearLast()
@@ -329,6 +328,7 @@
             await View3D1.RemoveByUuidAsync(last.Uuid);
         }
     }
+
     public void Dispose()
     {
         View3D1.ObjectSelected -= OnObjectSelected;
@@ -341,23 +341,24 @@
         if (toggler == false)
         {
             await View3D1.UpdateCamera(new OrthographicCamera()
-                {
-                    Left = -5,
-                    Right = 5,
-                    Top = 5,
-                    Bottom = -5,
-                    Position = new Vector3(1, 1, 1),
-                    AnimateRotationSettings = new AnimateRotationSettings(true, 0.1, 0, 0.1, radius: 3),
-                });
+            {
+                Left = -5,
+                Right = 5,
+                Top = 5,
+                Bottom = -5,
+                Position = new Vector3(1, 1, 1),
+                AnimateRotationSettings = new AnimateRotationSettings(true, 0.1, 0, 0.1, radius: 3),
+            });
         }
         else
         {
             await View3D1.UpdateCamera(new PerspectiveCamera
-                {
-                    Position = new Vector3(3, 3, 3),
-                    LookAt = new Vector3(0, 0.5f, 0)
-                });
+            {
+                Position = new Vector3(3, 3, 3),
+                LookAt = new Vector3(0, 0.5f, 0)
+            });
         }
+
         toggler = !toggler;
     }
 
@@ -367,7 +368,6 @@
         {
             await View3D1.SelectByUuidAsync(selectObjectGuid.Value);
         }
-        
     }
-}
 
+}

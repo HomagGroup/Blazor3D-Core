@@ -9,8 +9,8 @@ public abstract class Material
 {
     protected Material(string type)
     {
-            Type = type;
-        }
+        Type = type;
+    }
 
     public string Type { get; } = "Material";
 

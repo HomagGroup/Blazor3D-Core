@@ -10,8 +10,8 @@ public abstract class BufferGeometry
 {
     protected BufferGeometry(string type)
     {
-            Type = type;
-        }
+        Type = type;
+    }
 
     /// <summary>
     /// Optional name of the object. Default is an empty string. It has not to be unique. 

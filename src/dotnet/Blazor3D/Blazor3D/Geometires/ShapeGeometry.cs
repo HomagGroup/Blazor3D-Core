@@ -15,7 +15,7 @@ public class ShapeGeometry : BufferGeometry
     /// onstructor with parameters
     /// </summary>
     /// <param name="shape"><see cref="Shape"/> polygonal shape.</param>
-    public ShapeGeometry(Shape shape):this()
+    public ShapeGeometry(Shape shape) : this()
     {
         Shape = shape;
     }

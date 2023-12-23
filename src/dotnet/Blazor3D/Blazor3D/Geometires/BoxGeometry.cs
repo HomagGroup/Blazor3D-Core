@@ -10,7 +10,6 @@ public sealed class BoxGeometry : BufferGeometry
 {
     public BoxGeometry() : base("BoxGeometry")
     {
-
     }
 
     /// <summary>
@@ -28,7 +27,7 @@ public sealed class BoxGeometry : BufferGeometry
         double depth = 1,
         int widthSegments = 1,
         int heightSegments = 1,
-        int depthSegments = 1):this()
+        int depthSegments = 1) : this()
     {
         Width = width;
         Height = height;

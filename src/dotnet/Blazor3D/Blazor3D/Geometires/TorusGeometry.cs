@@ -18,7 +18,8 @@ public sealed class TorusGeometry : BufferGeometry
     /// <param name="radialSegments">Number of radial segments. Default is 8.</param>
     /// <param name="tubularSegments">Number of tubular segments. Default is 6.</param>
     /// <param name="arc">Central angle. Default is Math.PI * 2.</param>
-    public TorusGeometry(double radius = 1, double tube = 0.4f, int radialSegments = 8, int tubularSegments = 6, double arc = (double)(2 * Math.PI)) : this()
+    public TorusGeometry(double radius = 1, double tube = 0.4f, int radialSegments = 8, int tubularSegments = 6,
+        double arc = (double)(2 * Math.PI)) : this()
     {
         Radius = radius;
         Tube = tube;

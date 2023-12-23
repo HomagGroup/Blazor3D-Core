@@ -1,5 +1,4 @@
-﻿
-namespace HomagGroup.Blazor3D.ComponentHelpers;
+﻿namespace HomagGroup.Blazor3D.ComponentHelpers;
 
 internal static class ChildrenHelper
 {
@@ -17,7 +16,9 @@ internal static class ChildrenHelper
             if (child.Children.Count > 0)
             {
                 RemoveObjectByUuid(uuid, child.Children);
-            };
+            }
+
+            ;
         }
 
         if (result != null)
@@ -41,8 +42,11 @@ internal static class ChildrenHelper
                 {
                     return result;
                 }
-            };
+            }
+
+            ;
         }
+
         return result;
     }
 }

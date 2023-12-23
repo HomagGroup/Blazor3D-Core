@@ -3,10 +3,11 @@
 public class SplineCurveGeometry : BufferGeometry
 {
     public SplineCurveGeometry() : base("SplineCurveGeometry")
-    {}
+    {
+    }
 
     public List<Vector2> Points { get; set; } = new List<Vector2>();
-        
+
     /// <summary>
     /// This value determines the amount of divisions when calculating the cumulative segment lengths of a curve via .getLengths. 
     /// To ensure precision when using methods like .getSpacedPoints, it is recommended to increase .arcLengthDivisions if the curve is very large. Default is 200.

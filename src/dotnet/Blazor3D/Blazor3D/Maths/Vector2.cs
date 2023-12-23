@@ -11,8 +11,7 @@ public sealed class Vector2
     /// </summary>
     public Vector2()
     {
-
-        }
+    }
 
     /// <summary>
     /// Constructor with parameters.
@@ -21,9 +20,9 @@ public sealed class Vector2
     /// <param name="y">double Y value of this vector. Default is 0.</param>
     public Vector2(double x, double y)
     {
-            X = x;
-            Y = y;
-        }
+        X = x;
+        Y = y;
+    }
 
     /// <summary>
     /// double X value of this vector. Default is 0.

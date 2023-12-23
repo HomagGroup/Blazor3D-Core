@@ -28,5 +28,4 @@ public class SpriteMaterial : Material
     /// The rotation of the sprite in radians. Default is 0.
     /// </summary>
     public double Rotation { get; set; } = 0;
-        
 }

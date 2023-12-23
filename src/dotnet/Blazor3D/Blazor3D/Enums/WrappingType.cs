@@ -9,10 +9,12 @@ public enum WrappingType
     /// The texture will simply repeat to infinity
     /// </summary>
     RepeatWrapping = 1000,
+
     /// <summary>
     /// The last pixel of the texture stretches to the edge of the mesh.
     /// </summary>
     ClampToEdgeWrapping = 1001,
+
     /// <summary>
     /// The texture will repeats to infinity, mirroring on each repeat.
     /// </summary>

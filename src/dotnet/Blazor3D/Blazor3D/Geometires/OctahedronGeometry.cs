@@ -9,6 +9,7 @@ public sealed class OctahedronGeometry : BufferGeometry
     public OctahedronGeometry() : base("OctahedronGeometry")
     {
     }
+
     /// <summary>
     /// Constructor with parameters
     /// </summary>

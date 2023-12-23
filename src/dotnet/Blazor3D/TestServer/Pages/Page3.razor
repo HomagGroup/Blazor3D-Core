@@ -3,7 +3,7 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref=View3D1 ViewerSettings=@settings Scene=scene Camera=camera />
+        <Viewer @ref=View3D1 ViewerSettings=@settings Scene=scene Camera=camera/>
     </div>
 
     <div>
@@ -12,11 +12,11 @@
     </div>
     <div>
         <label>X</label>
-        <input type="number" value="@(xCoord.ToString())" @onchange="@(e => xCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
+        <input type="number" value="@(xCoord.ToString())" @onchange="@(e => xCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))"/>
         <label>Y</label>
-        <input type="number" value="@(yCoord.ToString())" @onchange="@(e => yCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
+        <input type="number" value="@(yCoord.ToString())" @onchange="@(e => yCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))"/>
         <label>Z</label>
-        <input type="number" value="@(zCoord.ToString())" @onchange="@(e => zCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))" />
+        <input type="number" value="@(zCoord.ToString())" @onchange="@(e => zCoord = double.Parse(e.Value.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture))"/>
         <button @onclick="OnCreateCubeButtonClick">Create cube with location</button>
         <button @onclick="OnUpdateCubeButtonClick">Update selected</button>
         <button @onclick="OnDeleteSelected">Delete selected </button>
@@ -28,19 +28,21 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
     private Guid lastSelectedGuid;
+
     private ViewerSettings settings = new ViewerSettings()
-        {
-            ContainerId = "rsid",
-            CanSelect = true,
-            CanSelectHelpers = false
-        };
+    {
+        ContainerId = "rsid",
+        CanSelect = true,
+        CanSelectHelpers = false
+    };
 
     private Scene scene = new Scene();
+
     private Camera camera = new PerspectiveCamera
-        {
-            Position = new Vector3(3, 3, 3),
-            LookAt = new Vector3(0, 0.5f, 0)
-        };
+    {
+        Position = new Vector3(3, 3, 3),
+        LookAt = new Vector3(0, 0.5f, 0)
+    };
 
     private double xCoord { get; set; }
     private double yCoord { get; set; }
@@ -70,11 +72,11 @@
     {
         scene.Add(new AmbientLight());
         var plight = new PointLight()
-            {
-                //Color = "red",
-                Decay = 2,
-                Position = new Vector3(1, 5, 0)
-            };
+        {
+            //Color = "red",
+            Decay = 2,
+            Position = new Vector3(1, 5, 0)
+        };
         scene.Add(plight);
         scene.Add(new PointLightHelper(plight, 0.5));
     }
@@ -87,25 +89,24 @@
     private async Task OnCreateCubeButtonClick()
     {
         var texture = new Texture()
-            {
-                TextureUrl = "uv_grid_opengl.jpg",
-                WrapS = WrappingType.MirroredRepeatWrapping,
-                WrapT = WrappingType.MirroredRepeatWrapping,
-                Repeat = new Vector2(3, 3),
-                Offset = new Vector2(0.2f, 0.2f),
-                Rotation = Math.PI / 4
-
+        {
+            TextureUrl = "uv_grid_opengl.jpg",
+            WrapS = WrappingType.MirroredRepeatWrapping,
+            WrapT = WrappingType.MirroredRepeatWrapping,
+            Repeat = new Vector2(3, 3),
+            Offset = new Vector2(0.2f, 0.2f),
+            Rotation = Math.PI / 4
         };
         var mesh = new Mesh
+        {
+            Geometry = new BoxGeometry(),
+            Position = new Vector3(xCoord, yCoord, zCoord),
+            Material = new MeshStandardMaterial()
             {
-                Geometry = new BoxGeometry(),
-                Position = new Vector3(xCoord, yCoord, zCoord),
-                Material = new MeshStandardMaterial()
-                {
-                    Color = "white",
-                    Map = texture
-                }
-            };
+                Color = "white",
+                Map = texture
+            }
+        };
 
         scene.Add(mesh);
         await View3D1.UpdateScene();
@@ -146,6 +147,7 @@
         {
             return;
         }
+
         var last = scene.Children.Last();
         await View3D1.RemoveByUuidAsync(last.Uuid);
     }
@@ -165,5 +167,5 @@
     {
         View3D1.ObjectSelected -= OnObjectSelected;
     }
-}
 
+}

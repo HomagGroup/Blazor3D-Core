@@ -10,7 +10,7 @@ public class TextStrokeGeometry : TextShapeGeometry
     /// </summary>
     public TextStrokeGeometry() : base("TextStrokeGeometry")
     {
-        }
+    }
 
     /// <summary>
     /// Stroke width

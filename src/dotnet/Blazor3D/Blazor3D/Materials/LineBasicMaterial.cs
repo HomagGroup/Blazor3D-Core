@@ -15,12 +15,12 @@ public class LineBasicMaterial : Material
     /// <summary>
     /// Define appearance of line ends. Possible values are 'butt', 'round' and 'square'. Default is 'round'.
     /// </summary>
-    public string LineCap { get; set; } = "round";// todo: deal with enum
+    public string LineCap { get; set; } = "round"; // todo: deal with enum
 
     /// <summary>
     /// Define appearance of line joints. Possible values are 'round', 'bevel' and 'miter'. Default is 'round'.
     /// </summary>
-    public string LineJoin { get; set; } = "round";// todo: deal with enum
+    public string LineJoin { get; set; } = "round"; // todo: deal with enum
 
 
     /// <summary>

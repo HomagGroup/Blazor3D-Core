@@ -1,6 +1,4 @@
-﻿using HomagGroup.Blazor3D.Geometires;
-
-namespace HomagGroup.Blazor3D.Extras.Core;
+﻿namespace HomagGroup.Blazor3D.Extras.Core;
 
 /// <summary>
 /// Defines an arbitrary 2d shape plane using paths with optional holes).
@@ -29,6 +27,7 @@ public class Shape
         {
             throw new OverflowException("MoveTo() can be used only to define first shape point");
         }
+
         Points.Add(point);
     }
 
@@ -53,6 +52,7 @@ public class Shape
         {
             throw new OverflowException("LineTo() cannot be used to define first shape point");
         }
+
         Points.Add(point);
     }
 

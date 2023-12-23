@@ -8,7 +8,6 @@ public sealed class Plane
 {
     public Plane()
     {
-
     }
 
     /// <summary>

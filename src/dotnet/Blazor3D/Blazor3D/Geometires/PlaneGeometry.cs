@@ -9,6 +9,7 @@ public sealed class PlaneGeometry : BufferGeometry
     public PlaneGeometry() : base("PlaneGeometry")
     {
     }
+
     /// <summary>
     /// Constructor with parameters
     /// </summary>

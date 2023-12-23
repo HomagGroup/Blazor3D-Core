@@ -1,6 +1,4 @@
-﻿using HomagGroup.Blazor3D.Geometires;
-
-namespace HomagGroup.Blazor3D.Objects;
+﻿namespace HomagGroup.Blazor3D.Objects;
 
 /// <summary>
 /// <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
@@ -12,12 +10,10 @@ public class Mesh : Object3D
 {
     public Mesh() : base("Mesh")
     {
-
     }
 
     protected Mesh(string type) : base(type)
     {
-
     }
 
     //TODO: make Array of materials

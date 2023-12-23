@@ -3,7 +3,7 @@
 
 <div class="row justify-content-center">
     <div class="col-9 v3d">
-        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera />
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene Camera=camera/>
     </div>
     <div>@selectionMsg</div>
 </div>
@@ -11,19 +11,21 @@
 @code {
     private Viewer View3D1 = null!;
     private Guid objGuid;
+
     private ViewerSettings settings = new ViewerSettings()
-        {
-            ContainerId = "rsid",
-            CanSelect = true,
-            CanSelectHelpers = false,
-        };
+    {
+        ContainerId = "rsid",
+        CanSelect = true,
+        CanSelectHelpers = false,
+    };
 
     private Scene scene = new Scene();
+
     private Camera camera = new PerspectiveCamera
-        {
-            Position = new Vector3(3, 3, 3),
-            LookAt = new Vector3(0, 0.5f, 0)
-        };
+    {
+        Position = new Vector3(3, 3, 3),
+        LookAt = new Vector3(0, 0.5f, 0)
+    };
 
     private string selectionMsg = string.Empty;
 
@@ -59,14 +61,15 @@
     {
         scene.Add(new AmbientLight());
         var plight = new PointLight()
-            {
-                //Color = "red",
-                Decay = 2,
-                Position = new Vector3(1, 5, 0)
-            };
+        {
+            //Color = "red",
+            Decay = 2,
+            Position = new Vector3(1, 5, 0)
+        };
         scene.Add(plight);
         scene.Add(new PointLightHelper(plight, 0.5));
     }
+
     private void FillScene()
     {
         //scene.Add(new Mesh());
@@ -81,34 +84,33 @@
 
         var group = new Group();
         group.Add(new Mesh
-            {
-                Geometry = new ShapeGeometry(shape),
-            });
+        {
+            Geometry = new ShapeGeometry(shape),
+        });
 
         var options = new ExtrudeGeometryOptions
-            {
-                Depth = 0.5,
-                BevelEnabled = false
-            };
+        {
+            Depth = 0.5,
+            BevelEnabled = false
+        };
 
         group.Add(new Mesh
-            {
-                Geometry = new ExtrudeGeometry(shape, options),
-                Position = new Vector3() { X = 3 },
-                Material = new MeshStandardMaterial { Color = "green", Transparent = true, Opacity = 0.7 }
-            });
+        {
+            Geometry = new ExtrudeGeometry(shape, options),
+            Position = new Vector3() { X = 3 },
+            Material = new MeshStandardMaterial { Color = "green", Transparent = true, Opacity = 0.7 }
+        });
 
         scene.Add(group);
 
         group = new Group();
         group.Add(new Mesh
-            {
-                Geometry = new ShapeGeometry(shape),
-                Material = new MeshStandardMaterial { Color = "blue", Transparent = true, Opacity = 0.7 }
-            });
+        {
+            Geometry = new ShapeGeometry(shape),
+            Material = new MeshStandardMaterial { Color = "blue", Transparent = true, Opacity = 0.7 }
+        });
         group.Position.Z = -5;
         scene.Add(group);
-
     }
 
     private void OnObjectSelected(Object3DArgs e)
@@ -126,5 +128,5 @@
         View3D1.ObjectSelected -= OnObjectSelected;
         View3D1.JsModuleLoaded -= OnModuleLoaded;
     }
-}
 
+}

@@ -12,14 +12,17 @@ public sealed class Euler
     /// The double angle of the X axis in radians. Default is 0. Optional.
     /// </summary>
     public double X { get; set; }
+
     /// <summary>
     /// The double angle of the Y axis in radians. Default is 0. Optional.
     /// </summary>
     public double Y { get; set; }
+
     /// <summary>
     /// The double angle of the Z axis in radians. Default is 0. Optional.
     /// </summary>
     public double Z { get; set; }
+
     /// <summary>
     /// String representing the order that the rotations are applied. Default is 'XYZ'. Must be upper case.
     /// </summary>
