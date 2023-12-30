@@ -84,12 +84,12 @@ public sealed partial class Viewer : IDisposable
             }
 
             var json = JsonConvert.SerializeObject(new
-                {
-                    Scene = Scene,
-                    ViewerSettings = ViewerSettings,
-                    Camera = Camera,
-                    OrbitControls = OrbitControls,
-                },
+            {
+                Scene = Scene,
+                ViewerSettings = ViewerSettings,
+                Camera = Camera,
+                OrbitControls = OrbitControls,
+            },
                 SerializationHelper.GetSerializerSettings());
 
             await bundleModule.InvokeVoidAsync("loadViewer", json);
@@ -235,17 +235,19 @@ public sealed partial class Viewer : IDisposable
     public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null,
         string? textureUrl = null, Guid? Uuid = null)
     {
+        var fileExtension = fileUrl.Substring(fileUrl.LastIndexOf('.') + 1);
+
         var settings = new ImportSettings()
         {
             FileURL = fileUrl,
-            Format = fileUrl.Split('.')[1].ToLower() switch
+            Format = fileExtension switch
             {
                 "stl" => Import3DFormats.Stl,
                 "gltf" or "glb" => Import3DFormats.Gltf,
                 "dae" => Import3DFormats.Collada,
                 "fbx" => Import3DFormats.Fbx,
                 "usd" or "usda" or "usdc" or "usdz" => Import3DFormats.Usdz,
-                "obj" or _ => Import3DFormats.Obj
+                "obj" => Import3DFormats.Obj
             }
         };
 

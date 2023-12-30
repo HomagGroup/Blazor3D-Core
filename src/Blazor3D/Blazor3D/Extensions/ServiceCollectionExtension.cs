@@ -11,6 +11,10 @@ public static class ServiceCollectionExtension
         provider.AddMapping(".glb", "model/gltf-binary");
         provider.AddMapping(".dae", "model/vnd.collada+xml");
         provider.AddMapping(".stl", "model/stl");
+        provider.AddMapping(".usd", "model/vnd.usd+zip");
+        provider.AddMapping(".usda", "model/vnd.usdz+zip");
+        provider.AddMapping(".usdc", "model/vnd.usdz+zip");
+        provider.AddMapping(".usdz", "model/vnd.usdz+zip");
 
         services.Configure<StaticFileOptions>(s => s.ContentTypeProvider = provider);
 

@@ -1,5 +1,5 @@
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter";
-import { ColladaExporter } from "three/examples/jsm/exporters/ColladaExporter";
+//import { ColladaExporter } from "three/examples/jsm/exporters/ColladaExporter";
 import { OBJExporter } from "three/examples/jsm/exporters/OBJExporter";
 
 function save(blob, filename) {
@@ -38,15 +38,15 @@ class Exporters {
     });
   }
 
-  static exportCollada(input) {
-    const exporter = new ColladaExporter();
-    const result = exporter.parse(input, undefined, {
-      upAxis: "Y_UP",
-      unitName: "millimeter",
-      unitMeter: 0.001,
-    });
-    saveString(result.data, "scene.dae");
-  }
+  //static exportCollada(input) {
+  //  const exporter = new ColladaExporter();
+  //  const result = exporter.parse(input, undefined, {
+  //    upAxis: "Y_UP",
+  //    unitName: "millimeter",
+  //    unitMeter: 0.001,
+  //  });
+  //  saveString(result.data, "scene.dae");
+  //}
 }
 
 export default Exporters;
