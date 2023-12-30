@@ -1,0 +1,87 @@
+﻿@page "/"
+@page "/index"
+
+<PageTitle>Index</PageTitle>
+
+<div class="row justify-content-center">
+    <div class="col-9 v3d">
+        <Viewer @ref="View3D1" ViewerSettings=@settings Scene=scene UseDefaultScene=@true />
+    </div>
+    <div>
+        <button @onclick="OnLoadFbxButtonClick">Load FBX</button>
+        <button @onclick="OnLoadGltfButtonClick">Load Gltf</button>
+    </div>
+
+</div>
+
+@code {
+    private Viewer View3D1 = null!;
+    private Guid objGuid;
+
+    private ViewerSettings settings = new ViewerSettings()
+        {
+            ContainerId = "rsid",
+        };
+
+    private Scene scene = new Scene();
+
+    protected override Task OnInitializedAsync()
+    {
+        scene.Add(new AmbientLight());
+        scene.Add(new PointLight()
+            {
+                Decay = 2,
+                Position = new Vector3
+                {
+                    X = 1,
+                    Y = 3,
+                    Z = 0
+                }
+            });
+        scene.Add(new Mesh());
+        scene.Add(new Mesh
+            {
+                Geometry = new BoxGeometry
+                {
+                    Width = 2,
+                    Height = 0.5f
+                },
+                Position = new Vector3
+                {
+                    X = -1,
+                    Y = 1,
+                    Z = -1
+                },
+                Rotation = new Euler
+                {
+                    X = Math.PI / 4
+                }
+            });
+
+        scene.Add(new Mesh
+            {
+                Geometry = new CircleGeometry(),
+                Position = new Vector3
+                {
+                    X = 1,
+                    Y = 1,
+                    Z = -1
+                },
+                Scale = new Vector3(0.5f, 1f, 1f)
+            });
+
+        return base.OnInitializedAsync();
+    }
+
+    private async Task OnLoadFbxButtonClick()
+    {
+        await View3D1.Import3DModelFileAsync("https://threejs.org/examples/models/fbx/Samba%20Dancing.fbx");
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250));
+    }
+
+    private async Task OnLoadGltfButtonClick()
+    {
+        await View3D1.Import3DModelFileAsync("https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf");
+        await View3D1.SetCameraPositionAsync(new Vector3(0, 1, 5));
+    }
+}

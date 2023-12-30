@@ -1,0 +1,21 @@
+{
+  "name": "blazor3dviewer",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "webpack --progress --profile",
+    "watch": "webpack --progress --profile --watch",
+    "production": "webpack --progress --profile --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
