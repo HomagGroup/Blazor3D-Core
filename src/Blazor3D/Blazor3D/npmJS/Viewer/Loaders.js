@@ -3,8 +3,8 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { ColladaLoader } from "three/examples/jsm/loaders/ColladaLoader";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { USDZLoader } from "three-usdz-loader";
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
 import Transforms from "../Utils/Transforms";
 import MaterialBuilder from "../Builders/MaterialBuilder";
 
@@ -107,6 +107,7 @@ class Loaders
     {
         let mesh;
         const loader = new USDZLoader();
+
         loader.load(url, function (geometry)
         {
             const material = MaterialBuilder.buildMaterial(materialSettings);
@@ -114,6 +115,7 @@ class Loaders
             mesh.uuid = guid;
 
             scene.add(mesh);
+
             Loaders.callDotNet(containerId, guid);
         });
     }

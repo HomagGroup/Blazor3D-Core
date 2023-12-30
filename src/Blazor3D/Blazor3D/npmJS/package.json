@@ -12,11 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "three": "^0.143.0",
-    "three-usdz-loader": "^1.0.7"
+    "three": "^0.160.0"
   },
   "devDependencies": {
-    "webpack": "^5.82.0",
-    "webpack-cli": "^5.0.2"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
