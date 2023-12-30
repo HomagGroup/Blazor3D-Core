@@ -42,4 +42,8 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="npm install | npm run production" ContinueOnError="true" WorkingDirectory="npmJS" />
+	</Target>
+
 </Project>

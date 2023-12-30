@@ -127,31 +127,19 @@ class Loaders
         let material = settings.material;
 
         if (format == "Obj")
-        {
             return Loaders.loadOBJ(scene, objUrl, textureUrl, guid, containerId);
-        }
         if (format == "Collada")
-        {
             return Loaders.loadCollada(scene, objUrl, guid, containerId);
-        }
         if (format == "Fbx")
-        {
             return Loaders.loadFbx(scene, objUrl, guid, containerId);
-        }
         if (format == "Gltf")
-        {
             return Loaders.loadGltf(scene, objUrl, guid, containerId);
-        }
 
         if (format == "Stl")
-        {
             return Loaders.loadStl(scene, objUrl, guid, containerId, material);
-        }
 
         if (format == "Usdz")
-        {
             return Loaders.loadUsdz(scene, objUrl, guid, containerId, material);
-        }
 
         return null;
     }
